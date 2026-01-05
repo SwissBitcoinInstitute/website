@@ -111,8 +111,7 @@ export default function WebinarPage() {
                 Register for the next (free) Webinar
               </h3>
               
-              <form onSubmit={handleRegister} className="space-y-8" data-netlify="true" name="webinar-registration">
-                <input type="hidden" name="form-name" value="webinar-registration" />
+              <form onSubmit={handleRegister} className="space-y-8">
                 {/* Contact Information */}
                 <div>
                   <h4 className="text-xl font-semibold text-gray-900 mb-6">

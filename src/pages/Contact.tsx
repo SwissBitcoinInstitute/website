@@ -103,8 +103,7 @@ const Contact = () => {
             </p>
           </div>
             
-            <form onSubmit={handleSubmit} className="space-y-6" data-netlify="true" name="contact">
-              <input type="hidden" name="form-name" value="contact" />
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
