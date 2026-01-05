@@ -118,7 +118,7 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
     <nav className="mb-8 p-6 bg-gray-50 border border-gray-200 rounded-lg">
       <div className="flex gap-3 mb-4">
         <div className="flex items-center h-[1.5rem]">
-          <List className="w-5 h-5 text-gray-700" />
+        <List className="w-5 h-5 text-gray-700" />
         </div>
         <h2 className="text-lg font-semibold text-gray-900 leading-[1.5rem]">Table of Contents</h2>
       </div>

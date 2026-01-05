@@ -85,25 +85,6 @@ export default function LeadIntakeForm() {
     setIsSubmitting(true);
     
     try {
-      // Submit to Netlify Forms
-      const formDataToSubmit = new FormData();
-      formDataToSubmit.append('form-name', 'lead-intake');
-      formDataToSubmit.append('name', formData.name || '');
-      formDataToSubmit.append('email', formData.email || '');
-      if (formData.phone) formDataToSubmit.append('phone', formData.phone);
-      if (formData.organization) formDataToSubmit.append('organization', formData.organization);
-      if (formData.title) formDataToSubmit.append('title', formData.title);
-      if (formData.message) formDataToSubmit.append('message', formData.message);
-      formDataToSubmit.append('serviceType', serviceType);
-
-      // Submit to Netlify (fire and forget)
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formDataToSubmit as any).toString(),
-      }).catch(() => {}); // Silently fail if Netlify submission fails
-
-      // Submit to our API
       const response = await fetch('/api/inquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

@@ -59,9 +59,10 @@ export default function RootLayout({
         />
       </head>
       <body className={`${openSans.variable} font-sans`}>
+        <OrganizationSchema />
         {/* Hidden static forms for Netlify form detection at build time */}
         <div style={{ display: 'none' }} suppressHydrationWarning>
-          <form name="webinar-registration" netlify netlify-honeypot="bot-field">
+          <form name="webinar-registration" data-netlify="true" data-netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="webinar-registration" />
             <input type="text" name="name" />
             <input type="email" name="email" />
@@ -69,7 +70,7 @@ export default function RootLayout({
             <input type="text" name="timeSlot" />
             <input type="text" name="bot-field" />
           </form>
-          <form name="course-signup-bitcoin-executives" netlify netlify-honeypot="bot-field">
+          <form name="course-signup-bitcoin-executives" data-netlify="true" data-netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="course-signup-bitcoin-executives" />
             <input type="text" name="name" />
             <input type="email" name="email" />
@@ -78,7 +79,7 @@ export default function RootLayout({
             <textarea name="message"></textarea>
             <input type="text" name="bot-field" />
           </form>
-          <form name="course-signup-financial-sovereignty" netlify netlify-honeypot="bot-field">
+          <form name="course-signup-financial-sovereignty" data-netlify="true" data-netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="course-signup-financial-sovereignty" />
             <input type="text" name="name" />
             <input type="email" name="email" />
@@ -87,7 +88,7 @@ export default function RootLayout({
             <textarea name="message"></textarea>
             <input type="text" name="bot-field" />
           </form>
-          <form name="lead-intake" netlify netlify-honeypot="bot-field">
+          <form name="lead-intake" data-netlify="true" data-netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="lead-intake" />
             <input type="text" name="name" />
             <input type="email" name="email" />
@@ -98,33 +99,12 @@ export default function RootLayout({
             <textarea name="message"></textarea>
             <input type="text" name="bot-field" />
           </form>
-          <form name="newsletter-popup" netlify netlify-honeypot="bot-field">
+          <form name="newsletter-popup" data-netlify="true" data-netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="newsletter-popup" />
             <input type="email" name="email" />
             <input type="text" name="bot-field" />
           </form>
-          <form name="contact" netlify netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="contact" />
-            <input type="text" name="name" />
-            <input type="text" name="organization" />
-            <input type="email" name="email" />
-            <input type="text" name="subject" />
-            <textarea name="message"></textarea>
-            <input type="text" name="engagementType" />
-            <input type="text" name="bot-field" />
-          </form>
-          <form name="newsletter-research" netlify netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="newsletter-research" />
-            <input type="email" name="email" />
-            <input type="text" name="bot-field" />
-          </form>
-          <form name="newsletter-section" netlify netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="newsletter-section" />
-            <input type="email" name="email" />
-            <input type="text" name="bot-field" />
-          </form>
         </div>
-        <OrganizationSchema />
         <Providers>
           <div className="min-h-screen flex flex-col">
             <Header />

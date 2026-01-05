@@ -558,7 +558,7 @@
   
   /* Research Card - For article/research highlights */
   .card-research {
-    @apply bg-white rounded-2xl p-8 shadow-lg border border-gray-100;
+    @apply bg-white rounded-2xl p-4 sm:p-8 shadow-lg border border-gray-100;
     transition: box-shadow var(--transition-smooth);
   }
   

@@ -37,22 +37,8 @@ const Research = () => {
     loadContent();
   }, []);
 
-  const handleSubscribe = async (e: React.FormEvent) => {
+  const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
-    
-    // Submit to Netlify Forms
-    const formData = new FormData();
-    formData.append('form-name', 'newsletter-research');
-    formData.append('email', email);
-
-    // Submit to Netlify (fire and forget)
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData as any).toString(),
-    }).catch(() => {}); // Silently fail if Netlify submission fails
-    
     toast({
       title: "Successfully subscribed!",
       description: "You'll receive our latest Bitcoin intelligence reports."
@@ -273,7 +259,7 @@ const Research = () => {
                 </p>
                 
                 <form onSubmit={handleSubscribe} className="max-w-md mx-auto">
-                  <div className="flex gap-4">
+                  <div className="flex flex-col sm:flex-row gap-4">
                     <Input 
                       type="email" 
                       placeholder="your.email@company.com" 
@@ -284,7 +270,7 @@ const Research = () => {
                     />
                     <Button 
                       type="submit" 
-                      className="h-12 px-8 swiss-blue-gradient swiss-blue-gradient-hover text-white whitespace-nowrap"
+                      className="h-12 px-8 swiss-blue-gradient swiss-blue-gradient-hover text-white whitespace-nowrap w-full sm:w-auto"
                     >
                       Subscribe to Intelligence Brief
                     </Button>

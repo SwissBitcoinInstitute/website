@@ -12,7 +12,7 @@ const ArticleCard = ({ article, author }: ArticleCardProps) => {
   return (
     <Link href={`/research/${article.slug}`} className="block h-full">
       <div className="card-research card-gradient-hover h-full group">
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
             <Calendar className="w-4 h-4" />
             <span>{new Date(article.date).toLocaleDateString()}</span>

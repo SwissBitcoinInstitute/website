@@ -19,26 +19,9 @@ const Contact = () => {
     engagementType: ''
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Submit to Netlify Forms
-    const formDataToSubmit = new FormData();
-    formDataToSubmit.append('form-name', 'contact');
-    formDataToSubmit.append('name', formData.name || '');
-    formDataToSubmit.append('email', formData.email || '');
-    if (formData.organization) formDataToSubmit.append('organization', formData.organization);
-    if (formData.subject) formDataToSubmit.append('subject', formData.subject);
-    if (formData.message) formDataToSubmit.append('message', formData.message);
-    if (formData.engagementType) formDataToSubmit.append('engagementType', formData.engagementType);
-
-    // Submit to Netlify (fire and forget)
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formDataToSubmit as any).toString(),
-    }).catch(() => {}); // Silently fail if Netlify submission fails
-
+    // Here you would typically send the form data to your backend
     toast({
       title: "Message sent successfully!",
       description: "We'll get back to you soon.",

@@ -43,18 +43,6 @@ export default function NewsletterPopup() {
     setIsSubmitting(true);
 
     try {
-      // Submit to Netlify Forms
-      const formData = new FormData();
-      formData.append('form-name', 'newsletter-popup');
-      formData.append('email', email);
-
-      // Submit to Netlify (fire and forget)
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData as any).toString(),
-      }).catch(() => {}); // Silently fail if Netlify submission fails
-
       // Submit to MailerLite using JSONP endpoint
       const callbackName = `mlCallback_${Date.now()}`;
       

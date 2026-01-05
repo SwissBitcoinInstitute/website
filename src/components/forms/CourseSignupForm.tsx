@@ -44,24 +44,6 @@ export default function CourseSignupForm({ courseName, courseSlug }: CourseSignu
     setIsSubmitting(true);
     
     try {
-      // Submit to Netlify Forms
-      const formName = `course-signup-${courseSlug}`;
-      const formDataToSubmit = new FormData();
-      formDataToSubmit.append('form-name', formName);
-      formDataToSubmit.append('name', formData.name);
-      formDataToSubmit.append('email', formData.email);
-      if (formData.phone) formDataToSubmit.append('phone', formData.phone);
-      if (formData.organization) formDataToSubmit.append('organization', formData.organization);
-      if (formData.message) formDataToSubmit.append('message', formData.message);
-
-      // Submit to Netlify (fire and forget)
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formDataToSubmit as any).toString(),
-      }).catch(() => {}); // Silently fail if Netlify submission fails
-
-      // Submit to our API
       const response = await fetch('/api/inquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

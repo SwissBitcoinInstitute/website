@@ -2,15 +2,12 @@
 const nextConfig = {
   images: {
     unoptimized: false,
-    formats: ['image/avif', 'image/webp'],
   },
-  // Enable static page generation where possible
-  output: undefined, // Let Netlify plugin handle this
-  // Compress responses
-  compress: true,
-  // Optimize production builds
-  swcMinify: true,
-  webpack: (config) => {
+  // Use app directory only - ignore pages directory for routing
+  experimental: {
+    appDir: true,
+  },
+  webpack: (config, { isServer }) => {
     config.resolve.alias = {
       ...config.resolve.alias,
       '@': require('path').resolve(__dirname, './src'),
