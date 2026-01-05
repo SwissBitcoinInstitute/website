@@ -102,7 +102,7 @@ export default function ArticleWithGlossary({ content }: ArticleWithGlossaryProp
           blockquote: ({ children }) => (
             <div className="my-8 border-l-4 border-[#f7931a] bg-gray-50 rounded-r-lg pl-6 pr-6 py-6 shadow-sm [&_h3]:!mt-0 [&_h3]:!mb-4 [&_h3]:!text-gray-900 [&_h3]:!border-l-4 [&_h3]:!border-[#f7931a] [&_h3]:!pl-3 [&_h3]:!-ml-6 [&_p]:!text-gray-700 [&_p]:!not-italic [&_ul]:!text-gray-700 [&_ul]:!not-italic [&_ol]:!text-gray-700 [&_ol]:!not-italic [&_li]:!text-gray-700 [&_li]:!not-italic">
               <div className="space-y-4">
-                {children}
+              {children}
               </div>
             </div>
           ),

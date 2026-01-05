@@ -5,42 +5,46 @@ import { CheckCircle2, Users, Clock, MapPin } from 'lucide-react'
 import CourseSignupForm from '@/components/forms/CourseSignupForm'
 
 export const metadata: Metadata = {
-  title: 'Financial Sovereignty - Starter | Swiss Bitcoin Institute',
-  description: 'Learn to securely control your own Bitcoin in half a day through hands-on training with hardware wallets, seed phrase management, and secure backup strategies.',
+  title: 'Bitcoin for Executives - Strategic Course | Swiss Bitcoin Institute',
+  description: 'A compact course for leaders who need to make responsible decisions about Bitcoin. Professional guided overview of Bitcoin\'s strategic implications focusing on macro thinking across business, policy, society, and geopolitics.',
   openGraph: {
-    title: 'Financial Sovereignty - Starter | Swiss Bitcoin Institute',
-    description: 'Half-day hands-on Bitcoin course for holders. Master hardware wallets, seed phrases, and secure backup strategies.',
+    title: 'Bitcoin for Executives | Swiss Bitcoin Institute',
+    description: 'Strategic Bitcoin course for executives and decision-makers. Understand Bitcoin\'s implications for business, policy, and society.',
     images: ['/opengraph-image.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Financial Sovereignty - Starter | Swiss Bitcoin Institute',
-    description: 'Half-day hands-on Bitcoin course for holders. Master hardware wallets, seed phrases, and secure backup strategies.',
+    title: 'Bitcoin for Executives | Swiss Bitcoin Institute',
+    description: 'Strategic Bitcoin course for executives and decision-makers. Understand Bitcoin\'s implications for business, policy, and society.',
     images: ['/opengraph-image.png'],
   },
 }
 
-export default function FinancialSovereigntyPage() {
+export default function BitcoinForExecutivesPage() {
   const courseDetails = [
-    { icon: <MapPin className="w-5 h-5" />, label: 'Format', value: 'Live course (in Zürich)' },
-    { icon: <Clock className="w-5 h-5" />, label: 'Duration', value: '0.5 day' },
-    { icon: <Users className="w-5 h-5" />, label: 'Level', value: 'Bitcoin holders' },
+    { icon: <MapPin className="w-5 h-5" />, label: 'Format', value: 'Live course (Zürich)' },
+    { icon: <Clock className="w-5 h-5" />, label: 'Duration', value: '4 afternoons' },
+    { icon: <Users className="w-5 h-5" />, label: 'Level', value: 'Executives with little Bitcoin knowledge' },
   ]
 
   const whoItsFor = [
-    'Bitcoin holders who want to make a step towards financial sovereignty and be independent of exchanges, crypto brokers, banks',
-    'Private and professional Bitcoin holders',
-    'Control their coins in a self-sovereign manner',
+    'CEOs & Executives',
+    'Board Members',
+    'Strategic Leaders',
+    'Innovation Leads',
+    'Finance & Banking, Energy & Utilities, Industry',
+    'International Organisations, Civil Society / NGOs',
+    'Government & Administration',
+    'Anyone who must decide if / how / when to engage with Bitcoin',
   ]
 
   const whatYoullGet = [
-    'Comparison of Bitcoin wallets types and devices',
-    'Lightning & other Layer-2 networks',
-    'Hands-on experience with different wallets',
-    'Risk analysis: custodians vs self-custody',
-    'Seed phrases & backup management',
-    'Privacy & Security',
-    'Outlook into advanced topics',
+    '360° macro view of Bitcoin using our 6-domain framework',
+    'Critical thinking on Bitcoin\'s role in a changing world order, from AI to geopolitics to net-zero.',
+    'Implications for Switzerland and your organisation',
+    'Expert-led peer discussions to nurture actionable insights',
+    'Rationale for why Bitcoin is not \'crypto\' nor \'blockchain\'',
+    'Non-hype style. Only as technical as needed.',
   ]
 
   return (
@@ -52,13 +56,13 @@ export default function FinancialSovereigntyPage() {
           <div className="max-w-5xl mx-auto text-center">
             <div className="mb-8">
               <span className="pill-hero mb-6">
-                <span className="mr-2">🔐</span>
-                <span className="pill-hero-text">Hands-On Course</span>
+                <span className="mr-2">💼</span>
+                <span className="pill-hero-text">Strategic Course</span>
               </span>
             </div>
-            <h1 className="mb-6 text-gray-900">Financial Sovereignty - Starter</h1>
-            <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
-              Learn to securely control your own Bitcoin in half a day through hands-on training with hardware wallets, seed phrase management, and secure backup strategies – gain true financial independence from banks and exchanges.
+            <h1 className="mb-10 text-gray-900">Bitcoin for Executives</h1>
+            <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed italic">
+              A compact course for leaders who need to make responsible decisions about Bitcoin. We provide a professional guided overview of Bitcoin's strategic implications focusing on macro thinking across business, policy, society, and geopolitics.
             </p>
           </div>
         </div>
@@ -69,7 +73,7 @@ export default function FinancialSovereigntyPage() {
         <div className="swiss-grid">
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 border-b border-gray-200 pb-12">
-            {courseDetails.map((detail, index) => (
+              {courseDetails.map((detail, index) => (
                 <div key={index} className="text-center">
                   <div className="flex justify-center mb-4">
                     <div className="text-swiss-blue">{detail.icon}</div>
@@ -85,15 +89,15 @@ export default function FinancialSovereigntyPage() {
               {/* Who it's for */}
               <div>
                 <h2 className="text-2xl font-semibold text-gray-900 mb-6">Who it's for</h2>
-                  <ul className="space-y-3">
+                <ul className="space-y-3">
                   {whoItsFor.map((item, index) => (
                     <li key={index} className="flex items-start space-x-3">
                       <CheckCircle2 className="w-5 h-5 text-swiss-blue flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-        </div>
+                      <span className="text-gray-700">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
               {/* What you'll get */}
               <div>
@@ -102,11 +106,11 @@ export default function FinancialSovereigntyPage() {
                   {whatYoullGet.map((item, index) => (
                     <li key={index} className="flex items-start space-x-3">
                       <CheckCircle2 className="w-5 h-5 text-swiss-blue flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">{item}</span>
+                      <span className="text-gray-700">{item}</span>
                     </li>
                   ))}
                 </ul>
-                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -119,8 +123,7 @@ export default function FinancialSovereigntyPage() {
             {/* Price */}
             <div className="text-center mb-8">
               <div className="inline-block p-6 border-2 border-gray-200 rounded-lg bg-gray-50">
-                <div className="text-3xl font-bold text-gray-900 mb-1">CHF 349.-</div>
-                <div className="text-sm text-gray-600">(incl. 50.- in sats)</div>
+                <div className="text-3xl font-bold text-gray-900">CHF 1'399.-</div>
               </div>
             </div>
 
@@ -128,8 +131,8 @@ export default function FinancialSovereigntyPage() {
               {/* Next Course Dates */}
               <Card className="p-6 border-2 border-gray-200 bg-white self-start">
                 <div className="text-sm text-gray-500 mb-2 font-medium">Next course:</div>
-                <div className="font-semibold text-gray-900 mb-1 text-lg">Thu, 12 Mar</div>
-                <div className="text-gray-600">13:30-17:30</div>
+                <div className="font-semibold text-gray-900 mb-1 text-lg">12/19/26 Feb, 5 Mar</div>
+                <div className="text-gray-600">14-17h</div>
               </Card>
 
               {/* Signup Form */}
@@ -137,8 +140,8 @@ export default function FinancialSovereigntyPage() {
                 <Card className="p-8 border-2 border-gray-200 bg-white">
                   <h3 className="text-xl font-semibold text-gray-900 mb-6">Book your seat</h3>
                   <CourseSignupForm 
-                    courseName="Financial Sovereignty - Starter"
-                    courseSlug="financial-sovereignty"
+                    courseName="Bitcoin for Executives"
+                    courseSlug="bitcoin-executives"
                   />
                 </Card>
               </div>
@@ -164,9 +167,9 @@ export default function FinancialSovereigntyPage() {
         <div className="absolute inset-0 cta-section-bg"></div>
         <div className="swiss-grid relative">
           <div className="text-center max-w-4xl mx-auto">
-            <h2 className="mb-8 text-white">Ready to Take Control of Your Bitcoin?</h2>
+            <h2 className="mb-8 text-white">Ready to Make Informed Bitcoin Decisions?</h2>
             <p className="swiss-prose mb-12 text-gray-300 max-w-3xl mx-auto">
-              Join Bitcoin holders in Switzerland learning to securely manage their own assets.
+              Join Switzerland's leading executives in understanding Bitcoin's strategic implications.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <CTAButton 
@@ -184,3 +187,4 @@ export default function FinancialSovereigntyPage() {
     </div>
   )
 }
+

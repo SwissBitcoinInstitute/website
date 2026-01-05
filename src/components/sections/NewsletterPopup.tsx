@@ -94,7 +94,7 @@ export default function NewsletterPopup() {
           });
         }
       }, 10000);
-    } catch (error) {
+      } catch (error) {
       console.error('Newsletter subscription error:', error);
       setIsSubmitting(false);
       toast({

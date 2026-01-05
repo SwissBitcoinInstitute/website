@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import CTAButton from '@/components/ui/cta-button'
-import { Users, Clock, Award } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Bitcoin Courses for Professionals | Swiss Bitcoin Institute',
@@ -32,63 +31,82 @@ export default function CoursesPage() {
                 <span className="pill-hero-text">Professional Education</span>
               </span>
             </div>
-            <h1>Bitcoin Courses for Decision-Makers</h1>
+            <h1>Professional Bitcoin Education</h1>
             <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
-              A comprehensive educational program is in development, designed specifically for decision-makers. 
-              Express your interest to be among the first to know when enrollment opens.
+              Build the competency your organization needs to navigate the Bitcoin age confidently.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Coming Soon Course */}
+      {/* Course Cards */}
       <section className="swiss-section bg-white">
         <div className="swiss-grid">
-          <div className="max-w-4xl mx-auto">
-            <div className="card-general card-gradient-hover mt-8">
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-swiss-blue/10 mb-6">
-                  <span className="swiss-blue-gradient-text text-sm font-medium">Coming Soon</span>
-                    </div>
-                <h3 className="text-3xl font-semibold text-gray-900 mb-4">Strategic Bitcoin Fundamentals</h3>
-                <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
-                  A foundational course designed for decision-makers who need to understand Bitcoin's strategic implications 
-                  without getting lost in technical details. Build the knowledge framework your organization needs.
-                </p>
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Free Bitcoin Webinar Card */}
+              <div className="group bg-white rounded-2xl border border-gray-200 p-8 hover:border-swiss-blue/50 hover:shadow-xl transition-all duration-300 flex flex-col">
+                <div className="flex-1">
+                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-bitcoin-orange/10 mb-4">
+                    <span className="text-bitcoin-orange text-sm font-medium">Free</span>
                   </div>
-
-              <div className="grid md:grid-cols-3 gap-6 mb-8 pb-8 border-b border-gray-200">
-                <div className="text-center">
-                  <Clock className="w-8 h-8 swiss-blue-gradient-text mx-auto mb-3" />
-                  <div className="text-sm text-gray-500 mb-1">Duration</div>
-                  <div className="font-semibold text-gray-900">TBD</div>
-                      </div>
-                <div className="text-center">
-                  <Users className="w-8 h-8 swiss-blue-gradient-text mx-auto mb-3" />
-                  <div className="text-sm text-gray-500 mb-1">Format</div>
-                  <div className="font-semibold text-gray-900">TBD</div>
-                    </div>
-                <div className="text-center">
-                  <Award className="w-8 h-8 swiss-blue-gradient-text mx-auto mb-3" />
-                  <div className="text-sm text-gray-500 mb-1">Level</div>
-                  <div className="font-semibold text-gray-900">Strategic</div>
-                      </div>
-                    </div>
-
-              <div className="text-center">
-                <CTAButton 
-                  variant="primary" 
-                  size="lg" 
-                  href="/inquiry?service=education"
-                  className="shadow-xl"
-                >
-                  Express Interest
-                </CTAButton>
-                <p className="text-sm text-gray-500 mt-4">
-                  Be among the first to know when enrollment opens
-                </p>
-                  </div>
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Bitcoin Webinar</h3>
+                  <p className="text-gray-600 leading-relaxed mb-6">
+                    One strategic insight – clear enough to help you decide whether Bitcoin matters for your job, In 21 minutes.
+                  </p>
                 </div>
+                <div className="mt-auto">
+                  <CTAButton 
+                    variant="primary" 
+                    size="lg" 
+                    href="/webinar"
+                    className="w-full shadow-lg group-hover:shadow-xl transition-shadow"
+                  >
+                    Find out more
+                  </CTAButton>
+                </div>
+              </div>
+
+              {/* Bitcoin for Executives Card */}
+              <div className="group bg-white rounded-2xl border border-gray-200 p-8 hover:border-swiss-blue/50 hover:shadow-xl transition-all duration-300 flex flex-col">
+                <div className="flex-1">
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Bitcoin for Executives</h3>
+                  <p className="text-gray-600 leading-relaxed mb-6">
+                    The only course you need to understand the full gamut of Bitcoin's strategic implications for business & society.
+                  </p>
+                </div>
+                <div className="mt-auto">
+                  <CTAButton 
+                    variant="primary" 
+                    size="lg" 
+                    href="/education/bitcoin-for-executives"
+                    className="w-full shadow-lg group-hover:shadow-xl transition-shadow"
+                  >
+                    Find out more
+                  </CTAButton>
+                </div>
+              </div>
+
+              {/* Financial Sovereignty Card */}
+              <div className="group bg-white rounded-2xl border border-gray-200 p-8 hover:border-swiss-blue/50 hover:shadow-xl transition-all duration-300 flex flex-col">
+                <div className="flex-1">
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Financial Sovereignty</h3>
+                  <p className="text-gray-600 leading-relaxed mb-6">
+                    Learn to securely control your own Bitcoin through hands-on training with hardware wallets, seed phrase management, and secure backup strategies.
+                  </p>
+                </div>
+                <div className="mt-auto">
+                  <CTAButton 
+                    variant="primary" 
+                    size="lg" 
+                    href="/education/financial-sovereignty"
+                    className="w-full shadow-lg group-hover:shadow-xl transition-shadow"
+                  >
+                    Find out more
+                  </CTAButton>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

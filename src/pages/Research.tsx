@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import CTAButton from '@/components/ui/cta-button';
@@ -16,7 +17,6 @@ const Research = () => {
   const [articles, setArticles] = useState<Article[]>([]);
   const [authors, setAuthors] = useState<Author[]>([]);
   const [loading, setLoading] = useState(true);
-  const [expandedDomainIndex, setExpandedDomainIndex] = useState<number | null>(null);
 
   useEffect(() => {
     const loadContent = async () => {
@@ -50,24 +50,6 @@ const Research = () => {
     return authors.find(author => author.id === authorId);
   };
 
-  const intelligenceFeatures = [{
-    emoji: "📈",
-    title: "Market Intelligence",
-    description: "Real-time analysis of Bitcoin market dynamics, institutional adoption patterns, and regulatory developments across global markets."
-  }, {
-    emoji: "🎯",
-    title: "Strategic Insights",
-    description: "Actionable intelligence for C-suite decision-making, risk assessment, and competitive positioning in the Bitcoin economy."
-  }, {
-    emoji: "🌍",
-    title: "Macro Analysis",
-    description: "Deep-dive reports on Bitcoin's role in monetary policy, geopolitical shifts, and macroeconomic trends affecting businesses."
-  }, {
-    emoji: "👥",
-    title: "Live Sessions",
-    description: "Interactive intelligence briefings with our research team, featuring Q&A and personalized strategic discussions."
-  }];
-
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -94,40 +76,8 @@ const Research = () => {
             </div>
             <h1>Bitcoin Intelligence</h1>
             <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
-              Our regular reports and live sessions cover all strategic aspects of Bitcoin and deliver 
-              actionable insights for your decision-making. Stay ahead with intelligence that matters.
+              We cover all strategic aspects of Bitcoin and deliver actionable insights for your decision-making on a regular basis. Stay ahead with Bitcoin intelligence that matters.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Intelligence Features */}
-      <section className="swiss-section bg-white">
-        <div className="swiss-grid">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center mb-6">
-              <div className="swiss-blue-gradient-accent mx-auto"></div>
-            </div>
-            <h2>Intelligence That Drives Decisions</h2>
-            <p className="swiss-prose max-w-3xl mx-auto text-gray-600">
-              From market dynamics to regulatory shifts, our intelligence covers every angle 
-              of Bitcoin's impact on business and society.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {intelligenceFeatures.map((feature, index) => (
-              <div key={index} className="text-center group">
-                <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-swiss-blue/10 to-swiss-blue/5 rounded-2xl flex items-center justify-center group-hover:from-swiss-blue/20 group-hover:to-swiss-blue/10 transition-all duration-300">
-                  <span className="text-3xl">{feature.emoji}</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-900">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -146,74 +96,63 @@ const Research = () => {
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
               {
                 title: "Markets & Geopolitics",
-                short: "Global trade, aid, and financial flows today rely on politicized, inflation-prone fiat currencies and fragmented payment systems.",
-                full: "Global trade, aid, and financial flows today rely on politicized, inflation-prone fiat currencies and fragmented payment systems. This creates currency wars, sanctions risk, and unequal access to the global economy, especially for poorer or unstable nations. Power concentrates in a few reserve-currency issuers, shaping geoeconomics and geopolitics as much as traditional diplomacy. Bitcoin raises new questions for international trade and aid: What happens when countries and companies can settle value in a neutral, borderless asset that no single state controls? How might a global, censorship-resistant settlement network change competition, sanctions, and capital controls? Could Bitcoin reduce reliance on dominant fiat currencies and rebalance geopolitical power?"
+                question: "What happens when nations and companies can settle trade in a neutral asset beyond the control of any single state?",
+                icon: "🌍"
               },
               {
                 title: "Finance & Economics",
-                short: "Today's financial system is built on credit expansion, inflationary money, and tight links between central banks, governments, and commercial banks.",
-                full: "Today's financial system is built on credit expansion, inflationary money, and tight links between central banks, governments, and commercial banks. This model can erode savings, distort investment, and concentrate power. The rise of central bank digital currencies (CBDCs) increases efficiency but also enables greater surveillance and control over transactions. Bitcoin introduces a different economic logic: a fixed supply asset, rules without rulers, and a clear separation of money and state. What would deflationary or low-inflation economics mean for saving, lending, and investment? How might Bitcoin compete or coexist with CBDCs? Could a monetary standard secured by open networks provide greater trust than promises from central banks and governments?"
+                question: "What happens when fixed-supply, rules-based money challenges inflationary systems and the fusion of money and state power?",
+                icon: "💰"
               },
               {
                 title: "Technology & Innovation",
-                short: "Our digital economy largely runs on centralized platforms and intermediaries that control data, access, and payments.",
-                full: "Our digital economy largely runs on centralized platforms and intermediaries that control data, access, and payments. This centralization can limit innovation, weaken privacy, and create single points of failure and censorship. Bitcoin emerged as a peer-to-peer (p2p) payment network secured by decentralized mining and robust cryptography. New layers built on top of Bitcoin explore scalability, faster payments, and enhanced privacy while preserving security. How can open, permissionless infrastructure spur new waves of financial and technological innovation? What role will Bitcoin's layered architecture play in enabling secure, global micro-transactions, machine-to-machine payments, or new digital services that do not depend on trusted third parties?"
+                question: "What innovations become possible when financial infrastructure is open, programmable, and free from centralized control?",
+                icon: "⚡"
               },
               {
                 title: "Energy & Climate",
-                short: "Modern energy systems are centralized and often inefficient, with stranded resources and weak incentives to integrate renewables.",
-                full: "Modern energy systems are centralized and often inefficient, with stranded resources and weak incentives to integrate renewables. Climate change and carbon constraints increase pressure on grids, regulators, and investors to transform how energy is produced, priced, and consumed. Bitcoin mining links digital finance directly to physical energy. Miners seek the cheapest, most abundant energy, including stranded gas, hydro, wind, and solar. Can flexible, location-agnostic mining support grid stability and renewable build-out by monetizing excess capacity? How should we evaluate Bitcoin's climate impact compared to other financial and digital systems? Could Bitcoin help drive a more transparent, market-driven energy transition and more effective climate change mitigation?"
+                question: "How does Bitcoin's direct link to energy markets impact grid stability, renewable build-out, and climate mitigation strategies?",
+                icon: "⚡"
               },
               {
                 title: "Access & Agency",
-                short: "Billions of people face limited or unstable access to financial services, suffer from currency debasement, or live under regimes that restrict the freedom to transact.",
-                full: "Billions of people face limited or unstable access to financial services, suffer from currency debasement, or live under regimes that restrict the freedom to transact. Traditional banking and payment providers can exclude individuals, censor payments, or expose sensitive data, undermining financial inclusion, privacy, and basic human rights. Bitcoin enables anyone with a smartphone and internet connection to hold and transfer value without permission. What does global access to a neutral, open monetary network mean for personal and economic sovereignty? Can Bitcoin improve financial inclusion for the unbanked and underbanked, especially in fragile states or conflict zones? How might stronger privacy and censorship-resistance protect civil society, journalists, and activists while balancing legitimate concerns about misuse?"
+                question: "How can permissionless, neutral money improve financial inclusion and protect civil liberties?",
+                icon: "🔓"
               },
               {
                 title: "Strategy & Policy",
-                short: "Governments and institutions face new strategic choices as digital money, CBDCs, and cryptocurrencies evolve.",
-                full: "Governments and institutions face new strategic choices as digital money, CBDCs, and cryptocurrencies evolve. National competitiveness, strategic sovereignty, and regulatory approaches are increasingly shaped by how countries respond to open monetary networks like Bitcoin. Should nations treat Bitcoin as a threat, a complement, or a strategic asset? How might holding or integrating Bitcoin affect macroeconomic resilience, reserves management, and technological leadership? What forms of co-operation and regulation can preserve innovation while managing risks? Bitcoin forces policymakers and corporate leaders to rethink monetary strategy, legal frameworks, and international collaboration in a world where money can move at internet speed, without relying solely on traditional financial centers."
+                question: "How should Switzerland balance innovation, sovereignty, and risk when Bitcoin challenges traditional monetary and regulatory paradigms?",
+                icon: "🎯"
               }
-            ].map((domain, index) => {
-              const isExpanded = expandedDomainIndex === index;
-              return (
-                <div key={index} className="card-general card-gradient-hover">
-                  <button
-                    onClick={() => setExpandedDomainIndex(isExpanded ? null : index)}
-                    className="w-full text-left"
-                  >
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-xl font-semibold text-gray-900 pr-4">
-                        {domain.title}
-                      </h3>
-                      <div className="flex-shrink-0">
-                        {isExpanded ? (
-                          <ChevronUp className="w-5 h-5 text-gray-400" />
-                        ) : (
-                          <ChevronDown className="w-5 h-5 text-gray-400" />
-                        )}
-                      </div>
+            ].map((domain, index) => (
+              <Link
+                key={index}
+                href="/domains"
+                className="group block h-full"
+              >
+                <div className="card-general card-gradient-hover h-full flex flex-col p-6 transition-all duration-300 hover:shadow-lg">
+                  <div className="mb-4">
+                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-swiss-blue/10 to-swiss-blue/5 flex items-center justify-center mb-4 group-hover:from-swiss-blue/20 group-hover:to-swiss-blue/10 transition-all duration-300">
+                      <span className="text-2xl">{domain.icon}</span>
                     </div>
-                  </button>
-                  <div className="mt-4">
-                    <p className="text-gray-600 leading-relaxed">
-                      {domain.short}
+                    <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:swiss-blue-gradient-text transition-colors">
+                      {domain.title}
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed flex-grow mb-4">
+                    {domain.question}
                     </p>
-                    {isExpanded && (
-                      <div className="mt-4 pt-4 border-t border-gray-200">
-                        <p className="text-gray-600 leading-relaxed">
-                          {domain.full.substring(domain.short.length).trim()}
-                        </p>
-                      </div>
-                    )}
+                  <div className="flex items-center text-sm font-medium swiss-blue-gradient-text mt-auto">
+                    <span>Explore domain</span>
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
-              );
-            })}
+              </Link>
+            ))}
           </div>
         </div>
       </section>

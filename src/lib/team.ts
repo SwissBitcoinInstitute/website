@@ -9,6 +9,8 @@ export interface TeamMember {
   linkedin?: string;
   twitter?: string;
   github?: string;
+  nostr?: string;
+  bluesky?: string;
   category: 'core' | 'fellow';
   tags?: string[];
 }
@@ -120,6 +122,19 @@ export const teamMembers: TeamMember[] = [
     linkedin: 'http://linkedin.com/in/perdrizat',
     category: 'fellow',
     tags: ['Infra', 'Security'],
+  },
+  {
+    slug: 'olaf-wagner',
+    name: 'Dr. Olaf Wagner',
+    role: 'Research Fellow',
+    bio: 'Olaf explores how an open, neutral, and censorship-resistant alternative to the banking system can advance societal progress and sustainability. With a background in natural sciences, sustainability, and international development, he brings a multidisciplinary perspective as a speaker and writer, translating Bitcoin\'s unique properties into tools for social impact.',
+    photo: '/team/Olaf_Wagner_2025.jpeg',
+    linkedin: 'https://www.linkedin.com/in/olaf-wagner-b78335a2/',
+    twitter: 'https://x.com/weezel21?s=21&t=YaVfajjMg__2Zuz6Tivjug',
+    nostr: 'https://damus.io/npub16uqhv2xpgmn2w9gmg00dvs28x9pd79wzcdnqcmfjjtpym35qymmq3cv8yd',
+    bluesky: 'https://bsky.app/profile/weezel.bsky.social',
+    category: 'fellow',
+    tags: ['Sustainability', 'Social Impact', 'Development'],
   },
 ];
 

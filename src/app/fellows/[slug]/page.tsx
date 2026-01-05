@@ -188,6 +188,30 @@ export default async function FellowPage({ params }: PageProps) {
                       </a>
                     </Button>
                   )}
+                  {member.nostr && (
+                    <Button variant="outline" asChild>
+                      <a
+                        href={member.nostr}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <span className="text-sm font-medium">Nostr</span>
+                      </a>
+                    </Button>
+                  )}
+                  {member.bluesky && (
+                    <Button variant="outline" asChild>
+                      <a
+                        href={member.bluesky}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <span className="text-sm font-medium">BlueSky</span>
+                      </a>
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>
