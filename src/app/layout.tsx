@@ -60,51 +60,6 @@ export default function RootLayout({
       </head>
       <body className={`${openSans.variable} font-sans`}>
         <OrganizationSchema />
-        {/* Hidden static forms for Netlify form detection at build time */}
-        <div style={{ display: 'none' }} suppressHydrationWarning>
-          <form name="webinar-registration" data-netlify="true" data-netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="webinar-registration" />
-            <input type="text" name="name" />
-            <input type="email" name="email" />
-            <input type="tel" name="phone" />
-            <input type="text" name="timeSlot" />
-            <input type="text" name="bot-field" />
-          </form>
-          <form name="course-signup-bitcoin-executives" data-netlify="true" data-netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="course-signup-bitcoin-executives" />
-            <input type="text" name="name" />
-            <input type="email" name="email" />
-            <input type="tel" name="phone" />
-            <input type="text" name="organization" />
-            <textarea name="message"></textarea>
-            <input type="text" name="bot-field" />
-          </form>
-          <form name="course-signup-financial-sovereignty" data-netlify="true" data-netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="course-signup-financial-sovereignty" />
-            <input type="text" name="name" />
-            <input type="email" name="email" />
-            <input type="tel" name="phone" />
-            <input type="text" name="organization" />
-            <textarea name="message"></textarea>
-            <input type="text" name="bot-field" />
-          </form>
-          <form name="lead-intake" data-netlify="true" data-netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="lead-intake" />
-            <input type="text" name="name" />
-            <input type="email" name="email" />
-            <input type="tel" name="phone" />
-            <input type="text" name="organization" />
-            <input type="text" name="title" />
-            <input type="text" name="serviceType" />
-            <textarea name="message"></textarea>
-            <input type="text" name="bot-field" />
-          </form>
-          <form name="newsletter-popup" data-netlify="true" data-netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="newsletter-popup" />
-            <input type="email" name="email" />
-            <input type="text" name="bot-field" />
-          </form>
-        </div>
         <Providers>
           <div className="min-h-screen flex flex-col">
             <Header />
