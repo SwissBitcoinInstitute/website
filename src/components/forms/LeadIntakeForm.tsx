@@ -162,7 +162,8 @@ export default function LeadIntakeForm() {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <form onSubmit={handleSubmit} className="space-y-8">
+      <form onSubmit={handleSubmit} className="space-y-8" data-netlify="true" name="lead-intake">
+        <input type="hidden" name="form-name" value="lead-intake" />
         {/* Service Type Selection */}
         <Card className="p-8">
           <h3 className="text-2xl font-semibold text-gray-900 mb-6">

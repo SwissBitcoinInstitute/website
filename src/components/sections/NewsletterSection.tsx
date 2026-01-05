@@ -40,7 +40,8 @@ const NewsletterSection = () => {
                 Strategic Bitcoin insights directly to your mailbox. Twice a month. Unsubscribe anytime.
           </p>
           
-          <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+          <form onSubmit={handleSubmit} className="max-w-md mx-auto" data-netlify="true" name="newsletter-section">
+            <input type="hidden" name="form-name" value="newsletter-section" />
                 <div className="flex gap-4">
               <Input
                 type="email"

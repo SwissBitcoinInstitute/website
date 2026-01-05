@@ -35,7 +35,7 @@ export default function WebinarPage() {
     // Here you would typically send the form data to your backend
     toast({
       title: "Registration successful!",
-      description: `You've been registered for the webinar on 21 Jan 2525 at ${registerData.timeSlot}. Check your email for confirmation.`,
+      description: `You've been registered for the webinar on 21 Jan 2026 at ${registerData.timeSlot}. Check your email for confirmation.`,
     });
     setRegisterData({ name: '', email: '', timeSlot: '12:45' });
   };
@@ -111,7 +111,8 @@ export default function WebinarPage() {
                 Register for the next (free) Webinar
               </h3>
               
-              <form onSubmit={handleRegister} className="space-y-8">
+              <form onSubmit={handleRegister} className="space-y-8" data-netlify="true" name="webinar-registration">
+                <input type="hidden" name="form-name" value="webinar-registration" />
                 {/* Contact Information */}
                 <div>
                   <h4 className="text-xl font-semibold text-gray-900 mb-6">
@@ -152,7 +153,7 @@ export default function WebinarPage() {
                 {/* Time Selection */}
                 <div>
                   <h4 className="text-xl font-semibold text-gray-900 mb-6">
-                    21 Jan 2525
+                    21 Jan 2026
                   </h4>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

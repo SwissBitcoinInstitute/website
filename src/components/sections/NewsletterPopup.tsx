@@ -145,7 +145,8 @@ export default function NewsletterPopup() {
             </div>
 
             {/* Email Form */}
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4" data-netlify="true" name="newsletter-popup">
+              <input type="hidden" name="form-name" value="newsletter-popup" />
               <Input
                 type="email"
                 placeholder="your.email@company.com"

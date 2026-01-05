@@ -89,7 +89,8 @@ export default function CourseSignupForm({ courseName, courseSlug }: CourseSignu
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4" data-netlify="true" name={`course-signup-${courseSlug}`}>
+      <input type="hidden" name="form-name" value={`course-signup-${courseSlug}`} />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <Label htmlFor="name">Name *</Label>
