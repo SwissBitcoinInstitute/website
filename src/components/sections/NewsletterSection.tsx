@@ -8,18 +8,55 @@ import { useToast } from '@/hooks/use-toast';
 
 const NewsletterSection = () => {
   const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
-    
-    toast({
-      title: "Successfully subscribed!",
-      description: "You'll receive our latest Bitcoin intelligence reports.",
-    });
-    
-    setEmail('');
+    if (!email || !email.includes('@')) {
+      toast({
+        title: "Please enter a valid email",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/newsletter/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        toast({
+          title: "Successfully subscribed!",
+          description: "You'll receive our latest Bitcoin intelligence reports.",
+        });
+        setEmail('');
+      } else {
+        toast({
+          title: "Subscription failed",
+          description: data.error || "Please try again later or contact us directly.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error('Newsletter subscription error:', error);
+      toast({
+        title: "Subscription failed",
+        description: "Please try again later or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -48,13 +85,15 @@ const NewsletterSection = () => {
                     value={email}
                     onChange={e => setEmail(e.target.value)} 
                     required
-                    className="h-12 flex-1" 
+                    className="h-12 flex-1"
+                    disabled={isSubmitting}
                   />
                   <Button 
                     type="submit" 
                     className="h-12 px-8 swiss-blue-gradient swiss-blue-gradient-hover text-white whitespace-nowrap w-full sm:w-auto"
+                    disabled={isSubmitting}
                   >
-                    Subscribe to Intelligence Brief
+                    {isSubmitting ? 'Subscribing...' : 'Subscribe to Intelligence Brief'}
                   </Button>
                 </div>
               </form>
@@ -71,4 +110,3 @@ const NewsletterSection = () => {
 };
 
 export default NewsletterSection;
-

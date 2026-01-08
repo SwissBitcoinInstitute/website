@@ -8,7 +8,6 @@ import { useToast } from '@/hooks/use-toast';
 
 export default function NewsletterPopup() {
   const [isOpen, setIsOpen] = useState(false);
-  const [hasShown, setHasShown] = useState(false);
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
@@ -21,7 +20,6 @@ export default function NewsletterPopup() {
       // Show popup after 30 seconds on first visit
       const timer = setTimeout(() => {
         setIsOpen(true);
-        setHasShown(true);
         localStorage.setItem('newsletter-popup-shown', 'true');
       }, 30000);
 
@@ -43,65 +41,39 @@ export default function NewsletterPopup() {
     setIsSubmitting(true);
 
     try {
-      // Submit to MailerLite using JSONP endpoint
-      const callbackName = `mlCallback_${Date.now()}`;
-      
-      (window as any)[callbackName] = (response: any) => {
-        setIsSubmitting(false);
-        
-        if (response && response.result === 'success') {
-          toast({
-            title: "Successfully subscribed!",
-            description: "You'll receive our latest Bitcoin intelligence reports.",
-          });
-          setEmail('');
-          setIsOpen(false);
-        } else {
-          toast({
-            title: "Subscription failed",
-            description: response?.error || "Please try again later or contact us directly.",
-            variant: "destructive",
-          });
-        }
-        
-        // Cleanup
-        delete (window as any)[callbackName];
-        const script = document.querySelector(`script[data-ml-subscribe]`);
-        if (script) {
-          document.body.removeChild(script);
-        }
-      };
+      const response = await fetch('/api/newsletter/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
 
-      // Create JSONP script tag
-      const script = document.createElement('script');
-      script.src = `https://assets.mailerlite.com/jsonp/subscribe/get?callback=${callbackName}&email=${encodeURIComponent(email)}&form_id=K1pHki`;
-      script.setAttribute('data-ml-subscribe', 'true');
-      document.body.appendChild(script);
+      const data = await response.json();
 
-      // Timeout fallback
-      setTimeout(() => {
-        if ((window as any)[callbackName]) {
-          setIsSubmitting(false);
-          delete (window as any)[callbackName];
-          const scriptEl = document.querySelector(`script[data-ml-subscribe]`);
-          if (scriptEl) {
-            document.body.removeChild(scriptEl);
-          }
-          toast({
-            title: "Request timeout",
-            description: "Please check your connection and try again.",
-            variant: "destructive",
-          });
-        }
-      }, 10000);
-      } catch (error) {
+      if (response.ok && data.success) {
+        toast({
+          title: "Successfully subscribed!",
+          description: "You'll receive our latest Bitcoin intelligence reports.",
+        });
+        setEmail('');
+        setIsOpen(false);
+      } else {
+        toast({
+          title: "Subscription failed",
+          description: data.error || "Please try again later or contact us directly.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
       console.error('Newsletter subscription error:', error);
-      setIsSubmitting(false);
       toast({
         title: "Subscription failed",
         description: "Please try again later or contact us directly.",
         variant: "destructive",
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -190,4 +162,3 @@ export function openNewsletterPopup() {
     (window as any).ml('show', 'K1pHki', true);
   }
 }
-
