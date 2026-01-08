@@ -5,7 +5,7 @@ import Head from 'next/head'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { Search, X, ArrowRight } from 'lucide-react'
+import { Search, X } from 'lucide-react'
 import { useState, useMemo, useEffect } from 'react'
 
 interface GlossaryTerm {
@@ -13,13 +13,14 @@ interface GlossaryTerm {
   slug: string
   shortDefinition: string
   category?: string
+  domains?: string[]
   tags?: string[]
+  relatedArticle?: string
 }
 
 export default function GlossaryPage() {
   const [terms, setTerms] = useState<GlossaryTerm[]>([])
   const [searchQuery, setSearchQuery] = useState('')
-  const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const [selectedLetter, setSelectedLetter] = useState<string>('all')
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -47,14 +48,6 @@ export default function GlossaryPage() {
     loadTerms()
   }, [])
 
-  // Get unique categories
-  const categories = useMemo(() => {
-    const cats = new Set<string>()
-    terms.forEach(term => {
-      if (term.category) cats.add(term.category)
-    })
-    return Array.from(cats).sort()
-  }, [terms])
 
   // Get available letters
   const availableLetters = useMemo(() => {
@@ -82,23 +75,19 @@ export default function GlossaryPage() {
         term.term.toLowerCase().includes(searchQuery.toLowerCase()) ||
         term.shortDefinition.toLowerCase().includes(searchQuery.toLowerCase())
 
-      const matchesCategory = selectedCategory === 'all' ||
-        term.category === selectedCategory
-
       const matchesLetter = selectedLetter === 'all' ||
         normalizedLetter === selectedLetter
 
-      return matchesSearch && matchesCategory && matchesLetter
+      return matchesSearch && matchesLetter
     }).sort((a, b) => a.term.localeCompare(b.term))
-  }, [terms, searchQuery, selectedCategory, selectedLetter])
+  }, [terms, searchQuery, selectedLetter])
 
   const handleClearFilters = () => {
     setSearchQuery('')
-    setSelectedCategory('all')
     setSelectedLetter('all')
   }
 
-  const hasActiveFilters = searchQuery !== '' || selectedCategory !== 'all' || selectedLetter !== 'all'
+  const hasActiveFilters = searchQuery !== '' || selectedLetter !== 'all'
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -149,35 +138,9 @@ export default function GlossaryPage() {
               )}
             </div>
 
-            {/* Middle Row: Categories */}
-            <div className="flex flex-wrap items-center gap-2 pb-2">
-              <button
-                onClick={() => setSelectedCategory('all')}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                  selectedCategory === 'all'
-                    ? 'bg-gray-900 text-white shadow-md'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                }`}
-              >
-                All Terms
-              </button>
-              {categories.map(category => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                    selectedCategory === category
-                      ? 'swiss-blue-gradient text-white shadow-md'
-                      : 'bg-white border border-gray-200 text-gray-600 hover:border-[#00abfb]/30 hover:text-[#00abfb]'
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
 
-            {/* Bottom Row: Alphabet */}
-            <div className="border-t border-gray-100 pt-4 overflow-x-auto">
+            {/* Alphabet Filter */}
+            <div className="pt-2 overflow-x-auto">
               <div className="flex items-center gap-1 min-w-max">
                 <button
                   onClick={() => setSelectedLetter('all')}
@@ -253,10 +216,12 @@ export default function GlossaryPage() {
                         {term.term}
                       </h2>
                       
-                      {term.category && (
-                        <Badge variant="tagBlue" className="mb-4 w-fit">
-                          {term.category}
-                        </Badge>
+                      {term.relatedArticle && (
+                        <div className="mb-3">
+                          <Badge variant="outline" className="text-xs">
+                            SBI-{term.relatedArticle.padStart(3, '0')}
+                          </Badge>
+                        </div>
                       )}
                       
                       <p className="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-4 flex-grow">

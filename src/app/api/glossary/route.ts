@@ -11,7 +11,8 @@ export async function GET() {
       slug: term.slug,
       shortDefinition: term.shortDefinition,
       category: term.category,
-      tags: [term.category], // Use category as tags for filtering
+      domains: term.domains || [],
+      relatedArticle: term.relatedArticle || undefined,
     }));
     
     return NextResponse.json(simplifiedTerms);

@@ -37,6 +37,7 @@ export interface GlossaryTerm {
   term: string;
   slug: string;
   category: string;
+  domains?: string[]; // Array of research domain names
   shortDefinition: string;
   content: string;
   relatedArticle?: string;
@@ -361,11 +362,25 @@ export async function getAllGlossaryTerms(): Promise<GlossaryTerm[]> {
             term: data.term || slug,
             slug,
             category: data.category || 'General',
+            domains: data.domains || [], // Read domains from frontmatter
             shortDefinition: data.shortDefinition || '',
             content: content, // Keep as raw markdown for ReactMarkdown
             relatedArticle: data.relatedArticle || '',
             published: data.published !== false,
           };
+          
+          // If domains missing but category exists, apply auto-mapping for backward compatibility
+          // This is done synchronously for simplicity - domains should be assigned via script
+          if ((!term.domains || term.domains.length === 0) && term.category) {
+            // Simple fallback mapping - will be properly assigned by script
+            const categoryMap: Record<string, string[]> = {
+              "Mining & Consensus": ["Technology & Innovation", "Energy & Climate"],
+              "Protocol & Technology": ["Technology & Innovation"],
+              "Second Layer": ["Technology & Innovation"],
+              "Monetary Theory": ["Finance & Economics"],
+            };
+            term.domains = categoryMap[term.category] || [];
+          }
           
           if (term.published) {
             terms.push(term);

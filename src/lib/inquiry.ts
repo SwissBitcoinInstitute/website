@@ -11,5 +11,5 @@ export const SERVICE_LABELS: Record<ServiceType, string> = {
 };
 
 // Course types
-export const COURSE_TYPES = ['bitcoin-executives', 'financial-sovereignty', 'custom'] as const;
+export const COURSE_TYPES = ['bitcoin-webinar', 'bitcoin-executives', 'financial-sovereignty', 'custom'] as const;
 export type CourseType = (typeof COURSE_TYPES)[number];

@@ -2,13 +2,10 @@ import { ArrowRight, Mail, Linkedin } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import CTAButton from '@/components/ui/cta-button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { getCoreTeam, getResearchFellows } from '@/lib/team';
+import { getCoreTeam } from '@/lib/team';
 
 const Team = () => {
   const coreTeam = getCoreTeam();
-  const researchFellows = getResearchFellows();
 
   return (
     <div className="min-h-screen">
@@ -103,54 +100,6 @@ const Team = () => {
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Research Fellows */}
-      <section className="swiss-section bg-gradient-to-b from-gray-50 to-white">
-        <div className="swiss-grid">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center mb-6">
-              <div className="swiss-blue-gradient-accent mx-auto"></div>
-            </div>
-            <h2>Research Fellows</h2>
-            <p className="swiss-prose-lg max-w-4xl mx-auto text-gray-700">
-              Distinguished experts contributing specialized knowledge across Bitcoin's technical, economic, and policy dimensions.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {researchFellows.map((fellow) => (
-              <Link 
-                key={fellow.slug} 
-                href={`/fellows/${fellow.slug}`}
-                className="group block"
-              >
-                <div className="card-general card-gradient-hover">
-                  <div className="text-center mb-6">
-                    <div className="w-24 h-24 rounded-2xl mx-auto mb-4 overflow-hidden shadow-lg">
-                      <Image 
-                        src={fellow.photo} 
-                        alt={`Photo of ${fellow.name}, Research Fellow at Swiss Bitcoin Institute`}
-                        width={96}
-                        height={96}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <h3 className="font-semibold text-gray-900 mb-3 text-xl">{fellow.name}</h3>
-                  </div>
-                  {fellow.tags && (
-                    <div className="flex flex-wrap gap-3 pt-6 border-t border-gray-100 justify-center">
-                      {fellow.tags.map((tag, tagIndex) => (
-                        <Badge key={tagIndex} variant="tagBlue">
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </Link>
-            ))}
           </div>
         </div>
       </section>

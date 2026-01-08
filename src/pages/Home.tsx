@@ -5,6 +5,7 @@ import NewsletterSection from '@/components/sections/NewsletterSection';
 import NewsletterButton from '@/components/ui/newsletter-button';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Mail } from 'lucide-react';
 
@@ -212,21 +213,44 @@ const Home = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {researchHighlights.map((highlight, index) => <Link key={index} href={highlight.link} className="group block">
-                <div className="card-research card-gradient-hover h-full">
-                  <div className="flex items-center justify-between mb-4">
-                    <Badge variant="tagBlue">Research</Badge>
-                    <span className="text-gray-500 text-sm">{highlight.readTime}</span>
+            {researchHighlights.map((highlight, index) => {
+              // Extract article ID from link (e.g., /research/SBI-003 -> SBI-003)
+              const articleId = highlight.link.replace('/research/', '');
+              const headerImage = articleId.toLowerCase().match(/^sbi-\d{3}$/) 
+                ? `/sbi-research-headers/${articleId.toLowerCase()}.webp` 
+                : null;
+              
+              return (
+                <Link key={index} href={highlight.link} className="group block">
+                  <div className="card-research card-gradient-hover h-full overflow-hidden">
+                    {headerImage && (
+                      <div className="relative h-32 w-full overflow-hidden">
+                        <Image
+                          src={headerImage}
+                          alt={highlight.title}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent"></div>
+                      </div>
+                    )}
+                    <div className="p-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <Badge variant="tagBlue">Research</Badge>
+                        <span className="text-gray-500 text-sm">{highlight.readTime}</span>
+                      </div>
+                      <h3 className="text-xl font-semibold mb-4 text-gray-900">
+                        {highlight.title}
+                      </h3>
+                      <p className="text-gray-700 leading-relaxed mb-6">{highlight.description}</p>
+                      <div className="link-research text-sm">
+                        Read Analysis →
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-semibold mb-4 text-gray-900">
-                    {highlight.title}
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed mb-6">{highlight.description}</p>
-                  <div className="link-research text-sm">
-                    Read Analysis →
-                  </div>
-                </div>
-              </Link>)}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

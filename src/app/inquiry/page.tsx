@@ -58,7 +58,7 @@ export default function InquiryPage() {
                   <CheckCircle2 className="w-6 h-6 text-bitcoin-orange flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">Independent Research</h3>
-                    <p className="text-gray-600">No industry funding, no conflicts of interest. Just rigorous, evidence-based Bitcoin analysis.</p>
+                    <p className="text-gray-600">Rigorous, evidence-based analysis and view on Bitcoin. No industry funding, no conflicts of interest.</p>
                   </div>
                 </div>
               </Card>
@@ -68,7 +68,7 @@ export default function InquiryPage() {
                   <CheckCircle2 className="w-6 h-6 text-bitcoin-orange flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">Swiss Context</h3>
-                    <p className="text-gray-600">Deep understanding of Swiss regulatory environment, financial culture, and institutional landscape.</p>
+                    <p className="text-gray-600">Deep understanding of Swiss environment, financial cultures, and institutional landscape.</p>
                   </div>
                 </div>
               </Card>
@@ -78,7 +78,7 @@ export default function InquiryPage() {
                   <CheckCircle2 className="w-6 h-6 text-bitcoin-orange flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">Practical Focus</h3>
-                    <p className="text-gray-600">Not philosophical speculation—actionable intelligence and education for decision-makers.</p>
+                    <p className="text-gray-600">Actionable intelligence and education for decision-makers - as customized as you like.</p>
                   </div>
                 </div>
               </Card>
@@ -88,7 +88,7 @@ export default function InquiryPage() {
                   <CheckCircle2 className="w-6 h-6 text-bitcoin-orange flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">Proven Expertise</h3>
-                    <p className="text-gray-600">60+ years combined experience serving executives, wealth managers, and family offices.</p>
+                    <p className="text-gray-600">60+ years of combined Bitcoin experience across different domains and industries.</p>
                   </div>
                 </div>
               </Card>

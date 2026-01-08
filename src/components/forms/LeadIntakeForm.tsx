@@ -489,6 +489,27 @@ export default function LeadIntakeForm() {
               
               <div className="space-y-4 mb-8">
                 <label className={`flex items-start space-x-4 p-4 rounded-lg border-2 cursor-pointer transition-colors ${
+                  formData.selectedCourses.includes('bitcoin-webinar')
+                    ? 'border-swiss-blue bg-swiss-blue/5'
+                    : 'border-gray-200 hover:border-swiss-blue/30'
+                }`}>
+                  <Checkbox
+                    checked={formData.selectedCourses.includes('bitcoin-webinar')}
+                    onCheckedChange={() => handleCourseToggle('bitcoin-webinar')}
+                    className="mt-1"
+                  />
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2">
+                      <span className="font-semibold text-gray-900">Bitcoin Webinar</span>
+                      <span className="text-xs px-2 py-0.5 rounded-full bg-bitcoin-orange/10 text-bitcoin-orange font-medium">Free</span>
+                    </div>
+                    <div className="text-sm text-gray-600 mt-1">
+                      21-minute live webinar. One strategic insight to help you decide whether Bitcoin matters for your job. Grounded, accessible, and anti-hype.
+                    </div>
+                  </div>
+                </label>
+
+                <label className={`flex items-start space-x-4 p-4 rounded-lg border-2 cursor-pointer transition-colors ${
                   formData.selectedCourses.includes('bitcoin-executives')
                     ? 'border-swiss-blue bg-swiss-blue/5'
                     : 'border-gray-200 hover:border-swiss-blue/30'
@@ -501,7 +522,7 @@ export default function LeadIntakeForm() {
                   <div className="flex-1">
                     <div className="font-semibold text-gray-900">Bitcoin for Executives</div>
                     <div className="text-sm text-gray-600 mt-1">
-                      2-day strategic course for C-suite leaders. Focus on business implications, treasury strategy, and organizational readiness.
+                      Live course in Zürich. 4 afternoons covering Bitcoin's strategic implications for business, policy, society, and geopolitics. For executives with little Bitcoin knowledge.
                     </div>
                   </div>
                 </label>
@@ -517,9 +538,9 @@ export default function LeadIntakeForm() {
                     className="mt-1"
                   />
                   <div className="flex-1">
-                    <div className="font-semibold text-gray-900">Financial Sovereignty</div>
+                    <div className="font-semibold text-gray-900">Financial Sovereignty - Starter</div>
                     <div className="text-sm text-gray-600 mt-1">
-                      3-day technical course for wealth managers and financial advisors. Deep dive into custody, portfolio allocation, and client advisory.
+                      Half-day hands-on course in Zürich. Learn to securely control your Bitcoin through hardware wallets, seed phrase management, and secure backup strategies. For Bitcoin holders.
                     </div>
                   </div>
                 </label>

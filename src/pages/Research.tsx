@@ -65,11 +65,19 @@ const Research = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="swiss-hero swiss-gradient relative overflow-hidden">
-        <div className="absolute inset-0 swiss-blue-gradient-hero"></div>
-        <div className="swiss-grid relative">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-right-top md:bg-top bg-no-repeat"
+          style={{
+            backgroundImage: 'url(/SBI-research-hero.jpg)',
+          }}
+        />
+        {/* White overlay for strong fade effect - 80% opacity (image at ~20% visibility) */}
+        <div className="absolute inset-0 bg-white/80"></div>
+        <div className="swiss-grid relative z-10">
           <div className="max-w-5xl mx-auto text-center">
             <div className="mb-8">
-              <span className="pill-hero mb-6">
+              <span className="pill-hero mb-6 bg-white/90 backdrop-blur-sm">
                 <span className="mr-2">🧠</span>
                 <span className="pill-hero-text">Strategic Intelligence</span>
               </span>
@@ -101,49 +109,67 @@ const Research = () => {
               {
                 title: "Markets & Geopolitics",
                 question: "What happens when nations and companies can settle trade in a neutral asset beyond the control of any single state?",
-                icon: "🌍"
+                icon: "🌍",
+                gradient: "from-blue-50 to-blue-100/50",
+                accent: "bg-blue-500",
+                anchorId: "markets-geopolitics"
               },
               {
                 title: "Finance & Economics",
                 question: "What happens when fixed-supply, rules-based money challenges inflationary systems and the fusion of money and state power?",
-                icon: "💰"
+                icon: "💼",
+                gradient: "from-green-50 to-green-100/50",
+                accent: "bg-green-500",
+                anchorId: "finance-economics"
               },
               {
                 title: "Technology & Innovation",
                 question: "What innovations become possible when financial infrastructure is open, programmable, and free from centralized control?",
-                icon: "⚡"
+                icon: "⚡",
+                gradient: "from-purple-50 to-purple-100/50",
+                accent: "bg-purple-500",
+                anchorId: "technology-innovation"
               },
               {
                 title: "Energy & Climate",
                 question: "How does Bitcoin's direct link to energy markets impact grid stability, renewable build-out, and climate mitigation strategies?",
-                icon: "⚡"
+                icon: "🌱",
+                gradient: "from-orange-50 to-orange-100/50",
+                accent: "bg-orange-500",
+                anchorId: "energy-climate"
               },
               {
                 title: "Access & Agency",
                 question: "How can permissionless, neutral money improve financial inclusion and protect civil liberties?",
-                icon: "🔓"
+                icon: "🔓",
+                gradient: "from-teal-50 to-teal-100/50",
+                accent: "bg-teal-500",
+                anchorId: "access-agency"
               },
               {
                 title: "Strategy & Policy",
                 question: "How should Switzerland balance innovation, sovereignty, and risk when Bitcoin challenges traditional monetary and regulatory paradigms?",
-                icon: "🎯"
+                icon: "📋",
+                gradient: "from-indigo-50 to-indigo-100/50",
+                accent: "bg-indigo-500",
+                anchorId: "strategy-policy"
               }
             ].map((domain, index) => (
               <Link
                 key={index}
-                href="/domains"
+                href={`/domains#${domain.anchorId}`}
                 className="group block h-full"
               >
-                <div className="card-general card-gradient-hover h-full flex flex-col p-6 transition-all duration-300 hover:shadow-lg">
+                <div className={`relative bg-gradient-to-br ${domain.gradient} rounded-2xl p-6 border border-gray-200/50 h-full flex flex-col transition-all duration-300 hover:shadow-lg card-gradient-hover`}>
                   <div className="mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-swiss-blue/10 to-swiss-blue/5 flex items-center justify-center mb-4 group-hover:from-swiss-blue/20 group-hover:to-swiss-blue/10 transition-all duration-300">
+                    <div className={`w-12 h-12 rounded-lg ${domain.accent} flex items-center justify-center mb-4 shadow-lg`}>
                       <span className="text-2xl">{domain.icon}</span>
                     </div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:swiss-blue-gradient-text transition-colors">
                       {domain.title}
                     </h3>
                   </div>
-                  <p className="text-gray-600 leading-relaxed flex-grow mb-4">
+                  <p className="text-gray-700 leading-relaxed flex-grow mb-4">
                     {domain.question}
                     </p>
                   <div className="flex items-center text-sm font-medium swiss-blue-gradient-text mt-auto">

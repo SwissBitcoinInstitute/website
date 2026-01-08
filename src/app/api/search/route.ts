@@ -12,14 +12,15 @@ export async function GET(request: Request) {
       return NextResponse.json(allItems);
     }
     
-    // Simple search: filter by title, description, or tags
+    // Simple search: filter by title, description, tags, or URL
     const queryLower = query.toLowerCase();
     const filtered = allItems.filter(item => {
       const titleMatch = item.title.toLowerCase().includes(queryLower);
       const descMatch = item.description?.toLowerCase().includes(queryLower);
       const tagMatch = item.tags?.some(tag => tag.toLowerCase().includes(queryLower));
+      const urlMatch = item.url.toLowerCase().includes(queryLower);
       
-      return titleMatch || descMatch || tagMatch;
+      return titleMatch || descMatch || tagMatch || urlMatch;
     });
     
     return NextResponse.json(filtered);
