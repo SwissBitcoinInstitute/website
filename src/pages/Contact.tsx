@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { Send } from 'lucide-react';
+import { Send, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -10,6 +10,7 @@ import { useToast } from '@/hooks/use-toast';
 
 const Contact = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     organization: '',
@@ -19,21 +20,48 @@ const Contact = () => {
     engagementType: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    toast({
-      title: "Message sent successfully!",
-      description: "We'll get back to you soon.",
-    });
-    setFormData({
-      name: '',
-      organization: '',
-      email: '',
-      subject: '',
-      message: '',
-      engagementType: ''
-    });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast({
+          title: "Message sent successfully!",
+          description: "We'll get back to you within 1-2 business days.",
+        });
+        setFormData({
+          name: '',
+          organization: '',
+          email: '',
+          subject: '',
+          message: '',
+          engagementType: ''
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: "Something went wrong. Please try again or email us directly.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -181,10 +209,20 @@ const Contact = () => {
 
               <Button 
                 type="submit" 
+                disabled={isSubmitting}
                 className="w-full h-12 text-lg font-semibold swiss-blue-gradient btn-hover-scale text-white"
               >
-                <Send className="w-5 h-5 mr-2" />
-                Send Message
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5 mr-2" />
+                    Send Message
+                  </>
+                )}
               </Button>
             </form>
           </div>

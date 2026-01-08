@@ -1,9 +1,20 @@
 import { NextResponse } from 'next/server';
+import { Resend } from 'resend';
+import { type ServiceType } from '@/lib/inquiry';
+import { supabaseAdmin } from '@/lib/supabase';
+import {
+  FROM_EMAIL,
+  RECEIVE_EMAIL_NOTIFICATIONS,
+  getInquiryTeamNotificationEmail,
+  getInquiryCustomerConfirmationEmail,
+} from '@/lib/emails';
+
+const resend = new Resend(process.env.RESEND_API_KEY!);
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { serviceType, ...formData } = body;
+    const { serviceType, ...formData } = body as { serviceType: ServiceType; [key: string]: any };
     
     // Calculate lead score for internal prioritization
     const score = calculateLeadScore(formData, serviceType);
@@ -17,15 +28,45 @@ export async function POST(request: Request) {
       organization: formData.organization,
       timestamp: new Date().toISOString(),
     });
+
+    // Save the inquiry to the database
+    const { error: dbError } = await supabaseAdmin
+      .from('inquiries')
+      .insert({
+        service_type: serviceType,
+        name: formData.name,
+        email: formData.email,
+        organization: formData.organization || null,
+        score,
+        form_data: formData,
+      });
+
+    if (dbError) {
+      console.error('Database save error:', dbError);
+      // Continue with email sending even if DB fails
+    }
     
-    // TODO: Integrate with your preferred system:
-    // - Send email notification to SBI team
-    // - Store in database
-    // - Send to CRM (HubSpot, Pipedrive, etc.)
-    // - Trigger automated email sequence
+    // Send notification email to SBI team
+    const teamEmail = getInquiryTeamNotificationEmail({ formData, serviceType, score });
+    await resend.emails.send({
+      from: FROM_EMAIL,
+      to: RECEIVE_EMAIL_NOTIFICATIONS,
+      subject: teamEmail.subject,
+      text: teamEmail.text,
+    });
     
-    // Send auto-response email to the lead
-    // await sendAutoResponse(formData.email, serviceType);
+    // Send confirmation email to the customer
+    const customerEmail = getInquiryCustomerConfirmationEmail({
+      email: formData.email,
+      name: formData.name,
+      serviceType,
+    });
+    await resend.emails.send({
+      from: FROM_EMAIL,
+      to: formData.email,
+      subject: customerEmail.subject,
+      text: customerEmail.text,
+    });
     
     return NextResponse.json({ 
       success: true, 
@@ -41,7 +82,7 @@ export async function POST(request: Request) {
   }
 }
 
-function calculateLeadScore(formData: any, serviceType: string): number {
+function calculateLeadScore(formData: any, serviceType: ServiceType): number {
   let score = 0;
   
   // Base points by service type
@@ -85,50 +126,4 @@ function calculateLeadScore(formData: any, serviceType: string): number {
   }
   
   return Math.min(score, 100); // Cap at 100
-}
-
-// Helper function for sending auto-response emails
-// Implement with your preferred email service (SendGrid, Resend, etc.)
-async function sendAutoResponse(email: string, serviceType: string) {
-  const subject = getEmailSubject(serviceType);
-  const body = getEmailBody(serviceType);
-  
-  // TODO: Integrate with email service
-  console.log(`Would send email to ${email}:`, { subject, body });
-  
-  /*
-  Example integration with Resend:
-  
-  const resend = new Resend(process.env.RESEND_API_KEY);
-  
-  await resend.emails.send({
-    from: 'Swiss Bitcoin Institute <hello@bitcoininstitute.ch>',
-    to: email,
-    subject: subject,
-    html: body,
-  });
-  */
-}
-
-function getEmailSubject(serviceType: string): string {
-  switch (serviceType) {
-    case 'research':
-      return 'Your SBI Discovery Call - Next Steps';
-    case 'speaking':
-      return 'Your Speaking Request Received - SBI';
-    case 'courses':
-      return 'Your Course Inquiry - Swiss Bitcoin Institute';
-    default:
-      return 'Your Inquiry - Swiss Bitcoin Institute';
-  }
-}
-
-function getEmailBody(serviceType: string): string {
-  // Return HTML email template based on service type
-  // TODO: Create professional email templates
-  return `
-    <h2>Thank you for your interest in the Swiss Bitcoin Institute</h2>
-    <p>We've received your ${serviceType} inquiry and will respond within 24 hours.</p>
-    <p>Best regards,<br>The SBI Team</p>
-  `;
 }

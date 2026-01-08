@@ -17,9 +17,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Calendar, Send, Briefcase, Mic, GraduationCap } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useSearchParams } from 'next/navigation';
-
-type ServiceType = 'research' | 'speaking' | 'courses' | 'other';
-type CourseType = 'bitcoin-executives' | 'financial-sovereignty' | 'custom';
+import { type ServiceType, type CourseType } from '@/lib/inquiry';
 
 export default function LeadIntakeForm() {
   const { toast } = useToast();
