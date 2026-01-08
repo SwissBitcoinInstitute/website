@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { getGlossaryTermBySlug, getAllGlossaryTerms } from '@/lib/content'
+import { getDomainByTitle } from '@/lib/glossary-domains'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import GlossaryTermSchema from '@/components/schema/GlossaryTermSchema'
@@ -74,10 +75,28 @@ export default async function GlossaryTermPage({ params }: PageProps) {
               </Link>
             </Button>
             
-            <Badge variant="secondary" className="flex items-center gap-2">
-              <BookOpen className="w-3 h-3" />
-              {term.category}
-            </Badge>
+            {term.domains && term.domains.length > 0 ? (
+              <div className="flex flex-wrap gap-2">
+                {term.domains.map(domainTitle => {
+                  const domain = getDomainByTitle(domainTitle)
+                  if (!domain) return null
+                  return (
+                    <Badge
+                      key={domainTitle}
+                      className={`text-xs px-3 py-1.5 bg-gradient-to-r ${domain.gradient} border ${domain.accent} text-gray-900 font-medium flex items-center gap-1.5`}
+                    >
+                      <span>{domain.icon}</span>
+                      <span>{domainTitle}</span>
+                    </Badge>
+                  )
+                })}
+              </div>
+            ) : term.category ? (
+              <Badge variant="secondary" className="flex items-center gap-2">
+                <BookOpen className="w-3 h-3" />
+                {term.category}
+              </Badge>
+            ) : null}
           </div>
         </div>
       </div>
@@ -90,6 +109,23 @@ export default async function GlossaryTermPage({ params }: PageProps) {
               <h1 className="text-4xl font-bold mb-6 text-gray-900">{term.term}</h1>
               
               <div className="flex flex-wrap items-center gap-3 mb-6">
+                {term.domains && term.domains.length > 0 && (
+                  <>
+                    {term.domains.map(domainTitle => {
+                      const domain = getDomainByTitle(domainTitle)
+                      if (!domain) return null
+                      return (
+                        <Badge
+                          key={domainTitle}
+                          className={`text-sm px-3 py-1.5 bg-gradient-to-r ${domain.gradient} border ${domain.accent} text-gray-900 font-medium flex items-center gap-1.5`}
+                        >
+                          <span>{domain.icon}</span>
+                          <span>{domainTitle}</span>
+                        </Badge>
+                      )
+                    })}
+                  </>
+                )}
                 {term.relatedArticle && (
                   <Link href={`/research/SBI-${term.relatedArticle.padStart(3, '0')}`}>
                     <Badge variant="outline" className="hover:bg-bitcoin-orange/10 hover:border-bitcoin-orange cursor-pointer">

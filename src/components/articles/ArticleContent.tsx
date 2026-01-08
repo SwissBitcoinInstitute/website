@@ -1,6 +1,7 @@
 import { Article, Author } from '@/lib/content';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, User } from 'lucide-react';
+import Image from 'next/image';
 import ArticleWithGlossary from './ArticleWithGlossary';
 import ReadingControls from './ReadingControls';
 import TableOfContents from './TableOfContents';
@@ -10,9 +11,46 @@ interface ArticleContentProps {
   author?: Author;
 }
 
+// Helper function to get header image path from article ID and slug
+const getHeaderImagePath = (articleId: string, slug: string): string | null => {
+  // Handle special slug-based mappings first (these take precedence)
+  const slugToImageMap: Record<string, string> = {
+    'beyond-the-hype': 'sbi-beyond-the-hype',
+    'bitcoin-intelligence-advantage': 'sbi-as-big-as-the-internet',
+  };
+  
+  if (slugToImageMap[slug]) {
+    return `/sbi-research-headers/${slugToImageMap[slug]}.webp`;
+  }
+  
+  // Then check if ID matches SBI-XXX pattern (SBI-001 -> sbi-001.webp)
+  const normalizedId = articleId.toLowerCase();
+  if (normalizedId.match(/^sbi-\d{3}$/)) {
+    return `/sbi-research-headers/${normalizedId}.webp`;
+  }
+  
+  return null;
+};
+
 const ArticleContent = ({ article, author }: ArticleContentProps) => {
+  const headerImage = getHeaderImagePath(article.id, article.slug);
+  
   return (
     <article className="max-w-4xl mx-auto">
+      {/* Article Header Image */}
+      {headerImage && (
+        <div className="relative w-full h-64 mb-8 rounded-lg overflow-hidden">
+          <Image
+            src={headerImage}
+            alt={article.title}
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/30 to-transparent"></div>
+        </div>
+      )}
+      
       {/* Article Header */}
       <header className="mb-8">
         <div className="flex flex-wrap gap-2 mb-4">

@@ -22,11 +22,19 @@ export default function CoursesPage() {
     <div className="min-h-screen">
       {/* Hero */}
       <section className="swiss-hero swiss-gradient relative overflow-hidden">
-        <div className="absolute inset-0 swiss-blue-gradient-hero"></div>
-        <div className="swiss-grid relative">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-right-top md:bg-top bg-no-repeat"
+          style={{
+            backgroundImage: 'url(/SBI-education-hero.jpg)',
+          }}
+        />
+        {/* White overlay for strong fade effect - 80% opacity (image at ~20% visibility) */}
+        <div className="absolute inset-0 bg-white/80"></div>
+        <div className="swiss-grid relative z-10">
           <div className="max-w-5xl mx-auto text-center">
             <div className="mb-8">
-              <span className="pill-hero mb-6">
+              <span className="pill-hero mb-6 bg-white/90 backdrop-blur-sm">
                 <span className="mr-2">🎓</span>
                 <span className="pill-hero-text">Professional Education</span>
               </span>
