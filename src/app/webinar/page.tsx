@@ -1,44 +1,6 @@
-"use client";
-
-import { useState } from 'react';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
 import { Card } from '@/components/ui/card';
-import { useToast } from '@/hooks/use-toast';
 
 export default function WebinarPage() {
-  const { toast } = useToast();
-  const [registerData, setRegisterData] = useState({
-    name: '',
-    email: '',
-    timeSlot: '12:45'
-  });
-
-  const handleRegisterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setRegisterData({
-      ...registerData,
-      [name]: value
-    });
-  };
-
-  const handleRegister = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!registerData.name || !registerData.email) {
-      toast({
-        title: "Please fill in all required fields",
-        variant: "destructive",
-      });
-      return;
-    }
-    // Here you would typically send the form data to your backend
-    toast({
-      title: "Registration successful!",
-      description: `You've been registered for the webinar on 21 Jan 2026 at ${registerData.timeSlot}. Check your email for confirmation.`,
-    });
-    setRegisterData({ name: '', email: '', timeSlot: '12:45' });
-  };
 
   return (
     <div className="min-h-screen">
@@ -111,98 +73,53 @@ export default function WebinarPage() {
                 Register for the next (free) Webinar
               </h3>
               
-              <form onSubmit={handleRegister} className="space-y-8">
-                {/* Contact Information */}
-                <div>
-                  <h4 className="text-xl font-semibold text-gray-900 mb-6">
-                    Contact Information
-                  </h4>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <Label htmlFor="registerName">Full Name *</Label>
-                      <Input
-                        id="registerName"
-                        type="text"
-                        name="name"
-                        value={registerData.name}
-                        onChange={handleRegisterChange}
-                        required
-                        placeholder="John Smith"
-                        className="mt-2"
-                      />
+              <div className="mb-6">
+                <h4 className="text-xl font-semibold text-gray-900 mb-6">
+                  21 Jan 2026
+                </h4>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <a
+                    href="https://ethz.zoom.us/webinar/register/WN_RSEANOWGTHmLf0OWbsTFgw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-6 rounded-xl border-2 border-gray-200 hover:border-swiss-blue hover:bg-swiss-blue/5 transition-all text-left block group"
+                  >
+                    <div className="text-2xl font-semibold text-gray-900 group-hover:swiss-blue-gradient-text transition-colors">
+                      12:45h
                     </div>
-
-                    <div>
-                      <Label htmlFor="registerEmail">Email Address *</Label>
-                      <Input
-                        id="registerEmail"
-                        type="email"
-                        name="email"
-                        value={registerData.email}
-                        onChange={handleRegisterChange}
-                        required
-                        placeholder="john@company.com"
-                        className="mt-2"
-                      />
+                    <div className="text-sm text-gray-600 mt-1 mb-3">Afternoon session</div>
+                    <div className="link-research text-sm inline-flex items-center gap-2">
+                      Register for afternoon session
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" x2="21" y1="14" y2="3"></line>
+                      </svg>
                     </div>
-                  </div>
+                  </a>
+
+                  <a
+                    href="https://ethz.zoom.us/webinar/register/WN_TgLXtbsmTaaQhzzXenp5ow"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-6 rounded-xl border-2 border-gray-200 hover:border-swiss-blue hover:bg-swiss-blue/5 transition-all text-left block group"
+                  >
+                    <div className="text-2xl font-semibold text-gray-900 group-hover:swiss-blue-gradient-text transition-colors">
+                      18:30h
+                    </div>
+                    <div className="text-sm text-gray-600 mt-1 mb-3">Evening session</div>
+                    <div className="link-research text-sm inline-flex items-center gap-2">
+                      Register for evening session
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" x2="21" y1="14" y2="3"></line>
+                      </svg>
+                    </div>
+                  </a>
                 </div>
-
-                {/* Time Selection */}
-                <div>
-                  <h4 className="text-xl font-semibold text-gray-900 mb-6">
-                    21 Jan 2026
-                  </h4>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <button
-                      type="button"
-                      onClick={() => setRegisterData({ ...registerData, timeSlot: '12:45' })}
-                      className={`p-6 rounded-xl border-2 transition-all text-left ${
-                        registerData.timeSlot === '12:45'
-                          ? 'border-swiss-blue bg-swiss-blue/5'
-                          : 'border-gray-200 hover:border-gray-300'
-                      }`}
-                    >
-                      <div className={`text-2xl font-semibold ${
-                        registerData.timeSlot === '12:45' 
-                          ? 'swiss-blue-gradient-text' 
-                          : 'text-gray-900'
-                      }`}>
-                        12:45h
-                      </div>
-                      <div className="text-sm text-gray-600 mt-1">Afternoon session</div>
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={() => setRegisterData({ ...registerData, timeSlot: '18:30' })}
-                      className={`p-6 rounded-xl border-2 transition-all text-left ${
-                        registerData.timeSlot === '18:30'
-                          ? 'border-swiss-blue bg-swiss-blue/5'
-                          : 'border-gray-200 hover:border-gray-300'
-                      }`}
-                    >
-                      <div className={`text-2xl font-semibold ${
-                        registerData.timeSlot === '18:30' 
-                          ? 'swiss-blue-gradient-text' 
-                          : 'text-gray-900'
-                      }`}>
-                        18:30h
-                      </div>
-                      <div className="text-sm text-gray-600 mt-1">Evening session</div>
-                    </button>
-                  </div>
-                </div>
-
-                <Button
-                  type="submit"
-                  className="w-full h-12 text-base font-semibold swiss-blue-gradient btn-hover-scale text-white"
-                >
-                  Register
-                </Button>
-              </form>
+              </div>
             </Card>
           </div>
         </div>

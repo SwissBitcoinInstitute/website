@@ -255,7 +255,7 @@ export default function StrategicSpeaking() {
               we'd be happy to discuss how we might contribute.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
-              <CTAButton variant="primary" size="lg" href="/contact" showArrow>
+              <CTAButton variant="primary" size="lg" href="/inquiry#speaking" showArrow>
                 Get in Touch
               </CTAButton>
               <CTAButton variant="secondary" size="lg" href="/research" className="bg-white text-gray-900 hover:bg-gray-100">
