@@ -1,7 +1,12 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
-import { SERVICE_LABELS, SERVICE_EMAIL_CONTENT, type ServiceType } from '@/lib/inquiry';
-import { FROM_EMAIL, RECEIVE_EMAIL_NOTIFICATIONS } from '@/lib/emails';
+import { type ServiceType } from '@/lib/inquiry';
+import {
+  FROM_EMAIL,
+  RECEIVE_EMAIL_NOTIFICATIONS,
+  getInquiryTeamNotificationEmail,
+  getInquiryCustomerConfirmationEmail,
+} from '@/lib/emails';
 
 const resend = new Resend(process.env.RESEND_API_KEY!);
 
@@ -24,10 +29,26 @@ export async function POST(request: Request) {
     });
     
     // Send notification email to SBI team
-    await sendTeamNotification(formData, serviceType, score);
+    const teamEmail = getInquiryTeamNotificationEmail({ formData, serviceType, score });
+    await resend.emails.send({
+      from: FROM_EMAIL,
+      to: RECEIVE_EMAIL_NOTIFICATIONS,
+      subject: teamEmail.subject,
+      text: teamEmail.text,
+    });
     
     // Send confirmation email to the customer
-    await sendCustomerConfirmation(formData.email, formData.name, serviceType);
+    const customerEmail = getInquiryCustomerConfirmationEmail({
+      email: formData.email,
+      name: formData.name,
+      serviceType,
+    });
+    await resend.emails.send({
+      from: FROM_EMAIL,
+      to: formData.email,
+      subject: customerEmail.subject,
+      text: customerEmail.text,
+    });
     
     return NextResponse.json({ 
       success: true, 
@@ -87,98 +108,4 @@ function calculateLeadScore(formData: any, serviceType: ServiceType): number {
   }
   
   return Math.min(score, 100); // Cap at 100
-}
-
-// Send notification email to SBI team with all form data
-async function sendTeamNotification(formData: any, serviceType: ServiceType, score: number) {
-  const priority = score >= 70 ? 'HIGH PRIORITY' : score >= 40 ? 'MEDIUM PRIORITY' : 'STANDARD';
-  const serviceLabel = SERVICE_LABELS[serviceType];
-
-  const formattedData = Object.entries(formData)
-    .filter(([, value]) => value !== undefined && value !== null && value !== '')
-    .map(([key, value]) => {
-      const label = formatFieldLabel(key);
-      const displayValue = Array.isArray(value) ? value.join(', ') : String(value);
-      return `${label}: ${displayValue}`;
-    })
-    .join('\n');
-
-  const text = `
-NEW ${serviceLabel.toUpperCase()}
-${'='.repeat(50)}
-
-Priority: ${priority}
-Lead Score: ${score}/100
-
-FORM DATA
-${'-'.repeat(50)}
-${formattedData}
-
-${'-'.repeat(50)}
-Submitted: ${new Date().toLocaleString('en-CH', { timeZone: 'Europe/Zurich' })} (Zurich)
-  `.trim();
-
-  await resend.emails.send({
-    from: FROM_EMAIL,
-    to: RECEIVE_EMAIL_NOTIFICATIONS,
-    subject: `[${score >= 70 ? 'HIGH' : score >= 40 ? 'MED' : 'STD'}] New ${serviceLabel} from ${formData.name || formData.email}`,
-    text,
-  });
-}
-
-// Send confirmation email to the customer
-async function sendCustomerConfirmation(email: string, name: string, serviceType: ServiceType) {
-  const firstName = name?.split(' ')[0] || 'there';
-  const content = SERVICE_EMAIL_CONTENT[serviceType];
-
-  const text = `
-Dear ${firstName},
-
-${content.message}
-
-What happens next?
-One of our team members will personally review your inquiry and reach out to you directly. If you have any urgent questions, feel free to reply to this email.
-
-Best regards,
-The Swiss Bitcoin Institute Team
-
---
-Swiss Bitcoin Institute
-Zurich, Switzerland
-https://bitcoininstitute.ch
-  `.trim();
-
-  await resend.emails.send({
-    from: FROM_EMAIL,
-    to: email,
-    subject: `${content.title} - Swiss Bitcoin Institute`,
-    text,
-  });
-}
-
-// Helper to format field labels from camelCase to readable text
-function formatFieldLabel(key: string): string {
-  const labels: Record<string, string> = {
-    name: 'Name',
-    email: 'Email',
-    phone: 'Phone',
-    organization: 'Organization',
-    organizationType: 'Organization Type',
-    seniorityLevel: 'Seniority Level',
-    workExperience: 'Work Experience',
-    teamSize: 'Team Size',
-    timeline: 'Timeline',
-    selectedCourses: 'Selected Courses',
-    message: 'Message',
-    eventType: 'Event Type',
-    eventDate: 'Event Date',
-    location: 'Location',
-    audienceSize: 'Audience Size',
-    audienceDescription: 'Audience Description',
-    topics: 'Topics of Interest',
-    budget: 'Budget',
-    additionalInfo: 'Additional Information',
-  };
-  
-  return labels[key] || key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
 }
