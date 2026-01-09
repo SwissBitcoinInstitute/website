@@ -120,13 +120,6 @@ export default function LeadIntakeForm() {
           message: '',
           timeline: '',
         });
-        
-        // For research/intelligence, redirect to calendar
-        if (serviceType === 'research') {
-          setTimeout(() => {
-            window.location.href = 'https://calendly.com/sbi/20min-discovery';
-          }, 2000);
-        }
       } else {
         toast({
           title: "Error",
@@ -148,7 +141,7 @@ export default function LeadIntakeForm() {
   const getConfirmationMessage = () => {
     switch (serviceType) {
       case 'research':
-        return "Redirecting you to book your 20-minute discovery call...";
+        return "We'll review your inquiry and get back to you within 24 hours to schedule a discovery call.";
       case 'speaking':
         return "We'll review your event details and respond within 24 hours.";
       case 'courses':
