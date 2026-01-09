@@ -116,9 +116,10 @@ export default async function ArticlePageRoute({ params }: PageProps) {
                       // Check if author is a fellow and make name clickable
                       const articleToTeamSlugMap: Record<string, string> = {
                         'dr-christian-decker': 'christian-decker',
+                        'luca-ferrarese': 'luca-ferrarese',
                       };
                       const teamMemberSlug = articleToTeamSlugMap[article.author] || article.author;
-                      const teamMember = getTeamMemberBySlug(teamMemberSlug);
+                      const teamMember = getTeamMemberBySlug(teamMemberSlug, 'fellow'); // Prefer fellow if exists
                       const isFellow = teamMember?.category === 'fellow';
                       
                       if (isFellow) {

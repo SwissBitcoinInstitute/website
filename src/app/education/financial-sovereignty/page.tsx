@@ -68,32 +68,20 @@ export default function FinancialSovereigntyPage() {
       <section className="swiss-section bg-white">
         <div className="swiss-grid">
           <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 border-b border-gray-200 pb-12">
-            {courseDetails.map((detail, index) => (
-                <div key={index} className="text-center">
-                  <div className="flex justify-center mb-4">
-                    <div className="text-swiss-blue">{detail.icon}</div>
-                  </div>
-                  <div className="text-sm text-gray-500 mb-2 font-medium">{detail.label}</div>
-                  <div className="font-semibold text-gray-900">{detail.value}</div>
-                </div>
-              ))}
-            </div>
-
             {/* Two Column Layout */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
               {/* Who it's for */}
               <div>
                 <h2 className="text-2xl font-semibold text-gray-900 mb-6">Who it's for</h2>
-                  <ul className="space-y-3">
+                <ul className="space-y-3">
                   {whoItsFor.map((item, index) => (
                     <li key={index} className="flex items-start space-x-3">
                       <CheckCircle2 className="w-5 h-5 text-swiss-blue flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-        </div>
+                      <span className="text-gray-700">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
               {/* What you'll get */}
               <div>
@@ -102,11 +90,23 @@ export default function FinancialSovereigntyPage() {
                   {whatYoullGet.map((item, index) => (
                     <li key={index} className="flex items-start space-x-3">
                       <CheckCircle2 className="w-5 h-5 text-swiss-blue flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">{item}</span>
+                      <span className="text-gray-700">{item}</span>
                     </li>
                   ))}
                 </ul>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-gray-200 pt-12">
+              {courseDetails.map((detail, index) => (
+                <div key={index} className="text-center">
+                  <div className="flex justify-center mb-4">
+                    <div className="text-swiss-blue">{detail.icon}</div>
+                  </div>
+                  <div className="text-sm text-gray-500 mb-2 font-medium">{detail.label}</div>
+                  <div className="font-semibold text-gray-900">{detail.value}</div>
                 </div>
+              ))}
             </div>
           </div>
         </div>
@@ -127,9 +127,13 @@ export default function FinancialSovereigntyPage() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Next Course Dates */}
               <Card className="p-6 border-2 border-gray-200 bg-white self-start">
-                <div className="text-sm text-gray-500 mb-2 font-medium">Next course:</div>
-                <div className="font-semibold text-gray-900 mb-1 text-lg">Thu, 12 Mar</div>
-                <div className="text-gray-600">13:30-17:30</div>
+                <div className="text-sm mb-4 font-medium uppercase tracking-wide swiss-blue-gradient-text">Next course:</div>
+                <div className="mb-3 text-sm font-bold text-gray-900">
+                  0.5 day (13:30-17:30)
+                </div>
+                <div className="space-y-2">
+                  <div className="text-base text-gray-900">12th March 2026</div>
+                </div>
               </Card>
 
               {/* Signup Form */}
@@ -139,6 +143,7 @@ export default function FinancialSovereigntyPage() {
                   <CourseSignupForm 
                     courseName="Financial Sovereignty - Starter"
                     courseSlug="financial-sovereignty"
+                    courseDate="0.5 day (13:30-17:30): 12th March 2026"
                   />
                 </Card>
               </div>

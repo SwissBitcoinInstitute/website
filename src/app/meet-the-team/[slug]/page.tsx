@@ -18,7 +18,7 @@ interface PageProps {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const member = getTeamMemberBySlug(params.slug);
+  const member = getTeamMemberBySlug(params.slug, 'core');
 
   if (!member) {
     return {
@@ -55,7 +55,7 @@ export async function generateStaticParams() {
 }
 
 export default async function TeamMemberPage({ params }: PageProps) {
-  const member = getTeamMemberBySlug(params.slug);
+  const member = getTeamMemberBySlug(params.slug, 'core');
 
   if (!member) {
     notFound();

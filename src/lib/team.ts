@@ -136,10 +136,37 @@ export const teamMembers: TeamMember[] = [
     category: 'fellow',
     tags: ['Sustainability', 'Social Impact', 'Development'],
   },
+  {
+    slug: 'luca-ferrarese',
+    name: 'Dr. Luca Ferrarese',
+    role: 'Research Fellow',
+    bio: 'My background is in science, but a strong desire to understand Bitcoin led me on an intense, self-directed journey into the history of money, finance and macroeconomics. This exploration into new disciplines inspired me to share my findings through articles, presentations and podcasts. Applying the analytical lens of a molecular biologist gives me a unique perspective on these complex topics and the systemic changes Bitcoin is introducing.',
+    photo: '/sbi-core-team/Luca_Ferrarese-SBI.png',
+    email: 'luca.ferrarese@bitcoininstitute.ch',
+    linkedin: 'https://www.linkedin.com/in/lucaferrarese/',
+    category: 'fellow',
+    tags: ['Monetary Theory', 'Economics', 'Finance'],
+  },
 ];
 
-export function getTeamMemberBySlug(slug: string): TeamMember | undefined {
-  return teamMembers.find(member => member.slug === slug);
+export function getTeamMemberBySlug(slug: string, preferCategory?: 'core' | 'fellow'): TeamMember | undefined {
+  const matches = teamMembers.filter(member => member.slug === slug);
+  
+  if (matches.length === 0) {
+    return undefined;
+  }
+  
+  if (matches.length === 1) {
+    return matches[0];
+  }
+  
+  // If multiple matches and preference specified, return that one
+  if (preferCategory) {
+    return matches.find(member => member.category === preferCategory) || matches[0];
+  }
+  
+  // Default: prefer fellow if both exist
+  return matches.find(member => member.category === 'fellow') || matches[0];
 }
 
 export function getAllTeamMembers(): TeamMember[] {

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 export default function BitcoinForExecutivesPage() {
   const courseDetails = [
     { icon: <MapPin className="w-5 h-5" />, label: 'Format', value: 'Live course (Zürich)' },
-    { icon: <Clock className="w-5 h-5" />, label: 'Duration', value: '4 afternoons' },
+    { icon: <Clock className="w-5 h-5" />, label: 'Duration', value: '1 course, 4 afternoons' },
     { icon: <Users className="w-5 h-5" />, label: 'Level', value: 'Executives with little Bitcoin knowledge' },
   ]
 
@@ -60,8 +60,8 @@ export default function BitcoinForExecutivesPage() {
                 <span className="pill-hero-text">Strategic Course</span>
               </span>
             </div>
-            <h1 className="mb-10 text-gray-900">Bitcoin for Executives</h1>
-            <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed italic">
+            <h1 className="mb-6 sm:mb-8 text-gray-900">Bitcoin for Executives</h1>
+            <p className="swiss-prose-lg mb-8 sm:mb-10 max-w-4xl mx-auto text-gray-700 leading-relaxed">
               A compact course for leaders who need to make responsible decisions about Bitcoin. We provide a professional guided overview of Bitcoin's strategic implications focusing on macro thinking across business, policy, society, and geopolitics.
             </p>
           </div>
@@ -69,23 +69,11 @@ export default function BitcoinForExecutivesPage() {
       </section>
 
       {/* Course Details */}
-      <section className="swiss-section bg-white">
+      <section className="swiss-section-sm sm:swiss-section bg-white">
         <div className="swiss-grid">
           <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 border-b border-gray-200 pb-12">
-              {courseDetails.map((detail, index) => (
-                <div key={index} className="text-center">
-                  <div className="flex justify-center mb-4">
-                    <div className="text-swiss-blue">{detail.icon}</div>
-                  </div>
-                  <div className="text-sm text-gray-500 mb-2 font-medium">{detail.label}</div>
-                  <div className="font-semibold text-gray-900">{detail.value}</div>
-                </div>
-              ))}
-            </div>
-
             {/* Two Column Layout */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12 sm:mb-16">
               {/* Who it's for */}
               <div>
                 <h2 className="text-2xl font-semibold text-gray-900 mb-6">Who it's for</h2>
@@ -112,27 +100,46 @@ export default function BitcoinForExecutivesPage() {
                 </ul>
               </div>
             </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-gray-200 pt-8 sm:pt-12">
+              {courseDetails.map((detail, index) => (
+                <div key={index} className="text-center">
+                  <div className="flex justify-center mb-4">
+                    <div className="text-swiss-blue">{detail.icon}</div>
+                  </div>
+                  <div className="text-sm text-gray-500 mb-2 font-medium">{detail.label}</div>
+                  <div className="font-semibold text-gray-900">{detail.value}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Course Registration */}
-      <section className="swiss-section bg-gray-50">
+      <section className="swiss-section-sm sm:swiss-section bg-gray-50">
         <div className="swiss-grid">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             {/* Price */}
-            <div className="text-center mb-8">
-              <div className="inline-block p-6 border-2 border-gray-200 rounded-lg bg-gray-50">
-                <div className="text-3xl font-bold text-gray-900">CHF 1'399.-</div>
+            <div className="text-center mb-10 sm:mb-12">
+              <div className="inline-block px-6 sm:px-8 py-4 sm:py-6 bg-gray-50 rounded-xl border border-gray-200">
+                <div className="text-3xl sm:text-4xl font-bold text-gray-900">CHF 1'399.-</div>
               </div>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Next Course Dates */}
               <Card className="p-6 border-2 border-gray-200 bg-white self-start">
-                <div className="text-sm text-gray-500 mb-2 font-medium">Next course:</div>
-                <div className="font-semibold text-gray-900 mb-1 text-lg">12/19/26 Feb, 5 Mar</div>
-                <div className="text-gray-600">14-17h</div>
+                <div className="text-sm mb-4 font-medium uppercase tracking-wide swiss-blue-gradient-text">Next course:</div>
+                <div className="mb-3 text-sm font-bold text-gray-900">
+                  4 afternoons (14-17h)
+                </div>
+                <div className="space-y-2">
+                  <div className="text-base text-gray-900">12th February</div>
+                  <div className="text-base text-gray-900">19th February</div>
+                  <div className="text-base text-gray-900">26th February</div>
+                  <div className="text-base text-gray-900">5th March 2026</div>
+                </div>
               </Card>
 
               {/* Signup Form */}
@@ -142,6 +149,7 @@ export default function BitcoinForExecutivesPage() {
                   <CourseSignupForm 
                     courseName="Bitcoin for Executives"
                     courseSlug="bitcoin-executives"
+                    courseDate="4 afternoons (14-17h): 12th February, 19th February, 26th February, March 5th 2026"
                   />
                 </Card>
               </div>

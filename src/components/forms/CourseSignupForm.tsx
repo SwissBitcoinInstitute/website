@@ -10,9 +10,10 @@ import { Loader2 } from 'lucide-react';
 interface CourseSignupFormProps {
   courseName: string;
   courseSlug: string;
+  courseDate?: string;
 }
 
-export default function CourseSignupForm({ courseName, courseSlug }: CourseSignupFormProps) {
+export default function CourseSignupForm({ courseName, courseSlug, courseDate }: CourseSignupFormProps) {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -20,6 +21,7 @@ export default function CourseSignupForm({ courseName, courseSlug }: CourseSignu
     email: '',
     phone: '',
     organization: '',
+    courseDate: courseDate || '',
     message: '',
   });
 
@@ -32,10 +34,10 @@ export default function CourseSignupForm({ courseName, courseSlug }: CourseSignu
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.email) {
+    if (!formData.name || !formData.email || (courseDate && !formData.courseDate)) {
       toast({
         title: "Please fill in required fields",
-        description: "Name and email are required.",
+        description: "Name, email, and course date are required.",
         variant: "destructive",
       });
       return;
@@ -68,6 +70,7 @@ export default function CourseSignupForm({ courseName, courseSlug }: CourseSignu
           email: '',
           phone: '',
           organization: '',
+          courseDate: courseDate || '',
           message: '',
         });
       } else {
@@ -146,6 +149,21 @@ export default function CourseSignupForm({ courseName, courseSlug }: CourseSignu
         </div>
       </div>
 
+      {courseDate && (
+        <div>
+          <Label htmlFor="courseDate">Course Date *</Label>
+          <Input
+            id="courseDate"
+            name="courseDate"
+            type="text"
+            required
+            value={formData.courseDate}
+            readOnly
+            className="mt-1 bg-gray-50 cursor-not-allowed border-gray-300 text-gray-700"
+          />
+        </div>
+      )}
+
       <div>
         <Label htmlFor="message">Message (optional)</Label>
         <textarea
@@ -163,7 +181,7 @@ export default function CourseSignupForm({ courseName, courseSlug }: CourseSignu
         type="submit"
         variant="default"
         size="lg"
-        className="w-full"
+        className="w-full swiss-blue-gradient text-white shadow-lg hover:shadow-xl"
         disabled={isSubmitting}
       >
         {isSubmitting ? (

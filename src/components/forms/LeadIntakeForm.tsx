@@ -43,6 +43,8 @@ export default function LeadIntakeForm() {
     
     // Service-specific
     selectedCourses: urlCourse ? [urlCourse] : [] as CourseType[],
+    quarterlyResearchPackage: false,
+    customResearchInquiry: '',
     
     // Qualification Questions
     professionalBackground: '',
@@ -68,7 +70,15 @@ export default function LeadIntakeForm() {
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const name = e.target.name;
+    const value = e.target.value;
+    
+    // If user types in custom research inquiry, uncheck quarterly package
+    if (name === 'customResearchInquiry' && value.trim() && formData.quarterlyResearchPackage) {
+      setFormData({ ...formData, [name]: value, quarterlyResearchPackage: false });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   const handleSelectChange = (name: string, value: string) => {
@@ -110,16 +120,37 @@ export default function LeadIntakeForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate research form: must have either quarterly package OR custom inquiry
+    if (serviceType === 'research' && !isDiscoveryCallSelected) {
+      if (!formData.quarterlyResearchPackage && !formData.customResearchInquiry.trim()) {
+        toast({
+          title: "Please select an option",
+          description: "Please select the Quarterly Research Package or provide a custom research inquiry.",
+          variant: "destructive",
+        });
+        return;
+      }
+    }
+    
     setIsSubmitting(true);
     
     try {
+      // For research, use customResearchInquiry as message if quarterly package not selected
+      const submissionData = {
+        ...formData,
+        message: serviceType === 'research' && !isDiscoveryCallSelected && !formData.quarterlyResearchPackage
+          ? formData.customResearchInquiry
+          : formData.message
+      };
+      
       const response = await fetch('/api/inquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
           serviceType, 
           isDiscoveryCall: isDiscoveryCallSelected && serviceType === 'research',
-          ...formData 
+          ...submissionData
         }),
       });
       
@@ -136,6 +167,8 @@ export default function LeadIntakeForm() {
           organization: '',
           title: '',
           selectedCourses: [],
+          quarterlyResearchPackage: false,
+          customResearchInquiry: '',
           professionalBackground: '',
           seniorityLevel: '',
           workExperience: '',
@@ -281,7 +314,7 @@ export default function LeadIntakeForm() {
               <Briefcase className={`w-8 h-8 mx-auto mb-3 transition-colors ${
                 serviceType === 'research' && !isDiscoveryCallSelected ? 'text-swiss-blue' : 'text-gray-400'
               }`} />
-              <div className="font-semibold text-gray-900">Research Brief</div>
+              <div className="font-semibold text-gray-900">Research</div>
               <div className="text-sm text-gray-600 mt-1">Intelligence & Analysis</div>
             </button>
 
@@ -452,28 +485,100 @@ export default function LeadIntakeForm() {
           </Card>
         )}
 
-        {/* CONDITIONAL: Research Brief Form (Different from Discovery Call) */}
+        {/* CONDITIONAL: Research Form (Different from Discovery Call) */}
         {serviceType === 'research' && !isDiscoveryCallSelected && (
           <Card className="p-8 border-2 border-swiss-blue/30">
             <div className="flex items-center space-x-3 mb-6">
               <Briefcase className="w-6 h-6 text-swiss-blue" />
               <h3 className="text-xl font-semibold text-gray-900">
-                Research & Intelligence Brief
+                Research
               </h3>
             </div>
             
-            <div className="bg-swiss-blue/5 p-6 rounded-lg mb-6">
-              <p className="text-gray-700 mb-4">
-                We'll discuss your research or intelligence needs and determine the best approach for your organization.
-              </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• Custom research briefs and market analysis</li>
-                <li>• Competitive intelligence and trend monitoring</li>
-                <li>• Strategic Bitcoin intelligence for decision-makers</li>
-              </ul>
-            </div>
-
             <div className="space-y-6">
+              {/* Quarterly Research Package Option */}
+              <div className={`border-2 rounded-lg p-6 transition-all cursor-pointer ${
+                formData.quarterlyResearchPackage
+                  ? 'border-swiss-blue bg-swiss-blue/5'
+                  : 'border-gray-200 hover:border-swiss-blue/50'
+              }`}>
+                <label className="flex items-start space-x-4 cursor-pointer">
+                  <Checkbox
+                    checked={formData.quarterlyResearchPackage}
+                    onCheckedChange={(checked) => {
+                      const isChecked = checked === true;
+                      setFormData({ 
+                        ...formData, 
+                        quarterlyResearchPackage: isChecked,
+                        customResearchInquiry: isChecked ? '' : formData.customResearchInquiry // Clear custom if quarterly selected
+                      });
+                    }}
+                    className="mt-1"
+                  />
+                  <div className="flex-1">
+                    <div className="font-semibold text-gray-900 mb-2">Quarterly Research Package</div>
+                    <p className="text-sm text-gray-600 mb-3">
+                      Original, forward-looking fundamental research on Bitcoin giving a 360° view. Plus selected curated and fellow-commented Bitcoin news. Every quarter.
+                    </p>
+                    <ul className="space-y-1.5 text-sm text-gray-600">
+                      <li className="flex items-start">
+                        <span className="text-swiss-blue mr-2">•</span>
+                        <span>360° fundamental Bitcoin research</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-swiss-blue mr-2">•</span>
+                        <span>Forward-looking strategic insights</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-swiss-blue mr-2">•</span>
+                        <span>Curated Bitcoin news with expert commentary</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-swiss-blue mr-2">•</span>
+                        <span>Quarterly delivery schedule</span>
+                      </li>
+                    </ul>
+                  </div>
+                </label>
+              </div>
+
+              {/* Divider */}
+              <div className="flex items-center gap-4">
+                <div className="flex-1 border-t border-gray-200"></div>
+                <span className="text-sm text-gray-500 font-medium">OR</span>
+                <div className="flex-1 border-t border-gray-200"></div>
+              </div>
+
+              {/* Customized Research Option */}
+              <div className={`border-2 rounded-lg p-6 transition-all ${
+                !formData.quarterlyResearchPackage && formData.customResearchInquiry
+                  ? 'border-swiss-blue bg-swiss-blue/5'
+                  : 'border-gray-200'
+              }`}>
+                <div className="mb-4">
+                  <div className="font-semibold text-gray-900 mb-2">Custom Research Inquiry</div>
+                  <p className="text-sm text-gray-600 mb-3">
+                    Describe your specific research or intelligence needs:
+                  </p>
+                  <ul className="space-y-2 text-sm text-gray-600 mb-4">
+                    <li>• Custom research briefs and market analysis</li>
+                    <li>• Competitive intelligence and trend monitoring</li>
+                    <li>• Strategic Bitcoin intelligence for decision-makers</li>
+                  </ul>
+                </div>
+                <Textarea
+                  id="customResearchInquiry"
+                  name="customResearchInquiry"
+                  value={formData.customResearchInquiry}
+                  onChange={handleInputChange}
+                  required={!formData.quarterlyResearchPackage}
+                  disabled={formData.quarterlyResearchPackage}
+                  rows={6}
+                  placeholder="Describe the strategic questions or intelligence needs you have..."
+                  className={`mt-2 ${formData.quarterlyResearchPackage ? 'bg-gray-50 cursor-not-allowed' : ''}`}
+                />
+              </div>
+
               <div>
                 <Label htmlFor="timeline">Preferred Timeline</Label>
                 <Select 
@@ -490,20 +595,6 @@ export default function LeadIntakeForm() {
                     <SelectItem value="flexible">Flexible</SelectItem>
                   </SelectContent>
                 </Select>
-              </div>
-
-              <div>
-                <Label htmlFor="message">What questions do you need answered? *</Label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  required
-                  rows={4}
-                  placeholder="Describe the strategic questions or intelligence needs you have..."
-                  className="mt-2"
-                />
               </div>
             </div>
           </Card>
