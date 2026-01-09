@@ -30,17 +30,8 @@ const Team = () => {
       </section>
 
       {/* Core Team */}
-      <section className="swiss-section bg-white">
+      <section className="swiss-section-sm bg-white">
         <div className="swiss-grid">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center mb-6">
-              <div className="swiss-blue-gradient-accent mx-auto"></div>
-            </div>
-            <h2>Core Team</h2>
-            <p className="swiss-prose max-w-3xl mx-auto text-gray-600">
-              United by knowledge, experience, and Bitcoin—our core team brings together academic rigor, practical expertise, and a shared commitment to empowering society through open monetary education and research.
-            </p>
-          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {coreTeam.map((member, index) => (
               <Link 

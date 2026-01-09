@@ -1,8 +1,19 @@
 "use client";
 
 import Link from 'next/link';
-import { Mail, Linkedin, Twitter } from 'lucide-react';
-import NewsletterButton from '@/components/ui/newsletter-button';
+import { Mail, Linkedin } from 'lucide-react';
+
+// X (Twitter) icon component
+const XIcon = ({ className }: { className?: string }) => (
+  <svg
+    viewBox="0 0 24 24"
+    className={className}
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 
 const Footer = () => {
   const footerNavigation = {
@@ -75,32 +86,33 @@ const Footer = () => {
               <div>
                 <h3 className="swiss-blue-gradient-text font-medium text-sm uppercase tracking-wider">Contact</h3>
                 <div className="mt-3 space-y-2">
-                  <a href="mailto:hello@bitcoininstitute.ch" className="text-gray-600 hover:swiss-blue-gradient-text transition-colors flex items-center space-x-2">
-                    <Mail className="h-4 w-4" />
-                    <span>hello@bitcoininstitute.ch</span>
+                  <a href="mailto:hello@bitcoininstitute.ch" className="text-gray-600 hover:text-[#00abfb] transition-colors flex items-center space-x-2 group">
+                    <Mail className="h-4 w-4 group-hover:text-[#00abfb] transition-colors" />
+                    <span className="group-hover:text-[#00abfb] transition-colors">hello@bitcoininstitute.ch</span>
                   </a>
                 </div>
               </div>
               
               {/* Social Links */}
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-500 hover:swiss-blue-gradient-text transition-colors" aria-label="LinkedIn">
+                <a 
+                  href="https://www.linkedin.com/company/swiss-bitcoin-institute/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-500 hover:text-[#00abfb] transition-colors" 
+                  aria-label="LinkedIn"
+                >
                   <Linkedin className="h-5 w-5" />
                 </a>
-                <a href="#" className="text-gray-500 hover:swiss-blue-gradient-text transition-colors" aria-label="Twitter">
-                  <Twitter className="h-5 w-5" />
-                </a>
-              </div>
-              
-              {/* Newsletter CTA */}
-              <div className="mt-6">
-                <NewsletterButton 
-                  variant="outline" 
-                  size="sm"
-                  className="border-gray-300 text-gray-700 hover:border-swiss-blue hover:swiss-blue-gradient-text"
+                <a 
+                  href="https://x.com/SwissBTCInst" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-500 hover:text-gray-900 transition-colors" 
+                  aria-label="X (formerly Twitter)"
                 >
-                  Subscribe to Intelligence Brief
-                </NewsletterButton>
+                  <XIcon className="h-5 w-5" />
+                </a>
               </div>
             </div>
           </div>
