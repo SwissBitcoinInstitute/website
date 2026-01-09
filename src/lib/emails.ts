@@ -10,6 +10,10 @@ export const SERVICE_EMAIL_CONTENT: Record<ServiceType, { title: string; message
     title: 'Course Inquiry Received',
     message: 'Thank you for your interest in our executive education programs. Our team will review your requirements and get back to you within 1-2 business days with program details and availability.',
   },
+  'scheduled-course': {
+    title: 'Course Booking Received',
+    message: 'Thank you for booking a course with the Swiss Bitcoin Institute. We have received your registration and will confirm your seat shortly.',
+  },
   research: {
     title: 'Research Inquiry Received',
     message: 'Thank you for your interest in our research and advisory services. A member of our team will reach out within 1-2 business days to schedule a discovery call and discuss your specific needs.',
@@ -198,6 +202,77 @@ ${EMAIL_FOOTER}
 
   return {
     subject: `${content.title} - Swiss Bitcoin Institute`,
+    text,
+  };
+}
+
+// ============================================
+// SCHEDULED COURSE BOOKING EMAIL TEMPLATES
+// ============================================
+
+export interface CourseBookingData {
+  name: string;
+  email: string;
+  phone?: string;
+  organization?: string;
+  courseName: string;
+  courseDate: string;
+  message?: string;
+}
+
+export function getCourseBookingTeamNotificationEmail(formData: CourseBookingData) {
+  const text = `
+NEW COURSE BOOKING
+${'='.repeat(50)}
+
+Course: ${formData.courseName}
+Dates: ${formData.courseDate}
+
+PARTICIPANT DETAILS
+${'-'.repeat(50)}
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone || 'Not provided'}
+Organization: ${formData.organization || 'Not provided'}
+${formData.message ? `\nMessage:\n${formData.message}` : ''}
+
+${'-'.repeat(50)}
+Submitted: ${getZurichTimestamp()} (Zurich)
+  `.trim();
+
+  return {
+    subject: `[BOOKING] ${formData.courseName} - ${formData.name}`,
+    text,
+  };
+}
+
+export function getCourseBookingCustomerConfirmationEmail(formData: CourseBookingData) {
+  const firstName = formData.name?.split(' ')[0] || 'there';
+
+  const text = `
+Dear ${firstName},
+
+Thank you for booking a seat in our ${formData.courseName} course!
+
+YOUR BOOKING DETAILS
+${'-'.repeat(40)}
+Course: ${formData.courseName}
+Dates: ${formData.courseDate}
+${'-'.repeat(40)}
+
+What happens next?
+We will review your registration and send you a confirmation with payment details and further information about the course within 1-2 business days.
+
+If you have any questions in the meantime, feel free to reply to this email.
+
+Best regards,
+The Swiss Bitcoin Institute Team
+
+${EMAIL_FOOTER}
+  `.trim();
+
+  return {
+    subject: `Course Booking Confirmation - ${formData.courseName}`,
     text,
   };
 }

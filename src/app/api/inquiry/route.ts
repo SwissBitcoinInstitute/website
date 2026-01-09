@@ -7,6 +7,8 @@ import {
   RECEIVE_EMAIL_NOTIFICATIONS,
   getInquiryTeamNotificationEmail,
   getInquiryCustomerConfirmationEmail,
+  getCourseBookingTeamNotificationEmail,
+  getCourseBookingCustomerConfirmationEmail,
 } from '@/lib/emails';
 
 const resend = new Resend(process.env.RESEND_API_KEY!);
@@ -46,27 +48,57 @@ export async function POST(request: Request) {
       // Continue with email sending even if DB fails
     }
     
-    // Send notification email to SBI team
-    const teamEmail = getInquiryTeamNotificationEmail({ formData, serviceType, score });
-    await resend.emails.send({
-      from: FROM_EMAIL,
-      to: RECEIVE_EMAIL_NOTIFICATIONS,
-      subject: teamEmail.subject,
-      text: teamEmail.text,
-    });
-    
-    // Send confirmation email to the customer
-    const customerEmail = getInquiryCustomerConfirmationEmail({
-      email: formData.email,
-      name: formData.name,
-      serviceType,
-    });
-    await resend.emails.send({
-      from: FROM_EMAIL,
-      to: formData.email,
-      subject: customerEmail.subject,
-      text: customerEmail.text,
-    });
+    // Send emails based on service type
+    if (serviceType === 'scheduled-course') {
+      // Course booking specific emails
+      const courseBookingData = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        organization: formData.organization,
+        courseName: formData.courseName,
+        courseDate: formData.courseDate,
+        message: formData.message,
+      };
+
+      const teamEmail = getCourseBookingTeamNotificationEmail(courseBookingData);
+      await resend.emails.send({
+        from: FROM_EMAIL,
+        to: RECEIVE_EMAIL_NOTIFICATIONS,
+        subject: teamEmail.subject,
+        text: teamEmail.text,
+        replyTo: formData.email,
+      });
+
+      const customerEmail = getCourseBookingCustomerConfirmationEmail(courseBookingData);
+      await resend.emails.send({
+        from: FROM_EMAIL,
+        to: formData.email,
+        subject: customerEmail.subject,
+        text: customerEmail.text,
+      });
+    } else {
+      // Generic inquiry emails
+      const teamEmail = getInquiryTeamNotificationEmail({ formData, serviceType, score });
+      await resend.emails.send({
+        from: FROM_EMAIL,
+        to: RECEIVE_EMAIL_NOTIFICATIONS,
+        subject: teamEmail.subject,
+        text: teamEmail.text,
+      });
+
+      const customerEmail = getInquiryCustomerConfirmationEmail({
+        email: formData.email,
+        name: formData.name,
+        serviceType,
+      });
+      await resend.emails.send({
+        from: FROM_EMAIL,
+        to: formData.email,
+        subject: customerEmail.subject,
+        text: customerEmail.text,
+      });
+    }
     
     return NextResponse.json({ 
       success: true, 

@@ -3,6 +3,7 @@ import CTAButton from '@/components/ui/cta-button'
 import { Card } from '@/components/ui/card'
 import { CheckCircle2, Users, Clock, MapPin } from 'lucide-react'
 import CourseSignupForm from '@/components/forms/CourseSignupForm'
+import { bitcoinForExecutivesCourses, formatCourseDate } from '@/lib/courses'
 
 export const metadata: Metadata = {
   title: 'Bitcoin for Executives - Strategic Course | Swiss Bitcoin Institute',
@@ -128,19 +129,24 @@ export default function BitcoinForExecutivesPage() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {/* Next Course Dates */}
-              <Card className="p-6 border-2 border-gray-200 bg-white self-start">
-                <div className="text-sm mb-4 font-medium uppercase tracking-wide swiss-blue-gradient-text">Next course:</div>
-                <div className="mb-3 text-sm font-bold text-gray-900">
-                  4 afternoons (14-17h)
-                </div>
-                <div className="space-y-2">
-                  <div className="text-base text-gray-900">12th February</div>
-                  <div className="text-base text-gray-900">19th February</div>
-                  <div className="text-base text-gray-900">26th February</div>
-                  <div className="text-base text-gray-900">5th March 2026</div>
-                </div>
-              </Card>
+              {/* Course Dates */}
+              <div className="space-y-4 self-start">
+                {bitcoinForExecutivesCourses.map((course, courseIndex) => (
+                  <Card key={course.id} className="p-6 border-2 border-gray-200 bg-white">
+                    <div className="text-sm mb-4 font-medium uppercase tracking-wide swiss-blue-gradient-text">
+                      {courseIndex === 0 ? 'Next course:' : 'Upcoming course:'}
+                    </div>
+                    <div className="mb-3 text-sm font-bold text-gray-900">
+                      {course.timeDescription}
+                    </div>
+                    <div className="space-y-2">
+                      {course.dates.map((date, index) => (
+                        <div key={index} className="text-base text-gray-900">{date}</div>
+                      ))}
+                    </div>
+                  </Card>
+                ))}
+              </div>
 
               {/* Signup Form */}
               <div className="lg:col-span-2">
@@ -149,7 +155,10 @@ export default function BitcoinForExecutivesPage() {
                   <CourseSignupForm 
                     courseName="Bitcoin for Executives"
                     courseSlug="bitcoin-executives"
-                    courseDate="4 afternoons (14-17h): 12th February, 19th February, 26th February, March 5th 2026"
+                    courseOptions={bitcoinForExecutivesCourses.map(course => ({
+                      id: course.id,
+                      label: formatCourseDate(course)
+                    }))}
                   />
                 </Card>
               </div>

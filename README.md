@@ -91,6 +91,38 @@ npm run new:author "Jane Doe" "Senior Researcher" "jane@example.com"
 
 For detailed instructions, see [CMS-GUIDE.md](./CMS-GUIDE.md).
 
+## Configurable Content
+
+### Course Schedules
+
+Update course offerings in `src/lib/courses.ts`:
+
+```typescript
+export const bitcoinForExecutivesCourses: CourseOffering[] = [
+  {
+    id: "bfe-feb-2026",
+    timeDescription: "4 afternoons (14-17h)",
+    dates: ["12th February", "19th February", "26th February", "5th March 2026"]
+  },
+  // Add new cohort:
+  {
+    id: "bfe-may-2026",
+    timeDescription: "4 afternoons (14-17h)",
+    dates: ["6th May", "13th May", "20th May", "27th May 2026"]
+  }
+];
+```
+
+### Email Templates
+
+Update confirmation and notification emails in `src/lib/emails.ts`:
+
+- `SERVICE_EMAIL_CONTENT` - Customer confirmation messages per service type
+- `getContactTeamNotificationEmail()` - Team notification for contact form
+- `getContactCustomerConfirmationEmail()` - Customer confirmation for contact form
+- `getInquiryTeamNotificationEmail()` - Team notification for inquiry forms
+- `getInquiryCustomerConfirmationEmail()` - Customer confirmation for inquiries
+
 ## Project Structure
 
 - `src/app/` - Next.js app directory with routing
