@@ -17,20 +17,50 @@ export default function NewsletterButton({
   children = 'Subscribe to Intelligence Brief'
 }: NewsletterButtonProps) {
   
-  const handleClick = () => {
-    if (typeof window !== 'undefined' && (window as any).ml) {
-      try {
-        (window as any).ml('show', 'K1pHki', true);
-      } catch (error) {
-        console.error('MailerLite popup error:', error);
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    // Function to try opening MailerLite popup
+    const tryOpenPopup = () => {
+      if (typeof window !== 'undefined' && (window as any).ml) {
+        try {
+          (window as any).ml('show', 'K1pHki', true);
+          return true;
+        } catch (error) {
+          console.error('MailerLite popup error:', error);
+          return false;
+        }
       }
-    } else {
-      console.warn('MailerLite not loaded yet');
+      return false;
+    };
+    
+    // Try immediately
+    if (tryOpenPopup()) {
+      return;
     }
+    
+    // If MailerLite isn't ready, wait and retry up to 3 times
+    let attempts = 0;
+    const maxAttempts = 3;
+    const retryInterval = setInterval(() => {
+      attempts++;
+      if (tryOpenPopup() || attempts >= maxAttempts) {
+        clearInterval(retryInterval);
+        
+        // If still not working after retries, scroll to newsletter section
+        if (attempts >= maxAttempts && !tryOpenPopup()) {
+          const newsletterSection = document.getElementById('newsletter');
+          if (newsletterSection) {
+            newsletterSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      }
+    }, 300);
   };
 
   return (
     <Button
+      type="button"
       onClick={handleClick}
       variant={variant}
       size={size}

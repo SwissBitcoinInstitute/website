@@ -85,7 +85,7 @@ const WhyBitcoin = () => {
             </div>
             <h1 className="mb-10 text-gray-900">Why Bitcoin</h1>
             <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
-              Understanding the fundamental properties that make Bitcoin unique and why they matter for the future of money.
+              Several fundamental properties render Bitcoin unique in the crypto and fiat world alike. Over the years, they have resulted in three real-world outcomes for Bitcoin that make it stand out from all other forms of money, digital or not. If you have not, you really should start studying Bitcoin. If not for yourself, then for your children, because there is a real chance that Bitcoin will outlive you.
             </p>
           </div>
         </div>

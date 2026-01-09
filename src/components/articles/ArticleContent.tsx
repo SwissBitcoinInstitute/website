@@ -64,6 +64,7 @@ const ArticleContent = ({ article, author }: ArticleContentProps) => {
         <h1 className="text-4xl font-bold mb-4">{article.title}</h1>
         
         <div className="flex items-center gap-4 text-muted-foreground mb-4">
+          <Badge variant="secondary">{article.id}</Badge>
           <div className="flex items-center gap-2">
             <Calendar className="w-4 h-4" />
             <span>{new Date(article.date).toLocaleDateString()}</span>

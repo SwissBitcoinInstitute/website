@@ -86,12 +86,6 @@ export default async function ArticlePageRoute({ params }: PageProps) {
             
             <div className="flex items-center gap-3">
               <ReadingControls />
-              
-              <div className="hidden sm:flex items-center gap-2 text-sm text-muted-foreground">
-                <Badge variant="secondary">{article.id}</Badge>
-                <span>•</span>
-                <span>Block #{article.blockHeight}</span>
-              </div>
             </div>
           </div>
         </div>

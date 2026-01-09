@@ -10,6 +10,7 @@ import Footer from "@/components/layout/Footer"
 import { Providers } from './providers'
 import OrganizationSchema from '@/components/schema/OrganizationSchema'
 import NewsletterPopup from '@/components/sections/NewsletterPopup'
+import CookieBanner from '@/components/sections/CookieBanner'
 
 const openSans = Open_Sans({ 
   subsets: ['latin'],
@@ -69,6 +70,7 @@ export default function RootLayout({
             <Footer />
           </div>
           <NewsletterPopup />
+          <CookieBanner />
           <Toaster />
           <Sonner />
         </Providers>
