@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -26,8 +26,10 @@ export default function LeadIntakeForm() {
   // Pre-fill service type from URL params
   const urlService = searchParams?.get('service') as ServiceType | null;
   const urlCourse = searchParams?.get('course') as CourseType | null;
+  const urlDiscovery = searchParams?.get('discovery') === 'true';
   
   const [serviceType, setServiceType] = useState<ServiceType>(urlService || 'courses');
+  const [isDiscoveryCallSelected, setIsDiscoveryCallSelected] = useState(urlDiscovery);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -78,6 +80,37 @@ export default function LeadIntakeForm() {
       : [...formData.selectedCourses, course];
     setFormData({ ...formData, selectedCourses: updated });
   };
+
+  const handleDiscoveryCallClick = () => {
+    setIsDiscoveryCallSelected(true);
+    setServiceType('research');
+    // Scroll to discovery call button top edge at viewport top
+    setTimeout(() => {
+      const discoveryButton = document.getElementById('discovery-call-button');
+      if (discoveryButton) {
+        const rect = discoveryButton.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const targetY = scrollTop + rect.top;
+        window.scrollTo({ top: targetY, behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
+  // Auto-scroll to discovery call button if URL has discovery=true parameter
+  useEffect(() => {
+    if (urlDiscovery && serviceType === 'research') {
+      // Wait for DOM to render, then scroll to button top edge
+      setTimeout(() => {
+        const discoveryButton = document.getElementById('discovery-call-button');
+        if (discoveryButton) {
+          const rect = discoveryButton.getBoundingClientRect();
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          const targetY = scrollTop + rect.top;
+          window.scrollTo({ top: targetY, behavior: 'smooth' });
+        }
+      }, 300);
+    }
+  }, [urlDiscovery, serviceType]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -192,13 +225,46 @@ export default function LeadIntakeForm() {
           <h3 className="text-2xl font-semibold text-gray-900 mb-6">
             What are you interested in?
           </h3>
+
+          {/* Discovery Call Button - Full Width Above Service Types */}
+          <button
+            id="discovery-call-button"
+            type="button"
+            onClick={handleDiscoveryCallClick}
+            className={`w-full p-6 rounded-xl border-2 transition-all mb-6 ${
+              isDiscoveryCallSelected && serviceType === 'research'
+                ? 'border-swiss-blue bg-swiss-blue/5 shadow-lg'
+                : 'border-gray-200 hover:border-swiss-blue/50 hover:shadow-md bg-white'
+            }`}
+          >
+            <div className="flex items-center justify-center gap-3">
+              <Calendar className={`w-6 h-6 ${
+                isDiscoveryCallSelected && serviceType === 'research'
+                  ? 'swiss-blue-gradient-text'
+                  : 'text-gray-400'
+              }`} />
+              <span className={`text-lg font-semibold ${
+                isDiscoveryCallSelected && serviceType === 'research'
+                  ? 'swiss-blue-gradient-text'
+                  : 'text-gray-900'
+              }`}>
+                Open Discovery Call
+              </span>
+            </div>
+            <p className="text-sm text-gray-600 mt-2">
+              Book a 20-minute discovery call to discuss your research or intelligence needs
+            </p>
+          </button>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <button
               type="button"
-              onClick={() => setServiceType('research')}
+              onClick={() => {
+                setServiceType('research');
+                setIsDiscoveryCallSelected(false);
+              }}
               className={`p-6 rounded-xl border-2 transition-all ${
-                serviceType === 'research'
+                serviceType === 'research' && !isDiscoveryCallSelected
                   ? 'border-swiss-blue bg-swiss-blue/5'
                   : 'border-gray-200 hover:border-gray-300'
               }`}
@@ -212,7 +278,10 @@ export default function LeadIntakeForm() {
 
             <button
               type="button"
-              onClick={() => setServiceType('speaking')}
+              onClick={() => {
+                setServiceType('speaking');
+                setIsDiscoveryCallSelected(false);
+              }}
               className={`p-6 rounded-xl border-2 transition-all ${
                 serviceType === 'speaking'
                   ? 'border-swiss-blue bg-swiss-blue/5'
@@ -228,7 +297,10 @@ export default function LeadIntakeForm() {
 
             <button
               type="button"
-              onClick={() => setServiceType('courses')}
+              onClick={() => {
+                setServiceType('courses');
+                setIsDiscoveryCallSelected(false);
+              }}
               className={`p-6 rounded-xl border-2 transition-all ${
                 serviceType === 'courses'
                   ? 'border-swiss-blue bg-swiss-blue/5'
@@ -321,7 +393,7 @@ export default function LeadIntakeForm() {
 
         {/* CONDITIONAL: Research/Intelligence Brief */}
         {serviceType === 'research' && (
-          <Card className="p-8 border-2 border-swiss-blue/30">
+          <Card id="discovery-form" className="p-8 border-2 border-swiss-blue/30">
             <div className="flex items-center space-x-3 mb-6">
               <Calendar className="w-6 h-6 swiss-blue-gradient-text" />
               <h3 className="text-xl font-semibold text-gray-900">
@@ -331,13 +403,18 @@ export default function LeadIntakeForm() {
             
             <div className="bg-swiss-blue/5 p-6 rounded-lg mb-6">
               <p className="text-gray-700 mb-4">
-                We'll discuss your research or intelligence needs and determine the best approach for your organization.
+                {isDiscoveryCallSelected 
+                  ? "We'll discuss your needs and determine how the Swiss Bitcoin Institute can best support your organization's Bitcoin strategy, education, or research requirements."
+                  : "We'll discuss your research or intelligence needs and determine the best approach for your organization."
+                }
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• Custom research briefs and market analysis</li>
-                <li>• Competitive intelligence and trend monitoring</li>
-                <li>• Strategic Bitcoin intelligence for decision-makers</li>
-              </ul>
+              {!isDiscoveryCallSelected && (
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li>• Custom research briefs and market analysis</li>
+                  <li>• Competitive intelligence and trend monitoring</li>
+                  <li>• Strategic Bitcoin intelligence for decision-makers</li>
+                </ul>
+              )}
             </div>
 
             <div className="space-y-6">
@@ -360,7 +437,12 @@ export default function LeadIntakeForm() {
               </div>
 
               <div>
-                <Label htmlFor="message">What questions do you need answered? *</Label>
+                <Label htmlFor="message">
+                  {isDiscoveryCallSelected 
+                    ? "What would you like to discuss? *"
+                    : "What questions do you need answered? *"
+                  }
+                </Label>
                 <Textarea
                   id="message"
                   name="message"
@@ -368,7 +450,10 @@ export default function LeadIntakeForm() {
                   onChange={handleInputChange}
                   required
                   rows={4}
-                  placeholder="Describe the strategic questions or intelligence needs you have..."
+                  placeholder={isDiscoveryCallSelected 
+                    ? "Tell us about your organization's needs, goals, or questions related to Bitcoin strategy, education, or research..."
+                    : "Describe the strategic questions or intelligence needs you have..."
+                  }
                   className="mt-2"
                 />
               </div>
@@ -514,27 +599,6 @@ export default function LeadIntakeForm() {
               </h3>
               
               <div className="space-y-4 mb-8">
-                <label className={`flex items-start space-x-4 p-4 rounded-lg border-2 cursor-pointer transition-colors ${
-                  formData.selectedCourses.includes('bitcoin-webinar')
-                    ? 'border-swiss-blue bg-swiss-blue/5'
-                    : 'border-gray-200 hover:border-swiss-blue/30'
-                }`}>
-                  <Checkbox
-                    checked={formData.selectedCourses.includes('bitcoin-webinar')}
-                    onCheckedChange={() => handleCourseToggle('bitcoin-webinar')}
-                    className="mt-1"
-                  />
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2">
-                      <span className="font-semibold text-gray-900">Bitcoin Webinar</span>
-                      <span className="text-xs px-2 py-0.5 rounded-full bg-bitcoin-orange/10 text-bitcoin-orange font-medium">Free</span>
-                    </div>
-                    <div className="text-sm text-gray-600 mt-1">
-                      21-minute live webinar. One strategic insight to help you decide whether Bitcoin matters for your job. Grounded, accessible, and anti-hype.
-                    </div>
-                  </div>
-                </label>
-
                 <label className={`flex items-start space-x-4 p-4 rounded-lg border-2 cursor-pointer transition-colors ${
                   formData.selectedCourses.includes('bitcoin-executives')
                     ? 'border-swiss-blue bg-swiss-blue/5'
