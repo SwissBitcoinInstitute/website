@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { Send, Loader2 } from 'lucide-react';
+import { Send, Loader2, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -11,6 +11,7 @@ import { useToast } from '@/hooks/use-toast';
 const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     organization: '',
@@ -34,10 +35,7 @@ const Contact = () => {
       const data = await response.json();
 
       if (data.success) {
-        toast({
-          title: "Message sent successfully!",
-          description: "We'll get back to you within 1-2 business days.",
-        });
+        setIsSubmitted(true);
         setFormData({
           name: '',
           organization: '',
@@ -121,110 +119,135 @@ const Contact = () => {
       <section className="swiss-section bg-white">
         <div className="swiss-grid">
           <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
-            <div className="flex items-center justify-center mb-6">
-              <div className="swiss-blue-gradient-accent mx-auto"></div>
-            </div>
-              <h2>Send Us a Message</h2>
-              <p className="swiss-prose max-w-2xl mx-auto text-gray-600 mt-4">
-                Tell us about your Bitcoin education and strategy needs.
-            </p>
-          </div>
-            
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Full Name *
-                  </label>
-                  <Input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    placeholder="Your full name"
-                    className="h-12"
-                  />
+            {isSubmitted ? (
+              /* Success State */
+              <div className="text-center py-16">
+                <div className="mb-8 flex justify-center">
+                  <div className="w-32 h-32 rounded-full bg-swiss-blue/10 flex items-center justify-center animate-in zoom-in-50 duration-500">
+                    <CheckCircle2 className="w-20 h-20 text-swiss-blue" strokeWidth={1.5} />
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Organization
-                  </label>
-                  <Input
-                    type="text"
-                    name="organization"
-                    value={formData.organization}
-                    onChange={handleInputChange}
-                    placeholder="Company or institution"
-                    className="h-12"
-                  />
+                <h2 className="text-3xl font-semibold text-gray-900 mb-4">Message Sent!</h2>
+                <p className="swiss-prose text-gray-600 max-w-md mx-auto mb-8">
+                  Thank you for reaching out. We'll get back to you within 1-2 business days.
+                </p>
+                <Button
+                  onClick={() => setIsSubmitted(false)}
+                  variant="outline"
+                  className="text-swiss-blue border-swiss-blue hover:bg-swiss-blue/5"
+                >
+                  Send Another Message
+                </Button>
+              </div>
+            ) : (
+              /* Form */
+              <>
+                <div className="text-center mb-12">
+                  <div className="flex items-center justify-center mb-6">
+                    <div className="swiss-blue-gradient-accent mx-auto"></div>
+                  </div>
+                  <h2>Send Us a Message</h2>
+                  <p className="swiss-prose max-w-2xl mx-auto text-gray-600 mt-4">
+                    Tell us about your Bitcoin education and strategy needs.
+                  </p>
                 </div>
-              </div>
-              
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Email Address *
-                </label>
-                <Input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                  placeholder="your.email@company.com"
-                  className="h-12"
-                />
-              </div>
+                
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Full Name *
+                      </label>
+                      <Input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        required
+                        placeholder="Your full name"
+                        className="h-12"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Organization
+                      </label>
+                      <Input
+                        type="text"
+                        name="organization"
+                        value={formData.organization}
+                        onChange={handleInputChange}
+                        placeholder="Company or institution"
+                        className="h-12"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Email Address *
+                    </label>
+                    <Input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      placeholder="your.email@company.com"
+                      className="h-12"
+                    />
+                  </div>
 
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Subject *
-                </label>
-                <Input
-                  type="text"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleInputChange}
-                  required
-                  placeholder="What can we help you with?"
-                  className="h-12"
-                />
-              </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Subject *
+                    </label>
+                    <Input
+                      type="text"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      required
+                      placeholder="What can we help you with?"
+                      className="h-12"
+                    />
+                  </div>
 
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Message *
-                </label>
-                <Textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  required
-                  placeholder="Tell us more about your needs, timeline, and any specific requirements..."
-                  rows={6}
-                  className="resize-none"
-                />
-              </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Message *
+                    </label>
+                    <Textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
+                      placeholder="Tell us more about your needs, timeline, and any specific requirements..."
+                      rows={6}
+                      className="resize-none"
+                    />
+                  </div>
 
-              <Button 
-                type="submit" 
-                disabled={isSubmitting}
-                className="w-full h-12 text-lg font-semibold swiss-blue-gradient btn-hover-scale text-white"
-              >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-5 h-5 mr-2" />
-                    Send Message
-                  </>
-                )}
-              </Button>
-            </form>
+                  <Button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="w-full h-12 text-lg font-semibold swiss-blue-gradient btn-hover-scale text-white"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5 mr-2" />
+                        Send Message
+                      </>
+                    )}
+                  </Button>
+                </form>
+              </>
+            )}
           </div>
         </div>
       </section>

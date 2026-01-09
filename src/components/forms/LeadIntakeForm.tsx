@@ -14,7 +14,7 @@ import {
   SelectValue 
 } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Calendar, Send, Briefcase, Mic, GraduationCap } from 'lucide-react';
+import { Calendar, Send, Briefcase, Mic, GraduationCap, CheckCircle2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useSearchParams } from 'next/navigation';
 import { type ServiceType, type CourseType } from '@/lib/inquiry';
@@ -29,6 +29,7 @@ export default function LeadIntakeForm() {
   
   const [serviceType, setServiceType] = useState<ServiceType>(urlService || 'courses');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     // Basic Info
     name: '',
@@ -92,10 +93,7 @@ export default function LeadIntakeForm() {
       const data = await response.json();
       
       if (data.success) {
-        toast({
-          title: "Request received!",
-          description: getConfirmationMessage(),
-        });
+        setIsSubmitted(true);
         
         // Reset form
         setFormData({
@@ -150,6 +148,41 @@ export default function LeadIntakeForm() {
         return "We'll get back to you within 24 hours.";
     }
   };
+
+  // Success state component
+  if (isSubmitted) {
+    return (
+      <div className="max-w-4xl mx-auto">
+        <Card className="p-12">
+          <div className="text-center py-8">
+            <div className="mb-8 flex justify-center">
+              <div className="w-32 h-32 rounded-full bg-swiss-blue/10 flex items-center justify-center animate-in zoom-in-50 duration-500">
+                <CheckCircle2 className="w-20 h-20 text-swiss-blue" strokeWidth={1.5} />
+              </div>
+            </div>
+            <h2 className="text-3xl font-semibold text-gray-900 mb-4">Request Received!</h2>
+            <p className="swiss-prose text-gray-600 max-w-md mx-auto mb-2">
+              {getConfirmationMessage()}
+            </p>
+            {serviceType === 'research' && (
+              <p className="text-sm text-swiss-blue mb-8">
+                Redirecting to calendar in a moment...
+              </p>
+            )}
+            {serviceType !== 'research' && (
+              <Button
+                onClick={() => setIsSubmitted(false)}
+                variant="outline"
+                className="mt-6 text-swiss-blue border-swiss-blue hover:bg-swiss-blue/5"
+              >
+                Submit Another Request
+              </Button>
+            )}
+          </div>
+        </Card>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-4xl mx-auto">
