@@ -19,22 +19,25 @@ export default function CookieBanner() {
   const [showPreferences, setShowPreferences] = useState(false);
   const [consent, setConsent] = useState<CookieConsent>({
     essential: true, // Always true, can't be disabled
-    analytics: false,
+    analytics: true, // Default to true
   });
 
   useEffect(() => {
     // Check if user has already given consent
     const savedConsent = localStorage.getItem(COOKIE_CONSENT_KEY);
     if (!savedConsent) {
+      // No consent yet - analytics defaults to true
       // Show banner after a short delay
       const timer = setTimeout(() => {
         setIsVisible(true);
       }, 1000);
       return () => clearTimeout(timer);
     } else {
-      // Migrate old consent records (v1.0 with marketing) to new format (v1.1 without marketing)
+      // Load existing consent
       try {
         const consentRecord = JSON.parse(savedConsent);
+        
+        // Migrate old consent records (v1.0 with marketing) to new format (v1.1 without marketing)
         if (consentRecord.version === '1.0' && consentRecord.consent.marketing !== undefined) {
           // Remove marketing from old consent and update version
           const { marketing, ...migratedConsent } = consentRecord.consent;
@@ -44,9 +47,13 @@ export default function CookieBanner() {
             consent: migratedConsent,
           };
           localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(newConsentRecord));
+          setConsent(migratedConsent);
+        } else if (consentRecord.consent) {
+          // Load existing consent
+          setConsent(consentRecord.consent);
         }
       } catch (error) {
-        // If parsing fails, show banner again
+        // If parsing fails, show banner again with defaults
         console.error('Error parsing consent record:', error);
         localStorage.removeItem(COOKIE_CONSENT_KEY);
         const timer = setTimeout(() => {
@@ -69,7 +76,7 @@ export default function CookieBanner() {
   const handleRejectAll = () => {
     const minimalConsent: CookieConsent = {
       essential: true,
-      analytics: false,
+      analytics: false, // User explicitly rejects analytics
     };
     saveConsent(minimalConsent);
     setIsVisible(false);
@@ -94,11 +101,8 @@ export default function CookieBanner() {
 
   const applyConsentPreferences = (consentData: CookieConsent) => {
     // Essential cookies are always enabled
-    // Analytics cookies (if consent given)
-    if (consentData.analytics) {
-      // Enable analytics tracking here if needed
-      // Example: gtag('consent', 'update', { analytics_storage: 'granted' });
-    }
+    // Analytics cookies - UmamiAnalytics component will handle script loading/unloading
+    // based on consent status via the useCookieConsent hook
   };
 
   const togglePreference = (key: keyof CookieConsent) => {

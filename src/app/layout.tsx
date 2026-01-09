@@ -11,6 +11,7 @@ import { Providers } from './providers'
 import OrganizationSchema from '@/components/schema/OrganizationSchema'
 import NewsletterPopup from '@/components/sections/NewsletterPopup'
 import CookieBanner from '@/components/sections/CookieBanner'
+import UmamiAnalytics from '@/components/analytics/UmamiAnalytics'
 
 const openSans = Open_Sans({ 
   subsets: ['latin'],
@@ -71,6 +72,7 @@ export default function RootLayout({
           </div>
           <NewsletterPopup />
           <CookieBanner />
+          <UmamiAnalytics />
           <Toaster />
           <Sonner />
         </Providers>
