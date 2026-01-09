@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2 } from 'lucide-react';
+import { Loader2, CheckCircle2 } from 'lucide-react';
 
 interface CourseOption {
   id: string;
@@ -22,6 +22,7 @@ interface CourseSignupFormProps {
 export default function CourseSignupForm({ courseName, courseSlug, courseDate, courseOptions }: CourseSignupFormProps) {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   
   // Determine the initial course date value
   const getInitialCourseDate = () => {
@@ -77,20 +78,7 @@ export default function CourseSignupForm({ courseName, courseSlug, courseDate, c
       const data = await response.json();
       
       if (data.success) {
-        toast({
-          title: "Registration received!",
-          description: `We'll be in touch soon about ${courseName}.`,
-        });
-        
-        // Reset form
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          organization: '',
-          courseDate: getInitialCourseDate(),
-          message: '',
-        });
+        setIsSubmitted(true);
       } else {
         toast({
           title: "Error",
@@ -108,6 +96,40 @@ export default function CourseSignupForm({ courseName, courseSlug, courseDate, c
       setIsSubmitting(false);
     }
   };
+
+  // Success state
+  if (isSubmitted) {
+    return (
+      <div className="text-center py-8">
+        <div className="mb-6 flex justify-center">
+          <div className="w-20 h-20 rounded-full bg-swiss-blue/10 flex items-center justify-center animate-in zoom-in-50 duration-500">
+            <CheckCircle2 className="w-12 h-12 text-swiss-blue" strokeWidth={1.5} />
+          </div>
+        </div>
+        <h3 className="text-xl font-semibold text-gray-900 mb-3">Booking Received!</h3>
+        <p className="text-gray-600 mb-6">
+          Thank you for registering for {courseName}. We'll be in touch within 1-2 business days with confirmation and next steps.
+        </p>
+        <Button
+          onClick={() => {
+            setIsSubmitted(false);
+            setFormData({
+              name: '',
+              email: '',
+              phone: '',
+              organization: '',
+              courseDate: getInitialCourseDate(),
+              message: '',
+            });
+          }}
+          variant="outline"
+          className="text-swiss-blue border-swiss-blue hover:bg-swiss-blue/5"
+        >
+          Book Another Seat
+        </Button>
+      </div>
+    );
+  }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
