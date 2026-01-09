@@ -17,6 +17,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Calendar, Send, Briefcase, Mic, GraduationCap, CheckCircle2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 import { type ServiceType, type CourseType } from '@/lib/inquiry';
 
 export default function LeadIntakeForm() {
@@ -99,10 +100,10 @@ export default function LeadIntakeForm() {
         if (serviceSelection) {
           const rect = serviceSelection.getBoundingClientRect();
           const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-          const targetY = scrollTop + rect.top - 100; // 100px offset for header
-          window.scrollTo({ top: targetY, behavior: 'smooth' });
+          const targetY = scrollTop + rect.top - 20; // 20px offset for slight breathing room
+          window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
         }
-      }, 150); // Slightly longer delay to ensure DOM is ready
+      }, 200); // Slightly longer delay to ensure DOM is ready
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Empty dependency array - only run once on mount
@@ -196,24 +197,29 @@ export default function LeadIntakeForm() {
                 <CheckCircle2 className="w-20 h-20 text-swiss-blue" strokeWidth={1.5} />
               </div>
             </div>
-            <h2 className="text-3xl font-semibold text-gray-900 mb-4">Request Received!</h2>
-            <p className="swiss-prose text-gray-600 max-w-md mx-auto mb-2">
+            <h2 className="text-3xl font-semibold text-gray-900 mb-4">Thank You!</h2>
+            <p className="swiss-prose text-gray-600 max-w-md mx-auto mb-8">
               {getConfirmationMessage()}
             </p>
-            {serviceType === 'research' && (
-              <p className="text-sm text-swiss-blue mb-8">
-                Redirecting to calendar in a moment...
-              </p>
-            )}
-            {serviceType !== 'research' && (
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button
+                asChild
+                variant="default"
+                size="lg"
+                className="swiss-blue-gradient text-white"
+              >
+                <Link href="/research">
+                  View Research Briefs
+                </Link>
+              </Button>
               <Button
                 onClick={() => setIsSubmitted(false)}
                 variant="outline"
-                className="mt-6 text-swiss-blue border-swiss-blue hover:bg-swiss-blue/5"
+                className="text-swiss-blue border-swiss-blue hover:bg-swiss-blue/5"
               >
                 Submit Another Request
               </Button>
-            )}
+            </div>
           </div>
         </Card>
       </div>
@@ -224,7 +230,7 @@ export default function LeadIntakeForm() {
     <div className="max-w-4xl mx-auto">
       <form onSubmit={handleSubmit} className="space-y-8">
         {/* Service Type Selection */}
-        <Card id="service-selection" className="p-8 scroll-mt-24">
+        <Card id="service-selection" className="p-8 scroll-mt-20">
           <h3 className="text-2xl font-semibold text-gray-900 mb-6">
             What are you interested in?
           </h3>
