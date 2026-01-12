@@ -26,6 +26,7 @@ export async function POST(request: Request) {
     // Add subscriber to MailerLite
     await mailerlite.subscribers.createOrUpdate({
       email,
+      groups: ['160706794878928310'],
     });
 
     return NextResponse.json({ success: true });
