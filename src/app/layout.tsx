@@ -10,6 +10,7 @@ import Footer from "@/components/layout/Footer"
 import { Providers } from './providers'
 import OrganizationSchema from '@/components/schema/OrganizationSchema'
 import NewsletterPopup from '@/components/sections/NewsletterPopup'
+import NextEventBanner from '@/components/sections/NextEventBanner'
 import CookieBanner from '@/components/sections/CookieBanner'
 import UmamiAnalytics from '@/components/analytics/UmamiAnalytics'
 
@@ -63,6 +64,7 @@ export default function RootLayout({
       <body className={`${openSans.variable} font-sans`}>
         <OrganizationSchema />
         <Providers>
+          <NextEventBanner />
           <div className="min-h-screen flex flex-col">
             <Header />
             <main className="flex-1">
