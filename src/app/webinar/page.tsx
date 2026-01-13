@@ -6,8 +6,16 @@ export default function WebinarPage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="swiss-hero swiss-gradient relative overflow-hidden">
-        <div className="absolute inset-0 swiss-blue-gradient-hero"></div>
-        <div className="swiss-grid relative">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-right-top md:bg-top bg-no-repeat"
+          style={{
+            backgroundImage: 'url(/sbi-21-bitcoin-webinar.png)',
+          }}
+        />
+        {/* White overlay for strong fade effect - 80% opacity (image at ~20% visibility) */}
+        <div className="absolute inset-0 bg-white/80"></div>
+        <div className="swiss-grid relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="mb-8 text-gray-900">Bitcoin in 21 Minutes</h1>
             <p className="swiss-prose-lg mb-12 max-w-3xl mx-auto text-gray-700 leading-relaxed">
