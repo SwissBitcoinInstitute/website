@@ -44,7 +44,7 @@ const Header = () => {
   const isActive = (href: string) => pathname === href;
 
   return (
-    <header className="sticky z-50 bg-yellow-400 backdrop-blur-xl supports-[backdrop-filter]:bg-yellow-400/90 border-b border-gray-200/60 shadow-sm" style={{ top: 'var(--banner-height, 0px)' }}>
+    <header className="sticky z-50 bg-red-600 backdrop-blur-xl supports-[backdrop-filter]:bg-red-600/90 border-b border-gray-200/60 shadow-sm" style={{ top: 'var(--banner-height, 0px)' }}>
       <nav className="swiss-grid" aria-label="Main navigation">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
