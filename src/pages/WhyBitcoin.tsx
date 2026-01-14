@@ -36,7 +36,7 @@ const WhyBitcoin = () => {
       icon: "⚡",
       title: "Technical Stability",
       subtitle: "Never hacked, 99.99% uptime",
-      description: "Bitcoin's network has run continuously for 16 years without ever being hacked or experiencing a successful attack on its core protocol. It maintains 99.99% uptime, making it more reliable than most banking systems or tech platforms. While exchanges and individual wallets have been compromised, the Bitcoin network itself remains impenetrable—a track record no other cryptocurrency can match."
+      description: "Bitcoin's network has run continuously for 17 years without ever being hacked or experiencing a successful attack on its core protocol. It maintains 99.99% uptime, making it more reliable than most banking systems or tech platforms. While exchanges and individual wallets have been compromised, the Bitcoin network itself remains impenetrable—a track record no other cryptocurrency can match."
     },
     {
       icon: "🌍",
@@ -56,7 +56,7 @@ const WhyBitcoin = () => {
     {
       icon: "🤝",
       title: "Trust",
-      description: "As a consequence of all these properties that Bitcoin has been exhibiting without a flaw for over 16 years, an increasing number of people, organisations, and even nation states start trusting the system for their use: a neutral platform for exchanging value over the internet. Something we are lacking for the 21st century."
+      description: "As a consequence of all these properties that Bitcoin has been exhibiting without a flaw for over 17 years, an increasing number of people, organisations, and even nation states start trusting the system for their use: a neutral platform for exchanging value over the internet. Something we are lacking for the 21st century."
     },
     {
       icon: "⚖️",
