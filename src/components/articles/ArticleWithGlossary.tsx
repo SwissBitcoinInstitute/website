@@ -214,13 +214,13 @@ export default function ArticleWithGlossary({ content, articleId }: ArticleWithG
       
       {/* Lightbox Dialog for Figure Images */}
       <Dialog open={!!lightboxImage} onOpenChange={(open) => !open && setLightboxImage(null)}>
-        <DialogContent className="max-w-4xl max-h-[90vh] p-0 bg-transparent border-none">
+        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-transparent border-none">
           {lightboxImage && (
             <div className="relative w-full h-full flex items-center justify-center">
               <img
                 src={lightboxImage.src}
                 alt={lightboxImage.alt}
-                className="max-w-full max-h-[90vh] object-contain rounded-lg"
+                className="max-w-full max-h-full object-contain rounded-lg"
               />
             </div>
           )}

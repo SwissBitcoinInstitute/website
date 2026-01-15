@@ -62,6 +62,56 @@ export default async function FellowPage({ params }: PageProps) {
   // Try to get detailed author content from markdown file
   const author = await getAuthorById(member.slug);
 
+  // Preprocess author content to remove duplicate bio paragraph
+  let processedAuthorContent = author?.content || '';
+  if (author?.content) {
+    // Use author.bio if available, otherwise fall back to member.bio
+    const bioText = (author.bio || member.bio || '').trim();
+    
+    if (bioText) {
+      // Normalize both texts for comparison (remove extra whitespace)
+      const normalizedBio = bioText.replace(/\s+/g, ' ').trim();
+      
+      // Split content into lines
+      const lines = processedAuthorContent.split('\n');
+      let h1Index = -1;
+      let firstParagraphIndex = -1;
+      
+      // Find H1 heading
+      for (let i = 0; i < lines.length; i++) {
+        if (lines[i].trim().startsWith('# ')) {
+          h1Index = i;
+          break;
+        }
+      }
+      
+      // Find first paragraph after H1 (or at start if no H1)
+      const startIndex = h1Index !== -1 ? h1Index + 1 : 0;
+      for (let i = startIndex; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (line && !line.startsWith('#')) {
+          firstParagraphIndex = i;
+          break;
+        }
+      }
+      
+      // Check if first paragraph matches bio
+      if (firstParagraphIndex !== -1) {
+        const firstParagraph = lines[firstParagraphIndex].trim();
+        const normalizedParagraph = firstParagraph.replace(/\s+/g, ' ').trim();
+        
+        // Use a more flexible comparison (allow for slight differences)
+        if (normalizedParagraph === normalizedBio || 
+            normalizedParagraph.includes(normalizedBio.substring(0, 50)) ||
+            normalizedBio.includes(normalizedParagraph.substring(0, 50))) {
+          // Remove the duplicate paragraph
+          lines.splice(firstParagraphIndex, 1);
+          processedAuthorContent = lines.join('\n');
+        }
+      }
+    }
+  }
+
   // Get articles by this fellow
   // The getArticlesByAuthor function handles slug mapping automatically
   const fellowArticles = await getArticlesByAuthor(member.slug);
@@ -239,28 +289,28 @@ export default async function FellowPage({ params }: PageProps) {
             </p>
 
             {/* Display author markdown content if available */}
-            {author && author.content && (
+            {processedAuthorContent && (
               <div className="space-y-8 mt-8">
-                <ReactMarkdown 
-                  remarkPlugins={[remarkGfm]}
-                  components={{
-                    h1: ({ children }) => {
-                      // Skip h1 if it's the same as the member's name (duplicate)
-                      const headingText = String(children).trim();
-                      if (headingText === member.name || headingText === member.name.replace('Dr. ', '')) {
-                        return null;
-                      }
-                      return <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 first:mt-0">{children}</h2>;
-                    },
-                    h2: ({ children }) => (
-                      <h3 className="text-xl font-semibold mt-6 mb-3 text-gray-900">{children}</h3>
-                    ),
-                    h3: ({ children }) => (
-                      <h4 className="text-lg font-semibold mt-5 mb-2 text-gray-900">{children}</h4>
-                    ),
-                    p: ({ children }) => (
-                      <p className="text-lg text-gray-700 leading-relaxed mb-4">{children}</p>
-                    ),
+                  <ReactMarkdown 
+                    remarkPlugins={[remarkGfm]}
+                    components={{
+                      h1: ({ children }) => {
+                        // Skip h1 if it's the same as the member's name (duplicate)
+                        const headingText = String(children).trim();
+                        if (headingText === member.name || headingText === member.name.replace('Dr. ', '')) {
+                          return null;
+                        }
+                        return <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 first:mt-0">{children}</h2>;
+                      },
+                      h2: ({ children }) => (
+                        <h3 className="text-xl font-semibold mt-6 mb-3 text-gray-900">{children}</h3>
+                      ),
+                      h3: ({ children }) => (
+                        <h4 className="text-lg font-semibold mt-5 mb-2 text-gray-900">{children}</h4>
+                      ),
+                      p: ({ children }) => (
+                        <p className="text-lg text-gray-700 leading-relaxed mb-4">{children}</p>
+                      ),
                     ul: ({ children }) => (
                       <ul className="list-disc pl-6 mb-4 space-y-2">{children}</ul>
                     ),
@@ -295,7 +345,7 @@ export default async function FellowPage({ params }: PageProps) {
                     ),
                   }}
                 >
-                  {author.content}
+                  {processedAuthorContent}
                 </ReactMarkdown>
               </div>
             )}

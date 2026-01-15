@@ -69,6 +69,56 @@ export default async function TeamMemberPage({ params }: PageProps) {
   // Try to get detailed author content from markdown file
   const author = await getAuthorById(member.slug);
 
+  // Preprocess author content to remove duplicate bio paragraph
+  let processedAuthorContent = author?.content || '';
+  if (author?.content) {
+    // Use author.bio if available, otherwise fall back to member.bio
+    const bioText = (author.bio || member.bio || '').trim();
+    
+    if (bioText) {
+      // Normalize both texts for comparison (remove extra whitespace)
+      const normalizedBio = bioText.replace(/\s+/g, ' ').trim();
+      
+      // Split content into lines
+      const lines = processedAuthorContent.split('\n');
+      let h1Index = -1;
+      let firstParagraphIndex = -1;
+      
+      // Find H1 heading
+      for (let i = 0; i < lines.length; i++) {
+        if (lines[i].trim().startsWith('# ')) {
+          h1Index = i;
+          break;
+        }
+      }
+      
+      // Find first paragraph after H1 (or at start if no H1)
+      const startIndex = h1Index !== -1 ? h1Index + 1 : 0;
+      for (let i = startIndex; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (line && !line.startsWith('#')) {
+          firstParagraphIndex = i;
+          break;
+        }
+      }
+      
+      // Check if first paragraph matches bio
+      if (firstParagraphIndex !== -1) {
+        const firstParagraph = lines[firstParagraphIndex].trim();
+        const normalizedParagraph = firstParagraph.replace(/\s+/g, ' ').trim();
+        
+        // Use a more flexible comparison (allow for slight differences)
+        if (normalizedParagraph === normalizedBio || 
+            normalizedParagraph.includes(normalizedBio.substring(0, 50)) ||
+            normalizedBio.includes(normalizedParagraph.substring(0, 50))) {
+          // Remove the duplicate paragraph
+          lines.splice(firstParagraphIndex, 1);
+          processedAuthorContent = lines.join('\n');
+        }
+      }
+    }
+  }
+
   // Get all core team members for navigation
   const allCoreMembers = getAllTeamMembers().filter(m => m.category === 'core');
   const currentIndex = allCoreMembers.findIndex(m => m.slug === params.slug);
@@ -237,7 +287,7 @@ export default async function TeamMemberPage({ params }: PageProps) {
             </p>
 
             {/* Display author markdown content if available */}
-            {author && author.content && (
+            {processedAuthorContent && (
               <div className="space-y-8 mt-8">
                 <ReactMarkdown 
                   remarkPlugins={[remarkGfm]}
@@ -293,7 +343,7 @@ export default async function TeamMemberPage({ params }: PageProps) {
                     ),
                   }}
                 >
-                  {author.content}
+                  {processedAuthorContent}
                 </ReactMarkdown>
               </div>
             )}
