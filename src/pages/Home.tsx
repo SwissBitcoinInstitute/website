@@ -63,10 +63,10 @@ const Home = () => {
     readTime: "18 min read",
     link: "/research/SBI-003"
   }, {
-    title: "Inflation by Design, Deflation by Technology",
-    description: "Preparing for a hybrid monetary order where fiat inflation meets Bitcoin's deflationary technology.",
-    readTime: "22 min read",
-    link: "/research/SBI-004"
+    title: "Survival of the Fittest: Why Monies Thrive or Die",
+    description: "Why are central banks rushing to develop digital currencies (CBDCs)? Why are global corporations exploring stablecoins, and why are BRICS nations considering a new reserve currency? The answer is that for the first time in decades, the monetary landscape is becoming competitive again.",
+    readTime: "18 min read",
+    link: "/research/SBI-008"
   }, {
     title: "A Quantum of Solace",
     description: "To defend against quantum technology attacks, Bitcoin requires consensus on quantum-resistant cryptography.",
@@ -216,8 +216,10 @@ const Home = () => {
             {researchHighlights.map((highlight, index) => {
               // Extract article ID from link (e.g., /research/SBI-003 -> SBI-003)
               const articleId = highlight.link.replace('/research/', '');
-              const headerImage = articleId.toLowerCase().match(/^sbi-\d{3}$/) 
-                ? `/sbi-research-headers/${articleId.toLowerCase()}.webp` 
+              // Get header image path - for SBI-008 use .jpg, otherwise .webp
+              const normalizedId = articleId.toLowerCase();
+              const headerImage = normalizedId.match(/^sbi-\d{3}$/) 
+                ? `/sbi-research-headers/${normalizedId}${normalizedId === 'sbi-008' ? '.jpg' : '.webp'}` 
                 : null;
               
               return (
