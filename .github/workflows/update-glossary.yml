@@ -1,0 +1,30 @@
+name: Update Glossary Markdown Files
+
+on:
+  push:
+    paths:
+      - 'public/Bitcoin glossary – terms.csv'
+
+jobs:
+  generate-markdown:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - uses: actions/checkout@v3
+
+      # Set up Node.js (adjust version if needed)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: latest
+
+      # 4. Run your script
+      - name: Generate Markdown
+        run: node scripts/import-glossary.js
+
+      # 5. Commit and push changes back to the repo
+      - name: Commit and push
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: 'Glossary markdown files updated'
