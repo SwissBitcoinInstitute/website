@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/card'
 import { CheckCircle2, Users, Clock, MapPin } from 'lucide-react'
 import CourseSignupForm from '@/components/forms/CourseSignupForm'
 import { bitcoinForExecutivesCourses, formatCourseDate } from '@/lib/courses'
+import CourseFlyerActions from '@/components/courses/CourseFlyerActions'
 
 export const metadata: Metadata = {
   title: 'Bitcoin for Executives - Strategic Course | Swiss Bitcoin Institute',
@@ -146,6 +147,10 @@ export default function BitcoinForExecutivesPage() {
                     </div>
                   </Card>
                 ))}
+                {/* Event Flyer Download */}
+                <CourseFlyerActions
+                  flyerPath="/sbi-event-flyers/SBI-BTC-Exec-Flyer_26.png"
+                />
               </div>
 
               {/* Signup Form */}

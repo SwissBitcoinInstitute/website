@@ -3,6 +3,7 @@ import CTAButton from '@/components/ui/cta-button'
 import { Card } from '@/components/ui/card'
 import { CheckCircle2, Users, Clock, MapPin } from 'lucide-react'
 import CourseSignupForm from '@/components/forms/CourseSignupForm'
+import CourseFlyerActions from '@/components/courses/CourseFlyerActions'
 
 export const metadata: Metadata = {
   title: 'Financial Sovereignty - Starter | Swiss Bitcoin Institute',
@@ -126,15 +127,21 @@ export default function FinancialSovereigntyPage() {
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Next Course Dates */}
-              <Card className="p-6 border-2 border-gray-200 bg-white self-start">
-                <div className="text-sm mb-4 font-medium uppercase tracking-wide swiss-blue-gradient-text">Next course:</div>
-                <div className="mb-3 text-sm font-bold text-gray-900">
-                  0.5 day (13:30-17:30)
-                </div>
-                <div className="space-y-2">
-                  <div className="text-base text-gray-900">12th March 2026</div>
-                </div>
-              </Card>
+              <div className="space-y-4 self-start">
+                <Card className="p-6 border-2 border-gray-200 bg-white">
+                  <div className="text-sm mb-4 font-medium uppercase tracking-wide swiss-blue-gradient-text">Next course:</div>
+                  <div className="mb-3 text-sm font-bold text-gray-900">
+                    0.5 day (13:30-17:30)
+                  </div>
+                  <div className="space-y-2">
+                    <div className="text-base text-gray-900">12th March 2026</div>
+                  </div>
+                </Card>
+                {/* Event Flyer Download */}
+                <CourseFlyerActions
+                  flyerPath="/sbi-event-flyers/SBI-FinSov-Flyer_26.png"
+                />
+              </div>
 
               {/* Signup Form */}
               <div className="lg:col-span-2">

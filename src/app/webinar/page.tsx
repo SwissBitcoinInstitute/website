@@ -82,8 +82,11 @@ export default function WebinarPage() {
               </h3>
               
               <div className="mb-6">
+                <p className="text-lg font-semibold text-gray-900 mb-4">
+                  Topic: Why Bitcoin is not Crypto
+                </p>
                 <h4 className="text-xl font-semibold text-gray-900 mb-6">
-                  21 Jan 2026
+                  21. January 2026
                 </h4>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
