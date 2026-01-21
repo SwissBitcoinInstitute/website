@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/card'
 import { CheckCircle2, Users, Clock, MapPin } from 'lucide-react'
 import CourseSignupForm from '@/components/forms/CourseSignupForm'
 import { bitcoinForExecutivesCourses, formatCourseDate } from '@/lib/courses'
+import CourseFlyerActions from '@/components/courses/CourseFlyerActions'
 
 export const metadata: Metadata = {
   title: 'Bitcoin for Executives - Strategic Course | Swiss Bitcoin Institute',
@@ -124,7 +125,7 @@ export default function BitcoinForExecutivesPage() {
             {/* Price */}
             <div className="text-center mb-10 sm:mb-12">
               <div className="inline-block px-6 sm:px-8 py-4 sm:py-6 bg-gray-50 rounded-xl border border-gray-200">
-                <div className="text-3xl sm:text-4xl font-bold text-gray-900">CHF 1'399.-</div>
+                <div className="text-3xl sm:text-4xl font-bold text-gray-900">CHF 5'999.-</div>
               </div>
             </div>
 
@@ -146,6 +147,10 @@ export default function BitcoinForExecutivesPage() {
                     </div>
                   </Card>
                 ))}
+                {/* Event Flyer Download */}
+                <CourseFlyerActions
+                  flyerPath="/sbi-event-flyers/SBI-BTC-for-Exec-Course_12-2-26.png"
+                />
               </div>
 
               {/* Signup Form */}
