@@ -5,6 +5,7 @@ import { CheckCircle2, Users, Clock, MapPin } from 'lucide-react'
 import CourseSignupForm from '@/components/forms/CourseSignupForm'
 import { bitcoinForExecutivesCourses, formatCourseDate } from '@/lib/courses'
 import CourseFlyerActions from '@/components/courses/CourseFlyerActions'
+import TopicsColumn from '@/components/courses/TopicsColumn'
 
 export const metadata: Metadata = {
   title: 'Bitcoin for Executives - Strategic Course | Swiss Bitcoin Institute',
@@ -103,7 +104,7 @@ export default function BitcoinForExecutivesPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-gray-200 pt-8 sm:pt-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 border-t border-gray-200 pt-8 sm:pt-12">
               {courseDetails.map((detail, index) => (
                 <div key={index} className="text-center">
                   <div className="flex justify-center mb-4">
@@ -113,6 +114,7 @@ export default function BitcoinForExecutivesPage() {
                   <div className="font-semibold text-gray-900">{detail.value}</div>
                 </div>
               ))}
+              <TopicsColumn />
             </div>
           </div>
         </div>
