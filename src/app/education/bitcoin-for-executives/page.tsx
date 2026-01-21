@@ -42,11 +42,11 @@ export default function BitcoinForExecutivesPage() {
 
   const whatYoullGet = [
     '360° macro view of Bitcoin using our 6-domain framework',
-    'Critical thinking on Bitcoin\'s role in a changing world order, from AI to geopolitics to net-zero.',
+    'Critical thinking on Bitcoin\'s role in a changing world order, from AI to geopolitics to net-zero. No hype.',
     'Implications for Switzerland and your organisation',
     'Expert-led peer discussions to nurture actionable insights',
-    'Rationale for why Bitcoin is not \'crypto\' nor \'blockchain\'',
-    'Non-hype style. Only as technical as needed.',
+    <em key="qa">Exclusive Q&A post course</em>,
+    <em key="session">Individual 1:1 session with the trainer</em>,
   ]
 
   return (

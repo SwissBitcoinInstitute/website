@@ -29,12 +29,13 @@ export default function FinancialSovereigntyPage() {
   ]
 
   const whoItsFor = [
-    'Bitcoin holders who want to make a step towards financial sovereignty and be independent of exchanges, crypto brokers, banks',
-    'Private and professional Bitcoin holders',
-    'Control their coins in a self-sovereign manner',
+    'Executives & Regulators: Leaders who require a hands-on, technical understanding of Bitcoin custody to inform strategy and policy.',
+    'Private & Professional Investors: Holders seeking to eliminate counterparty risk by moving assets to secure self-custody.',
+    'Individuals ready to master the technical skills of hardware wallets, key management, and independent value transfer.',
   ]
 
   const whatYoullGet = [
+    'Low-profile, discrete meeting in a safe space',
     'Comparison of Bitcoin wallets types and devices',
     'Lightning & other Layer-2 networks',
     'Hands-on experience with different wallets',
@@ -74,6 +75,7 @@ export default function FinancialSovereigntyPage() {
               {/* Who it's for */}
               <div>
                 <h2 className="text-2xl font-semibold text-gray-900 mb-6">Who it's for</h2>
+                <p className="text-gray-700 mb-4">This course is designed for:</p>
                   <ul className="space-y-3">
                   {whoItsFor.map((item, index) => (
                     <li key={index} className="flex items-start space-x-3">
