@@ -9,7 +9,7 @@ import TopicsColumn from '@/components/courses/TopicsColumn'
 
 export const metadata: Metadata = {
   title: 'Bitcoin for Executives - Strategic Course | Swiss Bitcoin Institute',
-  description: 'A compact course for leaders who need to make responsible decisions about Bitcoin. Professional guided overview of Bitcoin\'s strategic implications focusing on macro thinking across business, policy, society, and geopolitics.',
+  description: 'A compact course for leaders who need to make strategic decisions about Bitcoin. Professional guided overview of Bitcoin\'s strategic implications focusing on macro across geopolitics, business, policy, and society.',
   openGraph: {
     title: 'Bitcoin for Executives | Swiss Bitcoin Institute',
     description: 'Strategic Bitcoin course for executives and decision-makers. Understand Bitcoin\'s implications for business, policy, and society.',
@@ -38,7 +38,7 @@ export default function BitcoinForExecutivesPage() {
     'Finance & Banking, Energy & Utilities, Industry',
     'International Organisations, Civil Society / NGOs',
     'Government & Administration',
-    'Anyone who must decide if / how / when to engage with Bitcoin',
+    'Anyone who must strategically engage with Bitcoin',
   ]
 
   const whatYoullGet = [
@@ -65,7 +65,7 @@ export default function BitcoinForExecutivesPage() {
             </div>
             <h1 className="mb-6 sm:mb-8 text-gray-900">Bitcoin for Executives</h1>
             <p className="swiss-prose-lg mb-8 sm:mb-10 max-w-4xl mx-auto text-gray-700 leading-relaxed">
-              A compact course for leaders who need to make responsible decisions about Bitcoin. We provide a professional guided overview of Bitcoin's strategic implications focusing on macro thinking across business, policy, society, and geopolitics.
+              A compact course for leaders who need to make strategic decisions about Bitcoin. We provide a professional guided overview of Bitcoin's strategic implications focusing on macro across geopolitics, business, policy, and society.
             </p>
           </div>
         </div>
@@ -150,8 +150,9 @@ export default function BitcoinForExecutivesPage() {
                   </Card>
                 ))}
                 {/* Event Flyer Download */}
+                {/* MD changed file name on purpose to break download without interfering with anything else. Goal: remove flyer DL option entirely.*/}
                 <CourseFlyerActions
-                  flyerPath="/sbi-event-flyers/SBI-BTC-for-Exec-Course_12-2-26.png"
+                  flyerPath="/sbi-event-flyers/SBI-BTC-4-Exec-Course_12-2-26.png"
                 />
               </div>
 
