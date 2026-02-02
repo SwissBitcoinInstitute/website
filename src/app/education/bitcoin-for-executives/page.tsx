@@ -26,8 +26,8 @@ export const metadata: Metadata = {
 export default function BitcoinForExecutivesPage() {
   const courseDetails = [
     { icon: <MapPin className="w-5 h-5" />, label: 'Format', value: 'Live course (Zürich)' },
-    { icon: <Clock className="w-5 h-5" />, label: 'Duration', value: '1 course, 4 afternoons' },
-    { icon: <Users className="w-5 h-5" />, label: 'Level', value: 'Executives with little Bitcoin knowledge' },
+    { icon: <Clock className="w-5 h-5" />, label: 'Duration', value: '2 full days' },
+    { icon: <Users className="w-5 h-5" />, label: 'Level', value: 'Executives. No Bitcoin knowledge required.' },
   ]
 
   const whoItsFor = [
