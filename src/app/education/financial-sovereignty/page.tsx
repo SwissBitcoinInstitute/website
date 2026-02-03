@@ -6,16 +6,16 @@ import CourseSignupForm from '@/components/forms/CourseSignupForm'
 import CourseFlyerActions from '@/components/courses/CourseFlyerActions'
 
 export const metadata: Metadata = {
-  title: 'Financial Sovereignty - Starter | Swiss Bitcoin Institute',
+  title: 'Financial Sovereignty - Fundamentals | Swiss Bitcoin Institute',
   description: 'Learn to securely control your own Bitcoin in half a day through hands-on training with hardware wallets, seed phrase management, and secure backup strategies.',
   openGraph: {
-    title: 'Financial Sovereignty - Starter | Swiss Bitcoin Institute',
+    title: 'Financial Sovereignty - Fundamentals | Swiss Bitcoin Institute',
     description: 'Half-day hands-on Bitcoin course for holders. Master hardware wallets, seed phrases, and secure backup strategies.',
     images: ['/opengraph-image.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Financial Sovereignty - Starter | Swiss Bitcoin Institute',
+    title: 'Financial Sovereignty - Fundamentals | Swiss Bitcoin Institute',
     description: 'Half-day hands-on Bitcoin course for holders. Master hardware wallets, seed phrases, and secure backup strategies.',
     images: ['/opengraph-image.png'],
   },
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 export default function FinancialSovereigntyPage() {
   const courseDetails = [
     { icon: <MapPin className="w-5 h-5" />, label: 'Format', value: 'Live course (in Zürich)' },
-    { icon: <Clock className="w-5 h-5" />, label: 'Duration', value: '0.5 day' },
+    { icon: <Clock className="w-5 h-5" />, label: 'Duration', value: 'One afternoon' },
     { icon: <Users className="w-5 h-5" />, label: 'Level', value: 'Bitcoin holders' },
   ]
 
@@ -58,7 +58,7 @@ export default function FinancialSovereigntyPage() {
                 <span className="pill-hero-text">Hands-On Course</span>
               </span>
             </div>
-            <h1 className="mb-6 text-gray-900">Financial Sovereignty - Starter</h1>
+            <h1 className="mb-6 text-gray-900">Financial Sovereignty - Fundamentals</h1>
             <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
               Learn to securely control your own Bitcoin in half a day through hands-on training with hardware wallets, seed phrase management, and secure backup strategies – gain true financial independence from banks and exchanges.
             </p>
@@ -123,7 +123,7 @@ export default function FinancialSovereigntyPage() {
             <div className="text-center mb-8">
               <div className="inline-block p-6 border-2 border-gray-200 rounded-lg bg-gray-50">
                 <div className="text-3xl font-bold text-gray-900 mb-1">CHF 749.-</div>
-                <div className="text-sm text-gray-600">(incl. 50.- in sats)</div>
+                <div className="text-sm text-gray-600">(CHF 50 in BTC incl.)</div>
               </div>
             </div>
 
@@ -150,7 +150,7 @@ export default function FinancialSovereigntyPage() {
                 <Card className="p-8 border-2 border-gray-200 bg-white">
                   <h3 className="text-xl font-semibold text-gray-900 mb-6">Book your seat</h3>
                   <CourseSignupForm 
-                    courseName="Financial Sovereignty - Starter"
+                    courseName="Financial Sovereignty - Fundamentals"
                     courseSlug="financial-sovereignty"
                     courseDate="20 March 2026, afternoon 13:30-17:30"
                   />
