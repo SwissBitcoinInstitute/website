@@ -141,7 +141,8 @@ export default function FinancialSovereigntyPage() {
                 </Card>
                 {/* Event Flyer Download */}
                 <CourseFlyerActions
-                  flyerPath="/sbi-event-flyers/SBI-FinSov-Course_12-3-26.png"
+                  {/* MD intentionally breaks DL by putting typo into file name to avoid downloading of flyer with wrong courseinformation */}
+                  flyerPath="/sbi-event-flyers/SBI-Fin-Sov-Course_12-3-26.png"
                 />
               </div>
 
