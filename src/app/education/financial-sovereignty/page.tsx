@@ -152,7 +152,7 @@ export default function FinancialSovereigntyPage() {
                   <CourseSignupForm 
                     courseName="Financial Sovereignty - Starter"
                     courseSlug="financial-sovereignty"
-                    courseDate="0.5 day (13:30-17:30): 12th March 2026"
+                    courseDate="20 March 2026, afternoon 13:30-17:30"
                   />
                 </Card>
               </div>
