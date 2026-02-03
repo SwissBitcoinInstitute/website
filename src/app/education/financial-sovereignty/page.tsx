@@ -25,7 +25,7 @@ export default function FinancialSovereigntyPage() {
   const courseDetails = [
     { icon: <MapPin className="w-5 h-5" />, label: 'Format', value: 'Live course (in Zürich)' },
     { icon: <Clock className="w-5 h-5" />, label: 'Duration', value: 'One afternoon' },
-    { icon: <Users className="w-5 h-5" />, label: 'Level', value: 'Bitcoin holders' },
+    { icon: <Users className="w-5 h-5" />, label: 'Level', value: 'Bitcoiner Beginners' },
   ]
 
   const whoItsFor = [
@@ -60,7 +60,7 @@ export default function FinancialSovereigntyPage() {
             </div>
             <h1 className="mb-6 text-gray-900">Financial Sovereignty - Fundamentals</h1>
             <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
-              Learn to securely control your own Bitcoin in half a day through hands-on training with hardware wallets, seed phrase management, and secure backup strategies – gain true financial independence from banks and exchanges.
+              A short course for Bitcoin holders who want to take their Bitcoin into self-custody and become independent of third parties. The hands-on training covers apps, wallets, seed phrase management, and secure backup strategies to gain true financial sovereignty.
             </p>
           </div>
         </div>
