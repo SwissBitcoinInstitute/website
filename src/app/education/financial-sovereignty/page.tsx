@@ -133,10 +133,10 @@ export default function FinancialSovereigntyPage() {
                 <Card className="p-6 border-2 border-gray-200 bg-white">
                   <div className="text-sm mb-4 font-medium uppercase tracking-wide swiss-blue-gradient-text">Next course:</div>
                   <div className="mb-3 text-sm font-bold text-gray-900">
-                    0.5 day (13:30-17:30)
+                    Afternoon 13:30-17:30
                   </div>
                   <div className="space-y-2">
-                    <div className="text-base text-gray-900">12th March 2026</div>
+                    <div className="text-base text-gray-900">20 March 2026</div>
                   </div>
                 </Card>
                 {/* Event Flyer Download */}
