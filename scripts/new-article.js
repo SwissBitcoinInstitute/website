@@ -9,9 +9,9 @@ function getNextArticleId() {
   const files = fs.readdirSync(articlesDir);
   
   const ids = files
-    .filter(file => file.startsWith('sbi-') && file.endsWith('.md'))
+    .filter(file => file.startsWith('SBI-') && file.endsWith('.md'))
     .map(file => {
-      const match = file.match(/sbi-(\d+)/);
+      const match = file.match(/SBI-(\d+)/);
       return match ? parseInt(match[1]) : 0;
     })
     .filter(id => !isNaN(id));
@@ -28,28 +28,65 @@ function getCurrentDate() {
 // Create new article
 function createNewArticle(title, author = 'unknown') {
   const articleId = getNextArticleId();
-  const slug = `sbi-${articleId}-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
-  const filename = `${slug}.md`;
+  const filename = `SBI-${articleId}.md`;
   
-  const template = fs.readFileSync(path.join(__dirname, '../templates/article-template.md'), 'utf8');
-  
-  const articleContent = template
-    .replace('SBI-XXX', `SBI-${articleId}`)
-    .replace('Your Article Title Here', title)
-    .replace('"author-id"', `"${author}"`)
-    .replace('"2024-12-22"', `"${getCurrentDate()}"`)
-    .replace('# Your Article Title Here', `# ${title}`);
+  // Create article content based on the schema
+  const articleContent = `---
+id: "SBI-${articleId}"
+title: "${title}"
+author: "${author}"
+date: "${getCurrentDate()}"
+blockHeight: ""
+excerpt: "A brief description of your article that will appear in article listings and social media previews."
+tags: ["Tag 1", "Tag 2", "Tag 3"]
+readTime: "" # Leave empty to auto-calculate
+featured: false
+published: false # Set to true when ready to publish
+---
+
+# ${title}
+
+Write your article content here using Markdown formatting.
+
+## Section Headers
+
+Use ## for main sections and ### for subsections.
+
+### Key Points
+
+- Use bullet points for lists
+- **Bold text** for emphasis
+- *Italic text* for subtle emphasis
+- \`inline code\` for technical terms
+
+### Swiss Context
+
+Always consider how your topic relates to Switzerland and Swiss interests.
+
+## Conclusion
+
+Summarize your key findings and their implications for Swiss leaders and organizations.
+
+---
+
+**Author Guidelines:**
+- Use clear, executive-friendly language
+- Include specific Swiss context where relevant
+- Cite sources and data where appropriate
+- Keep paragraphs concise and scannable
+- Include actionable insights
+`;
   
   const articlePath = path.join(__dirname, '../src/content/articles', filename);
   fs.writeFileSync(articlePath, articleContent);
   
   console.log(`✅ Created new article: ${filename}`);
   console.log(`📝 Edit it at: src/content/articles/${filename}`);
-  console.log(`🔗 URL will be: /intelligence/${slug}`);
   console.log('\nRemember to:');
   console.log('- Add your content');
-  console.log('- Set published: true when ready');
+  console.log('- Update the blockHeight');
   console.log('- Update tags and excerpt');
+  console.log('- Set published: true when ready');
 }
 
 // Command line interface
