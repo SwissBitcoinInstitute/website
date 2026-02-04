@@ -108,7 +108,7 @@ export default function CourseSignupForm({ courseName, courseSlug, courseDate, c
         </div>
         <h3 className="text-xl font-semibold text-gray-900 mb-3">Booking Received!</h3>
         <p className="text-gray-600 mb-6">
-          Thank you for registering for {courseName}. We'll be in touch within 1-2 business days with confirmation and next steps.
+          Thank you for registering for {courseName}. We'll be in touch shortly with confirmation and next steps.
         </p>
         <Button
           onClick={() => {
@@ -228,7 +228,7 @@ export default function CourseSignupForm({ courseName, courseSlug, courseDate, c
           name="message"
           value={formData.message}
           onChange={handleInputChange}
-          placeholder="Any questions or additional information? If you have a discount code, simply mention it here."
+          placeholder="Do you have any questions or comments? If you have a discount code, simply mention it here."
           rows={3}
           className="mt-1 flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
         />
