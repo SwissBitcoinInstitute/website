@@ -76,15 +76,15 @@ export default function FinancialSovereigntyPage() {
               <div>
                 <h2 className="text-2xl font-semibold text-gray-900 mb-6">Who it's for</h2>
                 <p className="text-gray-700 mb-4">This course is designed for:</p>
-                  <ul className="space-y-3">
+                <ul className="space-y-3">
                   {whoItsFor.map((item, index) => (
                     <li key={index} className="flex items-start space-x-3">
                       <CheckCircle2 className="w-5 h-5 text-swiss-blue flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-        </div>
+                      <span className="text-gray-700">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
               {/* What you'll get */}
               <div>
@@ -93,11 +93,11 @@ export default function FinancialSovereigntyPage() {
                   {whatYoullGet.map((item, index) => (
                     <li key={index} className="flex items-start space-x-3">
                       <CheckCircle2 className="w-5 h-5 text-swiss-blue flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">{item}</span>
+                      <span className="text-gray-700">{item}</span>
                     </li>
                   ))}
                 </ul>
-                </div>
+              </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-gray-200 pt-12">
@@ -140,8 +140,8 @@ export default function FinancialSovereigntyPage() {
                   </div>
                 </Card>
                 {/* Event Flyer Download */}
+                {/* MD intentionally breaks DL by putting typo into file name to avoid downloading of flyer with wrong courseinformation */}
                 <CourseFlyerActions
-                  {/* MD intentionally breaks DL by putting typo into file name to avoid downloading of flyer with wrong courseinformation */}
                   flyerPath="/sbi-event-flyers/SBI-Fin-Sov-Course_12-3-26.png"
                 />
               </div>

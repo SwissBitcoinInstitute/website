@@ -42,7 +42,7 @@ export default function BitcoinForExecutivesPage() {
   ]
 
   const whatYoullGet = [
-    'Protocol Impact overview across SBI's 360° Domain Framework',
+    'Protocol Impact overview across SBI\'s 360° Domain Framework',
     'Macro perspective across industry, government, and civil society',
     'Critical analysis of interlinks between Bitcoin and other key trends (AI, geopolitics, net-zero)',
     'Implications for Switzerland and your industry',
