@@ -8,17 +8,17 @@ import CourseFlyerActions from '@/components/courses/CourseFlyerActions'
 import TopicsColumn from '@/components/courses/TopicsColumn'
 
 export const metadata: Metadata = {
-  title: 'Bitcoin for Executives - Strategic Course | Swiss Bitcoin Institute',
-  description: 'A compact course for leaders who need to make strategic decisions about Bitcoin. Professional guided overview of Bitcoin\'s strategic implications focusing on macro across geopolitics, business, policy, and society.',
+  title: 'Bitcoin Executive Masterclass | Swiss Bitcoin Institute',
+  description: 'For leaders who need to make strategic decisions about Bitcoin. Professional guided overview of Bitcoin\'s strategic impact focusing on macro across geopolitics, business, policy, and civil society.',
   openGraph: {
-    title: 'Bitcoin for Executives | Swiss Bitcoin Institute',
-    description: 'Strategic Bitcoin course for executives and decision-makers. Understand Bitcoin\'s implications for business, policy, and society.',
+    title: 'Bitcoin Executive Masterclass | Swiss Bitcoin Institute',
+    description: 'For leaders who need to make strategic decisions about Bitcoin. Professional guided overview of Bitcoin\'s strategic impact focusing on macro across geopolitics, business, policy, and civil society.',
     images: ['/opengraph-image.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bitcoin for Executives | Swiss Bitcoin Institute',
-    description: 'Strategic Bitcoin course for executives and decision-makers. Understand Bitcoin\'s implications for business, policy, and society.',
+    title: 'Bitcoin Executive Masterclass | Swiss Bitcoin Institute',
+    description: 'For leaders who need to make strategic decisions about Bitcoin. Professional guided overview of Bitcoin\'s strategic impact focusing on macro across geopolitics, business, policy, and civil society.',
     images: ['/opengraph-image.png'],
   },
 }
@@ -31,23 +31,24 @@ export default function BitcoinForExecutivesPage() {
   ]
 
   const whoItsFor = [
-    'CEOs & Executives',
+    'C-level Executives',
     'Board Members',
-    'Strategic Leaders',
     'Innovation Leads',
-    'Finance & Banking, Energy & Utilities, Industry',
-    'International Organisations, Civil Society / NGOs',
-    'Government & Administration',
-    'Anyone who must strategically engage with Bitcoin',
+    'Finance & Banking',
+    'Energy Utilities & Industry',
+    'Civil Society & NGOs',
+    'Government & IO officials, Political Parties',
+    'Strategists who need to engage with Bitcoin',
   ]
 
   const whatYoullGet = [
-    '360° macro view of Bitcoin using our 6-domain framework',
-    'Critical thinking on Bitcoin\'s role in a changing world order, from AI to geopolitics to net-zero. No hype.',
-    'Implications for Switzerland and your organisation',
-    'Expert-led peer discussions to nurture actionable insights',
-    <em key="qa">Exclusive Q&A post course</em>,
-    <em key="session">Individual 1:1 session with the trainer</em>,
+    'Protocol Impact overview across SBI's 360° Domain Framework',
+    'Macro perspective across industry, government, and civil society',
+    'Critical analysis of interlinks between Bitcoin and other key trends (AI, geopolitics, net-zero)',
+    'Implications for Switzerland and your industry',
+    'Expert-led peer discussions for actionable insights',
+    <em key="qa">Exclusive Q&A Follow-up post-course</em>,
+    <em key="session">Personal 1:1 Follow-up with Dr. Marcus Dapp</em>,
   ]
 
   return (
@@ -63,9 +64,9 @@ export default function BitcoinForExecutivesPage() {
                 <span className="pill-hero-text">Strategic Course</span>
               </span>
             </div>
-            <h1 className="mb-6 sm:mb-8 text-gray-900">Bitcoin for Executives</h1>
+            <h1 className="mb-6 sm:mb-8 text-gray-900">Bitcoin Executive Masterclass</h1>
             <p className="swiss-prose-lg mb-8 sm:mb-10 max-w-4xl mx-auto text-gray-700 leading-relaxed">
-              A compact course for leaders who need to make strategic decisions about Bitcoin. We provide a professional guided overview of Bitcoin's strategic implications focusing on macro across geopolitics, business, policy, and society.
+              For leaders who need to make strategic decisions about Bitcoin. Professional guided overview of Bitcoin\'s strategic impact focusing on macro across geopolitics, business, policy, and civil society.
             </p>
           </div>
         </div>
@@ -161,7 +162,7 @@ export default function BitcoinForExecutivesPage() {
                 <Card className="p-8 border-2 border-gray-200 bg-white">
                   <h3 className="text-xl font-semibold text-gray-900 mb-6">Book your seat</h3>
                   <CourseSignupForm 
-                    courseName="Bitcoin for Executives"
+                    courseName="Bitcoin Executive Masterclass"
                     courseSlug="bitcoin-executives"
                     courseOptions={bitcoinForExecutivesCourses.map(course => ({
                       id: course.id,
