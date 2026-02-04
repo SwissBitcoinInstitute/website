@@ -24,6 +24,7 @@ export default function NextEventBanner() {
         const timeSinceDismissal = now - dismissedTimestamp;
         
         // Show banner again if 2 weeks have passed
+        // #TODO: is it really auto-switching on after 2 weeks? Does not make sense. Should be switched on/off with a flag (and maybe stay ON until the webinar took place)
         if (timeSinceDismissal >= DISMISSAL_DURATION_MS) {
           localStorage.removeItem(EVENT_BANNER_KEY);
           setIsVisible(true);
