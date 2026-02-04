@@ -9,6 +9,7 @@ tags: ["Strategic Intelligence", "Technology Adoption", "Digital Transformation"
 readTime: "12 min read"
 featured: true
 published: true
+headerImage: "sbi-as-big-as-the-internet.webp"
 ---
 
 

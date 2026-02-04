@@ -1,4 +1,4 @@
-export interface Article {
+export interface ArticleMeta {
   id: string;
   title: string;
   author: string;
@@ -9,8 +9,12 @@ export interface Article {
   readTime: string;
   featured: boolean;
   published: boolean;
-  content: string;
   slug: string;
+  headerImage?: string;
+}
+
+export interface Article extends ArticleMeta {
+  content: string;
 }
 
 export interface Author {
@@ -30,7 +34,8 @@ export interface Author {
 }
 
 // Client-side content loading functions (for use in client components)
-export async function fetchArticles(): Promise<Article[]> {
+// fetchArticles returns metadata only (no content) for listing pages
+export async function fetchArticles(): Promise<ArticleMeta[]> {
   try {
     const response = await fetch('/api/articles');
     if (!response.ok) throw new Error('Failed to fetch articles');

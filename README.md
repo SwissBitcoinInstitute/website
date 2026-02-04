@@ -82,6 +82,32 @@ npm run new:author "Jane Doe" "Senior Researcher" "jane@example.com"
 - **Articles**: `src/content/articles/` - Research articles and blog posts
 - **Authors**: `src/content/authors/` - Author profiles and bios
 - **Templates**: `templates/` - Templates for new content
+- **Header Images**: `public/sbi-research-headers/` - Article header images
+
+### Article Header Images
+
+Header images are defined directly in each article's markdown frontmatter.
+
+**Adding a Header Image:**
+1. Place image in `public/sbi-research-headers/`
+2. Add to article frontmatter:
+   ```yaml
+   headerImage: "sbi-010.webp"
+   ```
+3. That's it!
+
+**Examples:**
+```yaml
+# In your article's frontmatter
+---
+id: "SBI-010"
+title: "Your Article Title"
+# ... other fields ...
+headerImage: "sbi-010.webp"
+---
+```
+
+Supported formats: `.webp`, `.jpg`, `.png`, `.jpeg` - just reference the filename in the frontmatter.
 
 ### Publishing Workflow
 1. Create content with `published: false`

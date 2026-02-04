@@ -2,40 +2,15 @@ import { Badge } from "@/components/ui/badge";
 import { Calendar, Clock, User } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { Article, Author } from "@/lib/content";
+import { ArticleMeta, Author } from "@/lib/content";
 
 interface ArticleCardProps {
-  article: Article;
+  article: ArticleMeta;
   author?: Author;
 }
 
-// Helper function to get header image path from article ID and slug
-const getHeaderImagePath = (articleId: string, slug: string): string | null => {
-  // Handle special slug-based mappings first (these take precedence)
-  const slugToImageMap: Record<string, string> = {
-    'beyond-the-hype': 'sbi-beyond-the-hype',
-    'bitcoin-intelligence-advantage': 'sbi-as-big-as-the-internet',
-  };
-  
-  if (slugToImageMap[slug]) {
-    return `/sbi-research-headers/${slugToImageMap[slug]}.webp`;
-  }
-  
-  // Then check if ID matches SBI-XXX pattern (SBI-001 -> sbi-001.webp or sbi-001.jpg)
-  const normalizedId = articleId.toLowerCase();
-  if (normalizedId.match(/^sbi-\d{3}$/)) {
-    // For SBI-008, use .jpg extension, otherwise default to .webp
-    if (normalizedId === 'sbi-008') {
-      return `/sbi-research-headers/${normalizedId}.jpg`;
-    }
-    return `/sbi-research-headers/${normalizedId}.webp`;
-  }
-  
-  return null;
-};
-
 const ArticleCard = ({ article, author }: ArticleCardProps) => {
-  const headerImage = getHeaderImagePath(article.id, article.slug);
+  const headerImage = article.headerImage ? `/sbi-research-headers/${article.headerImage}` : null;
   
   return (
     <Link href={`/research/${article.slug}`} className="block h-full">

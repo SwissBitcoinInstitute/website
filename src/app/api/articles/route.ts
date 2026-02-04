@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server';
-import { getAllArticles } from '@/lib/content';
+import { getAllArticlesMeta } from '@/lib/content';
 
 export async function GET() {
   try {
-    const articles = await getAllArticles();
+    // Return metadata only (no content) for listing pages
+    const articles = await getAllArticlesMeta();
     return NextResponse.json(articles);
   } catch (error) {
     console.error('Error fetching articles:', error);

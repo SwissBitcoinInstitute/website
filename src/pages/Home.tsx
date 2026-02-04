@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from 'react';
 import CTAButton from '@/components/ui/cta-button';
 import NewsletterSection from '@/components/sections/NewsletterSection';
 import NewsletterButton from '@/components/ui/newsletter-button';
@@ -8,8 +9,24 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Mail } from 'lucide-react';
+import { fetchArticles, ArticleMeta } from '@/lib/content-client';
 
 const Home = () => {
+  const [articles, setArticles] = useState<ArticleMeta[]>([]);
+  const [loadingArticles, setLoadingArticles] = useState(true);
+
+  useEffect(() => {
+    fetchArticles().then(data => {
+      setArticles(data);
+      setLoadingArticles(false);
+    });
+  }, []);
+
+  // Filter for highlighted articles (maintain order)
+  const highlightedIds = ['SBI-003', 'SBI-008', 'SBI-005'];
+  const researchHighlights = highlightedIds
+    .map(id => articles.find(a => a.id === id))
+    .filter((a): a is ArticleMeta => a !== undefined);
   const handleNewsletterScroll = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     const element = document.getElementById('newsletter');
@@ -56,22 +73,6 @@ const Home = () => {
     icon: "🎤",
     primaryCta: { text: "View talks", link: "/speaking" },
     secondaryCta: { text: "Submit Speaking Request", link: "/inquiry?service=speaking#service-selection" }
-  }];
-  const researchHighlights = [{
-    title: "Switzerland's Digital Currency Strategy",
-    description: "Beyond stablecoins to Bitcoin adoption—analyzing Switzerland's strategic choice in the digital currency landscape.",
-    readTime: "18 min read",
-    link: "/research/SBI-003"
-  }, {
-    title: "Survival of the Fittest: Why Monies Thrive or Die",
-    description: "Why are central banks rushing to develop digital currencies (CBDCs)? Why are global corporations exploring stablecoins, and why are BRICS nations considering a new reserve currency? The answer is that for the first time in decades, the monetary landscape is becoming competitive again.",
-    readTime: "18 min read",
-    link: "/research/SBI-008"
-  }, {
-    title: "A Quantum of Solace",
-    description: "To defend against quantum technology attacks, Bitcoin requires consensus on quantum-resistant cryptography.",
-    readTime: "20 min read",
-    link: "/research/SBI-005"
   }];
   return <div className="min-h-screen">
       {/* Hero Section */}
@@ -213,46 +214,55 @@ const Home = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {researchHighlights.map((highlight, index) => {
-              // Extract article ID from link (e.g., /research/SBI-003 -> SBI-003)
-              const articleId = highlight.link.replace('/research/', '');
-              // Get header image path - for SBI-008 use .jpg, otherwise .webp
-              const normalizedId = articleId.toLowerCase();
-              const headerImage = normalizedId.match(/^sbi-\d{3}$/) 
-                ? `/sbi-research-headers/${normalizedId}${normalizedId === 'sbi-008' ? '.jpg' : '.webp'}` 
-                : null;
-              
-              return (
-                <Link key={index} href={highlight.link} className="group block">
-                  <div className="card-research card-gradient-hover h-full overflow-hidden">
-                    {headerImage && (
-                      <div className="relative h-32 w-full overflow-hidden">
-                        <Image
-                          src={headerImage}
-                          alt={highlight.title}
-                          fill
-                          className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent"></div>
-                      </div>
-                    )}
-                    <div className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <Badge variant="tagBlue">Research</Badge>
-                    <span className="text-gray-500 text-sm">{highlight.readTime}</span>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-4 text-gray-900">
-                    {highlight.title}
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed mb-6">{highlight.description}</p>
-                  <div className="link-research text-sm">
-                    Read Analysis →
+            {loadingArticles ? (
+              // Loading skeleton
+              Array.from({ length: 3 }).map((_, index) => (
+                <div key={index} className="card-research h-full overflow-hidden animate-pulse">
+                  <div className="h-32 bg-gray-200"></div>
+                  <div className="p-6">
+                    <div className="h-4 bg-gray-200 rounded w-1/4 mb-4"></div>
+                    <div className="h-6 bg-gray-200 rounded w-3/4 mb-4"></div>
+                    <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
+                    <div className="h-4 bg-gray-200 rounded w-2/3"></div>
                   </div>
                 </div>
-                  </div>
-                </Link>
-              );
-            })}
+              ))
+            ) : (
+              researchHighlights.map((article) => {
+                const headerImage = article.headerImage ? `/sbi-research-headers/${article.headerImage}` : null;
+                
+                return (
+                  <Link key={article.id} href={`/research/${article.slug}`} className="group block">
+                    <div className="card-research card-gradient-hover h-full overflow-hidden">
+                      {headerImage && (
+                        <div className="relative h-32 w-full overflow-hidden">
+                          <Image
+                            src={headerImage}
+                            alt={article.title}
+                            fill
+                            className="object-cover transition-transform duration-300 group-hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent"></div>
+                        </div>
+                      )}
+                      <div className="p-6">
+                        <div className="flex items-center justify-between mb-4">
+                          <Badge variant="tagBlue">Research</Badge>
+                          <span className="text-gray-500 text-sm">{article.readTime}</span>
+                        </div>
+                        <h3 className="text-xl font-semibold mb-4 text-gray-900">
+                          {article.title}
+                        </h3>
+                        <p className="text-gray-700 leading-relaxed mb-6">{article.excerpt}</p>
+                        <div className="link-research text-sm">
+                          Read Analysis →
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })
+            )}
           </div>
         </div>
       </section>

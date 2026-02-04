@@ -9,6 +9,7 @@ tags: ["Leadership", "Strategic Planning", "Executive Education"]
 readTime: "8 min read"
 featured: true
 published: true
+headerImage: "sbi-beyond-the-hype.webp"
 ---
 
 

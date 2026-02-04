@@ -9,6 +9,7 @@ tags: ["Tag 1", "Tag 2", "Tag 3"]
 readTime: "" # Leave empty to auto-calculate
 featured: false
 published: false # Set to true when ready to publish
+headerImage: "sbi-xxx.webp" # Filename in public/sbi-research-headers/
 ---
 
 # Your Article Title Here
