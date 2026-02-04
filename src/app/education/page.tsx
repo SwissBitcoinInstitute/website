@@ -2,16 +2,16 @@ import type { Metadata } from 'next'
 import CTAButton from '@/components/ui/cta-button'
 
 export const metadata: Metadata = {
-  title: 'Bitcoin Courses for Professionals | Swiss Bitcoin Institute',
-  description: 'Professional Bitcoin education for executives, wealth managers, and financial advisors. Strategic and technical courses from Switzerland\'s independent Bitcoin think tank.',
+  title: 'Executive Education in Bitcoin | Swiss Bitcoin Institute',
+  description: 'For executives, wealth managers, and financial advisors. Strategic and technical courses from Switzerland\'s independent Bitcoin think tank.',
   openGraph: {
-    title: 'Bitcoin Courses | Swiss Bitcoin Institute',
+    title: 'Executive Education in Bitcoin | Swiss Bitcoin Institute',
     description: 'Strategic and technical Bitcoin education for Swiss professionals.',
     images: ['/opengraph-image.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bitcoin Courses | Swiss Bitcoin Institute',
+    title: 'Executive Education in Bitcoin | Swiss Bitcoin Institute',
     description: 'Strategic and technical Bitcoin education for Swiss professionals.',
     images: ['/opengraph-image.png'],
   },
@@ -39,9 +39,9 @@ export default function CoursesPage() {
                 <span className="pill-hero-text">Professional Education</span>
               </span>
             </div>
-            <h1>Professional Bitcoin Education</h1>
+            <h1>Executive Education in Bitcoin</h1>
             <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
-              Build the competency your organization needs to navigate the Bitcoin age confidently.
+              Lead your organization into a shift as fundamental as the internet or the printing press: The Bitcoin Epoch.
             </p>
           </div>
         </div>
@@ -78,9 +78,9 @@ export default function CoursesPage() {
               {/* Bitcoin for Executives Card */}
               <div className="group bg-white rounded-2xl border border-gray-200 p-8 hover:border-swiss-blue/50 hover:shadow-xl transition-all duration-300 flex flex-col">
                 <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Bitcoin for Executives</h3>
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Bitcoin Executive Masterclass</h3>
                   <p className="text-gray-600 leading-relaxed mb-6">
-                    The only course you need to understand the full gamut of Bitcoin's strategic implications for business & society.
+                    For leaders who need to make strategic decisions about Bitcoin. Professional guided overview of Bitcoin\'s strategic impact focusing on macro across geopolitics, business, policy, and civil society.
                   </p>
                 </div>
                 <div className="mt-auto">
@@ -127,10 +127,9 @@ export default function CoursesPage() {
               <div className="flex items-center justify-center mb-6">
                 <div className="swiss-blue-gradient-accent mx-auto"></div>
               </div>
-              <h2>Future Specialized Modules</h2>
+              <h2>Dedicated Modules</h2>
               <p className="swiss-prose max-w-3xl mx-auto text-gray-600">
-                Following the strategic fundamentals, we'll develop specialized modules covering our six research domains. 
-                Each module will dive deep into specific strategic implications for decision-makers.
+                We will be developing dedicated modules across SBI's Domain Framework to complement the Masterclass with more focused implications for verticals.
               </p>
             </div>
 
