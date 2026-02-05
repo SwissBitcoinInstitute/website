@@ -82,6 +82,7 @@ npm run new:author "Jane Doe" "Senior Researcher" "jane@example.com"
 - **Articles**: `src/content/articles/` - Research articles and blog posts
 - **Authors**: `src/content/authors/` - Author profiles and bios
 - **Templates**: `templates/` - Templates for new content
+- **Header Images**: `public/sbi-research-headers/` - Article header images
 
 ### Publishing Workflow
 1. Create content with `published: false`

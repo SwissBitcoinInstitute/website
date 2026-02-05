@@ -8,13 +8,13 @@ import { Card, CardContent } from '@/components/ui/card';
 import CTAButton from '@/components/ui/cta-button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
-import { fetchArticles, fetchAuthors, Article, Author } from '@/lib/content-client';
+import { fetchArticles, fetchAuthors, ArticleMeta, Author } from '@/lib/content-client';
 import ArticleCard from '@/components/articles/ArticleCard';
 
 const Research = () => {
   const { toast } = useToast();
   const [email, setEmail] = useState('');
-  const [articles, setArticles] = useState<Article[]>([]);
+  const [articles, setArticles] = useState<ArticleMeta[]>([]);
   const [authors, setAuthors] = useState<Author[]>([]);
   const [loading, setLoading] = useState(true);
 

@@ -2,7 +2,7 @@ import matter from 'gray-matter';
 import fs from 'fs';
 import path from 'path';
 
-export interface Article {
+export interface ArticleMeta {
   id: string;
   title: string;
   author: string;
@@ -13,8 +13,12 @@ export interface Article {
   readTime: string;
   featured: boolean;
   published: boolean;
-  content: string;
   slug: string;
+  headerImage?: string;
+}
+
+export interface Article extends ArticleMeta {
+  content: string;
 }
 
 export interface Author {
@@ -95,6 +99,7 @@ export async function getAllArticles(): Promise<Article[]> {
             published: data.published !== false, // Default to true
             content: content, // Keep as raw markdown for ReactMarkdown
             slug,
+            headerImage: data.headerImage,
           };
           
           articles.push(article);
@@ -113,6 +118,12 @@ export async function getAllArticles(): Promise<Article[]> {
     console.error('Error reading articles directory:', error);
     return [];
   }
+}
+
+// Get all articles metadata (without content) - for listing pages
+export async function getAllArticlesMeta(): Promise<ArticleMeta[]> {
+  const articles = await getAllArticles();
+  return articles.map(({ content, ...meta }) => meta);
 }
 
 // Helper function to calculate read time
@@ -217,6 +228,7 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
       published: data.published !== false, // Default to true
       content: content, // Keep as raw markdown for ReactMarkdown
       slug,
+      headerImage: data.headerImage,
     };
     
     return article;
