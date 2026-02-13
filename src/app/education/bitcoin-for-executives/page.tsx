@@ -4,7 +4,6 @@ import { Card } from '@/components/ui/card'
 import { CheckCircle2, Users, Clock, MapPin } from 'lucide-react'
 import CourseSignupForm from '@/components/forms/CourseSignupForm'
 import { bitcoinForExecutivesCourses, formatCourseDate } from '@/lib/courses'
-import CourseFlyerActions from '@/components/courses/CourseFlyerActions'
 import TopicsColumn from '@/components/courses/TopicsColumn'
 
 export const metadata: Metadata = {
@@ -150,11 +149,6 @@ export default function BitcoinForExecutivesPage() {
                     </div>
                   </Card>
                 ))}
-                {/* Event Flyer Download */}
-                {/* MD changed file name on purpose to break download without interfering with anything else. Goal: remove flyer DL option entirely.*/}
-                <CourseFlyerActions
-                  flyerPath="/sbi-event-flyers/SBI-BTC-4-Exec-Course_12-2-26.png"
-                />
               </div>
 
               {/* Signup Form */}
