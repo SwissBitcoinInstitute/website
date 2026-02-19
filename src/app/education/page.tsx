@@ -2,17 +2,17 @@ import type { Metadata } from 'next'
 import CTAButton from '@/components/ui/cta-button'
 
 export const metadata: Metadata = {
-  title: 'Bitcoin Courses for Professionals | Swiss Bitcoin Institute',
-  description: 'Professional Bitcoin education for executives, wealth managers, and financial advisors. Strategic and technical courses from Switzerland\'s independent Bitcoin think tank.',
+  title: 'Executive Education in Bitcoin | Swiss Bitcoin Institute',
+  description: 'For executives in business, government, and civil society from Switzerland\'s independent Bitcoin think tank.',
   openGraph: {
-    title: 'Bitcoin Courses | Swiss Bitcoin Institute',
-    description: 'Strategic and technical Bitcoin education for Swiss professionals.',
+    title: 'Executive Education in Bitcoin | Swiss Bitcoin Institute',
+    description: 'For executives in business, government, and civil society',
     images: ['/opengraph-image.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bitcoin Courses | Swiss Bitcoin Institute',
-    description: 'Strategic and technical Bitcoin education for Swiss professionals.',
+    title: 'Executive Education in Bitcoin | Swiss Bitcoin Institute',
+    description: 'For executives in business, government, and civil society',
     images: ['/opengraph-image.png'],
   },
 }
@@ -39,7 +39,7 @@ export default function CoursesPage() {
                 <span className="pill-hero-text">Professional Education</span>
               </span>
             </div>
-            <h1>Professional Bitcoin Education</h1>
+            <h1>Executive Education</h1>
             <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
               Build the competency your organization needs to navigate the Bitcoin age confidently.
             </p>
@@ -56,31 +56,31 @@ export default function CoursesPage() {
               <div className="group bg-white rounded-2xl border border-gray-200 p-8 hover:border-swiss-blue/50 hover:shadow-xl transition-all duration-300 flex flex-col">
                 <div className="flex-1">
                   <div className="inline-flex items-center px-3 py-1 rounded-full bg-bitcoin-orange/10 mb-4">
-                    <span className="text-bitcoin-orange text-sm font-medium">Free</span>
+                    <span className="text-bitcoin-orange text-sm font-medium">Coming soon</span>
                   </div>
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Bitcoin Webinar</h3>
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">SBI Podcast</h3>
                   <p className="text-gray-600 leading-relaxed mb-6">
-                    One strategic insight – clear enough to help you decide whether Bitcoin matters for your job, In 21 minutes.
+                    Our goal is to make the impact that Bitcoin can have on society tangible.
                   </p>
                 </div>
                 <div className="mt-auto">
-                  <CTAButton 
+{/*                   <CTAButton 
                     variant="primary" 
                     size="lg" 
                     href="/webinar"
                     className="w-full shadow-lg group-hover:shadow-xl transition-shadow"
                   >
                     Find out more
-                  </CTAButton>
+                  </CTAButton> */}
                 </div>
               </div>
 
-              {/* Bitcoin for Executives Card */}
+              {/* Bitcoin Executive Masterclass Card */}
               <div className="group bg-white rounded-2xl border border-gray-200 p-8 hover:border-swiss-blue/50 hover:shadow-xl transition-all duration-300 flex flex-col">
                 <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Bitcoin for Executives</h3>
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Bitcoin Executive Masterclass</h3>
                   <p className="text-gray-600 leading-relaxed mb-6">
-                    The only course you need to understand the full gamut of Bitcoin's strategic implications for business & society.
+                    Short, intense C-level course to gain an overview over the strategic questions raised by Bitcoin.
                   </p>
                 </div>
                 <div className="mt-auto">
@@ -127,10 +127,9 @@ export default function CoursesPage() {
               <div className="flex items-center justify-center mb-6">
                 <div className="swiss-blue-gradient-accent mx-auto"></div>
               </div>
-              <h2>Future Specialized Modules</h2>
+              <h2>Dedicated Classes (planned)</h2>
               <p className="swiss-prose max-w-3xl mx-auto text-gray-600">
-                Following the strategic fundamentals, we'll develop specialized modules covering our six research domains. 
-                Each module will dive deep into specific strategic implications for decision-makers.
+                Complementing the Bitcoin Executive Masterclass, these classes offer a deep-dive into Bitcoin's specific mechanics in each of the following domains.
               </p>
             </div>
 
@@ -162,10 +161,10 @@ export default function CoursesPage() {
         <div className="absolute inset-0 cta-section-bg"></div>
         <div className="swiss-grid relative">
           <div className="text-center max-w-4xl mx-auto">
-            <h2 className="mb-8 text-white">Interested in Strategic Bitcoin Education?</h2>
+            <h2 className="mb-8 text-white">Unsure what you need?</h2>
             <p className="swiss-prose mb-12 text-gray-300 max-w-3xl mx-auto">
-              Express your interest and we'll keep you informed as we develop our comprehensive program 
-              covering strategic fundamentals and our six research domains.
+              Get in touch and raise your questions or specific requirements your organisation has.
+              We constanstly develop our programs further to best suit your needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <CTAButton 
