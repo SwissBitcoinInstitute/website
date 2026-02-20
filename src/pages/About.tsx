@@ -36,12 +36,6 @@ const About = () => {
         <div className="absolute inset-0 swiss-blue-gradient-hero"></div>
         <div className="swiss-grid relative">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="mb-8">
-              <span className="pill-hero mb-6">
-                <span className="mr-2">🏛️</span>
-                <span className="pill-hero-text">Independent Research & Analysis</span>
-              </span>
-            </div>
             <h1 className="mb-10 text-gray-900">Bitcoin's Natural Alignment with Switzerland</h1>
             <p className="swiss-prose-lg mb-16 max-w-4xl mx-auto text-gray-700 leading-relaxed">
               Bitcoin's and Swiss values align naturally, creating unique opportunities for Switzerland's future.
