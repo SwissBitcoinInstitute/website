@@ -58,17 +58,8 @@ export const teamMembers: TeamMember[] = [
     linkedin: 'https://www.linkedin.com/in/danielbabbev/',
     category: 'core',
   },
-  {
-    slug: 'henry-barrows',
-    name: 'Henry Barrows',
-    role: 'Marketing',
-    bio: 'Henry Barrows is a self-employed marketer with an MSc in Blockchain and Digital Currency. He helps organizations communicate complex crypto concepts with clarity—bridging strategy, brand, and education. Henry\'s work spans digital marketing, positioning, and go‑to‑market for Bitcoin-first products and services, informed by hands-on experience and a research-driven approach.',
-    photo: '/sbi-core-team/Henry-Barrows-SBI.png',
-    email: 'henry.barrows@bitcoininstitute.ch',
-    linkedin: 'https://www.linkedin.com/in/henrybarrows/',
-    category: 'core',
-  },
-  
+
+
   // Research Fellows
   {
     slug: 'christian-decker',
@@ -151,20 +142,20 @@ export const teamMembers: TeamMember[] = [
 
 export function getTeamMemberBySlug(slug: string, preferCategory?: 'core' | 'fellow'): TeamMember | undefined {
   const matches = teamMembers.filter(member => member.slug === slug);
-  
+
   if (matches.length === 0) {
     return undefined;
   }
-  
+
   if (matches.length === 1) {
     return matches[0];
   }
-  
+
   // If multiple matches and preference specified, return that one
   if (preferCategory) {
     return matches.find(member => member.category === preferCategory) || matches[0];
   }
-  
+
   // Default: prefer fellow if both exist
   return matches.find(member => member.category === 'fellow') || matches[0];
 }
