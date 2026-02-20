@@ -14,12 +14,6 @@ const Fellowship = () => {
         <div className="absolute inset-0 swiss-blue-gradient-hero"></div>
         <div className="swiss-grid relative">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="mb-8">
-              <span className="pill-hero mb-6">
-                <span className="mr-2">🎓</span>
-                <span className="pill-hero-text">Research Network</span>
-              </span>
-            </div>
             <h1 className="mb-10 text-gray-900">Join Switzerland's leading network of Bitcoin experts shaping the future of money.</h1>
             <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
               The SBI Fellowship brings together independent researchers and practitioners across six critical domains: Access & Agency, Energy & Climate, Finance & Economics, Markets & Geopolitics, Strategy & Policy, and Technology & Innovation. Our fellows produce rigorous, evidence-based analysis on Bitcoin's strategic implications for Switzerland—without the hype.

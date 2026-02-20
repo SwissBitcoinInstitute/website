@@ -14,12 +14,6 @@ const Team = () => {
         <div className="absolute inset-0 swiss-blue-gradient-hero"></div>
         <div className="swiss-grid relative">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="mb-8">
-              <span className="pill-hero mb-6">
-                <span className="mr-2">👥</span>
-                <span className="pill-hero-text">World-Class Expertise</span>
-              </span>
-            </div>
             <h1 className="mb-10 text-gray-900">Meet the Team</h1>
             <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
               The Institute blends academic rigor with practical expertise to empower leaders 
@@ -56,41 +50,6 @@ const Team = () => {
                 <p className="swiss-blue-gradient-text font-semibold mb-6 text-lg">{member.role}</p>
               </Link>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Vision & Mission */}
-      <section className="swiss-section bg-white">
-        <div className="swiss-grid">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Vision */}
-              <div className="card-general card-gradient-hover p-8 h-full">
-                <div className="mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-swiss-blue/10 to-swiss-blue/5 rounded-2xl flex items-center justify-center mb-4">
-                    <span className="text-3xl">👁️</span>
-                  </div>
-                  <h3 className="text-2xl font-semibold mb-4 text-gray-900">Vision</h3>
-                </div>
-                <p className="swiss-prose-lg text-gray-700 leading-relaxed">
-                  A prosperous world where sound money enables freedom, peace, and sustainability.
-                </p>
-              </div>
-
-              {/* Mission */}
-              <div className="card-general card-gradient-hover p-8 h-full">
-                <div className="mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-swiss-blue/10 to-swiss-blue/5 rounded-2xl flex items-center justify-center mb-4">
-                    <span className="text-3xl">🎯</span>
-                  </div>
-                  <h3 className="text-2xl font-semibold mb-4 text-gray-900">Mission</h3>
-                </div>
-                <p className="swiss-prose-lg text-gray-700 leading-relaxed">
-                  We equip Swiss decision-makers in business, government, and civil society with rigorous research and executive education to navigate Bitcoin's strategic implications – for their organizations and for Switzerland.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </section>

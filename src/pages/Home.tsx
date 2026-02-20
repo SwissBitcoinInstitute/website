@@ -88,12 +88,6 @@ const Home = () => {
         <div className="absolute inset-0 bg-white/80"></div>
         <div className="swiss-grid relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="mb-8">
-              <span className="pill-hero mb-6 bg-white/90 backdrop-blur-sm">
-                <span className="mr-2">🇨🇭</span>
-                <span className="pill-hero-text">Switzerland's Independent Bitcoin Think Tank</span>
-              </span>
-            </div>
             <h1 className="text-gray-900">Empowering leaders for the Bitcoin age</h1>
             <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700">
               Executive education and independent research to navigate the transition to sound digital money.
@@ -179,25 +173,6 @@ const Home = () => {
             ))}
           </div>
 
-          {/* More to Come Card */}
-          <div className="mt-12 max-w-4xl mx-auto">
-            <div className="card-general p-8 bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200">
-              <div className="text-center">
-                <h3 className="text-2xl font-semibold mb-3 text-gray-900">More to come in 2026!</h3>
-                <p className="text-gray-600 mb-6 text-base">
-                  We plan to expand our offering with much more. Stay tuned!
-                </p>
-                <CTAButton 
-                  variant="secondary" 
-                  size="lg" 
-                  href="/webinar"
-                  className="mx-auto"
-                >
-                  Tell me more
-                </CTAButton>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 

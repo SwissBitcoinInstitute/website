@@ -33,12 +33,6 @@ export default function CoursesPage() {
         <div className="absolute inset-0 bg-white/80"></div>
         <div className="swiss-grid relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="mb-8">
-              <span className="pill-hero mb-6 bg-white/90 backdrop-blur-sm">
-                <span className="mr-2">🎓</span>
-                <span className="pill-hero-text">Professional Education</span>
-              </span>
-            </div>
             <h1>Executive Education</h1>
             <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
               Build the competency your organization needs to navigate the Bitcoin age confidently.
