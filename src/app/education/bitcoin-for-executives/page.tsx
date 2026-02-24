@@ -24,30 +24,32 @@ export const metadata: Metadata = {
 
 export default function BitcoinForExecutivesPage() {
   const courseDetails = [
-    { icon: <MapPin className="w-5 h-5" />, label: 'Format', value: 'Live course (Zürich)' },
-    { icon: <Clock className="w-5 h-5" />, label: 'Duration', value: '2 full days' },
-    { icon: <Users className="w-5 h-5" />, label: 'Level', value: 'Executives. No Bitcoin knowledge required.' },
+    { icon: <MapPin className="w-5 h-5" />, label: 'Format', value: 'Live physical (Zürich)' },
+    { icon: <Clock className="w-5 h-5" />, label: 'Duration', value: '12 hours' },
+    { icon: <Users className="w-5 h-5" />, label: 'Level', value: 'Senior executives' },
   ]
 
   const whoItsFor = [
-    'C-level Executives',
-    'Board Members',
-    'Innovation Leads',
+    'Board Chairs & Members',
+    'C-Level Executives',
+    'Directors',
+    'Entrepreneurs',
     'Finance & Banking',
     'Energy Utilities & Industry',
     'Civil Society & NGOs',
-    'Government & IO officials, Political Parties',
+    'Officials of government, IOs, political parties',
     'Strategists who need to engage with Bitcoin',
   ]
 
   const whatYoullGet = [
-    'Protocol Impact overview across SBI\'s 360° Domain Framework',
+    'Strategic Bitcoin impact overview using SBI\'s 360° Domain Framework',
+    'Implications for your industry in Switzerland',
+    'Analysis of interlinks between Bitcoin and other key trends (e.g., AI, geopolitics, net-zero)',
     'Macro perspective across industry, government, and civil society',
-    'Critical analysis of interlinks between Bitcoin and other key trends (AI, geopolitics, net-zero)',
-    'Implications for Switzerland and your industry',
+    <em key="session">Personal 1:1 follow-up with Dr. Marcus Dapp</em>,
     'Expert-led peer discussions for actionable insights',
-    <em key="qa">Exclusive Q&A Follow-up post-course</em>,
-    <em key="session">Personal 1:1 Follow-up with Dr. Marcus Dapp</em>,
+    'Very small group (<10 participants) for open discourse',
+    <em key="qa">Group follow-up post-course</em>,
   ]
 
   return (
@@ -73,7 +75,7 @@ export default function BitcoinForExecutivesPage() {
             </div>
             <h1 className="mb-6 sm:mb-8 text-gray-900">Bitcoin Executive Masterclass</h1>
             <p className="swiss-prose-lg mb-8 sm:mb-10 max-w-4xl mx-auto text-gray-700 leading-relaxed">
-              For leaders who need to make strategic decisions about Bitcoin. Professional guided overview of Bitcoin\'s strategic impact focusing on macro across geopolitics, business, policy, and civil society.
+              For leaders who need to make strategic decisions about Bitcoin. Professional guided overview of Bitcoin's strategic impact focusing on macro across geopolitics, business, policy, and civil society.
             </p>
           </div>
         </div>
