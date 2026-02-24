@@ -3,7 +3,6 @@ import CTAButton from '@/components/ui/cta-button'
 import { Card } from '@/components/ui/card'
 import { CheckCircle2, Users, Clock, MapPin } from 'lucide-react'
 import CourseSignupForm from '@/components/forms/CourseSignupForm'
-import CourseFlyerActions from '@/components/courses/CourseFlyerActions'
 import { FinSovCourses, formatCourseDate } from '@/lib/courses'
 
 export const metadata: Metadata = {
@@ -154,11 +153,6 @@ export default function FinancialSovereigntyPage() {
                     </div>
                   </Card>
                 ))}
-                {/* Event Flyer Download */}
-                {/* MD intentionally breaks DL by putting typo into file name to avoid downloading of flyer with wrong courseinformation */}
-                <CourseFlyerActions
-                  flyerPath="/sbi-event-flyers/SBI-Fin-Sov-Course_12-3-26.png"
-                />
               </div>
 
               {/* Signup Form */}
@@ -177,17 +171,6 @@ export default function FinancialSovereigntyPage() {
               </div>
             </div>
 
-            {/* Questions CTA */}
-            <div className="text-center mt-8">
-              <CTAButton 
-                variant="secondary" 
-                size="lg" 
-                href="/contact"
-                className="border-gray-300 text-gray-900 bg-white hover:bg-gray-50"
-              >
-                Questions? Get in touch!
-              </CTAButton>
-            </div>
           </div>
         </div>
       </section>
