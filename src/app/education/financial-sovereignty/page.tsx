@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/card'
 import { CheckCircle2, Users, Clock, MapPin } from 'lucide-react'
 import CourseSignupForm from '@/components/forms/CourseSignupForm'
 import CourseFlyerActions from '@/components/courses/CourseFlyerActions'
+import { FinSovCourses, formatCourseDate } from '@/lib/courses'
 
 export const metadata: Metadata = {
   title: 'Financial Sovereignty - Fundamentals | Swiss Bitcoin Institute',
@@ -136,17 +137,23 @@ export default function FinancialSovereigntyPage() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {/* Next Course Dates */}
+              {/* Course Dates */}
               <div className="space-y-4 self-start">
-                <Card className="p-6 border-2 border-gray-200 bg-white">
-                  <div className="text-sm mb-4 font-medium uppercase tracking-wide swiss-blue-gradient-text">Next course:</div>
-                  <div className="mb-3 text-sm font-bold text-gray-900">
-                    Afternoon 13:30-17:30
-                  </div>
-                  <div className="space-y-2">
-                    <div className="text-base text-gray-900">20 March 2026</div>
-                  </div>
-                </Card>
+                {FinSovCourses.map((course, courseIndex) => (
+                  <Card key={course.id} className="p-6 border-2 border-gray-200 bg-white">
+                    <div className="text-sm mb-4 font-medium uppercase tracking-wide swiss-blue-gradient-text">
+                      {courseIndex === 0 ? 'Next course:' : 'Upcoming course:'}
+                    </div>
+                    <div className="mb-3 text-sm font-bold text-gray-900">
+                      {course.timeDescription}
+                    </div>
+                    <div className="space-y-2">
+                      {course.dates.map((date, index) => (
+                        <div key={index} className="text-base text-gray-900">{date}</div>
+                      ))}
+                    </div>
+                  </Card>
+                ))}
                 {/* Event Flyer Download */}
                 {/* MD intentionally breaks DL by putting typo into file name to avoid downloading of flyer with wrong courseinformation */}
                 <CourseFlyerActions
@@ -158,10 +165,13 @@ export default function FinancialSovereigntyPage() {
               <div className="lg:col-span-2">
                 <Card className="p-8 border-2 border-gray-200 bg-white">
                   <h3 className="text-xl font-semibold text-gray-900 mb-6">Book your seat</h3>
-                  <CourseSignupForm 
+                  <CourseSignupForm
                     courseName="Financial Sovereignty - Fundamentals"
                     courseSlug="financial-sovereignty"
-                    courseDate="20 March 2026, afternoon 13:30-17:30"
+                    courseOptions={FinSovCourses.map(course => ({
+                      id: course.id,
+                      label: formatCourseDate(course)
+                    }))}
                   />
                 </Card>
               </div>
