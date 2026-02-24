@@ -177,17 +177,6 @@ export default function BitcoinForExecutivesPage() {
               </div>
             </div>
 
-            {/* Questions CTA */}
-            <div className="text-center mt-8">
-              <CTAButton 
-                variant="secondary" 
-                size="lg" 
-                href="/contact"
-                className="border-gray-300 text-gray-900 bg-white hover:bg-gray-50"
-              >
-                Questions? Get in touch!
-              </CTAButton>
-            </div>
           </div>
         </div>
       </section>
