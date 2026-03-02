@@ -4,15 +4,10 @@ import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import Link from 'next/link';
-import GlossaryLink from './GlossaryLink';
+import { processGlossaryContent, type GlossaryTerm } from '@/lib/glossary-utils';
 import { slugify } from './TableOfContents';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
-
-interface GlossaryTerm {
-  term: string;
-  slug: string;
-  shortDefinition: string;
-}
+import GlossaryLink from './GlossaryLink';
 
 interface ArticleWithGlossaryProps {
   content: string;
@@ -25,7 +20,6 @@ const ARTICLE_GLOSSARY_EXCLUSIONS: Record<string, string[]> = {
 };
 
 export default function ArticleWithGlossary({ content, articleId }: ArticleWithGlossaryProps) {
-  const [glossaryTerms, setGlossaryTerms] = useState<GlossaryTerm[]>([]);
   const [processedContent, setProcessedContent] = useState(content);
   const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string } | null>(null);
 
@@ -40,44 +34,14 @@ export default function ArticleWithGlossary({ content, articleId }: ArticleWithG
           return;
         }
         const terms: GlossaryTerm[] = await response.json();
-        setGlossaryTerms(terms);
 
         // Get excluded term slugs for this article
         const excludedSlugs = articleId ? ARTICLE_GLOSSARY_EXCLUSIONS[articleId] || [] : [];
-        const excludedSlugSet = new Set(excludedSlugs);
 
         // Process content to add glossary links
-        let newContent = content;
-        const highlightedSlugs = new Set<string>();
-        const replacements: Array<{ tokenId: string, match: string, slug: string, shortDefinition: string }> = [];
-
-        // Sort by length descending to match longer phrases first
-        const sortedTerms = [...terms].sort((a, b) => b.term.length - a.term.length);
-
-        for (const term of sortedTerms) {
-          // Skip if already highlighted or if excluded for this article
-          if (highlightedSlugs.has(term.slug) || excludedSlugSet.has(term.slug)) continue;
-
-          // Match whole words only, case insensitive
-          const regex = new RegExp(`\\b(${term.term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})\\b`, 'i');
-
-          if (regex.test(newContent)) {
-            // Replace first occurrence only
-            newContent = newContent.replace(regex, (match) => {
-              highlightedSlugs.add(term.slug);
-              const tokenId = `__GLOSSARY_TOKEN_${term.slug}__`;
-              // Escape quotes in definition just in case
-              const safeDef = term.shortDefinition.replace(/"/g, '&quot;');
-              replacements.push({ tokenId, match, slug: term.slug, shortDefinition: safeDef });
-              return tokenId;
-            });
-          }
-        }
-
-        // Re-insert the actual links using the tokens
-        for (const data of replacements) {
-          newContent = newContent.replace(data.tokenId, `[${data.match}](/glossary/${data.slug} "${data.shortDefinition}")`);
-        }
+        const newContent = processGlossaryContent(content, terms, {
+          excludeSlugs: excludedSlugs
+        });
 
         setProcessedContent(newContent);
       } catch (error) {
@@ -86,7 +50,7 @@ export default function ArticleWithGlossary({ content, articleId }: ArticleWithG
     }
 
     loadGlossary();
-  }, [content]);
+  }, [content, articleId]);
 
   return (
     <>
@@ -162,7 +126,7 @@ export default function ArticleWithGlossary({ content, articleId }: ArticleWithG
               // Style glossary links specially with custom tooltip
               if (href?.startsWith('/glossary/')) {
                 return (
-                  <GlossaryLink href={href} title={title}>
+                  <GlossaryLink href={href} title={title} target="_blank">
                     {children}
                   </GlossaryLink>
                 );

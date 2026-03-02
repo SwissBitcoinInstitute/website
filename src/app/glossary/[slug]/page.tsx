@@ -19,13 +19,13 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const term = await getGlossaryTermBySlug(params.slug)
-  
+
   if (!term) {
     return {
       title: 'Term Not Found | Swiss Bitcoin Institute'
     }
   }
-  
+
   return {
     title: `${term.term} - Bitcoin Glossary | Swiss Bitcoin Institute`,
     description: term.shortDefinition,
@@ -46,24 +46,33 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export async function generateStaticParams() {
   const terms = await getAllGlossaryTerms()
-  
+
   return terms.map((term) => ({
     slug: term.slug,
   }))
 }
 
+import { processGlossaryContent } from '@/lib/glossary-utils'
+import GlossaryLink from '@/components/articles/GlossaryLink'
+
 export default async function GlossaryTermPage({ params }: PageProps) {
   const term = await getGlossaryTermBySlug(params.slug)
-  
+  const allTerms = await getAllGlossaryTerms()
+
   if (!term) {
     notFound()
   }
+
+  // Cross-link terms within the content, excluding the current term
+  const processedContent = processGlossaryContent(term.content, allTerms, {
+    excludeSlugs: [term.slug]
+  })
 
   return (
     <div className="min-h-screen bg-background">
       {/* Structured Data for SEO */}
       <GlossaryTermSchema term={term} />
-      
+
       {/* Navigation */}
       <div className="swiss-section-sm bg-white border-b">
         <div className="swiss-grid">
@@ -74,7 +83,7 @@ export default async function GlossaryTermPage({ params }: PageProps) {
                 Back to Glossary
               </Link>
             </Button>
-            
+
             {term.domains && term.domains.length > 0 ? (
               <div className="flex flex-wrap gap-2">
                 {term.domains.map(domainTitle => {
@@ -92,10 +101,10 @@ export default async function GlossaryTermPage({ params }: PageProps) {
                 })}
               </div>
             ) : term.category ? (
-            <Badge variant="secondary" className="flex items-center gap-2">
-              <BookOpen className="w-3 h-3" />
-              {term.category}
-            </Badge>
+              <Badge variant="secondary" className="flex items-center gap-2">
+                <BookOpen className="w-3 h-3" />
+                {term.category}
+              </Badge>
             ) : null}
           </div>
         </div>
@@ -107,7 +116,7 @@ export default async function GlossaryTermPage({ params }: PageProps) {
           <article className="max-w-4xl mx-auto">
             <header className="mb-8">
               <h1 className="text-4xl font-bold mb-6 text-gray-900">{term.term}</h1>
-              
+
               <div className="flex flex-wrap items-center gap-3 mb-6">
                 {term.domains && term.domains.length > 0 && (
                   <>
@@ -134,11 +143,11 @@ export default async function GlossaryTermPage({ params }: PageProps) {
                   </Link>
                 )}
               </div>
-              
+
             </header>
-            
+
             <div className="prose prose-lg max-w-none">
-              <ReactMarkdown 
+              <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={{
                   h1: ({ children }) => {
@@ -170,14 +179,24 @@ export default async function GlossaryTermPage({ params }: PageProps) {
                       {children}
                     </code>
                   ),
-                  a: ({ href, children }) => (
-                    <a href={href} className="text-bitcoin-orange hover:underline">
-                      {children}
-                    </a>
-                  ),
+                  a: ({ href, children, title }) => {
+                    // Use GlossaryLink for glossary internal links
+                    if (href?.startsWith('/glossary/')) {
+                      return (
+                        <GlossaryLink href={href} title={title}>
+                          {children}
+                        </GlossaryLink>
+                      );
+                    }
+                    return (
+                      <a href={href} className="text-bitcoin-orange hover:underline">
+                        {children}
+                      </a>
+                    );
+                  },
                 }}
               >
-                {term.content}
+                {processedContent}
               </ReactMarkdown>
             </div>
           </article>
