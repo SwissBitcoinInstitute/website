@@ -39,35 +39,47 @@ export function processGlossaryContent(
     // Sort match items by length descending to match longer phrases first
     const sortedItems = matchItems.sort((a, b) => b.text.length - a.text.length);
 
-    let newContent = content;
+    // Split content into lines to process headings separately
+    const lines = content.split('\n');
     const highlightedSlugs = new Set<string>();
     const replacements: Array<{ tokenId: string; match: string; slug: string; shortDefinition: string }> = [];
+    let tokenCounter = 0;
 
-    for (const item of sortedItems) {
-        // Skip if this slug has already been highlighted or if excluded
-        if (highlightedSlugs.has(item.slug) || excludedSlugSet.has(item.slug)) continue;
-
-        // Match whole words only, case insensitive. Escape special regex characters.
-        const escapedText = item.text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        const regex = new RegExp(`\\b(${escapedText})\\b`, 'i');
-
-        if (regex.test(newContent)) {
-            // Replace occurrence(s) according to maxReplacementsPerTerm
-            let count = 0;
-            newContent = newContent.replace(new RegExp(`\\b(${escapedText})\\b`, 'gi'), (match) => {
-                // If we've already highlighted this slug in this content, don't highlight it again
-                if (count >= maxReplacementsPerTerm || highlightedSlugs.has(item.slug)) return match;
-
-                count++;
-                highlightedSlugs.add(item.slug);
-                const tokenId = `__GLOSSARY_TOKEN_${item.slug}_${count}__`;
-                // Escape quotes in definition for the markdown title attribute
-                const safeDef = item.shortDefinition.replace(/"/g, '&quot;');
-                replacements.push({ tokenId, match, slug: item.slug, shortDefinition: safeDef });
-                return tokenId;
-            });
+    const processedLines = lines.map(line => {
+        // Skip processing for headings (lines starting with #)
+        if (line.trim().startsWith('#')) {
+            return line;
         }
-    }
+
+        let processedLine = line;
+
+        for (const item of sortedItems) {
+            // Skip if this slug has already been highlighted enough or if excluded
+            if (highlightedSlugs.has(item.slug) || excludedSlugSet.has(item.slug)) continue;
+
+            // Match whole words only, case insensitive. Escape special regex characters.
+            const escapedText = item.text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const regex = new RegExp(`\\b(${escapedText})\\b`, 'gi');
+
+            if (regex.test(processedLine)) {
+                processedLine = processedLine.replace(regex, (match) => {
+                    // Check again inside the replace callback to respect maxReplacementsPerTerm
+                    if (highlightedSlugs.has(item.slug)) return match;
+
+                    highlightedSlugs.add(item.slug);
+                    tokenCounter++;
+                    const tokenId = `__GLOSSARY_TOKEN_${item.slug}_${tokenCounter}__`;
+                    // Escape quotes in definition for the markdown title attribute
+                    const safeDef = item.shortDefinition.replace(/"/g, '&quot;');
+                    replacements.push({ tokenId, match, slug: item.slug, shortDefinition: safeDef });
+                    return tokenId;
+                });
+            }
+        }
+        return processedLine;
+    });
+
+    let newContent = processedLines.join('\n');
 
     // Re-insert the actual markdown links using the tokens
     for (const data of replacements) {
