@@ -1,6 +1,7 @@
 ---
 term: "UTXO – Unspent Transaction Output"
 slug: "utxo-unspent-transaction-output"
+aliases: ["UTXO", "unspent transaction", "unspent transaction output", "unspent transactions"]
 category: "Protocol & Technology"
 shortDefinition: "An unspent transaction output (UTXO) is a chunk of bitcoin that was received in a previous transaction but has not yet been spent. An UTXO can serve a..."
 relatedArticle: "002"

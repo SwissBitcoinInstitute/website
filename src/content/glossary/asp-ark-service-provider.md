@@ -1,6 +1,7 @@
 ---
 term: "ASP – Ark Service Provider"
 slug: "asp-ark-service-provider"
+aliases: ["ASP", "Ark Service Provider", "Ark Service"]
 category: "Second Layer"
 shortDefinition: "An Ark Service Provider (ASP) is a specialized participant in the proposed Ark protocol, a second-layer Bitcoin scaling solution. ASPs coordinate off-..."
 relatedArticle: "002"

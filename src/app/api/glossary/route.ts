@@ -4,7 +4,7 @@ import { getAllGlossaryTerms } from '@/lib/content';
 export async function GET() {
   try {
     const terms = await getAllGlossaryTerms();
-    
+
     // Return simplified data for client-side use
     const simplifiedTerms = terms.map(term => ({
       term: term.term,
@@ -12,9 +12,10 @@ export async function GET() {
       shortDefinition: term.shortDefinition,
       category: term.category,
       domains: term.domains || [],
+      aliases: term.aliases || [],
       relatedArticle: term.relatedArticle || undefined,
     }));
-    
+
     return NextResponse.json(simplifiedTerms);
   } catch (error) {
     console.error('Error fetching glossary terms:', error);

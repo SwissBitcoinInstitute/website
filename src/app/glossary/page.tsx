@@ -16,6 +16,7 @@ interface GlossaryTerm {
   domains?: string[]
   tags?: string[]
   relatedArticle?: string
+  aliases?: string[]
 }
 
 export default function GlossaryPage() {
@@ -73,7 +74,8 @@ export default function GlossaryPage() {
 
       const matchesSearch = searchQuery === '' ||
         term.term.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        term.shortDefinition.toLowerCase().includes(searchQuery.toLowerCase())
+        term.shortDefinition.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (term.aliases && term.aliases.some(alias => alias.toLowerCase().includes(searchQuery.toLowerCase())))
 
       const matchesLetter = selectedLetter === 'all' ||
         normalizedLetter === selectedLetter
@@ -112,7 +114,7 @@ export default function GlossaryPage() {
       <section className="bg-white border-b border-gray-200 sticky top-0 z-10 shadow-sm">
         <div className="swiss-grid py-6">
           <div className="max-w-7xl mx-auto space-y-6">
-            
+
             {/* Top Row: Search and Clear */}
             <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
               <div className="relative w-full md:max-w-xl">
@@ -125,10 +127,10 @@ export default function GlossaryPage() {
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
               </div>
-              
+
               {hasActiveFilters && (
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   onClick={handleClearFilters}
                   className="shrink-0 text-swiss-red border-swiss-red/20 hover:bg-swiss-red/5 hover:text-swiss-red"
                 >
@@ -144,11 +146,10 @@ export default function GlossaryPage() {
               <div className="flex items-center gap-1 min-w-max">
                 <button
                   onClick={() => setSelectedLetter('all')}
-                  className={`w-8 h-8 flex items-center justify-center rounded text-sm font-medium transition-colors ${
-                    selectedLetter === 'all'
+                  className={`w-8 h-8 flex items-center justify-center rounded text-sm font-medium transition-colors ${selectedLetter === 'all'
                       ? 'swiss-blue-gradient-text bg-swiss-blue/10'
                       : 'text-gray-400 hover:text-gray-900'
-                  }`}
+                    }`}
                 >
                   All
                 </button>
@@ -159,13 +160,12 @@ export default function GlossaryPage() {
                       key={letter}
                       onClick={() => isAvailable && setSelectedLetter(letter)}
                       disabled={!isAvailable}
-                      className={`w-8 h-8 flex items-center justify-center rounded text-sm font-medium transition-colors ${
-                        selectedLetter === letter
+                      className={`w-8 h-8 flex items-center justify-center rounded text-sm font-medium transition-colors ${selectedLetter === letter
                           ? 'swiss-blue-gradient-text bg-swiss-blue/10 font-bold'
                           : isAvailable
                             ? 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                             : 'text-gray-300 cursor-default'
-                      }`}
+                        }`}
                     >
                       {letter}
                     </button>
@@ -181,7 +181,7 @@ export default function GlossaryPage() {
       <section className="swiss-section py-12">
         <div className="swiss-grid">
           <div className="max-w-7xl mx-auto">
-            
+
             {isLoading ? (
               <div className="text-center py-20">
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#00abfb] mx-auto mb-4"></div>
@@ -206,8 +206,8 @@ export default function GlossaryPage() {
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {filteredTerms.map((term) => (
-                  <Link 
-                    key={term.slug} 
+                  <Link
+                    key={term.slug}
                     href={`/glossary/${term.slug}`}
                     className="group block h-full"
                   >
@@ -215,19 +215,19 @@ export default function GlossaryPage() {
                       <h2 className="text-xl font-bold text-gray-900 leading-tight mb-3 w-full">
                         {term.term}
                       </h2>
-                      
+
                       {term.relatedArticle && (
                         <div className="mb-3">
                           <Badge variant="outline" className="text-xs">
                             SBI-{term.relatedArticle.padStart(3, '0')}
-                        </Badge>
+                          </Badge>
                         </div>
                       )}
-                      
+
                       <p className="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-4 flex-grow">
                         {term.shortDefinition}
                       </p>
-                      
+
                       <div className="link-research text-sm mt-auto">
                         Read full definition →
                       </div>
@@ -236,7 +236,7 @@ export default function GlossaryPage() {
                 ))}
               </div>
             )}
-            
+
             {/* Results Count Footer */}
             {!isLoading && filteredTerms.length > 0 && (
               <div className="mt-12 text-center text-sm text-gray-400">
