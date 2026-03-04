@@ -34,11 +34,6 @@ export const bitcoinForExecutivesCourses: CourseOffering[] = [
 
 // course dates for Financial Sovereignty Masterclasses
 export const FinSovCourses: CourseOffering[] = [
-  {
-    id: "finsov-mar26-fri",
-    timeDescription: "Friday afternoon (13:30-17:00)",
-    dates: ["20 March 2026"]
-  },
    {
     id: "finsov-may26-sat",
     timeDescription: "Saturday morning (09:00-12:30)",
