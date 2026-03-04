@@ -136,7 +136,7 @@ export default function ArticleWithGlossary({ content, articleId }: ArticleWithG
               // Style glossary links specially with custom tooltip
               if (href?.startsWith('/glossary/')) {
                 return (
-                  <GlossaryLink href={href} title={title}>
+                  <GlossaryLink href={href} title={title} target="_blank">
                     {children}
                   </GlossaryLink>
                 );
