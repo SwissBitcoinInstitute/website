@@ -4,10 +4,15 @@ import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import Link from 'next/link';
-import { processGlossaryContent, type GlossaryTerm } from '@/lib/glossary-utils';
+import GlossaryLink from './GlossaryLink';
 import { slugify } from './TableOfContents';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
-import GlossaryLink from './GlossaryLink';
+
+interface GlossaryTerm {
+  term: string;
+  slug: string;
+  shortDefinition: string;
+}
 
 interface ArticleWithGlossaryProps {
   content: string;
@@ -20,6 +25,7 @@ const ARTICLE_GLOSSARY_EXCLUSIONS: Record<string, string[]> = {
 };
 
 export default function ArticleWithGlossary({ content, articleId }: ArticleWithGlossaryProps) {
+  const [glossaryTerms, setGlossaryTerms] = useState<GlossaryTerm[]>([]);
   const [processedContent, setProcessedContent] = useState(content);
   const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string } | null>(null);
 
@@ -80,7 +86,7 @@ export default function ArticleWithGlossary({ content, articleId }: ArticleWithG
     }
 
     loadGlossary();
-  }, [content, articleId]);
+  }, [content]);
 
   return (
     <>
