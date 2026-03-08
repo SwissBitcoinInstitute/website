@@ -60,12 +60,6 @@ export default function FinancialSovereigntyPage() {
         <div className="absolute inset-0 bg-white/80"></div>
         <div className="swiss-grid relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="mb-8">
-              <span className="pill-hero mb-6 bg-white/90 backdrop-blur-sm">
-                <span className="mr-2">🔐</span>
-                <span className="pill-hero-text">Hands-On Course</span>
-              </span>
-            </div>
             <h1 className="mb-6 text-gray-900">Financial Sovereignty - Fundamentals</h1>
             <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
               A short course for Bitcoin holders who want to take their Bitcoin into self-custody and become independent of third parties. The hands-on training covers apps, wallets, seed phrase management, and secure backup strategies to gain true financial sovereignty.
@@ -185,9 +179,9 @@ export default function FinancialSovereigntyPage() {
               Join Bitcoin holders in Switzerland learning to securely manage their own assets.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <CTAButton 
-                variant="secondary" 
-                size="lg" 
+              <CTAButton
+                variant="secondary"
+                size="lg"
                 href="/education"
                 className="border-white text-gray-900 bg-white hover:bg-gray-100"
               >
