@@ -4,36 +4,41 @@ import { useState, useEffect } from 'react';
 import { X, Calendar } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import alertConfig from '@/config/alert-config.json';
 
-const EVENT_BANNER_KEY = 'sbi-next-event-banner-dismissed';
-const DISMISSAL_DURATION_MS = 14 * 24 * 60 * 60 * 1000; // 2 weeks in milliseconds
+
+interface AlertConfig {
+  id: string;
+  startDate: string;
+  endDate: string;
+  alertText: string;
+  buttonText: string;
+  buttonLink: string;
+  isActive: boolean;
+}
 
 export default function NextEventBanner() {
   const [isVisible, setIsVisible] = useState(false);
+  const [activeAlert, setActiveAlert] = useState<AlertConfig | null>(null);
 
   useEffect(() => {
-    // Check if user has dismissed the banner
-    const dismissedData = localStorage.getItem(EVENT_BANNER_KEY);
-    if (!dismissedData) {
-      // Show banner immediately if never dismissed
-      setIsVisible(true);
-    } else {
-      try {
-        const dismissedTimestamp = parseInt(dismissedData, 10);
-        const now = Date.now();
-        const timeSinceDismissal = now - dismissedTimestamp;
-        
-        // Show banner again if 2 weeks have passed
-        if (timeSinceDismissal >= DISMISSAL_DURATION_MS) {
-          localStorage.removeItem(EVENT_BANNER_KEY);
-          setIsVisible(true);
-        }
-      } catch (error) {
-        // If parsing fails, show the banner
-        localStorage.removeItem(EVENT_BANNER_KEY);
-        setIsVisible(true);
-      }
+    // Find active alert based on dates
+    const now = new Date();
+    const currentAlert = alertConfig.alerts.find(alert => {
+      if (!alert.isActive) return false;
+      const startDate = new Date(alert.startDate);
+      const endDate = new Date(alert.endDate);
+      return now >= startDate && now <= endDate;
+    });
+
+    if (!currentAlert) {
+      setIsVisible(false);
+      return;
     }
+
+
+    setActiveAlert(currentAlert);
+    setIsVisible(true);
   }, []);
 
   useEffect(() => {
@@ -50,14 +55,12 @@ export default function NextEventBanner() {
 
   const handleDismiss = () => {
     setIsVisible(false);
-    // Store timestamp of dismissal
-    localStorage.setItem(EVENT_BANNER_KEY, Date.now().toString());
   };
 
-  if (!isVisible) return null;
+  if (!isVisible || !activeAlert) return null;
 
   return (
-    <div 
+    <div
       className={cn(
         "fixed top-0 left-0 right-0 z-[60] transition-all duration-500 ease-in-out",
         isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
@@ -73,13 +76,13 @@ export default function NextEventBanner() {
               <div className="flex items-center gap-3 flex-1 min-w-0">
                 <Calendar className="w-4 h-4 text-orange-600 flex-shrink-0" />
                 <p className="text-sm text-gray-700 leading-relaxed">
-                  Next: Bitcoin in 21 Minutes Webinar
+                  {activeAlert.alertText}
                 </p>
               </div>
 
               {/* CTA Button with subtle pulse animation */}
               <Link
-                href="/webinar"
+                href={activeAlert.buttonLink}
                 className={cn(
                   "relative flex-shrink-0 px-4 py-2 text-sm font-medium",
                   "bg-bitcoin-orange text-white rounded-md",
@@ -88,7 +91,7 @@ export default function NextEventBanner() {
                   "animate-pulse-subtle"
                 )}
               >
-                Save My Spot
+                {activeAlert.buttonText}
               </Link>
 
               {/* Dismiss Button */}
@@ -110,4 +113,3 @@ export default function NextEventBanner() {
     </div>
   );
 }
-
