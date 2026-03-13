@@ -85,8 +85,8 @@ This is a professional, corporate website for a Swiss Bitcoin think tank. The de
 
 ```css
 /* The signature gradient - light blue-gray to bright blue */
---gradient-blue-start: #abc2cc;       /* Light blue-gray */
---gradient-blue-end: #00abfb;         /* Bright cyan-blue */
+--gradient-blue-start: #25b7ff;       /* Light blue-gray */
+--gradient-blue-end: #129bda;         /* Bright cyan-blue */
 
 /* Opacity variants for different contexts */
 --gradient-blue-opacity-subtle: 0.08;  /* Very light backgrounds */
@@ -100,12 +100,12 @@ This is a professional, corporate website for a Swiss Bitcoin think tank. The de
 ```css
 /* Full gradient - for buttons, accents */
 .swiss-blue-gradient {
-  background: linear-gradient(to right, #abc2cc 0%, #00abfb 100%);
+  background: linear-gradient(to right, #25b7ff 0%, #129bda 100%);
 }
 
 /* Gradient text - for headings, links */
 .swiss-blue-gradient-text {
-  background: linear-gradient(to right, #abc2cc 0%, #00abfb 100%);
+  background: linear-gradient(to right, #25b7ff 0%, #129bda 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -119,7 +119,7 @@ This is a professional, corporate website for a Swiss Bitcoin think tank. The de
 
 /* Accent bar (used as section dividers) */
 .swiss-blue-gradient-accent {
-  background: linear-gradient(to right, #abc2cc 0%, #00abfb 100%);
+  background: linear-gradient(to right, #25b7ff 0%, #129bda 100%);
   height: 3px;
   width: 60px;
   border-radius: 2px;
@@ -413,7 +413,7 @@ rounded-2xl: 1rem;                     /* 16px - cards */
 **Primary Button (CTA - Blue Gradient)**
 ```css
 .btn-primary {
-  background: linear-gradient(to right, #abc2cc 0%, #00abfb 100%);
+  background: linear-gradient(to right, #25b7ff 0%, #129bda 100%);
   color: white;
   font-weight: 500;
   padding: 0.75rem 2rem;        /* h-11 px-8 for lg size */
@@ -537,7 +537,7 @@ padding: 0 2rem;    /* px-8 */
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(to right, #abc2cc 0%, #00abfb 100%);
+  background: linear-gradient(to right, #25b7ff 0%, #129bda 100%);
   opacity: 0;
   transition: opacity 300ms ease-in-out;
 }
@@ -561,7 +561,7 @@ padding: 0 2rem;    /* px-8 */
 }
 /* Text inside uses gradient */
 .pill-hero-text {
-  background: linear-gradient(to right, #abc2cc 0%, #00abfb 100%);
+  background: linear-gradient(to right, #25b7ff 0%, #129bda 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -585,7 +585,7 @@ padding: 0 2rem;    /* px-8 */
 }
 /* Text uses gradient */
 .badge-tag-blue span {
-  background: linear-gradient(to right, #abc2cc 0%, #00abfb 100%);
+  background: linear-gradient(to right, #25b7ff 0%, #129bda 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
