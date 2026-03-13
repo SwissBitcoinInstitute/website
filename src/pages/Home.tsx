@@ -217,7 +217,7 @@ const Home = () => {
                             fill
                             className="object-cover transition-transform duration-300 group-hover:scale-105"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent"></div>
+                          <div className="absolute inset-0 bg-gradient-to-t from-white/25 to-transparent"></div>
                         </div>
                       )}
                       <div className="p-6">

@@ -58,8 +58,8 @@ export default {
 				},
 				// Gradient colors (for use in Tailwind classes)
 				'gradient-blue': {
-					start: '#abc2cc',
-					end: '#00abfb',
+					start: '#25b7ff',
+					end: '#129bda',
 				},
 				gray: {
 					50: 'hsl(var(--gray-50))',
