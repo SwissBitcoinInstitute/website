@@ -105,18 +105,10 @@ const WhyBitcoin = () => {
                   key={index} 
                   className="card-general card-gradient-hover group p-8 h-full"
                 >
-                  <div className="flex items-start gap-6">
-                    <div className="relative flex-shrink-0">
-                      <div className="w-16 h-16 bg-gradient-to-br from-swiss-blue/10 to-swiss-blue/5 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-xl">
-                        <span className="text-3xl">{property.icon}</span>
-                      </div>
-                      <div className="absolute inset-0 w-16 h-16 rounded-2xl bg-swiss-blue/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-semibold mb-2 text-gray-900">{property.title}</h3>
-                      <p className="text-sm font-medium text-swiss-blue mb-4">{property.subtitle}</p>
-                      <p className="text-gray-600 text-base leading-relaxed">{property.description}</p>
-                    </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2 text-gray-900">{property.title}</h3>
+                    <p className="text-sm font-medium text-swiss-blue mb-4">{property.subtitle}</p>
+                    <p className="text-gray-600 text-base leading-relaxed">{property.description}</p>
                   </div>
                 </div>
               ))}
@@ -146,12 +138,6 @@ const WhyBitcoin = () => {
                   className="card-general card-gradient-hover group p-8 h-full border-2 border-swiss-blue/20 bg-white"
                 >
                   <div className="text-center mb-6">
-                    <div className="relative inline-block mb-4">
-                      <div className="w-20 h-20 bg-gradient-to-br from-swiss-blue/20 to-swiss-blue/10 rounded-2xl flex items-center justify-center mx-auto group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-xl">
-                        <span className="text-4xl">{consequence.icon}</span>
-                      </div>
-                      <div className="absolute inset-0 w-20 h-20 rounded-2xl bg-swiss-blue/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl mx-auto"></div>
-                    </div>
                     <h3 className="text-xl font-semibold mb-2 text-gray-900">Consequence: {consequence.title}</h3>
                   </div>
                   <p className="text-gray-600 text-base leading-relaxed text-center">{consequence.description}</p>

@@ -102,7 +102,6 @@ const Contact = () => {
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-8">
               <span className="pill-hero mb-6">
-                <span className="mr-2"></span>
                 <span className="pill-hero-text">Let's Connect</span>
               </span>
             </div>
@@ -255,9 +254,6 @@ const Contact = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-swiss-blue/10 rounded-full flex items-center justify-center">
-                  <span className="text-2xl"></span>
-                </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Swiss Excellence</h3>
                 <p className="text-gray-600 text-sm">
                   Precision, neutrality, and institutional quality that Switzerland is known for, applied to Bitcoin.
@@ -265,9 +261,6 @@ const Contact = () => {
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-swiss-blue/10 rounded-full flex items-center justify-center">
-                  <span className="text-2xl"></span>
-                </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Independent Research</h3>
                 <p className="text-gray-600 text-sm">
                   Evidence-based analysis free from commercial interests or institutional biases.
@@ -275,9 +268,6 @@ const Contact = () => {
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-swiss-blue/10 rounded-full flex items-center justify-center">
-                  <span className="text-2xl"></span>
-                </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Practical Focus</h3>
                 <p className="text-gray-600 text-sm">
                   Strategic insights that translate complex Bitcoin concepts into actionable business decisions.
@@ -308,11 +298,6 @@ const Contact = () => {
                 className="card-general card-gradient-hover group"
               >
                 <div className="relative z-10">
-                  {/* Icon with gradient background */}
-                  <div className="mb-6 flex items-center justify-center w-16 h-16 rounded-2xl swiss-blue-gradient-subtle shadow-sm mx-auto">
-                    <span className="text-3xl">{type.icon}</span>
-                  </div>
-                  
                   {/* Title */}
                   <h3 className="text-2xl font-semibold mb-4 text-gray-900 text-center">
                     {type.title}

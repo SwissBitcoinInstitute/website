@@ -156,9 +156,6 @@ const Research = () => {
               >
                 <div className={`relative bg-gradient-to-br ${domain.gradient} rounded-2xl p-6 border border-gray-200/50 h-full flex flex-col transition-all duration-300 hover:shadow-lg card-gradient-hover`}>
                   <div className="mb-4">
-                    <div className={`w-12 h-12 rounded-lg ${domain.accent} flex items-center justify-center mb-4 shadow-lg`}>
-                      <span className="text-2xl">{domain.icon}</span>
-                    </div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:swiss-blue-gradient-text transition-colors">
                       {domain.title}
                     </h3>
@@ -266,10 +263,6 @@ const Research = () => {
           <div className="max-w-4xl mx-auto">
             <Card className="border-2 border-swiss-blue/20 shadow-xl">
               <CardContent className="p-12 text-center">
-                <div className="w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-swiss-blue/20 to-swiss-blue/10 rounded-full flex items-center justify-center">
-                  <span className="text-4xl"></span>
-                </div>
-                
                 <h2 className="text-3xl font-semibold mb-6 text-gray-900">
                   Stay Ahead with Bitcoin Intelligence
                 </h2>

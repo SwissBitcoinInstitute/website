@@ -137,9 +137,6 @@ export default function CoursesPage() {
                 { name: 'Strategy & Policy', icon: '' }
               ].map((domain, index) => (
                 <div key={index} className="group bg-white p-8 rounded-2xl border border-gray-200 hover:border-swiss-blue/50 hover:shadow-lg transition-all duration-300 text-center">
-                  <div className="flex items-center justify-center w-16 h-16 rounded-2xl mb-6 bg-gradient-to-br from-swiss-blue/10 to-swiss-blue/5 group-hover:from-swiss-blue/20 group-hover:to-swiss-blue/10 transition-all duration-300 mx-auto">
-                    <span className="text-3xl">{domain.icon}</span>
-                  </div>
                   <h4 className="font-semibold text-gray-900 text-lg group-hover:swiss-blue-gradient-text transition-colors duration-300">
                     {domain.name}
                   </h4>

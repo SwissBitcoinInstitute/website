@@ -77,7 +77,6 @@ const Domains = () => {
           <div className="max-w-5xl mx-auto text-center">
             <div className="mb-8">
               <span className="pill-hero mb-6">
-                <span className="mr-2"></span>
                 <span className="pill-hero-text">Research Domains</span>
               </span>
             </div>
@@ -115,21 +114,16 @@ const Domains = () => {
 
                 {/* Domain Header */}
                 <div className="mb-6">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className={`w-16 h-16 rounded-xl ${domain.accent} flex items-center justify-center text-3xl shadow-lg`}>
-                      {domain.icon}
-                    </div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                      {domain.title}
-                    </h2>
-                  </div>
-                  <p className="text-xl font-semibold text-gray-700 italic mb-6 pl-20">
+                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    {domain.title}
+                  </h2>
+                  <p className="text-xl font-semibold text-gray-700 italic mb-6">
                     {domain.question}
                   </p>
                 </div>
 
                 {/* Domain Content */}
-                <div className="pl-20">
+                <div>
                   <div className="prose prose-lg max-w-none">
                     <p className="text-gray-700 leading-relaxed text-lg">
                       {domain.content}
@@ -138,7 +132,7 @@ const Domains = () => {
                 </div>
 
                 {/* Article Link */}
-                <div className="mt-8 pl-20">
+                <div className="mt-8">
                   <Link
                     href={domain.articleLink}
                     className="link-research inline-flex items-center text-sm font-semibold group"

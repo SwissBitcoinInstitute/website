@@ -42,20 +42,12 @@ const About = () => {
             </p>
             <div className="space-y-6 max-w-5xl mx-auto">
               {principles.map((principle, index) => (
-                <div 
-                  key={index} 
-                  className="card-general card-gradient-hover group flex flex-col md:flex-row items-start gap-6 p-6 text-left"
+                <div
+                  key={index}
+                  className="card-general card-gradient-hover group p-6 text-left"
                 >
-                  <div className="relative flex-shrink-0">
-                    <div className="w-16 h-16 bg-gradient-to-br from-swiss-blue/10 to-swiss-blue/5 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-xl">
-                      <span className="text-2xl transition-all duration-300">{principle.icon}</span>
-                    </div>
-                    <div className="absolute inset-0 w-16 h-16 rounded-2xl bg-swiss-blue/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
-                  </div>
-                  <div className="flex-1 text-left">
-                    <h3 className="text-xl font-semibold mb-3 text-gray-900 text-left">{principle.title}</h3>
-                    <p className="text-gray-600 text-base leading-relaxed text-left">{principle.description}</p>
-                  </div>
+                  <h3 className="text-xl font-semibold mb-3 text-gray-900">{principle.title}</h3>
+                  <p className="text-gray-600 text-base leading-relaxed">{principle.description}</p>
                 </div>
               ))}
             </div>
@@ -110,11 +102,6 @@ const About = () => {
                 className="card-general card-gradient-hover group"
               >
                 <div className="relative z-10">
-                  {/* Icon with gradient background */}
-                  <div className="mb-6 flex items-center justify-center w-16 h-16 rounded-2xl swiss-blue-gradient-subtle shadow-sm">
-                    <span className="text-3xl">{service.icon}</span>
-                  </div>
-                  
                   {/* Title */}
                   <h3 className="text-2xl font-semibold mb-4 text-gray-900">
                     {service.title}
