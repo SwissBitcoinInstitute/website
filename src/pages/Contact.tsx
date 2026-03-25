@@ -221,7 +221,7 @@ const Contact = () => {
                   <Button 
                     type="submit" 
                     disabled={isSubmitting}
-                    className="w-full h-12 text-lg font-semibold swiss-blue-gradient btn-hover-scale text-white"
+                    className="w-full h-12 text-lg font-semibold btn-hover-scale"
                   >
                     {isSubmitting ? (
                       <>
@@ -398,7 +398,7 @@ const Contact = () => {
               <CTAButton variant="primary" size="lg" href="/inquiry?service=research" showArrow>
                 Book discovery call
               </CTAButton>
-              <CTAButton variant="secondary" size="lg" href="/speaker" className="bg-white text-gray-900 hover:bg-gray-100">
+              <CTAButton variant="secondary" size="lg" href="/speaker">
                 Request Speaker
               </CTAButton>
             </div>

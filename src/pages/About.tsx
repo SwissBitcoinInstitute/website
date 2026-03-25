@@ -9,7 +9,7 @@ const About = () => {
     },
     {
       icon: "🤝",
-      title: "Political Neutrality", 
+      title: "Political Neutrality",
       description: "Switzerland's long-standing neutrality, rooted in its foreign policy tradition (Art. 54, 173 BV), positions it as an valued, impartial actor on the global stage. Bitcoin operates on a neutral, apolitical protocol – accessible to anyone regardless of jurisdiction, ideology, or affiliation."
     },
     {
@@ -42,8 +42,8 @@ const About = () => {
             </p>
             <div className="space-y-6 max-w-5xl mx-auto">
               {principles.map((principle, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="card-general card-gradient-hover group flex flex-col md:flex-row items-start gap-6 p-6 text-left"
                 >
                   <div className="relative flex-shrink-0">
@@ -69,7 +69,7 @@ const About = () => {
       <section className="swiss-section bg-white relative overflow-hidden">
         {/* Subtle background gradient */}
         <div className="absolute inset-0 swiss-blue-gradient-subtle opacity-50"></div>
-        
+
         <div className="swiss-grid relative">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center mb-6">
@@ -80,7 +80,7 @@ const About = () => {
               Three core offerings designed for Switzerland's decision-makers navigating the Bitcoin transition.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
@@ -105,8 +105,8 @@ const About = () => {
                 secondaryCta: { text: "Submit Speaking Request", link: "/inquiry?service=speaking#service-selection" }
               }
             ].map((service, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="card-general card-gradient-hover group"
               >
                 <div className="relative z-10">
@@ -114,31 +114,31 @@ const About = () => {
                   <div className="mb-6 flex items-center justify-center w-16 h-16 rounded-2xl swiss-blue-gradient-subtle shadow-sm">
                     <span className="text-3xl">{service.icon}</span>
                   </div>
-                  
+
                   {/* Title */}
                   <h3 className="text-2xl font-semibold mb-4 text-gray-900">
                     {service.title}
                   </h3>
-                  
+
                   {/* Description */}
                   <p className="text-gray-600 leading-relaxed mb-6 text-base">
                     {service.description}
                   </p>
-                  
+
                   {/* CTAs */}
                   <div className="space-y-3">
-                    <CTAButton 
-                      variant="primary" 
-                      size="lg" 
-                      href={service.primaryCta.link} 
+                    <CTAButton
+                      variant="primary"
+                      size="lg"
+                      href={service.primaryCta.link}
                       className="w-full"
                     >
                       {service.primaryCta.text}
                     </CTAButton>
-                    <CTAButton 
-                      variant="secondary" 
-                      size="lg" 
-                      href={service.secondaryCta.link} 
+                    <CTAButton
+                      variant="secondary"
+                      size="lg"
+                      href={service.secondaryCta.link}
                       className="w-full"
                     >
                       {service.secondaryCta.text}
@@ -159,20 +159,20 @@ const About = () => {
             <h2 className="text-3xl lg:text-4xl font-medium text-white mb-6">
               Shape the future of money
             </h2>
-            
+
             <p className="text-lg text-gray-300 mb-8">
               We collaborate with policymakers, researchers, and educators to advance Switzerland's monetary strategy.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
               <CTAButton variant="primary" size="lg" href="/contact" showArrow>
                 Contact Us
               </CTAButton>
-              <CTAButton variant="outline" size="lg" href="/inquiry?service=research" className="border-white text-gray-900 bg-white hover:bg-gray-100">
+              <CTAButton variant="secondary" size="lg" href="/inquiry?service=research">
                 Book discovery call
               </CTAButton>
             </div>
-            
+
             <p className="text-gray-400">
               <a href="mailto:hello@bitcoininstitute.ch" className="hover:text-white transition-colors">
                 hello@bitcoininstitute.ch

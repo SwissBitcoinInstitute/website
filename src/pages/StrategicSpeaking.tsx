@@ -314,7 +314,7 @@ export default function StrategicSpeaking() {
               <CTAButton variant="primary" size="lg" href="/inquiry#speaking" showArrow>
                 Get in Touch
               </CTAButton>
-              <CTAButton variant="secondary" size="lg" href="/research" className="bg-white text-gray-900 hover:bg-gray-100">
+              <CTAButton variant="secondary" size="lg" href="/research">
                 View Our Research
               </CTAButton>
             </div>

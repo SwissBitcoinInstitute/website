@@ -38,6 +38,19 @@
     --radius: 0.5rem;
 
     /* ============================================
+       BUTTON COLORS - GLOBALLY CONTROLLED
+       ============================================ */
+    --btn-primary: var(--bitcoin-orange);
+    --btn-primary-hover: var(--bitcoin-orange-hover);
+    --btn-primary-foreground: 0 0% 100%;
+
+    --btn-secondary: 0 0% 100%;
+    --btn-secondary-border: var(--swiss-blue);
+    --btn-secondary-hover: 210 20% 98%;
+    --btn-secondary-hover-border: var(--swiss-blue-hover);
+    --btn-secondary-foreground: var(--foreground);
+
+    /* ============================================
        BRAND COLORS - SWISS BITCOIN INSTITUTE
        ============================================ */
     /* Primary Brand Colors */
