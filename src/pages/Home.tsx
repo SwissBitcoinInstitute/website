@@ -7,8 +7,6 @@ import NewsletterButton from '@/components/ui/newsletter-button';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import { Mail } from 'lucide-react';
 import { fetchArticles, ArticleMeta } from '@/lib/content-client';
 
 const Home = () => {
@@ -27,13 +25,6 @@ const Home = () => {
   const researchHighlights = highlightedIds
     .map(id => articles.find(a => a.id === id))
     .filter((a): a is ArticleMeta => a !== undefined);
-  const handleNewsletterScroll = (e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault();
-    const element = document.getElementById('newsletter');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
   const principles = [{
     icon: "🏛️",
     title: "Sovereignty",
@@ -96,15 +87,6 @@ const Home = () => {
             <CTAButton variant="primary" size="lg" href="/inquiry?service=research&discovery=true#service-selection" className="shadow-2xl">
               Book Discovery Call
             </CTAButton>
-            <Button
-              variant="secondary"
-              size="lg"
-              onClick={handleNewsletterScroll}
-              className="font-medium transition-all duration-300 group btn-hover-scale"
-            >
-              <Mail className="w-4 h-4 mr-2" />
-              Subscribe to Intelligence Brief
-            </Button>
           </div>
         </div>
       </div>
@@ -129,47 +111,30 @@ const Home = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {services.map((service, index) => (
-            <div
+            <Link
               key={index}
-              className="card-general card-gradient-hover group"
+              href={service.primaryCta.link}
+              className="group block h-full"
             >
-              <div className="relative z-10">
-                {/* Icon with gradient background */}
-                <div className="mb-6 flex items-center justify-center w-16 h-16 rounded-2xl swiss-blue-gradient-subtle shadow-sm">
-                  <span className="text-3xl">{service.icon}</span>
-                </div>
+              <div className="card-general card-gradient-hover h-full flex flex-col">
+                <div className="relative z-10 flex flex-col flex-grow">
+                  {/* Title */}
+                  <h3 className="text-2xl font-semibold mb-4 text-gray-900">
+                    {service.title}
+                  </h3>
 
-                {/* Title */}
-                <h3 className="text-2xl font-semibold mb-4 text-gray-900">
-                  {service.title}
-                </h3>
+                  {/* Description */}
+                  <p className="text-gray-600 leading-relaxed mb-6 text-base flex-grow">
+                    {service.description}
+                  </p>
 
-                {/* Description */}
-                <p className="text-gray-600 leading-relaxed mb-6 text-base">
-                  {service.description}
-                </p>
-
-                {/* CTAs */}
-                <div className="space-y-3">
-                  <CTAButton
-                    variant="primary"
-                    size="lg"
-                    href={service.primaryCta.link}
-                    className="w-full"
-                  >
-                    {service.primaryCta.text}
-                  </CTAButton>
-                  <CTAButton
-                    variant="secondary"
-                    size="lg"
-                    href={service.secondaryCta.link}
-                    className="w-full"
-                  >
-                    {service.secondaryCta.text}
-                  </CTAButton>
+                  {/* Link format matching glossary */}
+                  <div className="link-research text-sm mt-auto">
+                    {service.primaryCta.text} →
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
