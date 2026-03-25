@@ -27,42 +27,42 @@ const Home = () => {
     .map(id => articles.find(a => a.id === id))
     .filter((a): a is ArticleMeta => a !== undefined);
   const principles = [{
-    icon: "🏛️",
+    icon: "",
     title: "Sovereignty",
     description: "Self-custody and monetary independence"
   }, {
-    icon: "🤝",
+    icon: "",
     title: "Neutrality",
     description: "Non-partisan, evidence-based research"
   }, {
-    icon: "⚖️",
+    icon: "",
     title: "Consensus",
     description: "Transparent, collaborative decision-making"
   }, {
-    icon: "🌐",
+    icon: "",
     title: "Decentralization",
     description: "Distributed systems and resilience"
   }, {
-    icon: "🕊️",
+    icon: "",
     title: "Liberty",
     description: "Economic freedom and individual rights"
   }];
   const services = [{
     title: "Education",
     description: "From 1:1 bespoke sessions to more formal courses",
-    icon: "🎓",
+    icon: "",
     primaryCta: { text: "Explore options", link: "/education" },
     secondaryCta: { text: "Request Course Information", link: "/inquiry?service=courses#service-selection" }
   }, {
     title: "Research",
     description: "Actionable insights on Bitcoin's strategic implications",
-    icon: "🧠",
+    icon: "",
     primaryCta: { text: "View offering", link: "/research" },
     secondaryCta: { text: "Book Discovery Call", link: "/inquiry?service=research&discovery=true#service-selection" }
   }, {
     title: "Speaking",
     description: "Keynotes that get the message across and encourage reflection",
-    icon: "🎤",
+    icon: "",
     primaryCta: { text: "View talks", link: "/speaking" },
     secondaryCta: { text: "Submit Speaking Request", link: "/inquiry?service=speaking#service-selection" }
   }];

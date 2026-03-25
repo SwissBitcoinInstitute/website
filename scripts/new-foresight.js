@@ -58,7 +58,7 @@ This will:
   const templatePath = path.join(__dirname, '..', 'templates', 'foresight-template.md');
   
   if (!fs.existsSync(templatePath)) {
-    console.error('❌ Foresight template not found at:', templatePath);
+    console.error('Foresight template not found at:', templatePath);
     process.exit(1);
   }
   
@@ -78,15 +78,15 @@ This will:
   const filePath = path.join(foresightDir, filename);
   
   if (fs.existsSync(filePath)) {
-    console.error(`❌ File already exists: ${filename}`);
+    console.error(`File already exists: ${filename}`);
     process.exit(1);
   }
   
   fs.writeFileSync(filePath, template);
   
-  console.log(`✅ Created new foresight article: ${filename}`);
-  console.log(`📝 Edit it at: src/content/foresight/${filename}`);
-  console.log(`🌐 URL will be: /foresight/${slug}`);
+  console.log(`Created new foresight article: ${filename}`);
+  console.log(`Edit it at: src/content/foresight/${filename}`);
+  console.log(`URL will be: /foresight/${slug}`);
   console.log('');
   console.log('Remember to:');
   console.log('- Connect Bitcoin to current news');

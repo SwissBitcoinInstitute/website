@@ -74,21 +74,21 @@ const Contact = () => {
     {
       title: "Education",
       description: "From 1:1 bespoke sessions to more formal courses",
-      icon: "🎓",
+      icon: "",
       primaryCta: { text: "Explore options", link: "/education" },
       secondaryCta: { text: "Book discovery Call", link: "/inquiry?service=courses" }
     },
     {
       title: "Research",
       description: "Actionable insights on Bitcoin's strategic implications",
-      icon: "🧠",
+      icon: "",
       primaryCta: { text: "View offering", link: "/research" },
       secondaryCta: { text: "Next Free Webinar", link: "/webinar" }
     },
     {
       title: "Speaking",
       description: "Keynotes that get the message across and encourage reflection",
-      icon: "🎤",
+      icon: "",
       primaryCta: { text: "View talks", link: "/speaking" },
       secondaryCta: { text: "Book discovery Call", link: "/inquiry?service=speaking" }
     }
