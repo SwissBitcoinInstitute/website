@@ -3,27 +3,27 @@ import CTAButton from '@/components/ui/cta-button';
 const About = () => {
   const principles = [
     {
-      icon: "🏛️",
+      icon: "",
       title: "Sovereignty",
       description: "Switzerland's constitutional commitment to independence and federalism (Art. 2, 3 BV) reflects a deep respect for sovereignty down to cantonal levels. Bitcoin's decentralized architecture ensures no single entity controls the network, preserving monetary sovereignty for its users."
     },
     {
-      icon: "🤝",
+      icon: "",
       title: "Political Neutrality", 
       description: "Switzerland's long-standing neutrality, rooted in its foreign policy tradition (Art. 54, 173 BV), positions it as an valued, impartial actor on the global stage. Bitcoin operates on a neutral, apolitical protocol – accessible to anyone regardless of jurisdiction, ideology, or affiliation."
     },
     {
-      icon: "⚖️",
+      icon: "",
       title: "Consensus Governance",
       description: "Switzerland's direct democracy (Art. 136-142 BV) and consensus-driven political culture ensure decisions reflect the will of the people and cantons. Bitcoin's consensus mechanism requires broad network agreement for any protocol changes, ensuring no single party can impose decisions unilaterally."
     },
     {
-      icon: "🌐",
+      icon: "",
       title: "Power Decentralization",
       description: "Switzerland's structure (Art. 3, 43a BV) pushes much authority to the cantonal, and communal levels, preventing concentration of power. Bitcoin distributes power across thousands of independent nodes worldwide, preventing centralized control or single points of failure."
     },
     {
-      icon: "🕊️",
+      icon: "",
       title: "Political Liberty & Economic Freedom",
       description: "Switzerland's constitution enshrines liberty including economic freedom (Art. 2, 10-27 BV) as fundamental rights. Bitcoin empowers individuals with financial autonomy and self-custody, free from intermediaries or centralized gatekeepers."
     }
@@ -86,21 +86,21 @@ const About = () => {
               {
                 title: "Education",
                 description: "From 1:1 bespoke sessions to more formal courses",
-                icon: "🎓",
+                icon: "",
                 primaryCta: { text: "Explore options", link: "/education" },
                 secondaryCta: { text: "Request Course Information", link: "/inquiry?service=courses#service-selection" }
               },
               {
                 title: "Research",
                 description: "Actionable insights on Bitcoin's strategic implications",
-                icon: "🧠",
+                icon: "",
                 primaryCta: { text: "View offering", link: "/research" },
                 secondaryCta: { text: "Book Discovery Call", link: "/inquiry?service=research&discovery=true#service-selection" }
               },
               {
                 title: "Speaking",
                 description: "Keynotes that get the message across and encourage reflection",
-                icon: "🎤",
+                icon: "",
                 primaryCta: { text: "View talks", link: "/speaking" },
                 secondaryCta: { text: "Submit Speaking Request", link: "/inquiry?service=speaking#service-selection" }
               }

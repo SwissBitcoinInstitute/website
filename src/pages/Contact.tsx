@@ -73,21 +73,21 @@ const Contact = () => {
     {
       title: "Education",
       description: "From 1:1 bespoke sessions to more formal courses",
-      icon: "🎓",
+      icon: "",
       primaryCta: { text: "Explore options", link: "/education" },
       secondaryCta: { text: "Book discovery Call", link: "/inquiry?service=courses" }
     },
     {
       title: "Research",
       description: "Actionable insights on Bitcoin's strategic implications",
-      icon: "🧠",
+      icon: "",
       primaryCta: { text: "View offering", link: "/research" },
       secondaryCta: { text: "Next Free Webinar", link: "/webinar" }
     },
     {
       title: "Speaking",
       description: "Keynotes that get the message across and encourage reflection",
-      icon: "🎤",
+      icon: "",
       primaryCta: { text: "View talks", link: "/speaking" },
       secondaryCta: { text: "Book discovery Call", link: "/inquiry?service=speaking" }
     }
@@ -102,7 +102,7 @@ const Contact = () => {
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-8">
               <span className="pill-hero mb-6">
-                <span className="mr-2">💬</span>
+                <span className="mr-2"></span>
                 <span className="pill-hero-text">Let's Connect</span>
               </span>
             </div>
@@ -256,7 +256,7 @@ const Contact = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="w-16 h-16 mx-auto mb-4 bg-swiss-blue/10 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">🇨🇭</span>
+                  <span className="text-2xl"></span>
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Swiss Excellence</h3>
                 <p className="text-gray-600 text-sm">
@@ -266,7 +266,7 @@ const Contact = () => {
 
               <div className="text-center">
                 <div className="w-16 h-16 mx-auto mb-4 bg-swiss-blue/10 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">🔬</span>
+                  <span className="text-2xl"></span>
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Independent Research</h3>
                 <p className="text-gray-600 text-sm">
@@ -276,7 +276,7 @@ const Contact = () => {
 
               <div className="text-center">
                 <div className="w-16 h-16 mx-auto mb-4 bg-swiss-blue/10 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">🎯</span>
+                  <span className="text-2xl"></span>
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Practical Focus</h3>
                 <p className="text-gray-600 text-sm">

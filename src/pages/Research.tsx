@@ -103,7 +103,7 @@ const Research = () => {
               {
                 title: "Markets & Geopolitics",
                 question: "What happens when nations and companies can settle trade in a neutral asset beyond the control of any single state?",
-                icon: "🌍",
+                icon: "",
                 gradient: "from-blue-50 to-blue-100/50",
                 accent: "bg-blue-500",
                 anchorId: "markets-geopolitics"
@@ -111,7 +111,7 @@ const Research = () => {
               {
                 title: "Finance & Economics",
                 question: "What happens when fixed-supply, rules-based money challenges inflationary systems and the fusion of money and state power?",
-                icon: "💼",
+                icon: "",
                 gradient: "from-green-50 to-green-100/50",
                 accent: "bg-green-500",
                 anchorId: "finance-economics"
@@ -119,7 +119,7 @@ const Research = () => {
               {
                 title: "Technology & Innovation",
                 question: "What innovations become possible when financial infrastructure is open, programmable, and free from centralized control?",
-                icon: "⚡",
+                icon: "",
                 gradient: "from-purple-50 to-purple-100/50",
                 accent: "bg-purple-500",
                 anchorId: "technology-innovation"
@@ -127,7 +127,7 @@ const Research = () => {
               {
                 title: "Energy & Climate",
                 question: "How does Bitcoin's direct link to energy markets impact grid stability, renewable build-out, and climate mitigation strategies?",
-                icon: "🌱",
+                icon: "",
                 gradient: "from-orange-50 to-orange-100/50",
                 accent: "bg-orange-500",
                 anchorId: "energy-climate"
@@ -135,7 +135,7 @@ const Research = () => {
               {
                 title: "Access & Agency",
                 question: "How can permissionless, neutral money improve financial inclusion and protect civil liberties?",
-                icon: "🔓",
+                icon: "",
                 gradient: "from-teal-50 to-teal-100/50",
                 accent: "bg-teal-500",
                 anchorId: "access-agency"
@@ -143,7 +143,7 @@ const Research = () => {
               {
                 title: "Strategy & Policy",
                 question: "How should Switzerland balance innovation, sovereignty, and risk when Bitcoin challenges traditional monetary and regulatory paradigms?",
-                icon: "📋",
+                icon: "",
                 gradient: "from-indigo-50 to-indigo-100/50",
                 accent: "bg-indigo-500",
                 anchorId: "strategy-policy"
@@ -267,7 +267,7 @@ const Research = () => {
             <Card className="border-2 border-swiss-blue/20 shadow-xl">
               <CardContent className="p-12 text-center">
                 <div className="w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-swiss-blue/20 to-swiss-blue/10 rounded-full flex items-center justify-center">
-                  <span className="text-4xl">📧</span>
+                  <span className="text-4xl"></span>
                 </div>
                 
                 <h2 className="text-3xl font-semibold mb-6 text-gray-900">

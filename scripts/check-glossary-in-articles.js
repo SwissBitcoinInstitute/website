@@ -203,9 +203,9 @@ if (results.notMentioned.length > 0) {
   results.notMentioned.forEach(({ term, slug, relatedArticle }) => {
     console.log(`\n${term} (${slug})`);
     if (relatedArticle) {
-      console.log(`  ⚠ Has relatedArticle: SBI-${relatedArticle.padStart(3, '0')} but not found there`);
+      console.log(`  Has relatedArticle: SBI-${relatedArticle.padStart(3, '0')} but not found there`);
     } else {
-      console.log(`  ❌ No relatedArticle field set`);
+      console.log(`  No relatedArticle field set`);
     }
   });
 }
@@ -222,6 +222,6 @@ if (results.missingFromRelated.length > 0) {
 }
 
 if (results.notMentioned.length === 0 && results.missingFromRelated.length === 0) {
-  console.log('\n✅ All glossary terms are mentioned in at least one article!');
+  console.log('\nAll glossary terms are mentioned in at least one article!');
 }
 

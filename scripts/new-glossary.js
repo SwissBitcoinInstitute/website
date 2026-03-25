@@ -33,11 +33,11 @@ const categories = [
 ];
 
 async function main() {
-  console.log('\n🔷 Swiss Bitcoin Institute - New Glossary Term Creator\n');
+  console.log('\nSwiss Bitcoin Institute - New Glossary Term Creator\n');
 
   const term = await question('Term name (e.g., "Block Height"): ');
   if (!term.trim()) {
-    console.error('❌ Error: Term name is required');
+    console.error('Error: Term name is required');
     rl.close();
     process.exit(1);
   }
@@ -52,7 +52,7 @@ async function main() {
 
   const shortDef = await question('\nShort definition (for tooltips, 1-2 sentences):\n');
   if (!shortDef.trim()) {
-    console.error('❌ Error: Short definition is required');
+    console.error('Error: Short definition is required');
     rl.close();
     process.exit(1);
   }
@@ -105,7 +105,7 @@ ${shortDef}
 
   // Check if file already exists
   if (fs.existsSync(filepath)) {
-    console.error(`\n❌ Error: Glossary term "${filename}" already exists!`);
+    console.error(`\nError: Glossary term "${filename}" already exists!`);
     rl.close();
     process.exit(1);
   }
@@ -113,10 +113,10 @@ ${shortDef}
   // Create the file
   fs.writeFileSync(filepath, template, 'utf8');
 
-  console.log(`\n✅ Created glossary term: ${filename}`);
-  console.log(`📍 Location: src/content/glossary/${filename}`);
-  console.log(`🌐 URL: /glossary/${slug}`);
-  console.log('\n📝 Next steps:');
+  console.log(`\nCreated glossary term: ${filename}`);
+  console.log(`Location: src/content/glossary/${filename}`);
+  console.log(`URL: /glossary/${slug}`);
+  console.log('\nNext steps:');
   console.log('  1. Edit the file to add detailed content');
   console.log('  2. The term will automatically highlight in articles');
   console.log('  3. Commit and push to deploy\n');
@@ -125,7 +125,7 @@ ${shortDef}
 }
 
 main().catch(error => {
-  console.error('\n❌ Error:', error.message);
+  console.error('\nError:', error.message);
   rl.close();
   process.exit(1);
 });

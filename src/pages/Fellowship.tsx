@@ -83,7 +83,7 @@ const Fellowship = () => {
               <div className="card-general card-gradient-hover p-8 h-full">
                 <div className="mb-6">
                   <div className="w-16 h-16 bg-gradient-to-br from-swiss-blue/10 to-swiss-blue/5 rounded-2xl flex items-center justify-center mb-4">
-                    <span className="text-3xl">✨</span>
+                    <span className="text-3xl"></span>
                   </div>
                   <h3 className="text-2xl font-semibold mb-4 text-gray-900">What You'll Do</h3>
                 </div>
@@ -110,7 +110,7 @@ const Fellowship = () => {
               <div className="card-general card-gradient-hover p-8 h-full">
                 <div className="mb-6">
                   <div className="w-16 h-16 bg-gradient-to-br from-swiss-blue/10 to-swiss-blue/5 rounded-2xl flex items-center justify-center mb-4">
-                    <span className="text-3xl">🎯</span>
+                    <span className="text-3xl"></span>
                   </div>
                   <h3 className="text-2xl font-semibold mb-4 text-gray-900">Our Values</h3>
                 </div>
@@ -139,7 +139,7 @@ const Fellowship = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="text-center md:text-left">
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-swiss-blue/10 rounded-xl mb-4">
-                    <span className="text-2xl">📅</span>
+                    <span className="text-2xl"></span>
                   </div>
                   <h3 className="text-xl font-semibold mb-3 text-gray-900">The Commitment</h3>
                   <p className="swiss-prose-lg text-gray-700">
@@ -148,7 +148,7 @@ const Fellowship = () => {
                 </div>
                 <div className="text-center md:text-left">
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-swiss-blue/10 rounded-xl mb-4">
-                    <span className="text-2xl">🎁</span>
+                    <span className="text-2xl"></span>
                   </div>
                   <h3 className="text-xl font-semibold mb-3 text-gray-900">The Reward</h3>
                   <p className="swiss-prose-lg text-gray-700">

@@ -142,7 +142,7 @@ function main() {
       
       // Skip if domains already exist
       if (data.domains && Array.isArray(data.domains) && data.domains.length > 0) {
-        console.log(`✓ ${term} already has domains: ${data.domains.join(', ')}`);
+        console.log(`${term} already has domains: ${data.domains.join(', ')}`);
         return;
       }
       
@@ -156,7 +156,7 @@ function main() {
           relatedArticle,
           suggested: suggestedDomains
         });
-        console.log(`⚠ ${term} needs manual review (category: ${category})`);
+        console.log(`${term} needs manual review (category: ${category})`);
       } else {
         updateGlossaryFile(filePath, suggestedDomains);
         results.autoAssigned.push({
@@ -164,14 +164,14 @@ function main() {
           file: filename,
           domains: suggestedDomains
         });
-        console.log(`✓ ${term} → ${suggestedDomains.join(', ')}`);
+        console.log(`${term} → ${suggestedDomains.join(', ')}`);
       }
     } catch (error) {
       results.errors.push({
         file: filename,
         error: error.message
       });
-      console.error(`✗ Error processing ${filename}: ${error.message}`);
+      console.error(`Error processing ${filename}: ${error.message}`);
     }
   });
 

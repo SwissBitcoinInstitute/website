@@ -129,12 +129,12 @@ export default function CoursesPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
-                { name: 'Markets & Geopolitics', icon: '🌍' },
-                { name: 'Finance & Economics', icon: '💼' },
-                { name: 'Technology & Innovation', icon: '⚡' },
-                { name: 'Energy & Climate', icon: '🌱' },
-                { name: 'Access & Agency', icon: '🔓' },
-                { name: 'Strategy & Policy', icon: '📋' }
+                { name: 'Markets & Geopolitics', icon: '' },
+                { name: 'Finance & Economics', icon: '' },
+                { name: 'Technology & Innovation', icon: '' },
+                { name: 'Energy & Climate', icon: '' },
+                { name: 'Access & Agency', icon: '' },
+                { name: 'Strategy & Policy', icon: '' }
               ].map((domain, index) => (
                 <div key={index} className="group bg-white p-8 rounded-2xl border border-gray-200 hover:border-swiss-blue/50 hover:shadow-lg transition-all duration-300 text-center">
                   <div className="flex items-center justify-center w-16 h-16 rounded-2xl mb-6 bg-gradient-to-br from-swiss-blue/10 to-swiss-blue/5 group-hover:from-swiss-blue/20 group-hover:to-swiss-blue/10 transition-all duration-300 mx-auto">

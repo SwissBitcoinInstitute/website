@@ -46,7 +46,7 @@ export default function NewsletterInline({
       </div>
 
       <p className="text-xs text-gray-500 text-center mt-4">
-        🔒 Privacy-first. No spam. Unsubscribe anytime.
+        Privacy-first. No spam. Unsubscribe anytime.
       </p>
     </div>
   );
