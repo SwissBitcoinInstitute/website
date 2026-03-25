@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
 import Image from 'next/image';
 import { fetchArticles, ArticleMeta } from '@/lib/content-client';
+import { testimonials } from '@/data/testimonials';
 
 const Home = () => {
   const [articles, setArticles] = useState<ArticleMeta[]>([]);
@@ -203,6 +204,49 @@ const Home = () => {
               );
             })
           )}
+        </div>
+      </div>
+    </section>
+
+    {/* Testimonials */}
+    <section className="swiss-section bg-gray-50">
+      <div className="swiss-grid">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center mb-6">
+              <div className="swiss-blue-gradient-accent mx-auto"></div>
+            </div>
+            <h2>What Leaders Say</h2>
+          </div>
+
+          <div className="space-y-8">
+            {testimonials.map((testimonial) => (
+              <div key={testimonial.id} className="card-general flex flex-col md:flex-row items-center md:items-start gap-8 p-8 md:p-10 card-gradient-hover group">
+                <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start gap-8 w-full">
+                  <div className="flex-shrink-0 w-32 h-32 md:w-36 md:h-36 relative rounded-full overflow-hidden border-4 border-gray-100 shadow-md">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      fill
+                      className="object-cover bg-gray-200"
+                    />
+                  </div>
+                  <div className="flex-1 text-center md:text-left">
+                    <p className="swiss-prose-lg italic text-gray-700 mb-6">
+                      <span className="text-xl md:text-2xl text-gray-400 font-serif mr-1 relative top-1">&ldquo;</span>
+                      {testimonial.text}<span className="text-xl md:text-2xl text-gray-400 font-serif relative top-1">&rdquo;</span>
+                    </p>
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-1">{testimonial.name}</h4>
+                      <p className="text-sm text-gray-600">
+                        {testimonial.role}, <span className="font-medium text-gray-800">{testimonial.company}</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
