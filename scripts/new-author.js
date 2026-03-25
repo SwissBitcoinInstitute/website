@@ -20,7 +20,7 @@ function createNewAuthor(name, role = 'Contributor', email = '') {
   // Check if author already exists
   const authorPath = path.join(__dirname, '../src/content/authors', filename);
   if (fs.existsSync(authorPath)) {
-    console.log(`❌ Author already exists: ${filename}`);
+    console.log(`Author already exists: ${filename}`);
     return;
   }
   
@@ -35,9 +35,9 @@ function createNewAuthor(name, role = 'Contributor', email = '') {
   
   fs.writeFileSync(authorPath, authorContent);
   
-  console.log(`✅ Created new author: ${filename}`);
-  console.log(`📝 Edit it at: src/content/authors/${filename}`);
-  console.log(`🖼️  Add photo at: public/team/${slug}.png`);
+  console.log(`Created new author: ${filename}`);
+  console.log(`Edit it at: src/content/authors/${filename}`);
+  console.log(`Add photo at: public/team/${slug}.png`);
   console.log('\nRemember to:');
   console.log('- Add professional headshot photo');
   console.log('- Update bio and expertise');

@@ -12,7 +12,7 @@ export interface ResearchDomain {
 export const RESEARCH_DOMAINS: ResearchDomain[] = [
   {
     title: "Markets & Geopolitics",
-    icon: "🌍",
+    icon: "",
     gradient: "from-blue-50 to-blue-100/50",
     accent: "bg-blue-500",
     anchorId: "markets-geopolitics",
@@ -25,7 +25,7 @@ export const RESEARCH_DOMAINS: ResearchDomain[] = [
   },
   {
     title: "Finance & Economics",
-    icon: "💼",
+    icon: "",
     gradient: "from-green-50 to-green-100/50",
     accent: "bg-green-500",
     anchorId: "finance-economics",
@@ -38,7 +38,7 @@ export const RESEARCH_DOMAINS: ResearchDomain[] = [
   },
   {
     title: "Technology & Innovation",
-    icon: "⚡",
+    icon: "",
     gradient: "from-purple-50 to-purple-100/50",
     accent: "bg-purple-500",
     anchorId: "technology-innovation",
@@ -51,7 +51,7 @@ export const RESEARCH_DOMAINS: ResearchDomain[] = [
   },
   {
     title: "Energy & Climate",
-    icon: "🌱",
+    icon: "",
     gradient: "from-orange-50 to-orange-100/50",
     accent: "bg-orange-500",
     anchorId: "energy-climate",
@@ -64,7 +64,7 @@ export const RESEARCH_DOMAINS: ResearchDomain[] = [
   },
   {
     title: "Access & Agency",
-    icon: "🔓",
+    icon: "",
     gradient: "from-teal-50 to-teal-100/50",
     accent: "bg-teal-500",
     anchorId: "access-agency",
@@ -76,7 +76,7 @@ export const RESEARCH_DOMAINS: ResearchDomain[] = [
   },
   {
     title: "Strategy & Policy",
-    icon: "📋",
+    icon: "",
     gradient: "from-indigo-50 to-indigo-100/50",
     accent: "bg-indigo-500",
     anchorId: "strategy-policy",

@@ -3,27 +3,27 @@ import CTAButton from '@/components/ui/cta-button';
 const About = () => {
   const principles = [
     {
-      icon: "🏛️",
+      icon: "",
       title: "Sovereignty",
       description: "Switzerland's constitutional commitment to independence and federalism (Art. 2, 3 BV) reflects a deep respect for sovereignty down to cantonal levels. Bitcoin's decentralized architecture ensures no single entity controls the network, preserving monetary sovereignty for its users."
     },
     {
-      icon: "🤝",
+      icon: "",
       title: "Political Neutrality", 
       description: "Switzerland's long-standing neutrality, rooted in its foreign policy tradition (Art. 54, 173 BV), positions it as an valued, impartial actor on the global stage. Bitcoin operates on a neutral, apolitical protocol – accessible to anyone regardless of jurisdiction, ideology, or affiliation."
     },
     {
-      icon: "⚖️",
+      icon: "",
       title: "Consensus Governance",
       description: "Switzerland's direct democracy (Art. 136-142 BV) and consensus-driven political culture ensure decisions reflect the will of the people and cantons. Bitcoin's consensus mechanism requires broad network agreement for any protocol changes, ensuring no single party can impose decisions unilaterally."
     },
     {
-      icon: "🌐",
+      icon: "",
       title: "Power Decentralization",
       description: "Switzerland's structure (Art. 3, 43a BV) pushes much authority to the cantonal, and communal levels, preventing concentration of power. Bitcoin distributes power across thousands of independent nodes worldwide, preventing centralized control or single points of failure."
     },
     {
-      icon: "🕊️",
+      icon: "",
       title: "Political Liberty & Economic Freedom",
       description: "Switzerland's constitution enshrines liberty including economic freedom (Art. 2, 10-27 BV) as fundamental rights. Bitcoin empowers individuals with financial autonomy and self-custody, free from intermediaries or centralized gatekeepers."
     }
@@ -42,20 +42,12 @@ const About = () => {
             </p>
             <div className="space-y-6 max-w-5xl mx-auto">
               {principles.map((principle, index) => (
-                <div 
-                  key={index} 
-                  className="card-general card-gradient-hover group flex flex-col md:flex-row items-start gap-6 p-6 text-left"
+                <div
+                  key={index}
+                  className="card-general card-gradient-hover group p-6 text-left"
                 >
-                  <div className="relative flex-shrink-0">
-                    <div className="w-16 h-16 bg-gradient-to-br from-swiss-blue/10 to-swiss-blue/5 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-xl">
-                      <span className="text-2xl transition-all duration-300">{principle.icon}</span>
-                    </div>
-                    <div className="absolute inset-0 w-16 h-16 rounded-2xl bg-swiss-blue/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
-                  </div>
-                  <div className="flex-1 text-left">
-                    <h3 className="text-xl font-semibold mb-3 text-gray-900 text-left">{principle.title}</h3>
-                    <p className="text-gray-600 text-base leading-relaxed text-left">{principle.description}</p>
-                  </div>
+                  <h3 className="text-xl font-semibold mb-3 text-gray-900">{principle.title}</h3>
+                  <p className="text-gray-600 text-base leading-relaxed">{principle.description}</p>
                 </div>
               ))}
             </div>
@@ -86,21 +78,21 @@ const About = () => {
               {
                 title: "Education",
                 description: "From 1:1 bespoke sessions to more formal courses",
-                icon: "🎓",
+                icon: "",
                 primaryCta: { text: "Explore options", link: "/education" },
                 secondaryCta: { text: "Request Course Information", link: "/inquiry?service=courses#service-selection" }
               },
               {
                 title: "Research",
                 description: "Actionable insights on Bitcoin's strategic implications",
-                icon: "🧠",
+                icon: "",
                 primaryCta: { text: "View offering", link: "/research" },
                 secondaryCta: { text: "Book Discovery Call", link: "/inquiry?service=research&discovery=true#service-selection" }
               },
               {
                 title: "Speaking",
                 description: "Keynotes that get the message across and encourage reflection",
-                icon: "🎤",
+                icon: "",
                 primaryCta: { text: "View talks", link: "/speaking" },
                 secondaryCta: { text: "Submit Speaking Request", link: "/inquiry?service=speaking#service-selection" }
               }
@@ -110,11 +102,6 @@ const About = () => {
                 className="card-general card-gradient-hover group"
               >
                 <div className="relative z-10">
-                  {/* Icon with gradient background */}
-                  <div className="mb-6 flex items-center justify-center w-16 h-16 rounded-2xl swiss-blue-gradient-subtle shadow-sm">
-                    <span className="text-3xl">{service.icon}</span>
-                  </div>
-                  
                   {/* Title */}
                   <h3 className="text-2xl font-semibold mb-4 text-gray-900">
                     {service.title}
