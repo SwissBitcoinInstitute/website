@@ -165,8 +165,8 @@ const WhyBitcoin = () => {
               <CTAButton variant="primary" size="lg" href="/research" showArrow>
                 Explore Research
               </CTAButton>
-              <CTAButton variant="secondary" size="lg" href="/inquiry?service=research" className="bg-white text-gray-900 hover:bg-gray-100">
-                Book discovery call
+              <CTAButton variant="secondary" size="lg" href="/inquiry?service=research">
+                Discuss Private Research
               </CTAButton>
             </div>
           </div>

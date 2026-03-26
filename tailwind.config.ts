@@ -74,6 +74,19 @@ export default {
 					900: 'hsl(var(--gray-900))',
 				},
 				
+				'btn-primary': {
+					DEFAULT: 'hsl(var(--btn-primary))',
+					hover: 'hsl(var(--btn-primary-hover))',
+					foreground: 'hsl(var(--btn-primary-foreground))',
+				},
+				'btn-secondary': {
+					DEFAULT: 'hsl(var(--btn-secondary))',
+					border: 'hsl(var(--btn-secondary-border))',
+					hover: 'hsl(var(--btn-secondary-hover))',
+					'hover-border': 'hsl(var(--btn-secondary-hover-border))',
+					foreground: 'hsl(var(--btn-secondary-foreground))',
+				},
+
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))',
