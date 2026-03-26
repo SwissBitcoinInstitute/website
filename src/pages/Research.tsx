@@ -63,7 +63,7 @@ const Research = () => {
         <div className="swiss-grid relative z-10">
           <div className="max-w-5xl mx-auto text-center">
             <h1>Bitcoin Intelligence</h1>
-            <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
+            <p className="swiss-prose-lg max-w-4xl mx-auto text-gray-700 leading-relaxed">
               We cover all strategic aspects of Bitcoin and deliver actionable insights for your decision-making on a regular basis. Stay ahead with Bitcoin intelligence that matters.
             </p>
           </div>

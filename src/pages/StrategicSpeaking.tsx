@@ -18,7 +18,7 @@ export default function StrategicSpeaking() {
         <div className="swiss-grid relative z-10">
           <div className="max-w-5xl mx-auto text-center">
             <h1>Bitcoin Keynotes & Presentations</h1>
-            <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
+            <p className="swiss-prose-lg max-w-4xl mx-auto text-gray-700 leading-relaxed">
               Our team shares insights on Bitcoin's strategic implications for businesses, organizations, and policy audiences. 
               Presentations grounded in research, delivered with clarity.
             </p>
