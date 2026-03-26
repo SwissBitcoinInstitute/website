@@ -114,6 +114,35 @@ export const bitcoinForExecutivesCourses: CourseOffering[] = [
 ];
 ```
 
+### Alert Banner
+
+The alert banner at the top of the site is configured in `src/config/alert-config.json`. 
+
+```json
+{
+  "alerts": [
+    {
+      "id": "unique-id",
+      "startDate": "YYYY-MM-DD",
+      "endDate": "YYYY-MM-DD",
+      "alertText": "Banner message text",
+      "buttonText": "Button label",
+      "buttonLink": "/destination-url",
+      "isActive": true
+    }
+  ]
+}
+```
+
+- **id**: A unique identifier for the alert.
+- **startDate / endDate**: The banner will only appear between these dates (inclusive).
+- **alertText**: The main message displayed in the banner.
+- **buttonText**: The text shown on the call-to-action button.
+- **buttonLink**: The internal or external link for the button.
+- **isActive**: Set to `true` to enable the alert, or `false` to disable it regardless of the dates.
+
+It is possible to add multiple events. The first event meeting the criteria for getting displayed will be displayed. The banner automatically handles height adjustments for the header and main content.
+
 ### Email Templates
 
 Update confirmation and notification emails in `src/lib/emails.ts`:

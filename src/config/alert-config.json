@@ -1,0 +1,13 @@
+{
+  "alerts": [
+    {
+      "id": "bitcoin-for-executives",
+      "startDate": "2026-02-07",
+      "endDate": "2026-04-07",
+      "alertText": "Next: Bitcoin Executive Masterclass",
+      "buttonText": "Save My Spot",
+      "buttonLink": "/education/bitcoin-for-executives",
+      "isActive": true
+    }
+  ]
+}
