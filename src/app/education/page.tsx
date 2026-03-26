@@ -34,7 +34,7 @@ export default function CoursesPage() {
         <div className="swiss-grid relative z-10">
           <div className="max-w-5xl mx-auto text-center">
             <h1>Executive Education</h1>
-            <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
+            <p className="swiss-prose-lg max-w-4xl mx-auto text-gray-700 leading-relaxed">
               Build the competency your organization needs to navigate the Bitcoin age confidently.
             </p>
           </div>

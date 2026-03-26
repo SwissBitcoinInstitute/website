@@ -84,7 +84,7 @@ const Home = () => {
           <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700">
             Executive education and independent research to navigate the transition to sound digital money.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <CTAButton variant="primary" size="lg" href="/inquiry?service=research&discovery=true" className="shadow-2xl">
               Book Discovery Call
             </CTAButton>

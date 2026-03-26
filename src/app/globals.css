@@ -284,12 +284,17 @@
   .swiss-hero {
     padding-top: var(--hero-padding-y);
     padding-bottom: var(--hero-padding-y);
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    width: 100%;
   }
 
   @media (min-width: 768px) {
     .swiss-hero {
       padding-top: var(--hero-padding-y-md);
       padding-bottom: var(--hero-padding-y-md);
+      min-height: 560px;
     }
   }
 
@@ -297,6 +302,7 @@
     .swiss-hero {
       padding-top: var(--hero-padding-y-lg);
       padding-bottom: var(--hero-padding-y-lg);
+      min-height: 640px;
     }
   }
 
