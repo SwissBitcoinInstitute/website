@@ -51,9 +51,9 @@ const Header = () => {
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center space-x-4 group">
               <div className="relative w-12 h-12 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:scale-105">
-                <img 
-                  src="/SBI-Logo.png" 
-                  alt="Swiss Bitcoin Institute" 
+                <img
+                  src="/SBI-Logo.png"
+                  alt="Swiss Bitcoin Institute"
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -66,55 +66,52 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-              <div className="hidden md:flex items-center space-x-8">
-                {navigation.map((item) => (
-                  'dropdown' in item ? (
-                    <div key={item.name} className="relative dropdown-container">
-                      <button
-                        onClick={() => setDropdownOpen(dropdownOpen === item.name ? null : item.name)}
-                        className={`flex items-center text-sm font-semibold transition-colors hover:text-primary-brand ${
-                          isActive(item.href) || item.dropdown?.some(sub => isActive(sub.href)) ? 'text-primary-brand' : 'text-gray-600'
-                        }`}
-                      >
-                        {item.name}
-                        <ChevronDown className="ml-1 h-4 w-4" />
-                      </button>
-                      {dropdownOpen === item.name && item.dropdown && (
-                        <div className="absolute top-full mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 py-1 z-50">
-                          {item.dropdown.map((subItem) => (
-                            <Link
-                              key={subItem.name}
-                              href={subItem.href}
-                              className={`block px-4 py-2 text-sm hover:bg-gray-50 ${
-                                isActive(subItem.href) ? 'text-primary-brand' : 'text-gray-600'
-                              }`}
-                              onClick={() => setDropdownOpen(null)}
-                            >
-                              {subItem.name}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className={`text-sm font-semibold transition-colors hover:text-primary-brand ${
-                        isActive(item.href) ? 'text-primary-brand' : 'text-gray-600'
+          <div className="hidden md:flex items-center space-x-8">
+            {navigation.map((item) => (
+              'dropdown' in item ? (
+                <div key={item.name} className="relative dropdown-container">
+                  <button
+                    onClick={() => setDropdownOpen(dropdownOpen === item.name ? null : item.name)}
+                    className={`flex items-center text-sm font-semibold transition-colors hover:text-primary-brand ${isActive(item.href) || item.dropdown?.some(sub => isActive(sub.href)) ? 'text-primary-brand' : 'text-gray-600'
                       }`}
-                    >
-                      {item.name}
-                    </Link>
-                  )
-                ))}
-              </div>
+                  >
+                    {item.name}
+                    <ChevronDown className="ml-1 h-4 w-4" />
+                  </button>
+                  {dropdownOpen === item.name && item.dropdown && (
+                    <div className="absolute top-full mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 py-1 z-50">
+                      {item.dropdown.map((subItem) => (
+                        <Link
+                          key={subItem.name}
+                          href={subItem.href}
+                          className={`block px-4 py-2 text-sm hover:bg-gray-50 ${isActive(subItem.href) ? 'text-primary-brand' : 'text-gray-600'
+                            }`}
+                          onClick={() => setDropdownOpen(null)}
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`text-sm font-semibold transition-colors hover:text-primary-brand ${isActive(item.href) ? 'text-primary-brand' : 'text-gray-600'
+                    }`}
+                >
+                  {item.name}
+                </Link>
+              )
+            ))}
+          </div>
 
           {/* CTA Buttons & Search */}
           <div className="hidden md:flex items-center space-x-3">
             <SiteSearch />
             <Button variant="default" size="sm" asChild>
-              <Link href="/contact">Contact</Link>
+              <Link href="/inquiry?service=research&discovery=true#service-selection">Get Started</Link>
             </Button>
           </div>
 
@@ -140,48 +137,45 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background border-t border-gray-200">
-                  {navigation.map((item) => (
-                    'dropdown' in item ? (
-                      <div key={item.name}>
-                        <div className={`block px-3 py-2 text-base font-semibold ${
-                          isActive(item.href) || item.dropdown?.some(sub => isActive(sub.href)) ? 'text-primary-brand' : 'text-gray-600'
-                        }`}>
-                          {item.name}
-                        </div>
-                        <div className="pl-6 space-y-1">
-                          {item.dropdown?.map((subItem) => (
-                            <Link
-                              key={subItem.name}
-                              href={subItem.href}
-                              className={`block px-3 py-2 text-sm transition-colors hover:text-primary-brand ${
-                                isActive(subItem.href) ? 'text-primary-brand' : 'text-gray-600'
-                              }`}
-                              onClick={() => setIsMenuOpen(false)}
-                            >
-                              {subItem.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    ) : (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className={`block px-3 py-2 text-base font-semibold transition-colors hover:text-primary-brand ${
-                          isActive(item.href) ? 'text-primary-brand' : 'text-gray-600'
-                        }`}
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    )
-                  ))}
+              {navigation.map((item) => (
+                'dropdown' in item ? (
+                  <div key={item.name}>
+                    <div className={`block px-3 py-2 text-base font-semibold ${isActive(item.href) || item.dropdown?.some(sub => isActive(sub.href)) ? 'text-primary-brand' : 'text-gray-600'
+                      }`}>
+                      {item.name}
+                    </div>
+                    <div className="pl-6 space-y-1">
+                      {item.dropdown?.map((subItem) => (
+                        <Link
+                          key={subItem.name}
+                          href={subItem.href}
+                          className={`block px-3 py-2 text-sm transition-colors hover:text-primary-brand ${isActive(subItem.href) ? 'text-primary-brand' : 'text-gray-600'
+                            }`}
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={`block px-3 py-2 text-base font-semibold transition-colors hover:text-primary-brand ${isActive(item.href) ? 'text-primary-brand' : 'text-gray-600'
+                      }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                )
+              ))}
               <div className="px-3 py-2 space-y-2">
                 <div className="flex justify-center pb-2">
                   <SiteSearch />
                 </div>
                 <Button variant="default" size="sm" className="w-full" asChild>
-                  <Link href="/contact">Contact</Link>
+                  <Link href="/inquiry?service=research&discovery=true#service-selection">Get Started</Link>
                 </Button>
               </div>
             </div>
