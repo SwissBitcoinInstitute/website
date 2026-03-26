@@ -113,7 +113,10 @@ const Header = () => {
           {/* CTA Buttons & Search */}
           <div className="hidden md:flex items-center space-x-3">
             <SiteSearch />
-            <Button variant="default" size="sm" asChild>
+            <Button variant="outline" size="sm" asChild>
+              <Link href="/inquiry?service=research&discovery=true#service-selection">Get Started</Link>
+            </Button>
+            <Button variant="default" size="sm" asChild className="swiss-blue-gradient swiss-blue-gradient-hover text-white">
               <Link href="/contact">Contact</Link>
             </Button>
           </div>
@@ -180,7 +183,10 @@ const Header = () => {
                 <div className="flex justify-center pb-2">
                   <SiteSearch />
                 </div>
-                <Button variant="default" size="sm" className="w-full" asChild>
+                <Button variant="outline" size="sm" className="w-full" asChild>
+                  <Link href="/inquiry?service=research&discovery=true#service-selection">Get Started</Link>
+                </Button>
+                <Button variant="default" size="sm" className="w-full swiss-blue-gradient swiss-blue-gradient-hover text-white" asChild>
                   <Link href="/contact">Contact</Link>
                 </Button>
               </div>

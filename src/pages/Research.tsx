@@ -3,12 +3,17 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 import CTAButton from '@/components/ui/cta-button';
-import NewsletterSection from '@/components/sections/NewsletterSection';
+import { Input } from '@/components/ui/input';
+import { useToast } from '@/hooks/use-toast';
 import { fetchArticles, fetchAuthors, ArticleMeta, Author } from '@/lib/content-client';
 import ArticleCard from '@/components/articles/ArticleCard';
 
 const Research = () => {
+  const { toast } = useToast();
+  const [email, setEmail] = useState('');
   const [articles, setArticles] = useState<ArticleMeta[]>([]);
   const [authors, setAuthors] = useState<Author[]>([]);
   const [loading, setLoading] = useState(true);
@@ -32,6 +37,15 @@ const Research = () => {
     loadContent();
   }, []);
 
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast({
+      title: "Successfully subscribed!",
+      description: "You'll receive our latest Bitcoin intelligence reports."
+    });
+    setEmail('');
+  };
+
   const getAuthorById = (authorId: string) => {
     return authors.find(author => author.id === authorId);
   };
@@ -52,7 +66,7 @@ const Research = () => {
       {/* Hero Section */}
       <section className="swiss-hero swiss-gradient relative overflow-hidden">
         {/* Background Image */}
-        <div
+        <div 
           className="absolute inset-0 bg-cover bg-right-top md:bg-top bg-no-repeat"
           style={{
             backgroundImage: 'url(/SBI-research-hero.jpg)',
@@ -148,7 +162,7 @@ const Research = () => {
                   </div>
                   <p className="text-gray-700 leading-relaxed flex-grow mb-4">
                     {domain.question}
-                  </p>
+                    </p>
                   <div className="flex items-center text-sm font-medium swiss-blue-gradient-text mt-auto">
                     <span>Explore domain</span>
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -220,21 +234,21 @@ const Research = () => {
             </div>
             <h2>Latest Intelligence Reports</h2>
             <p className="swiss-prose max-w-3xl mx-auto text-gray-600">
-              Deep-dive analysis and strategic insights from our research team, published at specific
+              Deep-dive analysis and strategic insights from our research team, published at specific 
               block heights to ensure transparency and immutability.
             </p>
           </div>
-
+          
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {articles.map((article) => (
-              <ArticleCard
-                key={article.id}
-                article={article}
+              <ArticleCard 
+                key={article.id} 
+                article={article} 
                 author={getAuthorById(article.author)}
               />
             ))}
           </div>
-
+          
           {articles.length === 0 && (
             <div className="text-center py-12">
               <p className="text-muted-foreground">No intelligence reports available at this time.</p>
@@ -243,8 +257,47 @@ const Research = () => {
         </div>
       </section>
 
-      {/* Newsletter */}
-      <NewsletterSection />
+      {/* Newsletter Subscription */}
+      <section className="swiss-section bg-white">
+        <div className="swiss-grid">
+          <div className="max-w-4xl mx-auto">
+            <Card className="border-2 border-swiss-blue/20 shadow-xl">
+              <CardContent className="p-12 text-center">
+                <h2 className="text-3xl font-semibold mb-6 text-gray-900">
+                  Stay Ahead with Bitcoin Intelligence
+                </h2>
+                
+                <p className="swiss-prose-lg mb-8 text-gray-600 max-w-2xl mx-auto">
+                  Strategic Bitcoin insights directly to your mailbox. Twice a month. Unsubscribe anytime.
+                </p>
+                
+                <form onSubmit={handleSubscribe} className="max-w-md mx-auto">
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Input 
+                      type="email" 
+                      placeholder="your.email@company.com" 
+                      value={email} 
+                      onChange={e => setEmail(e.target.value)} 
+                      required 
+                      className="h-12 flex-1" 
+                    />
+                    <Button 
+                      type="submit" 
+                      className="h-12 px-8 swiss-blue-gradient swiss-blue-gradient-hover text-white whitespace-nowrap w-full sm:w-auto"
+                    >
+                      Subscribe to Intelligence Brief
+                    </Button>
+                  </div>
+                </form>
+                
+                <p className="text-sm text-gray-500 mt-4">
+                  Join our growing community of Bitcoin intelligence subscribers
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section className="swiss-section bg-gray-900 text-white relative overflow-hidden">
@@ -254,21 +307,21 @@ const Research = () => {
             <h2 className="text-3xl lg:text-4xl font-medium text-white mb-6">
               Need Custom Intelligence?
             </h2>
-
+            
             <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-              Get tailored Bitcoin intelligence and strategic analysis for your specific
+              Get tailored Bitcoin intelligence and strategic analysis for your specific 
               industry, market, or organizational needs.
             </p>
-
+            
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
               <CTAButton variant="primary" size="lg" href="/inquiry?service=research" showArrow>
                 Request Custom Analysis
               </CTAButton>
-              <CTAButton variant="secondary" size="lg" href="/contact">
+              <CTAButton variant="secondary" size="lg" href="/contact" className="bg-white text-gray-900 hover:bg-gray-100">
                 Discuss Your Needs
               </CTAButton>
             </div>
-
+            
           </div>
         </div>
       </section>

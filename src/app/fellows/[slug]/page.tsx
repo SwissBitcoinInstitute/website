@@ -67,16 +67,16 @@ export default async function FellowPage({ params }: PageProps) {
   if (author?.content) {
     // Use author.bio if available, otherwise fall back to member.bio
     const bioText = (author.bio || member.bio || '').trim();
-
+    
     if (bioText) {
       // Normalize both texts for comparison (remove extra whitespace)
       const normalizedBio = bioText.replace(/\s+/g, ' ').trim();
-
+      
       // Split content into lines
       const lines = processedAuthorContent.split('\n');
       let h1Index = -1;
       let firstParagraphIndex = -1;
-
+      
       // Find H1 heading
       for (let i = 0; i < lines.length; i++) {
         if (lines[i].trim().startsWith('# ')) {
@@ -84,7 +84,7 @@ export default async function FellowPage({ params }: PageProps) {
           break;
         }
       }
-
+      
       // Find first paragraph after H1 (or at start if no H1)
       const startIndex = h1Index !== -1 ? h1Index + 1 : 0;
       for (let i = startIndex; i < lines.length; i++) {
@@ -94,16 +94,16 @@ export default async function FellowPage({ params }: PageProps) {
           break;
         }
       }
-
+      
       // Check if first paragraph matches bio
       if (firstParagraphIndex !== -1) {
         const firstParagraph = lines[firstParagraphIndex].trim();
         const normalizedParagraph = firstParagraph.replace(/\s+/g, ' ').trim();
-
+        
         // Use a more flexible comparison (allow for slight differences)
-        if (normalizedParagraph === normalizedBio ||
-          normalizedParagraph.includes(normalizedBio.substring(0, 50)) ||
-          normalizedBio.includes(normalizedParagraph.substring(0, 50))) {
+        if (normalizedParagraph === normalizedBio || 
+            normalizedParagraph.includes(normalizedBio.substring(0, 50)) ||
+            normalizedBio.includes(normalizedParagraph.substring(0, 50))) {
           // Remove the duplicate paragraph
           lines.splice(firstParagraphIndex, 1);
           processedAuthorContent = lines.join('\n');
@@ -115,10 +115,10 @@ export default async function FellowPage({ params }: PageProps) {
   // Get articles by this fellow
   // The getArticlesByAuthor function handles slug mapping automatically
   const fellowArticles = await getArticlesByAuthor(member.slug);
-
+  
   // Sort articles by date (newest first)
   fellowArticles.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-
+  
   // Get authors for all articles
   const articlesWithAuthors = await Promise.all(
     fellowArticles.map(async (article) => {
@@ -174,7 +174,7 @@ export default async function FellowPage({ params }: PageProps) {
                 <h1 className="text-4xl font-bold mb-3 text-gray-900">
                   {member.name}
                 </h1>
-
+                
                 <p className="text-2xl text-bitcoin-orange font-semibold mb-4">
                   {member.role}
                 </p>
@@ -205,9 +205,9 @@ export default async function FellowPage({ params }: PageProps) {
                   )}
                   {member.linkedin && member.linkedin !== '#' && (
                     <Button variant="outline" asChild>
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
+                      <a 
+                        href={member.linkedin} 
+                        target="_blank" 
                         rel="noopener noreferrer"
                         className="flex items-center gap-2"
                       >
@@ -291,26 +291,26 @@ export default async function FellowPage({ params }: PageProps) {
             {/* Display author markdown content if available */}
             {processedAuthorContent && (
               <div className="space-y-8 mt-8">
-                <ReactMarkdown
-                  remarkPlugins={[remarkGfm]}
-                  components={{
-                    h1: ({ children }) => {
-                      // Skip h1 if it's the same as the member's name (duplicate)
-                      const headingText = String(children).trim();
-                      if (headingText === member.name || headingText === member.name.replace('Dr. ', '')) {
-                        return null;
-                      }
-                      return <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 first:mt-0">{children}</h2>;
-                    },
-                    h2: ({ children }) => (
-                      <h3 className="text-xl font-semibold mt-6 mb-3 text-gray-900">{children}</h3>
-                    ),
-                    h3: ({ children }) => (
-                      <h4 className="text-lg font-semibold mt-5 mb-2 text-gray-900">{children}</h4>
-                    ),
-                    p: ({ children }) => (
-                      <p className="text-lg text-gray-700 leading-relaxed mb-4">{children}</p>
-                    ),
+                  <ReactMarkdown 
+                    remarkPlugins={[remarkGfm]}
+                    components={{
+                      h1: ({ children }) => {
+                        // Skip h1 if it's the same as the member's name (duplicate)
+                        const headingText = String(children).trim();
+                        if (headingText === member.name || headingText === member.name.replace('Dr. ', '')) {
+                          return null;
+                        }
+                        return <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 first:mt-0">{children}</h2>;
+                      },
+                      h2: ({ children }) => (
+                        <h3 className="text-xl font-semibold mt-6 mb-3 text-gray-900">{children}</h3>
+                      ),
+                      h3: ({ children }) => (
+                        <h4 className="text-lg font-semibold mt-5 mb-2 text-gray-900">{children}</h4>
+                      ),
+                      p: ({ children }) => (
+                        <p className="text-lg text-gray-700 leading-relaxed mb-4">{children}</p>
+                      ),
                     ul: ({ children }) => (
                       <ul className="list-disc pl-6 mb-4 space-y-2">{children}</ul>
                     ),
@@ -367,9 +367,9 @@ export default async function FellowPage({ params }: PageProps) {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {articlesWithAuthors.map(({ article, author: articleAuthor }) => (
-                  <ArticleCard
-                    key={article.slug}
-                    article={article}
+                  <ArticleCard 
+                    key={article.slug} 
+                    article={article} 
                     author={articleAuthor}
                   />
                 ))}
@@ -396,11 +396,11 @@ export default async function FellowPage({ params }: PageProps) {
                 ) : (
                   <div></div>
                 )}
-
+                
                 <Button variant="ghost" asChild>
                   <Link href="/fellows">View All Fellows</Link>
                 </Button>
-
+                
                 {nextFellow ? (
                   <Button variant="outline" asChild className="flex items-center gap-2">
                     <Link href={`/fellows/${nextFellow.slug}`}>
@@ -432,7 +432,7 @@ export default async function FellowPage({ params }: PageProps) {
               <Button variant="default" size="lg" asChild>
                 <Link href="/contact">Get in Touch</Link>
               </Button>
-              <Button variant="outline" size="lg" asChild>
+              <Button variant="outline" size="lg" asChild className="bg-white text-gray-900 hover:bg-gray-100">
                 <Link href="/fellows">View All Fellows</Link>
               </Button>
             </div>

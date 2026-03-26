@@ -36,7 +36,7 @@ export default function CookieBanner() {
       // Load existing consent
       try {
         const consentRecord = JSON.parse(savedConsent);
-
+        
         // Migrate old consent records (v1.0 with marketing) to new format (v1.1 without marketing)
         if (consentRecord.version === '1.0' && consentRecord.consent.marketing !== undefined) {
           // Remove marketing from old consent and update version
@@ -94,7 +94,7 @@ export default function CookieBanner() {
       consent: consentData,
     };
     localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(consentRecord));
-
+    
     // Apply consent preferences
     applyConsentPreferences(consentData);
   };
@@ -116,7 +116,7 @@ export default function CookieBanner() {
   if (!isVisible) return null;
 
   return (
-    <div
+    <div 
       className={cn(
         "fixed bottom-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out",
         isVisible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
@@ -124,7 +124,7 @@ export default function CookieBanner() {
     >
       {/* Backdrop blur effect */}
       <div className="absolute inset-0 bg-white/95 backdrop-blur-sm border-t border-gray-200"></div>
-
+      
       {/* Content */}
       <div className="relative swiss-grid py-6">
         <div className="max-w-6xl mx-auto">
@@ -144,10 +144,10 @@ export default function CookieBanner() {
                   We Value Your Privacy
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed mb-2">
-                  We use cookies to enhance your browsing experience and analyze site traffic.
+                  We use cookies to enhance your browsing experience and analyze site traffic. 
                   By clicking "Accept All", you consent to our use of cookies. You can customize your preferences or learn more in our{' '}
-                  <Link
-                    href="/privacy"
+                  <Link 
+                    href="/privacy" 
                     className="link-research font-medium"
                   >
                     Privacy Policy
@@ -168,15 +168,14 @@ export default function CookieBanner() {
               <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0 w-full md:w-auto">
                 <Button
                   onClick={handleRejectAll}
-                  variant="secondary"
-                  className="whitespace-nowrap"
+                  variant="outline"
+                  className="border-gray-300 text-gray-700 hover:bg-gray-50 whitespace-nowrap"
                 >
                   Reject All
                 </Button>
                 <Button
                   onClick={handleAcceptAll}
-                  variant="default"
-                  className="whitespace-nowrap"
+                  className="swiss-blue-gradient text-white shadow-lg hover:shadow-xl whitespace-nowrap"
                 >
                   Accept All
                 </Button>

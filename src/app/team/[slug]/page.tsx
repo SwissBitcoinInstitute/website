@@ -405,7 +405,7 @@ export default async function TeamMemberPage({ params }: PageProps) {
               <Button variant="default" size="lg" asChild>
                 <Link href="/contact">Get in Touch</Link>
               </Button>
-              <Button variant="outline" size="lg" asChild>
+              <Button variant="outline" size="lg" asChild className="bg-white text-gray-900 hover:bg-gray-100">
                 <Link href="/team">View Full Team</Link>
               </Button>
             </div>

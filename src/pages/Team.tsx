@@ -71,11 +71,11 @@ const Team = () => {
               <CTAButton variant="primary" size="lg" href="/inquiry" showArrow>
                 Book a Briefing
               </CTAButton>
-              <CTAButton variant="secondary" size="lg" href="/speaking">
-                Speaking Engagements
+              <CTAButton variant="secondary" size="lg" href="/speaking" className="bg-white text-gray-900 hover:bg-gray-100">
+                Engage a Speaker
               </CTAButton>
-              <CTAButton variant="secondary" size="lg" href="/contact">
-                Get in Touch
+              <CTAButton variant="secondary" size="lg" href="/contact" className="bg-white text-gray-900 hover:bg-gray-100">
+                Partner on Research
               </CTAButton>
             </div>
             

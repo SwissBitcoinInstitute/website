@@ -23,7 +23,7 @@ export default function CoursesPage() {
       {/* Hero */}
       <section className="swiss-hero swiss-gradient relative overflow-hidden">
         {/* Background Image */}
-        <div
+        <div 
           className="absolute inset-0 bg-cover bg-right-top md:bg-top bg-no-repeat"
           style={{
             backgroundImage: 'url(/SBI-education-hero.jpg)',
@@ -58,11 +58,11 @@ export default function CoursesPage() {
                   </p>
                 </div>
                 <div className="mt-auto">
-                  {/*                   <CTAButton 
+{/*                   <CTAButton 
                     variant="primary" 
                     size="lg" 
                     href="/webinar"
-                    className="w-full"
+                    className="w-full shadow-lg group-hover:shadow-xl transition-shadow"
                   >
                     Find out more
                   </CTAButton> */}
@@ -78,11 +78,11 @@ export default function CoursesPage() {
                   </p>
                 </div>
                 <div className="mt-auto">
-                  <CTAButton
-                    variant="primary"
-                    size="lg"
+                  <CTAButton 
+                    variant="primary" 
+                    size="lg" 
                     href="/education/bitcoin-for-executives"
-                    className="w-full"
+                    className="w-full shadow-lg group-hover:shadow-xl transition-shadow"
                   >
                     Find out more
                   </CTAButton>
@@ -98,11 +98,11 @@ export default function CoursesPage() {
                   </p>
                 </div>
                 <div className="mt-auto">
-                  <CTAButton
-                    variant="primary"
-                    size="lg"
+                  <CTAButton 
+                    variant="primary" 
+                    size="lg" 
                     href="/education/financial-sovereignty"
-                    className="w-full"
+                    className="w-full shadow-lg group-hover:shadow-xl transition-shadow"
                   >
                     Find out more
                   </CTAButton>
@@ -158,17 +158,17 @@ export default function CoursesPage() {
               We constanstly develop our programs further to best suit your needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <CTAButton
-                variant="primary"
-                size="lg"
+              <CTAButton 
+                variant="primary" 
+                size="lg" 
                 href="/contact"
                 className="shadow-2xl"
               >
                 Schedule Consultation
               </CTAButton>
-              <CTAButton
-                variant="secondary"
-                size="lg"
+              <CTAButton 
+                variant="secondary" 
+                size="lg" 
                 href="/research"
                 className="border-white text-gray-900 bg-white hover:bg-gray-100"
               >

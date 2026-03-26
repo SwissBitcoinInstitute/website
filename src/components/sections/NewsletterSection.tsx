@@ -54,7 +54,7 @@ const NewsletterSection = () => {
                       />
                       <Button 
                         type="submit" 
-                        className="h-12 px-8 whitespace-nowrap w-full sm:w-auto"
+                        className="h-12 px-8 swiss-blue-gradient swiss-blue-gradient-hover text-white whitespace-nowrap w-full sm:w-auto"
                         disabled={isSubmitting}
                       >
                         {isSubmitting ? 'Subscribing...' : 'Subscribe to Intelligence Brief'}

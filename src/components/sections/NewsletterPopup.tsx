@@ -105,7 +105,7 @@ export default function NewsletterPopup() {
                   />
                   <Button
                     type="submit"
-                    className="w-full h-12 text-base font-semibold"
+                    className="w-full h-12 text-base font-semibold swiss-blue-gradient text-white"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (

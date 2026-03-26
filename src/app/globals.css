@@ -38,19 +38,6 @@
     --radius: 0.5rem;
 
     /* ============================================
-       BUTTON COLORS - GLOBALLY CONTROLLED
-       ============================================ */
-    --btn-primary: var(--bitcoin-orange);
-    --btn-primary-hover: var(--bitcoin-orange-hover);
-    --btn-primary-foreground: 0 0% 100%;
-
-    --btn-secondary: 0 0% 100%;
-    --btn-secondary-border: var(--swiss-blue);
-    --btn-secondary-hover: 210 20% 98%;
-    --btn-secondary-hover-border: var(--swiss-blue-hover);
-    --btn-secondary-foreground: var(--foreground);
-
-    /* ============================================
        BRAND COLORS - SWISS BITCOIN INSTITUTE
        ============================================ */
     /* Primary Brand Colors */
@@ -434,26 +421,18 @@
   /* ============================================
      BUTTON HOVER EFFECTS (Logo-style scale)
      ============================================ */
-  button.btn-hover-scale, 
-  a.btn-hover-scale, 
   .btn-hover-scale {
-    transition: all var(--transition-smooth);
+    transition: transform var(--transition-smooth);
   }
 
-  button.btn-hover-scale:hover, 
-  a.btn-hover-scale:hover, 
   .btn-hover-scale:hover {
     transform: scale(var(--hover-scale));
   }
 
-  button.btn-hover-scale-subtle, 
-  a.btn-hover-scale-subtle, 
   .btn-hover-scale-subtle {
-    transition: all var(--transition-smooth);
+    transition: transform var(--transition-smooth);
   }
 
-  button.btn-hover-scale-subtle:hover, 
-  a.btn-hover-scale-subtle:hover, 
   .btn-hover-scale-subtle:hover {
     transform: scale(var(--hover-scale-subtle));
   }
@@ -462,7 +441,7 @@
   .swiss-blue-gradient.btn-hover-scale,
   button.swiss-blue-gradient,
   a.swiss-blue-gradient {
-    transition: all var(--transition-smooth);
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
   }
 
   .swiss-blue-gradient.btn-hover-scale:hover,

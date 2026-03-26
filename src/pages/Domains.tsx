@@ -158,7 +158,7 @@ const Domains = () => {
               Dive deeper into these domains through our intelligence reports and strategic analysis.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button asChild size="lg">
+              <Button asChild size="lg" className="swiss-blue-gradient text-white">
                 <Link href="/research">View Intelligence Reports</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
