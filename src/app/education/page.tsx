@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import CTAButton from '@/components/ui/cta-button'
+
+import { Users, Clock, MapPin } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Executive Education in Bitcoin | Swiss Bitcoin Institute',
@@ -17,7 +20,81 @@ export const metadata: Metadata = {
   },
 }
 
+const CourseSection = ({
+  title,
+  description,
+  href,
+  tag,
+  details
+}: {
+  title: string;
+  description: string;
+  href?: string;
+  tag?: string;
+  details?: { icon: React.ReactNode; label: string; value: string }[];
+}) => (
+  <div className="group bg-white rounded-2xl border border-gray-200 overflow-hidden hover:border-swiss-blue/30 hover:shadow-xl transition-all duration-300 mb-8 last:mb-0">
+    <div className="flex flex-col md:flex-row min-h-[320px]">
+      {/* Left Column: Course Details */}
+      <div className="w-full md:w-1/3 bg-gray-50/50 p-8 flex flex-col justify-center border-b md:border-b-0 md:border-r border-gray-100">
+        {details ? (
+          <div className="space-y-6">
+            {details.map((detail, index) => (
+              <div key={index} className="flex items-start space-x-4">
+                <div className="text-swiss-blue mt-1">{detail.icon}</div>
+                <div>
+                  <div className="text-xs text-gray-500 font-medium uppercase tracking-wider">{detail.label}</div>
+                  <div className="text-sm font-semibold text-gray-900">{detail.value}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="hidden md:block"></div>
+        )}
+      </div>
+
+      {/* Right Column: Content */}
+      <div className="flex-1 p-8 md:p-10 flex flex-col">
+        <div className="flex-1">
+          {tag && (
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-bitcoin-orange/10 mb-6">
+              <span className="text-bitcoin-orange text-xs font-semibold uppercase tracking-wider">{tag}</span>
+            </div>
+          )}
+          <h3 className="text-3xl font-bold text-gray-900 mb-6">{title}</h3>
+          <p className="swiss-prose-lg text-gray-600 mb-8 max-w-2xl leading-relaxed">
+            {description}
+          </p>
+        </div>
+        {href && (
+          <div className="mt-auto pt-6 border-t border-gray-100">
+            <Link 
+              href={href}
+              className="link-research text-sm"
+            >
+              Find out more →
+            </Link>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+);
+
 export default function CoursesPage() {
+  const masterclassDetails = [
+    { icon: <MapPin className="w-5 h-5" />, label: 'Format', value: 'Live physical (Zürich)' },
+    { icon: <Clock className="w-5 h-5" />, label: 'Duration', value: '12 hours' },
+    { icon: <Users className="w-5 h-5" />, label: 'Level', value: 'Senior executives' },
+  ];
+
+  const finSovDetails = [
+    { icon: <MapPin className="w-5 h-5" />, label: 'Format', value: 'Live course (in Zürich)' },
+    { icon: <Clock className="w-5 h-5" />, label: 'Duration', value: 'One afternoon' },
+    { icon: <Users className="w-5 h-5" />, label: 'Level', value: 'Bitcoiner Beginners' },
+  ];
+
   return (
     <div className="min-h-screen">
       {/* Hero */}
@@ -33,7 +110,7 @@ export default function CoursesPage() {
         <div className="absolute inset-0 bg-white/80"></div>
         <div className="swiss-grid relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            <h1>Executive Education</h1>
+            <h1 className="mb-6">Executive Education</h1>
             <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
               Build the competency your organization needs to navigate the Bitcoin age confidently.
             </p>
@@ -41,73 +118,30 @@ export default function CoursesPage() {
         </div>
       </section>
 
-      {/* Course Cards */}
-      <section className="swiss-section bg-white">
+      {/* Course Sections */}
+      <section className="swiss-section bg-white overflow-hidden">
         <div className="swiss-grid">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Free Bitcoin Webinar Card */}
-              <div className="group bg-white rounded-2xl border border-gray-200 p-8 hover:border-swiss-blue/50 hover:shadow-xl transition-all duration-300 flex flex-col">
-                <div className="flex-1">
-                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-bitcoin-orange/10 mb-4">
-                    <span className="text-bitcoin-orange text-sm font-medium">Coming soon</span>
-                  </div>
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">SBI Podcast</h3>
-                  <p className="text-gray-600 leading-relaxed mb-6">
-                    Our goal is to make the impact that Bitcoin can have on society tangible.
-                  </p>
-                </div>
-                <div className="mt-auto">
-                  {/*                   <CTAButton 
-                    variant="primary" 
-                    size="lg" 
-                    href="/webinar"
-                    className="w-full"
-                  >
-                    Find out more
-                  </CTAButton> */}
-                </div>
-              </div>
+          <div className="max-w-6xl mx-auto">
+            <div className="flex flex-col">
+              <CourseSection
+                title="Bespoke Bitcoin Advisory"
+                description="A private advisory offering for decisionmakers seeking a deeper, strategic understanding of Bitcoin."
+                href="/inquiry?service=advisory"
+              />
 
-              {/* Bitcoin Executive Masterclass Card */}
-              <div className="group bg-white rounded-2xl border border-gray-200 p-8 hover:border-swiss-blue/50 hover:shadow-xl transition-all duration-300 flex flex-col">
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Bitcoin Executive Masterclass</h3>
-                  <p className="text-gray-600 leading-relaxed mb-6">
-                    Short, intense C-level course to gain an overview over the strategic questions raised by Bitcoin.
-                  </p>
-                </div>
-                <div className="mt-auto">
-                  <CTAButton
-                    variant="primary"
-                    size="lg"
-                    href="/education/bitcoin-for-executives"
-                    className="w-full"
-                  >
-                    Find out more
-                  </CTAButton>
-                </div>
-              </div>
+              <CourseSection
+                title="Bitcoin Executive Masterclass"
+                description="Short, intense C-level course to gain an overview over the strategic questions raised by Bitcoin."
+                href="/education/bitcoin-for-executives"
+                details={masterclassDetails}
+              />
 
-              {/* Financial Sovereignty Card */}
-              <div className="group bg-white rounded-2xl border border-gray-200 p-8 hover:border-swiss-blue/50 hover:shadow-xl transition-all duration-300 flex flex-col">
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Financial Sovereignty</h3>
-                  <p className="text-gray-600 leading-relaxed mb-6">
-                    Learn to securely control your own Bitcoin through hands-on training with hardware wallets, seed phrase management, and secure backup strategies.
-                  </p>
-                </div>
-                <div className="mt-auto">
-                  <CTAButton
-                    variant="primary"
-                    size="lg"
-                    href="/education/financial-sovereignty"
-                    className="w-full"
-                  >
-                    Find out more
-                  </CTAButton>
-                </div>
-              </div>
+              <CourseSection
+                title="Financial Sovereignty"
+                description="Learn to securely control your own Bitcoin through hands-on training with hardware wallets, seed phrase management, and secure backup strategies."
+                href="/education/financial-sovereignty"
+                details={finSovDetails}
+              />
             </div>
           </div>
         </div>
