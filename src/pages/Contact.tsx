@@ -76,7 +76,7 @@ const Contact = () => {
       description: "From 1:1 bespoke sessions to more formal courses",
       icon: "",
       primaryCta: { text: "Explore options", link: "/education" },
-      secondaryCta: { text: "Book discovery Call", link: "/inquiry?service=courses" }
+      secondaryCta: { text: "Book discovery Call", link: "/inquiry?service=courses&discovery=true" }
     },
     {
       title: "Research",
@@ -90,7 +90,7 @@ const Contact = () => {
       description: "Keynotes that get the message across and encourage reflection",
       icon: "",
       primaryCta: { text: "View talks", link: "/speaking" },
-      secondaryCta: { text: "Book discovery Call", link: "/inquiry?service=speaking" }
+      secondaryCta: { text: "Book discovery Call", link: "/inquiry?service=speaking&discovery=true" }
     }
   ];
 
@@ -375,7 +375,7 @@ const Contact = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
-              <CTAButton variant="primary" size="lg" href="/inquiry?service=research" showArrow>
+              <CTAButton variant="primary" size="lg" href="/inquiry?service=research&discovery=true" showArrow>
                 Book discovery call
               </CTAButton>
               <CTAButton variant="secondary" size="lg" href="/speaker">

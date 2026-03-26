@@ -104,7 +104,7 @@ export default function LeadIntakeForm() {
     const hasHash = typeof window !== 'undefined' && window.location.hash === '#service-selection';
     const hasUrlParams = urlService || urlDiscovery || urlCourse;
     
-    if (hasHash || hasUrlParams) {
+    if (hasHash) {
       setTimeout(() => {
         const serviceSelection = document.getElementById('service-selection');
         if (serviceSelection) {

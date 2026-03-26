@@ -111,7 +111,7 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-3">
             <SiteSearch />
             <Button variant="default" size="sm" asChild>
-              <Link href="/inquiry?service=research&discovery=true#service-selection">Get Started</Link>
+              <Link href="/inquiry?service=research&discovery=true">Get Started</Link>
             </Button>
           </div>
 
@@ -175,7 +175,7 @@ const Header = () => {
                   <SiteSearch />
                 </div>
                 <Button variant="default" size="sm" className="w-full" asChild>
-                  <Link href="/inquiry?service=research&discovery=true#service-selection">Get Started</Link>
+                  <Link href="/inquiry?service=research&discovery=true">Get Started</Link>
                 </Button>
               </div>
             </div>
