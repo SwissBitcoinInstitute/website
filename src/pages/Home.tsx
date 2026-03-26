@@ -58,7 +58,7 @@ const Home = () => {
     description: "Actionable insights on Bitcoin's strategic implications",
     icon: "",
     primaryCta: { text: "View offering", link: "/research" },
-    secondaryCta: { text: "Book Discovery Call", link: "/inquiry?service=research&discovery=true#service-selection" }
+    secondaryCta: { text: "Book Discovery Call", link: "/inquiry?service=research&discovery=true" }
   }, {
     title: "Speaking",
     description: "Keynotes that get the message across and encourage reflection",
@@ -85,7 +85,7 @@ const Home = () => {
             Executive education and independent research to navigate the transition to sound digital money.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
-            <CTAButton variant="primary" size="lg" href="/inquiry?service=research&discovery=true#service-selection" className="shadow-2xl">
+            <CTAButton variant="primary" size="lg" href="/inquiry?service=research&discovery=true" className="shadow-2xl">
               Book Discovery Call
             </CTAButton>
           </div>

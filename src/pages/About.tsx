@@ -87,7 +87,7 @@ const About = () => {
                 description: "Actionable insights on Bitcoin's strategic implications",
                 icon: "",
                 primaryCta: { text: "View offering", link: "/research" },
-                secondaryCta: { text: "Book Discovery Call", link: "/inquiry?service=research&discovery=true#service-selection" }
+                secondaryCta: { text: "Book Discovery Call", link: "/inquiry?service=research&discovery=true" }
               },
               {
                 title: "Speaking",
@@ -160,7 +160,7 @@ const About = () => {
               <CTAButton variant="primary" size="lg" href="/contact" showArrow>
                 Contact Us
               </CTAButton>
-              <CTAButton variant="secondary" size="lg" href="/inquiry?service=research">
+              <CTAButton variant="secondary" size="lg" href="/inquiry?service=research&discovery=true">
                 Book discovery call
               </CTAButton>
             </div>
