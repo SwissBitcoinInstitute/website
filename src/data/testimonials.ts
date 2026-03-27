@@ -14,7 +14,7 @@ export const testimonials: Testimonial[] = [
     role: "CEO",
     company: "Save the Children Switzerland",
     image: "/testimonials/Adrian_Foerster.png",
-    text: "Marcus’ vision for bitcoin goes way beyond introducing a new technology.",
+    text: "The SBI’s vision for bitcoin goes way beyond introducing a new technology.",
   },
   {
     id: "2",
@@ -22,6 +22,6 @@ export const testimonials: Testimonial[] = [
     role: "Co-Founder",
     company: "Azamra Capital LLC",
     image: "/testimonials/Leah_Malla_Rackovksy.png",
-    text: "Marcus combines profound expertise with the rare ability to distill complex issues into clear, accessible insights. Our delegation of senior executives extends their sincere gratitude for your time and contribution.",
+    text: "The SBI combines profound expertise with the rare ability to distill complex issues into clear, accessible insights. Our delegation of senior executives extends their sincere gratitude for your time and contribution.",
   }
 ];

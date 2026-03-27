@@ -80,9 +80,9 @@ const Home = () => {
       <div className="absolute inset-0 bg-white/80"></div>
       <div className="swiss-grid relative z-10">
         <div className="max-w-5xl mx-auto text-center">
-          <h1 className="text-gray-900">Empowering leaders for the Bitcoin age</h1>
+          <h1 className="text-gray-900">Grasp Bitcoin. Navigate the Shift with Conviction and Clarity.</h1>
           <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700">
-            Executive education and independent research to navigate the transition to sound digital money.
+            The global monetary order is shifting – and Bitcoin's role is widely misunderstood. We provide independent, in-depth expertise for decision-makers in business, politics, and civil society.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <CTAButton variant="primary" size="lg" href="/inquiry?service=research&discovery=true" className="shadow-2xl">
@@ -104,9 +104,9 @@ const Home = () => {
           <div className="flex items-center justify-center mb-6">
             <div className="swiss-blue-gradient-accent mx-auto"></div>
           </div>
-          <h2>What We Do</h2>
+          <h2>How can we help?</h2>
           <p className="swiss-prose-lg max-w-3xl mx-auto text-gray-600">
-            Three core offerings designed for Switzerland's decision-makers navigating the Bitcoin transition.
+            Our goal is to make you proficient in all strategic aspects of Bitcoin. You choose which channel best supports your goals.
           </p>
         </div>
 
@@ -149,9 +149,9 @@ const Home = () => {
           <div className="flex items-center justify-center mb-6">
             <div className="swiss-blue-gradient-accent mx-auto"></div>
           </div>
-          <h2>Research Highlights</h2>
+          <h2>Latest Bitcoin Research</h2>
           <p className="swiss-prose max-w-3xl mx-auto text-gray-600">
-            Discover our latest Intelligence Briefs. We are covering a wide range of Bitcoin-related domains.
+            We intend to cover the entire Bitcoin space across all relevant domains. Read our latest Intelligence Briefs here.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

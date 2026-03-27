@@ -125,16 +125,9 @@ export default function BitcoinForExecutivesPage() {
       </section>
 
       {/* Course Registration */}
-      <section className="swiss-section-sm sm:swiss-section bg-gray-50">
+      <section className="py-8 sm:py-10 bg-gray-50">
         <div className="swiss-grid">
           <div className="max-w-5xl mx-auto">
-            {/* Price */}
-            <div className="text-center mb-10 sm:mb-12">
-              <div className="inline-block px-6 sm:px-8 py-4 sm:py-6 bg-gray-50 rounded-xl border border-gray-200">
-                <div className="text-3xl sm:text-4xl font-bold text-gray-900">CHF 5'999.-</div>
-              </div>
-            </div>
-
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Course Dates */}
               <div className="space-y-4 self-start">
@@ -168,6 +161,9 @@ export default function BitcoinForExecutivesPage() {
                     }))}
                   />
                 </Card>
+                <div className="mt-4 inline-block px-4 py-3 bg-gray-50 rounded-lg border border-gray-200">
+                  <div className="text-2xl font-bold text-gray-900">CHF 5'999.-</div>
+                </div>
               </div>
             </div>
 

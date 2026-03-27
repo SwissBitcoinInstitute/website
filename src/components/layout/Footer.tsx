@@ -76,11 +76,6 @@ const Footer = () => {
               </div>
             </Link>
 
-            {/* Tagline */}
-            <p className="text-gray-600 text-base max-w-md">
-              Switzerland's independent Bitcoin think tank. Evidence-based research and executive education for decision-makers.
-            </p>
-
             {/* Contact */}
             <div className="space-y-4">
               <div>
