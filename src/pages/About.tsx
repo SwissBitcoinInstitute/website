@@ -1,4 +1,5 @@
 import CTAButton from '@/components/ui/cta-button';
+import Link from 'next/link';
 
 const About = () => {
   const principles = [
@@ -28,6 +29,26 @@ const About = () => {
       description: "Switzerland's constitution enshrines liberty including economic freedom (Art. 2, 10-27 BV) as fundamental rights. Bitcoin empowers individuals with financial autonomy and self-custody, free from intermediaries or centralized gatekeepers."
     }
   ];
+
+  const services = [{
+    title: "Education",
+    description: "From 1:1 bespoke sessions to more formal courses",
+    icon: "",
+    primaryCta: { text: "Explore options", link: "/education" },
+    secondaryCta: { text: "Request Course Information", link: "/inquiry?service=courses#service-selection" }
+  }, {
+    title: "Research",
+    description: "Actionable insights on Bitcoin's strategic implications",
+    icon: "",
+    primaryCta: { text: "View offering", link: "/research" },
+    secondaryCta: { text: "Book Discovery Call", link: "/inquiry?service=research&discovery=true" }
+  }, {
+    title: "Speaking",
+    description: "Keynotes that get the message across and encourage reflection",
+    icon: "",
+    primaryCta: { text: "View talks", link: "/speaking" },
+    secondaryCta: { text: "Submit Speaking Request", link: "/inquiry?service=speaking#service-selection" }
+  }];
 
   return (
     <div className="min-h-screen">
@@ -74,70 +95,31 @@ const About = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                title: "Education",
-                description: "From 1:1 bespoke sessions to more formal courses",
-                icon: "",
-                primaryCta: { text: "Explore options", link: "/education" },
-                secondaryCta: { text: "Request Course Information", link: "/inquiry?service=courses#service-selection" }
-              },
-              {
-                title: "Research",
-                description: "Actionable insights on Bitcoin's strategic implications",
-                icon: "",
-                primaryCta: { text: "View offering", link: "/research" },
-                secondaryCta: { text: "Book Discovery Call", link: "/inquiry?service=research&discovery=true" }
-              },
-              {
-                title: "Speaking",
-                description: "Keynotes that get the message across and encourage reflection",
-                icon: "",
-                primaryCta: { text: "View talks", link: "/speaking" },
-                secondaryCta: { text: "Submit Speaking Request", link: "/inquiry?service=speaking#service-selection" }
-              }
-            ].map((service, index) => (
-              <div
+            {services.map((service, index) => (
+              <Link
                 key={index}
-                className="card-general card-gradient-hover group"
+                href={service.primaryCta.link}
+                className="group block h-full"
               >
-                <div className="relative z-10">
-                  {/* Icon with gradient background */}
-                  <div className="mb-6 flex items-center justify-center w-16 h-16 rounded-2xl swiss-blue-gradient-subtle shadow-sm">
-                    <span className="text-3xl">{service.icon}</span>
-                  </div>
+                <div className="card-general card-gradient-hover h-full flex flex-col">
+                  <div className="relative z-10 flex flex-col flex-grow">
+                    {/* Title */}
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-900">
+                      {service.title}
+                    </h3>
 
-                  {/* Title */}
-                  <h3 className="text-2xl font-semibold mb-4 text-gray-900">
-                    {service.title}
-                  </h3>
+                    {/* Description */}
+                    <p className="text-gray-600 leading-relaxed mb-6 text-base flex-grow">
+                      {service.description}
+                    </p>
 
-                  {/* Description */}
-                  <p className="text-gray-600 leading-relaxed mb-6 text-base">
-                    {service.description}
-                  </p>
-
-                  {/* CTAs */}
-                  <div className="space-y-3">
-                    <CTAButton
-                      variant="primary"
-                      size="lg"
-                      href={service.primaryCta.link}
-                      className="w-full"
-                    >
-                      {service.primaryCta.text}
-                    </CTAButton>
-                    <CTAButton
-                      variant="secondary"
-                      size="lg"
-                      href={service.secondaryCta.link}
-                      className="w-full"
-                    >
-                      {service.secondaryCta.text}
-                    </CTAButton>
+                    {/* Link format matching glossary */}
+                    <div className="link-research text-sm mt-auto">
+                      {service.primaryCta.text} →
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
