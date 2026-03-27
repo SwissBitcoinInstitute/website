@@ -63,7 +63,7 @@ const Footer = () => {
             {/* Logo */}
             <Link href="/" className="flex items-center group">
               <img
-                src="/SBI-Logo-Landscape_2.svg"
+                src="/SBI-Logo-Landscape.svg"
                 alt="Swiss Bitcoin Institute"
                 className="h-8 md:h-10 w-auto object-contain transition-all duration-300 group-hover:scale-105"
               />
