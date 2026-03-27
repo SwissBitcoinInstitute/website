@@ -77,9 +77,9 @@ const WhyBitcoin = () => {
         <div className="absolute inset-0 swiss-blue-gradient-hero"></div>
         <div className="swiss-grid relative">
           <div className="max-w-5xl mx-auto text-center">
-            <h1 className="mb-10 text-gray-900">Why Bitcoin</h1>
+            <h1 className="mb-10 text-gray-900">Why Bitcoin is Unique</h1>
             <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
-              Several fundamental properties render Bitcoin unique in the crypto and fiat world alike. Over the years, they have resulted in three real-world outcomes for Bitcoin that make it stand out from all other forms of money, digital or not. If you have not, you really should start studying Bitcoin. If not for yourself, then for your children, because there is a real chance that Bitcoin will outlive you.
+              Several fundamental properties set Bitcoin apart from every other form of money – digital or otherwise. Over the years, these have produced three real-world outcomes no other monetary system has achieved. If you have not started studying Bitcoin yet, now is the time. If not for yourself, then for your children. There is a real chance Bitcoin will outlive you – and them.
             </p>
           </div>
         </div>
@@ -124,9 +124,9 @@ const WhyBitcoin = () => {
             <div className="flex items-center justify-center mb-6">
               <div className="swiss-blue-gradient-accent mx-auto"></div>
             </div>
-            <h2>Consequences</h2>
+            <h2>Three Consequences</h2>
             <p className="swiss-prose max-w-3xl mx-auto text-gray-600 mt-4">
-              These fundamental properties lead to real-world outcomes that distinguish Bitcoin from all other digital assets.
+              The eight fundamental properties have been at work since 2009. Over the course of nearly two decades that made Bitcoin distinct from all other forms digital forms of money, and some claim even from all analog forms of money. Judge for yourself…
             </p>
           </div>
 

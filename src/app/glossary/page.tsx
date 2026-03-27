@@ -104,7 +104,7 @@ export default function GlossaryPage() {
           <div className="max-w-7xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Glossary</h1>
             <p className="text-xl text-gray-600 max-w-3xl leading-relaxed">
-              Decoded concepts and terminology from the Bitcoin ecosystem.
+              A growing collection of key terms and concepts used in the Bitcoin ecosystem. Get in touch if you are missing important terms.
             </p>
           </div>
         </div>

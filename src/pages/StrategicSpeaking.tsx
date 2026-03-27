@@ -17,10 +17,9 @@ export default function StrategicSpeaking() {
         <div className="absolute inset-0 bg-white/80"></div>
         <div className="swiss-grid relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            <h1>Bitcoin Keynotes & Presentations</h1>
+            <h1>Bring Bitcoin Clarity to Your Stage</h1>
             <p className="swiss-prose-lg max-w-4xl mx-auto text-gray-700 leading-relaxed">
-              Our team shares insights on Bitcoin's strategic implications for businesses, organizations, and policy audiences. 
-              Presentations grounded in research, delivered with clarity.
+              We speak at conferences, executive briefings, and institutional events for decision-makers in business, politics, and civil society – on the strategic dimensions of Bitcoin that mainstream discourse still largely ignores.
             </p>
           </div>
         </div>
@@ -34,9 +33,9 @@ export default function StrategicSpeaking() {
               <div className="flex items-center justify-center mb-6">
                 <div className="swiss-blue-gradient-accent mx-auto"></div>
               </div>
-              <h2>Featured Presentations</h2>
+              <h2>Archive of Talks, Keynotes, and Presentations</h2>
               <p className="swiss-prose max-w-3xl mx-auto text-gray-600">
-                Recent talks exploring Bitcoin's strategic dimensions across different contexts.
+                We are speaking at conferences, industry fairs, universities, or at invited company events. Get in touch if you are interested in having a talk by the Swiss Bitcoin Institute at your next event.
                 </p>
               </div>
 

@@ -62,9 +62,9 @@ const Research = () => {
         <div className="absolute inset-0 bg-white/80"></div>
         <div className="swiss-grid relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            <h1>Bitcoin Intelligence</h1>
+            <h1>Bitcoin Intelligence for Professionals</h1>
             <p className="swiss-prose-lg max-w-4xl mx-auto text-gray-700 leading-relaxed">
-              We cover all strategic aspects of Bitcoin and deliver actionable insights for your decision-making on a regular basis. Stay ahead with Bitcoin intelligence that matters.
+              Tracking Bitcoin's strategic developments demands constant attention. We do it for you – curating and packaging news, narratives, and technical developments into compact, actionable insights tailored for businesses, agencies, NGOs, and their stakeholders.
             </p>
           </div>
         </div>
@@ -218,10 +218,9 @@ const Research = () => {
             <div className="flex items-center justify-center mb-6">
               <div className="swiss-blue-gradient-accent mx-auto"></div>
             </div>
-            <h2>Latest Intelligence Reports</h2>
+            <h2>Regular Bitcoin Intelligence by Experts</h2>
             <p className="swiss-prose max-w-3xl mx-auto text-gray-600">
-              Deep-dive analysis and strategic insights from our research team, published at specific
-              block heights to ensure transparency and immutability.
+              The Fellows of the Swiss Bitcoin Institute are experts in their domain. They provide deep analyses and strategic insights across the SBI domains on a regular basis.
             </p>
           </div>
 
