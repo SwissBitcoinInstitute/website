@@ -50,18 +50,11 @@ const Header = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center space-x-4 group">
-              <div className="relative w-12 h-12 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:scale-105">
-                <img
-                  src="/SBI-Logo.png"
-                  alt="Swiss Bitcoin Institute"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div className="hidden sm:block">
-                <span className="text-gray-900 font-bold text-xl tracking-tight">
-                  Swiss <span className="text-bitcoin-orange">Bitcoin</span> Institute
-                </span>
-              </div>
+              <img
+                src="/SBI-Logo-Landscape_2.svg"
+                alt="Swiss Bitcoin Institute"
+                className="h-10 w-auto object-contain transition-all duration-300 group-hover:scale-105"
+              />
             </Link>
           </div>
 
