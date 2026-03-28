@@ -64,9 +64,9 @@
     --bitcoin-orange-light: 25 95% 75%;
 
     /* Swiss Blue - Primary Brand Color */
-    --swiss-blue: 210 100% 50%;
-    --swiss-blue-hover: 210 100% 45%;
-    --swiss-blue-light: 210 100% 75%;
+    --swiss-blue: 199 37% 48%;
+    --swiss-blue-hover: 199 37% 43%;
+    --swiss-blue-light: 199 37% 73%;
 
     /* Swiss Red */
     --swiss-red: 0 84% 50%;
@@ -78,9 +78,9 @@
        ============================================
        Update these hex values to change gradients site-wide
        ============================================ */
-    --gradient-blue-start: #25b7ff;
+    --gradient-blue-start: #669db6;
     /* Subtle blue shift */
-    --gradient-blue-end: #129bda;
+    --gradient-blue-end: #3d6d84;
     /* Refined blue */
 
     /* Gradient opacity variants */
@@ -152,8 +152,8 @@
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
     --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    --shadow-gradient-glow: 0 0 20px rgba(0, 171, 251, 0.15);
-    --shadow-gradient-glow-hover: 0 0 30px rgba(0, 171, 251, 0.25);
+    --shadow-gradient-glow: 0 0 20px rgba(78, 139, 168, 0.15);
+    --shadow-gradient-glow-hover: 0 0 30px rgba(78, 139, 168, 0.25);
 
     /* ============================================
        SIDEBAR (if needed)
@@ -184,8 +184,8 @@
     --input: 217.2 32.6% 17.5%;
 
     /* Brand colors - adjusted for dark mode */
-    --swiss-blue: 210 100% 60%;
-    --swiss-blue-hover: 210 100% 65%;
+    --swiss-blue: 199 37% 58%;
+    --swiss-blue-hover: 199 37% 63%;
     --bitcoin-orange: 25 95% 53%;
     --bitcoin-orange-hover: 25 95% 58%;
   }
@@ -396,14 +396,14 @@
     .swiss-blue-gradient-subtle {
       background: linear-gradient(135deg,
           rgba(171, 194, 204, var(--gradient-blue-opacity-subtle)),
-          rgba(0, 171, 251, var(--gradient-blue-opacity-subtle)));
+          rgba(78, 139, 168, var(--gradient-blue-opacity-subtle)));
     }
 
     .swiss-blue-gradient-hero {
       background: linear-gradient(135deg,
           rgba(171, 194, 204, var(--gradient-blue-opacity-hero)),
           transparent,
-          rgba(0, 171, 251, var(--gradient-blue-opacity-hero)));
+          rgba(78, 139, 168, var(--gradient-blue-opacity-hero)));
     }
   }
 
