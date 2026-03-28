@@ -36,7 +36,7 @@ interface SearchItem {
   description?: string
 }
 
-export function SiteSearch() {
+export function SiteSearch({ onSelect }: { onSelect?: () => void }) {
   const [open, setOpen] = React.useState(false)
   const [items, setItems] = React.useState<SearchItem[]>([])
   const router = useRouter()
@@ -86,7 +86,8 @@ export function SiteSearch() {
   const runCommand = React.useCallback((command: () => unknown) => {
     setOpen(false)
     command()
-  }, [])
+    onSelect?.()
+  }, [onSelect])
 
   return (
     <>
