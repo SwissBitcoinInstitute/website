@@ -20,9 +20,11 @@ interface AlertConfig {
 export default function NextEventBanner() {
   const [isVisible, setIsVisible] = useState(false);
   const [activeAlert, setActiveAlert] = useState<AlertConfig | null>(null);
+  const [hasScrolled, setHasScrolled] = useState(false);
+  const [isDismissed, setIsDismissed] = useState(false);
 
   useEffect(() => {
-    // Find active alert based on dates
+    // 1. Find active alert based on dates
     const now = new Date();
     const currentAlert = alertConfig.alerts.find(alert => {
       if (!alert.isActive) return false;
@@ -31,90 +33,86 @@ export default function NextEventBanner() {
       return now >= startDate && now <= endDate;
     });
 
-    if (!currentAlert) {
-      setIsVisible(false);
-      return;
+    if (currentAlert) {
+      setActiveAlert(currentAlert);
     }
 
+    // 2. Setup scroll listener
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setHasScrolled(true);
+      } else if (window.scrollY < 50) {
+        // Optional: hide again if scrolled back to top? 
+        // Let's keep it visible once triggered for better UX, 
+        // but the user might want it to toggle. 
+        // Actually, the request said "only appear after some scrolling". 
+        // I'll stick to a simple "once you scroll past 300, show it".
+      }
+    };
 
-    setActiveAlert(currentAlert);
-    setIsVisible(true);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Initial check in case user is already scrolled
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
-    // Check if alert is active based on dates
-    const now = new Date();
-    const currentAlert = alertConfig.alerts.find(alert => {
-      if (!alert.isActive) return false;
-      const startDate = new Date(alert.startDate);
-      const endDate = new Date(alert.endDate);
-      return now >= startDate && now <= endDate;
-    });
-
-    if (!currentAlert) {
-      setIsVisible(false);
-      return;
-    }
-
-    setActiveAlert(currentAlert);
-    
-    // Show after a short delay for a smoother effect
-    const timer = setTimeout(() => setIsVisible(true), 1000);
-    return () => clearTimeout(timer);
-  }, []);
+    // Show banner only if: we have an alert, we've scrolled, and not dismissed
+    setIsVisible(!!activeAlert && hasScrolled && !isDismissed);
+  }, [activeAlert, hasScrolled, isDismissed]);
 
   const handleDismiss = () => {
-    setIsVisible(false);
+    setIsDismissed(true);
   };
 
-  if (!isVisible || !activeAlert) return null;
+  if (!activeAlert) return null;
 
   return (
     <div
       className={cn(
-        "fixed bottom-6 right-6 z-[70] w-[calc(100%-3rem)] sm:w-full sm:max-w-[380px] transition-all duration-500 ease-out",
+        "fixed bottom-6 right-6 z-[70] w-[calc(100%-3rem)] sm:w-full sm:max-w-[320px] transition-all duration-500 ease-out",
         isVisible ? "translate-y-0 opacity-100 scale-100" : "translate-y-8 opacity-0 scale-95 pointer-events-none"
       )}
     >
-      <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden group">
-        {/* Subtle top accent line using Bitcoin Orange */}
+      <div className="bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden group">
+        {/* Subtle top accent line */}
         <div className="h-1 w-full bg-bitcoin-orange" />
         
-        <div className="p-5 sm:p-6">
-          <div className="flex gap-4">
-            {/* Icon - using Bitcoin Orange */}
+        <div className="p-4 sm:p-5">
+          <div className="flex gap-3">
+            {/* Icon - Smaller */}
             <div className="flex-shrink-0">
-              <div className="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center">
-                <Calendar className="w-5 h-5 text-bitcoin-orange" />
+              <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center">
+                <Calendar className="w-4 h-4 text-bitcoin-orange" />
               </div>
             </div>
 
             {/* Content */}
             <div className="flex-1 min-w-0">
-              <div className="flex items-start justify-between gap-2 mb-2">
-                <h4 className="text-sm font-semibold text-gray-900 m-0 leading-tight">
-                  Upcoming Event
+              <div className="flex items-start justify-between gap-2 mb-1">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-gray-400 m-0 leading-tight">
+                  Next Event
                 </h4>
                 <button
                   onClick={handleDismiss}
-                  className="p-1 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-50 transition-colors"
+                  className="p-1 -mr-1 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-50 transition-colors"
                   aria-label="Close notification"
                 >
-                  <X className="w-4 h-4" />
+                  <X className="w-3.5 h-3.5" />
                 </button>
               </div>
               
-              <p className="text-sm text-gray-600 mb-4 leading-relaxed line-clamp-3">
+              <p className="text-sm font-medium text-gray-900 mb-3 leading-snug line-clamp-2">
                 {activeAlert.alertText}
               </p>
 
               <Link
                 href={activeAlert.buttonLink}
-                onClick={handleDismiss}
                 className={cn(
-                  "inline-flex items-center justify-center w-full px-4 py-2.5 text-sm font-semibold",
-                  "bg-bitcoin-orange text-white rounded-xl shadow-lg shadow-orange-200/50",
-                  "hover:bg-bitcoin-orange-hover hover:scale-[1.02] active:scale-[0.98] transition-all duration-200",
+                  "inline-flex items-center justify-center w-full px-3 py-1.5 text-xs font-semibold",
+                  "bg-bitcoin-orange text-white rounded-lg",
+                  "hover:bg-bitcoin-orange-hover transition-all duration-200",
                   "focus:outline-none focus:ring-2 focus:ring-bitcoin-orange focus:ring-offset-2"
                 )}
               >
