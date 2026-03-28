@@ -36,10 +36,12 @@ interface SearchItem {
   description?: string
 }
 
-export function SiteSearch() {
+export function SiteSearch({ onSelect }: { onSelect?: () => void }) {
   const [open, setOpen] = React.useState(false)
+  const [search, setSearch] = React.useState("")
   const [items, setItems] = React.useState<SearchItem[]>([])
   const router = useRouter()
+  const listRef = React.useRef<HTMLDivElement>(null)
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -53,9 +55,9 @@ export function SiteSearch() {
     return () => document.removeEventListener("keydown", down)
   }, [])
 
-  // Load search index
+  // Load search index on mount
   React.useEffect(() => {
-    if (open && items.length === 0) {
+    if (items.length === 0) {
       const loadItems = async () => {
         try {
           const response = await fetch('/api/search')
@@ -85,8 +87,17 @@ export function SiteSearch() {
 
   const runCommand = React.useCallback((command: () => unknown) => {
     setOpen(false)
+    setSearch("") // Reset search on close/select
     command()
-  }, [])
+    onSelect?.()
+  }, [onSelect])
+
+  // Reset scroll to top when search query changes
+  React.useEffect(() => {
+    if (listRef.current) {
+      listRef.current.scrollTop = 0
+    }
+  }, [search])
 
   return (
     <>
@@ -101,9 +112,16 @@ export function SiteSearch() {
         <span className="sr-only">Search site</span>
       </Button>
       
-      <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="Search pages, articles, glossary..." />
-        <CommandList>
+      <CommandDialog open={open} onOpenChange={(isOpen) => {
+        setOpen(isOpen)
+        if (!isOpen) setSearch("") // Reset search when dialog closes
+      }}>
+        <CommandInput 
+          placeholder="Search pages, articles, glossary..." 
+          value={search}
+          onValueChange={setSearch}
+        />
+        <CommandList ref={listRef}>
           <CommandEmpty>No results found.</CommandEmpty>
           
           {items.filter(i => i.type === 'page').length > 0 && (

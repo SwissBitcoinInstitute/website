@@ -165,10 +165,10 @@ const Header = () => {
               ))}
               <div className="px-3 py-2 space-y-2">
                 <div className="flex justify-center pb-2">
-                  <SiteSearch />
+                  <SiteSearch onSelect={() => setIsMenuOpen(false)} />
                 </div>
                 <Button variant="default" size="sm" className="w-full" asChild>
-                  <Link href="/inquiry?service=research&discovery=true">Get Started</Link>
+                  <Link href="/inquiry?service=research&discovery=true" onClick={() => setIsMenuOpen(false)}>Get Started</Link>
                 </Button>
               </div>
             </div>
