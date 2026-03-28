@@ -104,7 +104,7 @@ export default function LeadIntakeForm() {
     const hasHash = typeof window !== 'undefined' && window.location.hash === '#service-selection';
     const hasUrlParams = urlService || urlDiscovery || urlCourse;
     
-    if (hasHash || hasUrlParams) {
+    if (hasHash) {
       setTimeout(() => {
         const serviceSelection = document.getElementById('service-selection');
         if (serviceSelection) {
@@ -239,7 +239,6 @@ export default function LeadIntakeForm() {
                 asChild
                 variant="default"
                 size="lg"
-                className="swiss-blue-gradient text-white"
               >
                 <Link href="/research">
                   View Research Briefs
@@ -934,7 +933,7 @@ export default function LeadIntakeForm() {
             type="submit" 
             size="lg"
             disabled={isSubmitting}
-            className="px-12 h-14 text-lg font-semibold swiss-blue-gradient btn-hover-scale text-white"
+            className="px-12 h-14 text-lg font-semibold btn-hover-scale"
           >
             {isSubmitting ? (
               <>Processing...</>

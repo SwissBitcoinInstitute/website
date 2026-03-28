@@ -80,8 +80,8 @@ Summarize your key findings and their implications for Swiss leaders and organiz
   const articlePath = path.join(__dirname, '../src/content/articles', filename);
   fs.writeFileSync(articlePath, articleContent);
   
-  console.log(`✅ Created new article: ${filename}`);
-  console.log(`📝 Edit it at: src/content/articles/${filename}`);
+  console.log(`Created new article: ${filename}`);
+  console.log(`Edit it at: src/content/articles/${filename}`);
   console.log('\nRemember to:');
   console.log('- Add your content');
   console.log('- Update the blockHeight');

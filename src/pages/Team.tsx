@@ -14,10 +14,9 @@ const Team = () => {
         <div className="absolute inset-0 swiss-blue-gradient-hero"></div>
         <div className="swiss-grid relative">
           <div className="max-w-5xl mx-auto text-center">
-            <h1 className="mb-10 text-gray-900">Meet the Team</h1>
+            <h1 className="mb-10 text-gray-900">Meet our Team</h1>
             <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
-              The Institute blends academic rigor with practical expertise to empower leaders 
-              through open monetary education and research.
+              We combine academic rigor with practical experience from different domains of the Bitcoin space to help you understand the important aspects faster than we did. Click on a face to learn more.
             </p>
           </div>
         </div>
@@ -71,11 +70,11 @@ const Team = () => {
               <CTAButton variant="primary" size="lg" href="/inquiry" showArrow>
                 Book a Briefing
               </CTAButton>
-              <CTAButton variant="secondary" size="lg" href="/speaking" className="bg-white text-gray-900 hover:bg-gray-100">
-                Engage a Speaker
+              <CTAButton variant="secondary" size="lg" href="/speaking">
+                Speaking Engagements
               </CTAButton>
-              <CTAButton variant="secondary" size="lg" href="/contact" className="bg-white text-gray-900 hover:bg-gray-100">
-                Partner on Research
+              <CTAButton variant="secondary" size="lg" href="/contact">
+                Get in Touch
               </CTAButton>
             </div>
             

@@ -23,7 +23,7 @@ export default function CourseSignupForm({ courseName, courseSlug, courseDate, c
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  
+
   // Determine the initial course date value
   const getInitialCourseDate = () => {
     if (courseOptions && courseOptions.length > 0) {
@@ -31,7 +31,7 @@ export default function CourseSignupForm({ courseName, courseSlug, courseDate, c
     }
     return courseDate || '';
   };
-  
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -48,10 +48,10 @@ export default function CourseSignupForm({ courseName, courseSlug, courseDate, c
   };
 
   const hasCourseSelection = courseOptions || courseDate;
-  
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.name || !formData.email || (hasCourseSelection && !formData.courseDate)) {
       toast({
         title: "Please fill in required fields",
@@ -62,7 +62,7 @@ export default function CourseSignupForm({ courseName, courseSlug, courseDate, c
     }
 
     setIsSubmitting(true);
-    
+
     try {
       const response = await fetch('/api/inquiry', {
         method: 'POST',
@@ -74,9 +74,9 @@ export default function CourseSignupForm({ courseName, courseSlug, courseDate, c
           ...formData,
         }),
       });
-      
+
       const data = await response.json();
-      
+
       if (data.success) {
         setIsSubmitted(true);
       } else {
@@ -161,7 +161,7 @@ export default function CourseSignupForm({ courseName, courseSlug, courseDate, c
           />
         </div>
       </div>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <Label htmlFor="phone">Phone</Label>
@@ -238,7 +238,7 @@ export default function CourseSignupForm({ courseName, courseSlug, courseDate, c
         type="submit"
         variant="default"
         size="lg"
-        className="w-full swiss-blue-gradient text-white shadow-lg hover:shadow-xl"
+        className="w-full text-lg font-semibold btn-hover-scale shadow-lg hover:shadow-xl"
         disabled={isSubmitting}
       >
         {isSubmitting ? (

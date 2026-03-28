@@ -104,7 +104,7 @@ export default function GlossaryPage() {
           <div className="max-w-7xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Glossary</h1>
             <p className="text-xl text-gray-600 max-w-3xl leading-relaxed">
-              Decoded concepts and terminology from the Bitcoin ecosystem.
+              A growing collection of key terms and concepts used in the Bitcoin ecosystem. Get in touch if you are missing important terms.
             </p>
           </div>
         </div>
@@ -189,14 +189,12 @@ export default function GlossaryPage() {
               </div>
             ) : error ? (
               <div className="text-center py-20">
-                <div className="text-6xl mb-6">⚠️</div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">Error loading terms</h3>
                 <p className="text-gray-600 mb-6">{error}</p>
                 <Button onClick={() => window.location.reload()}>Try again</Button>
               </div>
             ) : filteredTerms.length === 0 ? (
               <div className="text-center py-20 bg-white rounded-2xl border border-gray-100 shadow-sm">
-                <div className="text-5xl mb-4">🔍</div>
                 <h3 className="text-lg font-medium text-gray-900 mb-2">No terms found</h3>
                 <p className="text-gray-500 max-w-sm mx-auto mb-6">
                   We couldn't find any terms matching your current filters.

@@ -65,7 +65,7 @@ export default function RootLayout({
         <OrganizationSchema />
         <Providers>
           <NextEventBanner />
-          <div className="min-h-screen flex flex-col" style={{ paddingTop: 'var(--banner-height, 0px)' }}>
+          <div className="min-h-screen flex flex-col">
             <Header />
             <main className="flex-1">
               {children}

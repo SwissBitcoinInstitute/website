@@ -66,9 +66,9 @@ This is a professional, corporate website for a Swiss Bitcoin think tank. The de
 --bitcoin-orange-light: 25 95% 75%;
 
 /* Swiss Blue - PRIMARY BRAND ACCENT */
---swiss-blue: 210 100% 50%;           /* #0080ff - Bright blue */
---swiss-blue-hover: 210 100% 45%;
---swiss-blue-light: 210 100% 75%;
+--swiss-blue: 199 37% 48%;           /* #4e8ba8 - Muted corporate blue */
+--swiss-blue-hover: 199 37% 43%;
+--swiss-blue-light: 199 37% 73%;
 
 /* Swiss Red - Rarely used */
 --swiss-red: 0 84% 50%;               /* #d32f2f */
@@ -84,9 +84,9 @@ This is a professional, corporate website for a Swiss Bitcoin think tank. The de
 ### 2.3 Gradient System (CRITICAL - Primary Visual Identity)
 
 ```css
-/* The signature gradient - light blue-gray to bright blue */
---gradient-blue-start: #abc2cc;       /* Light blue-gray */
---gradient-blue-end: #00abfb;         /* Bright cyan-blue */
+/* The signature gradient - refined corporate blues */
+--gradient-blue-start: #669db6;       /* Soft blue-gray */
+--gradient-blue-end: #3d6d84;         /* Deep corporate blue */
 
 /* Opacity variants for different contexts */
 --gradient-blue-opacity-subtle: 0.08;  /* Very light backgrounds */
@@ -100,12 +100,12 @@ This is a professional, corporate website for a Swiss Bitcoin think tank. The de
 ```css
 /* Full gradient - for buttons, accents */
 .swiss-blue-gradient {
-  background: linear-gradient(to right, #abc2cc 0%, #00abfb 100%);
+  background: linear-gradient(to right, #669db6 0%, #3d6d84 100%);
 }
 
 /* Gradient text - for headings, links */
 .swiss-blue-gradient-text {
-  background: linear-gradient(to right, #abc2cc 0%, #00abfb 100%);
+  background: linear-gradient(to right, #669db6 0%, #3d6d84 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -114,12 +114,12 @@ This is a professional, corporate website for a Swiss Bitcoin think tank. The de
 
 /* Subtle gradient for backgrounds */
 .swiss-blue-gradient-subtle {
-  background: linear-gradient(135deg, rgba(171, 194, 204, 0.08), rgba(0, 171, 251, 0.08));
+  background: linear-gradient(135deg, rgba(171, 194, 204, 0.08), rgba(78, 139, 168, 0.08));
 }
 
 /* Accent bar (used as section dividers) */
 .swiss-blue-gradient-accent {
-  background: linear-gradient(to right, #abc2cc 0%, #00abfb 100%);
+  background: linear-gradient(to right, #669db6 0%, #3d6d84 100%);
   height: 3px;
   width: 60px;
   border-radius: 2px;
@@ -157,8 +157,8 @@ This is a professional, corporate website for a Swiss Bitcoin think tank. The de
   --muted-foreground: 215 20.2% 65.1%;
   --border: 217.2 32.6% 17.5%;
   --input: 217.2 32.6% 17.5%;
-  --swiss-blue: 210 100% 60%;         /* Brighter for dark mode */
-  --swiss-blue-hover: 210 100% 65%;
+  --swiss-blue: 199 37% 58%;         /* Adjusted for dark mode */
+  --swiss-blue-hover: 199 37% 63%;
   --bitcoin-orange: 25 95% 53%;
   --bitcoin-orange-hover: 25 95% 58%;
 }
@@ -353,8 +353,8 @@ container: {
 --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 
 /* Special: Gradient glow for blue accent elements */
---shadow-gradient-glow: 0 0 20px rgba(0, 171, 251, 0.15);
---shadow-gradient-glow-hover: 0 0 30px rgba(0, 171, 251, 0.25);
+--shadow-gradient-glow: 0 0 20px rgba(78, 139, 168, 0.15);
+--shadow-gradient-glow-hover: 0 0 30px rgba(78, 139, 168, 0.25);
 ```
 
 ### 5.2 Transitions
@@ -413,7 +413,7 @@ rounded-2xl: 1rem;                     /* 16px - cards */
 **Primary Button (CTA - Blue Gradient)**
 ```css
 .btn-primary {
-  background: linear-gradient(to right, #abc2cc 0%, #00abfb 100%);
+  background: linear-gradient(to right, #669db6 0%, #3d6d84 100%);
   color: white;
   font-weight: 500;
   padding: 0.75rem 2rem;        /* h-11 px-8 for lg size */
@@ -489,7 +489,7 @@ padding: 0 2rem;    /* px-8 */
 }
 .card-general:hover {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-  border-color: hsla(210, 100%, 50%, 0.3);  /* swiss-blue/30 */
+  border-color: hsla(199, 37%, 48%, 0.3);  /* swiss-blue/30 */
 }
 ```
 
@@ -520,7 +520,7 @@ padding: 0 2rem;    /* px-8 */
 }
 .card-glossary:hover {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  border-color: hsla(210, 100%, 50%, 0.3);
+  border-color: hsla(199, 37%, 48%, 0.3);
 }
 ```
 
@@ -537,7 +537,7 @@ padding: 0 2rem;    /* px-8 */
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(to right, #abc2cc 0%, #00abfb 100%);
+  background: linear-gradient(to right, #669db6 0%, #3d6d84 100%);
   opacity: 0;
   transition: opacity 300ms ease-in-out;
 }
@@ -555,13 +555,13 @@ padding: 0 2rem;    /* px-8 */
   align-items: center;
   padding: 0.5rem 1rem;         /* py-2 px-4 */
   border-radius: 9999px;        /* rounded-full */
-  background: hsla(210, 100%, 50%, 0.1);  /* swiss-blue/10 */
+  background: hsla(199, 37%, 48%, 0.1);  /* swiss-blue/10 */
   font-size: 0.875rem;          /* text-sm */
   font-weight: 500;
 }
 /* Text inside uses gradient */
 .pill-hero-text {
-  background: linear-gradient(to right, #abc2cc 0%, #00abfb 100%);
+  background: linear-gradient(to right, #669db6 0%, #3d6d84 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -585,7 +585,7 @@ padding: 0 2rem;    /* px-8 */
 }
 /* Text uses gradient */
 .badge-tag-blue span {
-  background: linear-gradient(to right, #abc2cc 0%, #00abfb 100%);
+  background: linear-gradient(to right, #669db6 0%, #3d6d84 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -633,8 +633,8 @@ input, textarea, select {
 input:focus-visible,
 textarea:focus-visible {
   outline: none;
-  border-color: hsl(210, 100%, 50%);  /* swiss-blue */
-  box-shadow: 0 0 0 2px hsla(210, 100%, 50%, 0.2);
+  border-color: hsl(199 37% 48%);  /* swiss-blue */
+  box-shadow: 0 0 0 2px hsla(199, 37%, 48%, 0.2);
 }
 
 input::placeholder {
@@ -655,7 +655,7 @@ input::placeholder {
   transition: color 200ms ease-in-out;
 }
 .link-research:hover {
-  background: linear-gradient(to right, #abc2cc 0%, #00abfb 100%);
+  background: linear-gradient(to right, #669db6 0%, #3d6d84 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -685,7 +685,7 @@ input::placeholder {
 }
 .footer-link:hover {
   /* Gradient text on hover */
-  background: linear-gradient(to right, #abc2cc 0%, #00abfb 100%);
+  background: linear-gradient(to right, #669db6 0%, #3d6d84 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -766,7 +766,7 @@ input::placeholder {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(171, 194, 204, 0.04), rgba(0, 171, 251, 0.04));
+  background: linear-gradient(135deg, rgba(171, 194, 204, 0.04), rgba(78, 139, 168, 0.04));
   opacity: 0.5;
 }
 ```
@@ -788,7 +788,7 @@ input::placeholder {
   background: linear-gradient(
     135deg,
     rgba(171, 194, 204, 0.08),
-    rgba(0, 171, 251, 0.12),
+    rgba(78, 139, 168, 0.12),
     rgba(171, 194, 204, 0.08)
   );
 }

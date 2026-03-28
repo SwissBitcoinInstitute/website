@@ -67,12 +67,6 @@ export default function BitcoinForExecutivesPage() {
         <div className="absolute inset-0 bg-white/80"></div>
         <div className="swiss-grid relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="mb-8">
-              <span className="pill-hero mb-6 bg-white/90 backdrop-blur-sm">
-                <span className="mr-2">💼</span>
-                <span className="pill-hero-text">Strategic Course</span>
-              </span>
-            </div>
             <h1 className="mb-6 sm:mb-8 text-gray-900">Bitcoin Executive Masterclass</h1>
             <p className="swiss-prose-lg mb-8 sm:mb-10 max-w-4xl mx-auto text-gray-700 leading-relaxed">
               For leaders who need to make strategic decisions about Bitcoin. Professional guided overview of Bitcoin's strategic impact focusing on macro across geopolitics, business, policy, and civil society.
@@ -131,16 +125,9 @@ export default function BitcoinForExecutivesPage() {
       </section>
 
       {/* Course Registration */}
-      <section className="swiss-section-sm sm:swiss-section bg-gray-50">
+      <section className="py-8 sm:py-10 bg-gray-50">
         <div className="swiss-grid">
           <div className="max-w-5xl mx-auto">
-            {/* Price */}
-            <div className="text-center mb-10 sm:mb-12">
-              <div className="inline-block px-6 sm:px-8 py-4 sm:py-6 bg-gray-50 rounded-xl border border-gray-200">
-                <div className="text-3xl sm:text-4xl font-bold text-gray-900">CHF 5'999.-</div>
-              </div>
-            </div>
-
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Course Dates */}
               <div className="space-y-4 self-start">
@@ -165,7 +152,7 @@ export default function BitcoinForExecutivesPage() {
               <div className="lg:col-span-2">
                 <Card className="p-8 border-2 border-gray-200 bg-white">
                   <h3 className="text-xl font-semibold text-gray-900 mb-6">Book your seat</h3>
-                  <CourseSignupForm 
+                  <CourseSignupForm
                     courseName="Bitcoin Executive Masterclass"
                     courseSlug="bitcoin-executives"
                     courseOptions={bitcoinForExecutivesCourses.map(course => ({
@@ -174,6 +161,9 @@ export default function BitcoinForExecutivesPage() {
                     }))}
                   />
                 </Card>
+                <div className="mt-4 inline-block px-4 py-3 bg-gray-50 rounded-lg border border-gray-200">
+                  <div className="text-2xl font-bold text-gray-900">CHF 5'999.-</div>
+                </div>
               </div>
             </div>
 
@@ -191,9 +181,9 @@ export default function BitcoinForExecutivesPage() {
               Join Switzerland's leading executives in understanding Bitcoin's strategic implications.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <CTAButton 
-                variant="secondary" 
-                size="lg" 
+              <CTAButton
+                variant="secondary"
+                size="lg"
                 href="/education"
                 className="border-white text-gray-900 bg-white hover:bg-gray-100"
               >

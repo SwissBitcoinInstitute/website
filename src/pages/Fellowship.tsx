@@ -14,9 +14,9 @@ const Fellowship = () => {
         <div className="absolute inset-0 swiss-blue-gradient-hero"></div>
         <div className="swiss-grid relative">
           <div className="max-w-5xl mx-auto text-center">
-            <h1 className="mb-10 text-gray-900">Join Switzerland's leading network of Bitcoin experts shaping the future of money.</h1>
+            <h1 className="mb-10 text-gray-900">Swiss Network of Bitcoin Experts</h1>
             <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
-              The SBI Fellowship brings together independent researchers and practitioners across six critical domains: Access & Agency, Energy & Climate, Finance & Economics, Markets & Geopolitics, Strategy & Policy, and Technology & Innovation. Our fellows produce rigorous, evidence-based analysis on Bitcoin's strategic implications for Switzerland—without the hype.
+              The SBI Fellowship brings together independent researchers and practitioners across six critical domains: Access & Agency, Energy & Climate, Finance & Economics, Markets & Geopolitics, Strategy & Policy, and Technology & Innovation. Our fellows produce rigorous, evidence-based analysis on Bitcoin's strategic implications – for Switzerland and beyond.
             </p>
           </div>
         </div>
@@ -72,100 +72,17 @@ const Fellowship = () => {
               <div className="flex items-center justify-center mb-6">
                 <div className="swiss-blue-gradient-accent mx-auto"></div>
               </div>
-              <h2>Join the Fellowship</h2>
+              <h2>Interested to join the SBI Fellowship?</h2>
               <p className="swiss-prose max-w-3xl mx-auto text-gray-600 mt-4">
-                Become part of Switzerland's premier Bitcoin research network
+                If you are interested in becoming part of the SBI Fellowship Network, get in touch with us. In a personal conversation, we exchange common interests and motivations, and explore ways of working together. We're building something that lasts.
               </p>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-              {/* What You'll Do */}
-              <div className="card-general card-gradient-hover p-8 h-full">
-                <div className="mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-swiss-blue/10 to-swiss-blue/5 rounded-2xl flex items-center justify-center mb-4">
-                    <span className="text-3xl">✨</span>
-                  </div>
-                  <h3 className="text-2xl font-semibold mb-4 text-gray-900">What You'll Do</h3>
-                </div>
-                <p className="swiss-prose-lg text-gray-700 leading-relaxed mb-6">
-                  As a fellow, you'll contribute quarterly insights on topics you choose, build your reputation through our platform, and connect with like-minded experts at our annual networking events.
-                </p>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <span className="text-swiss-blue text-xl mt-1">•</span>
-                    <p className="text-gray-700">Quarterly contributions on topics of your choice</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-swiss-blue text-xl mt-1">•</span>
-                    <p className="text-gray-700">Build your reputation through our platform</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-swiss-blue text-xl mt-1">•</span>
-                    <p className="text-gray-700">Connect at annual networking events</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Our Values */}
-              <div className="card-general card-gradient-hover p-8 h-full">
-                <div className="mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-swiss-blue/10 to-swiss-blue/5 rounded-2xl flex items-center justify-center mb-4">
-                    <span className="text-3xl">🎯</span>
-                  </div>
-                  <h3 className="text-2xl font-semibold mb-4 text-gray-900">Our Values</h3>
-                </div>
-                <p className="swiss-prose-lg text-gray-700 leading-relaxed mb-6">
-                  We value quality over quantity, critical thinking over consensus, and loud arguments delivered with a soft voice.
-                </p>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <span className="text-swiss-blue text-xl mt-1">•</span>
-                    <p className="text-gray-700">Quality over quantity</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-swiss-blue text-xl mt-1">•</span>
-                    <p className="text-gray-700">Critical thinking over consensus</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-swiss-blue text-xl mt-1">•</span>
-                    <p className="text-gray-700">Loud arguments, soft voice</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Commitment & Reward */}
-            <div className="card-general p-10 bg-gradient-to-br from-swiss-blue/5 via-white to-swiss-blue/5 border-2 border-swiss-blue/20 mb-12">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="text-center md:text-left">
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-swiss-blue/10 rounded-xl mb-4">
-                    <span className="text-2xl">📅</span>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3 text-gray-900">The Commitment</h3>
-                  <p className="swiss-prose-lg text-gray-700">
-                    Four contributions per year on topics you choose
-                  </p>
-                </div>
-                <div className="text-center md:text-left">
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-swiss-blue/10 rounded-xl mb-4">
-                    <span className="text-2xl">🎁</span>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3 text-gray-900">The Reward</h3>
-                  <p className="swiss-prose-lg text-gray-700">
-                    A loudspeaker for your expertise and a community advancing Bitcoin understanding where it matters most – among Swiss decision-makers.
-                  </p>
-                </div>
-              </div>
-            </div>
-
             {/* CTA */}
             <div className="text-center">
-              <p className="swiss-prose-lg text-gray-700 mb-8 max-w-2xl mx-auto">
-                Ready to contribute to this noble endeavour? We're building something that lasts.
-              </p>
-              <CTAButton 
-                variant="primary" 
-                size="lg" 
+              <CTAButton
+                variant="primary"
+                size="lg"
                 href="/contact"
                 className="shadow-2xl"
               >

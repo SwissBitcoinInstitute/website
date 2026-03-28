@@ -3,17 +3,12 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 import CTAButton from '@/components/ui/cta-button';
-import { Input } from '@/components/ui/input';
-import { useToast } from '@/hooks/use-toast';
+import NewsletterSection from '@/components/sections/NewsletterSection';
 import { fetchArticles, fetchAuthors, ArticleMeta, Author } from '@/lib/content-client';
 import ArticleCard from '@/components/articles/ArticleCard';
 
 const Research = () => {
-  const { toast } = useToast();
-  const [email, setEmail] = useState('');
   const [articles, setArticles] = useState<ArticleMeta[]>([]);
   const [authors, setAuthors] = useState<Author[]>([]);
   const [loading, setLoading] = useState(true);
@@ -37,15 +32,6 @@ const Research = () => {
     loadContent();
   }, []);
 
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Successfully subscribed!",
-      description: "You'll receive our latest Bitcoin intelligence reports."
-    });
-    setEmail('');
-  };
-
   const getAuthorById = (authorId: string) => {
     return authors.find(author => author.id === authorId);
   };
@@ -66,7 +52,7 @@ const Research = () => {
       {/* Hero Section */}
       <section className="swiss-hero swiss-gradient relative overflow-hidden">
         {/* Background Image */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-right-top md:bg-top bg-no-repeat"
           style={{
             backgroundImage: 'url(/SBI-research-hero.jpg)',
@@ -76,9 +62,9 @@ const Research = () => {
         <div className="absolute inset-0 bg-white/80"></div>
         <div className="swiss-grid relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            <h1>Bitcoin Intelligence</h1>
-            <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
-              We cover all strategic aspects of Bitcoin and deliver actionable insights for your decision-making on a regular basis. Stay ahead with Bitcoin intelligence that matters.
+            <h1>Bitcoin Intelligence for Professionals</h1>
+            <p className="swiss-prose-lg max-w-4xl mx-auto text-gray-700 leading-relaxed">
+              Tracking Bitcoin's strategic developments demands constant attention. We do it for you – curating and packaging news, narratives, and technical developments into compact, actionable insights tailored for businesses, agencies, NGOs, and their stakeholders.
             </p>
           </div>
         </div>
@@ -103,7 +89,7 @@ const Research = () => {
               {
                 title: "Markets & Geopolitics",
                 question: "What happens when nations and companies can settle trade in a neutral asset beyond the control of any single state?",
-                icon: "🌍",
+                icon: "",
                 gradient: "from-blue-50 to-blue-100/50",
                 accent: "bg-blue-500",
                 anchorId: "markets-geopolitics"
@@ -111,7 +97,7 @@ const Research = () => {
               {
                 title: "Finance & Economics",
                 question: "What happens when fixed-supply, rules-based money challenges inflationary systems and the fusion of money and state power?",
-                icon: "💼",
+                icon: "",
                 gradient: "from-green-50 to-green-100/50",
                 accent: "bg-green-500",
                 anchorId: "finance-economics"
@@ -119,7 +105,7 @@ const Research = () => {
               {
                 title: "Technology & Innovation",
                 question: "What innovations become possible when financial infrastructure is open, programmable, and free from centralized control?",
-                icon: "⚡",
+                icon: "",
                 gradient: "from-purple-50 to-purple-100/50",
                 accent: "bg-purple-500",
                 anchorId: "technology-innovation"
@@ -127,7 +113,7 @@ const Research = () => {
               {
                 title: "Energy & Climate",
                 question: "How does Bitcoin's direct link to energy markets impact grid stability, renewable build-out, and climate mitigation strategies?",
-                icon: "🌱",
+                icon: "",
                 gradient: "from-orange-50 to-orange-100/50",
                 accent: "bg-orange-500",
                 anchorId: "energy-climate"
@@ -135,7 +121,7 @@ const Research = () => {
               {
                 title: "Access & Agency",
                 question: "How can permissionless, neutral money improve financial inclusion and protect civil liberties?",
-                icon: "🔓",
+                icon: "",
                 gradient: "from-teal-50 to-teal-100/50",
                 accent: "bg-teal-500",
                 anchorId: "access-agency"
@@ -143,7 +129,7 @@ const Research = () => {
               {
                 title: "Strategy & Policy",
                 question: "How should Switzerland balance innovation, sovereignty, and risk when Bitcoin challenges traditional monetary and regulatory paradigms?",
-                icon: "📋",
+                icon: "",
                 gradient: "from-indigo-50 to-indigo-100/50",
                 accent: "bg-indigo-500",
                 anchorId: "strategy-policy"
@@ -156,16 +142,13 @@ const Research = () => {
               >
                 <div className={`relative bg-gradient-to-br ${domain.gradient} rounded-2xl p-6 border border-gray-200/50 h-full flex flex-col transition-all duration-300 hover:shadow-lg card-gradient-hover`}>
                   <div className="mb-4">
-                    <div className={`w-12 h-12 rounded-lg ${domain.accent} flex items-center justify-center mb-4 shadow-lg`}>
-                      <span className="text-2xl">{domain.icon}</span>
-                    </div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:swiss-blue-gradient-text transition-colors">
                       {domain.title}
                     </h3>
                   </div>
                   <p className="text-gray-700 leading-relaxed flex-grow mb-4">
                     {domain.question}
-                    </p>
+                  </p>
                   <div className="flex items-center text-sm font-medium swiss-blue-gradient-text mt-auto">
                     <span>Explore domain</span>
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -235,23 +218,22 @@ const Research = () => {
             <div className="flex items-center justify-center mb-6">
               <div className="swiss-blue-gradient-accent mx-auto"></div>
             </div>
-            <h2>Latest Intelligence Reports</h2>
+            <h2>Regular Bitcoin Intelligence by Experts</h2>
             <p className="swiss-prose max-w-3xl mx-auto text-gray-600">
-              Deep-dive analysis and strategic insights from our research team, published at specific 
-              block heights to ensure transparency and immutability.
+              The Fellows of the Swiss Bitcoin Institute are experts in their domain. They provide deep analyses and strategic insights across the SBI domains on a regular basis.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {articles.map((article) => (
-              <ArticleCard 
-                key={article.id} 
-                article={article} 
+              <ArticleCard
+                key={article.id}
+                article={article}
                 author={getAuthorById(article.author)}
               />
             ))}
           </div>
-          
+
           {articles.length === 0 && (
             <div className="text-center py-12">
               <p className="text-muted-foreground">No intelligence reports available at this time.</p>
@@ -260,51 +242,8 @@ const Research = () => {
         </div>
       </section>
 
-      {/* Newsletter Subscription */}
-      <section className="swiss-section bg-white">
-        <div className="swiss-grid">
-          <div className="max-w-4xl mx-auto">
-            <Card className="border-2 border-swiss-blue/20 shadow-xl">
-              <CardContent className="p-12 text-center">
-                <div className="w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-swiss-blue/20 to-swiss-blue/10 rounded-full flex items-center justify-center">
-                  <span className="text-4xl">📧</span>
-                </div>
-                
-                <h2 className="text-3xl font-semibold mb-6 text-gray-900">
-                  Stay Ahead with Bitcoin Intelligence
-                </h2>
-                
-                <p className="swiss-prose-lg mb-8 text-gray-600 max-w-2xl mx-auto">
-                  Strategic Bitcoin insights directly to your mailbox. Twice a month. Unsubscribe anytime.
-                </p>
-                
-                <form onSubmit={handleSubscribe} className="max-w-md mx-auto">
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Input 
-                      type="email" 
-                      placeholder="your.email@company.com" 
-                      value={email} 
-                      onChange={e => setEmail(e.target.value)} 
-                      required 
-                      className="h-12 flex-1" 
-                    />
-                    <Button 
-                      type="submit" 
-                      className="h-12 px-8 swiss-blue-gradient swiss-blue-gradient-hover text-white whitespace-nowrap w-full sm:w-auto"
-                    >
-                      Subscribe to Intelligence Brief
-                    </Button>
-                  </div>
-                </form>
-                
-                <p className="text-sm text-gray-500 mt-4">
-                  Join our growing community of Bitcoin intelligence subscribers
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+      {/* Newsletter */}
+      <NewsletterSection />
 
       {/* CTA Section */}
       <section className="swiss-section bg-gray-900 text-white relative overflow-hidden">
@@ -314,21 +253,21 @@ const Research = () => {
             <h2 className="text-3xl lg:text-4xl font-medium text-white mb-6">
               Need Custom Intelligence?
             </h2>
-            
+
             <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-              Get tailored Bitcoin intelligence and strategic analysis for your specific 
+              Get tailored Bitcoin intelligence and strategic analysis for your specific
               industry, market, or organizational needs.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
               <CTAButton variant="primary" size="lg" href="/inquiry?service=research" showArrow>
                 Request Custom Analysis
               </CTAButton>
-              <CTAButton variant="secondary" size="lg" href="/contact" className="bg-white text-gray-900 hover:bg-gray-100">
+              <CTAButton variant="secondary" size="lg" href="/contact">
                 Discuss Your Needs
               </CTAButton>
             </div>
-            
+
           </div>
         </div>
       </section>

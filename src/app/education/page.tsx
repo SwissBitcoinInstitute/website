@@ -23,7 +23,7 @@ export default function CoursesPage() {
       {/* Hero */}
       <section className="swiss-hero swiss-gradient relative overflow-hidden">
         {/* Background Image */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-right-top md:bg-top bg-no-repeat"
           style={{
             backgroundImage: 'url(/SBI-education-hero.jpg)',
@@ -33,9 +33,9 @@ export default function CoursesPage() {
         <div className="absolute inset-0 bg-white/80"></div>
         <div className="swiss-grid relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            <h1>Executive Education</h1>
-            <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
-              Build the competency your organization needs to navigate the Bitcoin age confidently.
+            <h1>Bitcoin Education for Executives</h1>
+            <p className="swiss-prose-lg max-w-4xl mx-auto text-gray-700 leading-relaxed">
+              Bitcoin is unlike anything before it – every analogy eventually breaks down. We translate deep research and experience into compact formats that cut through the noise and focus on what matters strategically.
             </p>
           </div>
         </div>
@@ -58,11 +58,11 @@ export default function CoursesPage() {
                   </p>
                 </div>
                 <div className="mt-auto">
-{/*                   <CTAButton 
+                  {/*                   <CTAButton 
                     variant="primary" 
                     size="lg" 
                     href="/webinar"
-                    className="w-full shadow-lg group-hover:shadow-xl transition-shadow"
+                    className="w-full"
                   >
                     Find out more
                   </CTAButton> */}
@@ -78,11 +78,11 @@ export default function CoursesPage() {
                   </p>
                 </div>
                 <div className="mt-auto">
-                  <CTAButton 
-                    variant="primary" 
-                    size="lg" 
+                  <CTAButton
+                    variant="primary"
+                    size="lg"
                     href="/education/bitcoin-for-executives"
-                    className="w-full shadow-lg group-hover:shadow-xl transition-shadow"
+                    className="w-full"
                   >
                     Find out more
                   </CTAButton>
@@ -98,53 +98,16 @@ export default function CoursesPage() {
                   </p>
                 </div>
                 <div className="mt-auto">
-                  <CTAButton 
-                    variant="primary" 
-                    size="lg" 
+                  <CTAButton
+                    variant="primary"
+                    size="lg"
                     href="/education/financial-sovereignty"
-                    className="w-full shadow-lg group-hover:shadow-xl transition-shadow"
+                    className="w-full"
                   >
                     Find out more
                   </CTAButton>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Future Modules */}
-      <section className="swiss-section bg-gray-50">
-        <div className="swiss-grid">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <div className="flex items-center justify-center mb-6">
-                <div className="swiss-blue-gradient-accent mx-auto"></div>
-              </div>
-              <h2>Dedicated Classes (planned)</h2>
-              <p className="swiss-prose max-w-3xl mx-auto text-gray-600">
-                Complementing the Bitcoin Executive Masterclass, these classes offer a deep-dive into Bitcoin's specific mechanics in each of the following domains.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                { name: 'Markets & Geopolitics', icon: '🌍' },
-                { name: 'Finance & Economics', icon: '💼' },
-                { name: 'Technology & Innovation', icon: '⚡' },
-                { name: 'Energy & Climate', icon: '🌱' },
-                { name: 'Access & Agency', icon: '🔓' },
-                { name: 'Strategy & Policy', icon: '📋' }
-              ].map((domain, index) => (
-                <div key={index} className="group bg-white p-8 rounded-2xl border border-gray-200 hover:border-swiss-blue/50 hover:shadow-lg transition-all duration-300 text-center">
-                  <div className="flex items-center justify-center w-16 h-16 rounded-2xl mb-6 bg-gradient-to-br from-swiss-blue/10 to-swiss-blue/5 group-hover:from-swiss-blue/20 group-hover:to-swiss-blue/10 transition-all duration-300 mx-auto">
-                    <span className="text-3xl">{domain.icon}</span>
-                  </div>
-                  <h4 className="font-semibold text-gray-900 text-lg group-hover:swiss-blue-gradient-text transition-colors duration-300">
-                    {domain.name}
-                  </h4>
-                </div>
-              ))}
             </div>
           </div>
         </div>
@@ -161,17 +124,17 @@ export default function CoursesPage() {
               We constanstly develop our programs further to best suit your needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <CTAButton 
-                variant="primary" 
-                size="lg" 
+              <CTAButton
+                variant="primary"
+                size="lg"
                 href="/contact"
                 className="shadow-2xl"
               >
                 Schedule Consultation
               </CTAButton>
-              <CTAButton 
-                variant="secondary" 
-                size="lg" 
+              <CTAButton
+                variant="secondary"
+                size="lg"
                 href="/research"
                 className="border-white text-gray-900 bg-white hover:bg-gray-100"
               >

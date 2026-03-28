@@ -42,7 +42,7 @@ const Footer = () => {
       href: '/glossary'
     }, {
       name: 'Get Started',
-      href: '/inquiry?service=research&discovery=true#service-selection'
+      href: '/inquiry?service=research&discovery=true'
     }],
     legal: [{
       name: 'Privacy Policy',
@@ -61,26 +61,14 @@ const Footer = () => {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
             {/* Logo */}
-            <Link href="/" className="flex items-center space-x-3 group">
-              <div className="relative w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:scale-105">
-                <img 
-                  src="/SBI-Logo.png" 
-                  alt="Swiss Bitcoin Institute" 
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div>
-                <span className="text-gray-900 font-bold text-lg tracking-tight">
-                  Swiss <span className="text-bitcoin-orange">Bitcoin</span> Institute
-                </span>
-            </div>
+            <Link href="/" className="flex items-center group">
+              <img
+                src="/SBI-Logo-Landscape_2.svg"
+                alt="Swiss Bitcoin Institute"
+                className="h-8 md:h-10 w-auto object-contain transition-all duration-300 group-hover:scale-105"
+              />
             </Link>
-            
-            {/* Tagline */}
-            <p className="text-gray-600 text-base max-w-md">
-              Switzerland's independent Bitcoin think tank. Evidence-based research and executive education for decision-makers.
-            </p>
-            
+
             {/* Contact */}
             <div className="space-y-4">
               <div>
@@ -92,23 +80,23 @@ const Footer = () => {
                   </a>
                 </div>
               </div>
-              
+
               {/* Social Links */}
               <div className="flex space-x-4">
-                <a 
-                  href="https://www.linkedin.com/company/swiss-bitcoin-institute/" 
+                <a
+                  href="https://www.linkedin.com/company/swiss-bitcoin-institute/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-500 hover:text-[#00abfb] transition-colors" 
+                  className="text-gray-500 hover:text-[#00abfb] transition-colors"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="h-5 w-5" />
                 </a>
-                <a 
-                  href="https://x.com/SwissBTCInst" 
+                <a
+                  href="https://x.com/SwissBTCInst"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-500 hover:text-gray-900 transition-colors" 
+                  className="text-gray-500 hover:text-gray-900 transition-colors"
                   aria-label="X (formerly Twitter)"
                 >
                   <XIcon className="h-5 w-5" />
@@ -116,7 +104,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="mt-12 xl:mt-0 xl:col-span-2">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
               {/* Company */}
@@ -132,7 +120,7 @@ const Footer = () => {
                   ))}
                 </ul>
               </div>
-              
+
               {/* Services */}
               <div>
                 <h3 className="swiss-blue-gradient-text font-medium text-sm uppercase tracking-wider">
@@ -148,7 +136,7 @@ const Footer = () => {
                   ))}
                 </ul>
               </div>
-              
+
               {/* Resources */}
               <div>
                 <h3 className="swiss-blue-gradient-text font-medium text-sm uppercase tracking-wider">
@@ -164,27 +152,27 @@ const Footer = () => {
                   ))}
                 </ul>
               </div>
-              </div>
-              
-              {/* Legal */}
+            </div>
+
+            {/* Legal */}
             <div className="mt-8 pt-8 border-t border-gray-200">
               <div className="flex flex-wrap gap-6">
-                  {footerNavigation.legal.map(item => (
+                {footerNavigation.legal.map(item => (
                   <Link key={item.name} href={item.href} className="text-gray-500 hover:swiss-blue-gradient-text transition-colors text-sm">
-                        {item.name}
-                      </Link>
-                  ))}
+                    {item.name}
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
         </div>
-        
+
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-gray-200">
           <p className="text-gray-500 text-sm text-center">
             © 2026 Swiss Bitcoin Institute. All Rights Reserved.
           </p>
-                </div>
+        </div>
       </div>
     </footer>
   );

@@ -33,10 +33,6 @@ const NewsletterSection = () => {
               ) : (
                 /* Form State */
                 <>
-                  <div className="w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-swiss-blue/20 to-swiss-blue/10 rounded-full flex items-center justify-center">
-                    <span className="text-4xl">📧</span>
-                  </div>
-                  
                   <h2 className="text-3xl font-semibold mb-6 text-gray-900">
                     Stay Ahead with Bitcoin Intelligence
                   </h2>
@@ -58,7 +54,7 @@ const NewsletterSection = () => {
                       />
                       <Button 
                         type="submit" 
-                        className="h-12 px-8 swiss-blue-gradient swiss-blue-gradient-hover text-white whitespace-nowrap w-full sm:w-auto"
+                        className="h-12 px-8 whitespace-nowrap w-full sm:w-auto"
                         disabled={isSubmitting}
                       >
                         {isSubmitting ? 'Subscribing...' : 'Subscribe to Intelligence Brief'}

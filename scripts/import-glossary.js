@@ -90,7 +90,7 @@ ${linkedArticle ? `\n## Related Intelligence\n\nThis term is explored in depth i
   fs.writeFileSync(filepath, markdown);
   imported++;
   
-  console.log(`✓ Imported: ${term}`);
+  console.log(`Imported: ${term}`);
 }
 
 console.log(`\n=== Import Complete ===`);

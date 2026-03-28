@@ -23,9 +23,9 @@ const CTAButton = ({
   const baseClasses = "font-medium transition-all duration-300 group btn-hover-scale";
   
   const variants = {
-    primary: "swiss-blue-gradient text-white shadow-lg hover:shadow-xl",
-    secondary: "bg-white hover:bg-gray-50 text-gray-900 border-2 border-gray-200 hover:border-gray-300",
-    outline: "border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white"
+    primary: "bg-btn-primary text-btn-primary-foreground hover:bg-btn-primary-hover shadow-lg hover:shadow-xl border-transparent",
+    secondary: "bg-btn-secondary text-btn-secondary-foreground border hover:bg-btn-secondary-hover border-btn-secondary-border hover:border-btn-secondary-hover-border",
+    outline: "bg-transparent text-btn-secondary-foreground border hover:bg-btn-secondary-hover border-btn-secondary-border hover:border-btn-secondary-hover-border hover:text-btn-secondary-foreground"
   };
 
   return (
