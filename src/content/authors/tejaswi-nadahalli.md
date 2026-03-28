@@ -2,7 +2,7 @@
 name: "Dr. Tejaswi Nadahalli"
 role: "Research Fellow"
 bio: "I have played many roles: a startup founder, CTO at a different startup, a Google engineer, research partner at a venture capital fund, a mid-career Ph.D (because why not?), and generally tinkerer at the intersection of systems, cryptography, and money. These days, I work on privacy at Chainlink."
-avatar: "/team/tejaswi-nadahalli.png"
+avatar: "/team/tejaswi-nadahalli.jpg"
 social:
   linkedin: "https://www.linkedin.com/in/tejaswinadahalli/"
   twitter: "https://x.com/nadahalli"
