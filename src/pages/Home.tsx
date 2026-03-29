@@ -48,20 +48,20 @@ const Home = () => {
     description: "Economic freedom and individual rights"
   }];
   const services = [{
-    title: "Education",
-    description: "From 1:1 bespoke sessions to more formal courses",
+    title: "Executive Education",
+    description: "Compact and tailored formats that cut through the noise",
     icon: "",
     primaryCta: { text: "Explore options", link: "/education" },
     secondaryCta: { text: "Request Course Information", link: "/inquiry?service=courses#service-selection" }
   }, {
-    title: "Research",
-    description: "Actionable insights on Bitcoin's strategic implications",
+    title: "Bitcoin Research",
+    description: "Curated and packaged into actionable insights",
     icon: "",
     primaryCta: { text: "View offering", link: "/research" },
     secondaryCta: { text: "Book Discovery Call", link: "/inquiry?service=research&discovery=true" }
   }, {
     title: "Speaking",
-    description: "Keynotes that get the message across and encourage reflection",
+    description: "Informative, entertaining or thought-provoking?",
     icon: "",
     primaryCta: { text: "View talks", link: "/speaking" },
     secondaryCta: { text: "Submit Speaking Request", link: "/inquiry?service=speaking#service-selection" }
