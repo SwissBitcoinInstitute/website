@@ -25,10 +25,28 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://bitcoininstitute.ch'),
   title: 'SBI - Strategic Bitcoin Intelligence',
   description: 'Strategic Bitcoin Intelligence for business leaders and executives',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-32x32.png',
+    apple: '/apple-touch-icon.png',
+  },
   openGraph: {
     title: 'SBI - Strategic Bitcoin Intelligence',
     description: 'Strategic Bitcoin Intelligence for business leaders and executives',
-    images: ['/opengraph-image.png'],
+    images: [
+      {
+        url: '/opengraph-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'SBI - Strategic Bitcoin Intelligence',
+      },
+      {
+        url: '/Logo-opengraph-square.png',
+        width: 1200,
+        height: 1200,
+        alt: 'SBI Logo Square',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
