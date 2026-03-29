@@ -66,6 +66,27 @@ const About = () => {
             <p className="swiss-prose-lg mb-16 max-w-4xl mx-auto text-gray-700 leading-relaxed">
               Switzerland and Bitcoin share a set of foundational values whose implications extend well beyond finance. These principles constitute a strategic opportunity no other country enjoys.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Graphic Section */}
+      <section className="bg-white pb-16">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
+          <div className="rounded-2xl overflow-hidden">
+            <img
+              src="/switzerland-and-bitcoin.png"
+              alt="Switzerland and Bitcoin"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Principles Section */}
+      <section className="bg-white pb-24 pt-8">
+        <div className="swiss-grid">
+          <div className="max-w-5xl mx-auto text-center">
             <div className="max-w-4xl mx-auto space-y-16 text-left">
               {principles.map((principle, index) => (
                 <article
@@ -95,9 +116,6 @@ const About = () => {
           </div>
         </div>
       </section>
-
-
-
       {/* Collaboration CTA */}
       <section className="swiss-section bg-gray-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 cta-section-bg"></div>
