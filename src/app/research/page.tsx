@@ -40,7 +40,7 @@ export default function ResearchPage() {
           <div className="max-w-5xl mx-auto text-center">
             <h1>Research</h1>
             <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
-              We provide research across six Bitcoin-related domains, delivered by recognized experts and tailored to the Swiss environment.
+              Tracking Bitcoin's strategic developments demands constant attention. We do it for you – curating and packaging news, narratives, and technical developments into compact, actionable insights tailored for businesses, agencies, NGOs, and their stakeholders.
             </p>
           </div>
         </div>
