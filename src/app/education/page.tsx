@@ -38,9 +38,9 @@ export default function CoursesPage() {
         <div className="absolute inset-0 bg-white/80"></div>
         <div className="swiss-grid relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            <h1 className="mb-6">Executive Education</h1>
+            <h1 className="mb-6">Bitcoin Education for Executives</h1>
             <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
-              Build the competency your organization needs to navigate the Bitcoin age confidently.
+              Bitcoin is unlike anything before it – every analogy eventually breaks down. We translate deep research and experience into compact formats that cut through the noise and focus on what matters strategically.
             </p>
           </div>
         </div>

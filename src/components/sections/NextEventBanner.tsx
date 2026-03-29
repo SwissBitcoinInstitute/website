@@ -4,105 +4,120 @@ import { useState, useEffect } from 'react';
 import { X, Calendar } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import alertConfig from '@/config/alert-config.json';
 
-const EVENT_BANNER_KEY = 'sbi-next-event-banner-dismissed';
-const DISMISSAL_DURATION_MS = 14 * 24 * 60 * 60 * 1000; // 2 weeks in milliseconds
+
+interface AlertConfig {
+  id: string;
+  startDate: string;
+  endDate: string;
+  alertText: string;
+  buttonText: string;
+  buttonLink: string;
+  isActive: boolean;
+}
 
 export default function NextEventBanner() {
   const [isVisible, setIsVisible] = useState(false);
+  const [activeAlert, setActiveAlert] = useState<AlertConfig | null>(null);
+  const [hasScrolled, setHasScrolled] = useState(false);
+  const [isDismissed, setIsDismissed] = useState(false);
 
   useEffect(() => {
-    // Check if user has dismissed the banner
-    const dismissedData = localStorage.getItem(EVENT_BANNER_KEY);
-    if (!dismissedData) {
-      // Show banner immediately if never dismissed
-      setIsVisible(true);
-    } else {
-      try {
-        const dismissedTimestamp = parseInt(dismissedData, 10);
-        const now = Date.now();
-        const timeSinceDismissal = now - dismissedTimestamp;
-        
-        // Show banner again if 2 weeks have passed
-        if (timeSinceDismissal >= DISMISSAL_DURATION_MS) {
-          localStorage.removeItem(EVENT_BANNER_KEY);
-          setIsVisible(true);
-        }
-      } catch (error) {
-        // If parsing fails, show the banner
-        localStorage.removeItem(EVENT_BANNER_KEY);
-        setIsVisible(true);
-      }
+    // 1. Find active alert based on dates
+    const now = new Date();
+    const currentAlert = alertConfig.alerts.find(alert => {
+      if (!alert.isActive) return false;
+      const startDate = new Date(alert.startDate);
+      const endDate = new Date(alert.endDate);
+      return now >= startDate && now <= endDate;
+    });
+
+    if (currentAlert) {
+      setActiveAlert(currentAlert);
     }
+
+    // 2. Setup scroll listener
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setHasScrolled(true);
+      } else if (window.scrollY < 50) {
+        // Optional: hide again if scrolled back to top? 
+        // Let's keep it visible once triggered for better UX, 
+        // but the user might want it to toggle. 
+        // Actually, the request said "only appear after some scrolling". 
+        // I'll stick to a simple "once you scroll past 300, show it".
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Initial check in case user is already scrolled
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
-    // Add/remove CSS variable to account for banner height
-    if (isVisible && typeof document !== 'undefined') {
-      document.documentElement.style.setProperty('--banner-height', '56px');
-      if (window.matchMedia('(min-width: 640px)').matches) {
-        document.documentElement.style.setProperty('--banner-height', '64px');
-      }
-    } else if (typeof document !== 'undefined') {
-      document.documentElement.style.setProperty('--banner-height', '0px');
-    }
-  }, [isVisible]);
+    // Show banner only if: we have an alert, we've scrolled, and not dismissed
+    setIsVisible(!!activeAlert && hasScrolled && !isDismissed);
+  }, [activeAlert, hasScrolled, isDismissed]);
 
   const handleDismiss = () => {
-    setIsVisible(false);
-    // Store timestamp of dismissal
-    localStorage.setItem(EVENT_BANNER_KEY, Date.now().toString());
+    setIsDismissed(true);
   };
 
-  if (!isVisible) return null;
+  if (!activeAlert) return null;
 
   return (
-    <div 
+    <div
       className={cn(
-        "fixed top-0 left-0 right-0 z-[60] transition-all duration-500 ease-in-out",
-        isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+        "fixed bottom-6 right-6 z-[70] w-[calc(100%-3rem)] sm:w-full sm:max-w-[320px] transition-all duration-500 ease-out",
+        isVisible ? "translate-y-0 opacity-100 scale-100" : "translate-y-8 opacity-0 scale-95 pointer-events-none"
       )}
     >
-      {/* Backdrop - white background */}
-      <div className="bg-white border-b border-orange-100">
-        {/* Content */}
-        <div className="swiss-grid py-3 sm:py-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
-              {/* Text Content */}
-              <div className="flex items-center gap-3 flex-1 min-w-0">
-                <Calendar className="w-4 h-4 text-orange-600 flex-shrink-0" />
-                <p className="text-sm text-gray-700 leading-relaxed">
-                  Next: Bitcoin in 21 Minutes Webinar
-                </p>
+      <div className="bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden group">
+        {/* Subtle top accent line */}
+        <div className="h-1 w-full bg-bitcoin-orange" />
+        
+        <div className="p-4 sm:p-5">
+          <div className="flex gap-3">
+            {/* Icon - Smaller */}
+            <div className="flex-shrink-0">
+              <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center">
+                <Calendar className="w-4 h-4 text-bitcoin-orange" />
               </div>
+            </div>
 
-              {/* CTA Button with subtle pulse animation */}
+            {/* Content */}
+            <div className="flex-1 min-w-0">
+              <div className="flex items-start justify-between gap-2 mb-1">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-gray-400 m-0 leading-tight">
+                  Next Event
+                </h4>
+                <button
+                  onClick={handleDismiss}
+                  className="p-1 -mr-1 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-50 transition-colors"
+                  aria-label="Close notification"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              </div>
+              
+              <p className="text-sm font-medium text-gray-900 mb-3 leading-snug line-clamp-2">
+                {activeAlert.alertText}
+              </p>
+
               <Link
-                href="/webinar"
+                href={activeAlert.buttonLink}
                 className={cn(
-                  "relative flex-shrink-0 px-4 py-2 text-sm font-medium",
-                  "bg-bitcoin-orange text-white rounded-md",
-                  "hover:bg-bitcoin-orange-hover transition-colors",
-                  "focus:outline-none focus:ring-2 focus:ring-bitcoin-orange focus:ring-offset-2",
-                  "animate-pulse-subtle"
+                  "inline-flex items-center justify-center w-full px-3 py-1.5 text-xs font-semibold",
+                  "bg-bitcoin-orange text-white rounded-lg",
+                  "hover:bg-bitcoin-orange-hover transition-all duration-200",
+                  "focus:outline-none focus:ring-2 focus:ring-bitcoin-orange focus:ring-offset-2"
                 )}
               >
-                Save My Spot
+                {activeAlert.buttonText}
               </Link>
-
-              {/* Dismiss Button */}
-              <button
-                onClick={handleDismiss}
-                className={cn(
-                  "flex-shrink-0 p-1.5 rounded-md",
-                  "text-gray-400 hover:text-gray-600 hover:bg-orange-50",
-                  "transition-colors focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-1"
-                )}
-                aria-label="Dismiss banner"
-              >
-                <X className="w-4 h-4" />
-              </button>
             </div>
           </div>
         </div>
@@ -110,4 +125,3 @@ export default function NextEventBanner() {
     </div>
   );
 }
-

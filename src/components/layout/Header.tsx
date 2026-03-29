@@ -50,18 +50,11 @@ const Header = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center space-x-4 group">
-              <div className="relative w-12 h-12 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:scale-105">
-                <img
-                  src="/SBI-Logo.png"
-                  alt="Swiss Bitcoin Institute"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div className="hidden sm:block">
-                <span className="text-gray-900 font-bold text-xl tracking-tight">
-                  Swiss <span className="text-bitcoin-orange">Bitcoin</span> Institute
-                </span>
-              </div>
+              <img
+                src="/SBI-Logo-Landscape_2.svg"
+                alt="Swiss Bitcoin Institute"
+                className="h-10 w-auto object-contain transition-all duration-300 group-hover:scale-105"
+              />
             </Link>
           </div>
 
@@ -172,10 +165,10 @@ const Header = () => {
               ))}
               <div className="px-3 py-2 space-y-2">
                 <div className="flex justify-center pb-2">
-                  <SiteSearch />
+                  <SiteSearch onSelect={() => setIsMenuOpen(false)} />
                 </div>
                 <Button variant="default" size="sm" className="w-full" asChild>
-                  <Link href="/inquiry?service=research&discovery=true">Get Started</Link>
+                  <Link href="/inquiry?service=research&discovery=true" onClick={() => setIsMenuOpen(false)}>Get Started</Link>
                 </Button>
               </div>
             </div>

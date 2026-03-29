@@ -13,8 +13,7 @@ export interface SearchItem {
 
 const STATIC_PAGES: SearchItem[] = [
   { id: 'home', title: 'Home', description: 'Swiss Bitcoin Institute homepage', url: '/', category: 'Page' },
-  { id: 'about', title: 'About Us', description: 'Our mission, principles, and role', url: '/about', category: 'Page' },
-  { id: 'team', title: 'Team', description: 'Core team and research fellows', url: '/team', category: 'Page' },
+  { id: 'team', title: 'Meet the Team', description: 'Core team and research fellows', url: '/team', category: 'Page' },
   { id: 'research', title: 'Research', description: 'Bitcoin research and analysis', url: '/research', category: 'Page' },
   { id: 'education', title: 'Education', description: 'Executive education programs, Bitcoin courses, webinar, financial sovereignty training', url: '/education', category: 'Page' },
   { id: 'webinar', title: 'Bitcoin Webinar', description: 'Free 21-minute Bitcoin webinar. One strategic insight to help you decide whether Bitcoin matters for your job. Live webinar with Q&A.', url: '/webinar', category: 'Page', tags: ['webinar', 'bitcoin webinar', 'free', 'education', 'course'] },
@@ -24,6 +23,7 @@ const STATIC_PAGES: SearchItem[] = [
   { id: 'contact', title: 'Contact', description: 'Get in touch with us', url: '/contact', category: 'Page' },
   { id: 'inquiry', title: 'Get Started', description: 'Start your journey with SBI. Request a course, webinar, or consultation.', url: '/inquiry', category: 'Page', tags: ['inquiry', 'contact', 'course request', 'webinar'] },
   { id: 'why-bitcoin', title: 'Why Bitcoin', description: 'Understanding Bitcoin\'s unique properties and fundamental advantages', url: '/why-bitcoin', category: 'Page' },
+  { id: 'switzerland-bitcoin', title: 'Switzerland & Bitcoin', description: 'Exploring the unique relationship between Switzerland and the Bitcoin ecosystem', url: '/switzerland-bitcoin', category: 'Page' },
   { id: 'fellows', title: 'Fellowship', description: 'Join Switzerland\'s leading network of Bitcoin experts', url: '/fellows', category: 'Page' },
   { id: 'glossary', title: 'Glossary', description: 'Bitcoin glossary and terminology definitions', url: '/glossary', category: 'Page' },
   { id: 'domains', title: 'Research Domains', description: 'Six research domains: Markets & Geopolitics, Finance & Economics, Technology & Innovation, Energy & Climate, Access & Agency, Strategy & Policy', url: '/domains', category: 'Page' },

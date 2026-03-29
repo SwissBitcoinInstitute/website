@@ -14,10 +14,9 @@ const Team = () => {
         <div className="absolute inset-0 swiss-blue-gradient-hero"></div>
         <div className="swiss-grid relative">
           <div className="max-w-5xl mx-auto text-center">
-            <h1 className="mb-10 text-gray-900">Meet the Team</h1>
+            <h1 className="mb-10 text-gray-900">Meet our Team</h1>
             <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
-              The Institute blends academic rigor with practical expertise to empower leaders 
-              through open monetary education and research.
+              We combine academic rigor with practical experience from different domains of the Bitcoin space to help you understand the important aspects faster than we did. Click on a face to learn more.
             </p>
           </div>
         </div>

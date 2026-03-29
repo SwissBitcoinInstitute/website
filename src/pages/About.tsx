@@ -1,4 +1,5 @@
 import CTAButton from '@/components/ui/cta-button';
+import Link from 'next/link';
 
 const About = () => {
   const principles = [
@@ -34,6 +35,26 @@ const About = () => {
     }
   ];
 
+  const services = [{
+    title: "Education",
+    description: "From 1:1 bespoke sessions to more formal courses",
+    icon: "",
+    primaryCta: { text: "Explore options", link: "/education" },
+    secondaryCta: { text: "Request Course Information", link: "/inquiry?service=courses#service-selection" }
+  }, {
+    title: "Research",
+    description: "Actionable insights on Bitcoin's strategic implications",
+    icon: "",
+    primaryCta: { text: "View offering", link: "/research" },
+    secondaryCta: { text: "Book Discovery Call", link: "/inquiry?service=research&discovery=true" }
+  }, {
+    title: "Speaking",
+    description: "Keynotes that get the message across and encourage reflection",
+    icon: "",
+    primaryCta: { text: "View talks", link: "/speaking" },
+    secondaryCta: { text: "Submit Speaking Request", link: "/inquiry?service=speaking#service-selection" }
+  }];
+
   return (
     <div className="min-h-screen">
       {/* Hero */}
@@ -41,9 +62,9 @@ const About = () => {
         <div className="absolute inset-0 swiss-blue-gradient-hero"></div>
         <div className="swiss-grid relative">
           <div className="max-w-5xl mx-auto text-center">
-            <h1 className="mb-10 text-gray-900">Bitcoin's Natural Alignment with Switzerland</h1>
+            <h1 className="mb-10 text-gray-900">Switzerland and Bitcoin: Built on the Same Principles</h1>
             <p className="swiss-prose-lg mb-16 max-w-4xl mx-auto text-gray-700 leading-relaxed">
-              Bitcoin's and Swiss values align naturally, creating unique opportunities for Switzerland's future.
+              Switzerland and Bitcoin share a set of foundational values whose implications extend well beyond finance. These principles constitute a strategic opportunity no other country enjoys.
             </p>
             <div className="max-w-4xl mx-auto space-y-16 text-left">
               {principles.map((principle, index) => (
@@ -74,6 +95,7 @@ const About = () => {
           </div>
         </div>
       </section>
+
 
 
       {/* Collaboration CTA */}

@@ -61,25 +61,13 @@ const Footer = () => {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
             {/* Logo */}
-            <Link href="/" className="flex items-center space-x-3 group">
-              <div className="relative w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:scale-105">
-                <img
-                  src="/SBI-Logo.png"
-                  alt="Swiss Bitcoin Institute"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div>
-                <span className="text-gray-900 font-bold text-lg tracking-tight">
-                  Swiss <span className="text-bitcoin-orange">Bitcoin</span> Institute
-                </span>
-              </div>
+            <Link href="/" className="flex items-center group">
+              <img
+                src="/SBI-Logo-Landscape_2.svg"
+                alt="Swiss Bitcoin Institute"
+                className="h-8 md:h-10 w-auto object-contain transition-all duration-300 group-hover:scale-105"
+              />
             </Link>
-
-            {/* Tagline */}
-            <p className="text-gray-600 text-base max-w-md">
-              Switzerland's independent Bitcoin think tank. Evidence-based research and executive education for decision-makers.
-            </p>
 
             {/* Contact */}
             <div className="space-y-4">
