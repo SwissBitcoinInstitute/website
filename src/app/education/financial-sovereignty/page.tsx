@@ -4,7 +4,7 @@ import { Card } from '@/components/ui/card'
 import { CheckCircle2 } from 'lucide-react'
 import CourseSignupForm from '@/components/forms/CourseSignupForm'
 import { FinSovCourses, formatCourseDate } from '@/lib/courses'
-import { finSovDetails } from '@/lib/courseDetails'
+import { finSovDetails } from '@/lib/offeringDetails'
 
 export const metadata: Metadata = {
   title: 'Financial Sovereignty - Fundamentals | Swiss Bitcoin Institute',

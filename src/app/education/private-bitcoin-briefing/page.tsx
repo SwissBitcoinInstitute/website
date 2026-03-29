@@ -4,7 +4,7 @@ import { Card } from '@/components/ui/card'
 import { CheckCircle2 } from 'lucide-react'
 import CourseSignupForm from '@/components/forms/CourseSignupForm'
 import { privateBitcoinBriefingCourses, formatCourseDate } from '@/lib/courses'
-import { pbbDetails } from '@/lib/courseDetails'
+import { pbbDetails } from '@/lib/offeringDetails'
 
 export const metadata: Metadata = {
   title: 'Private Bitcoin Briefing | Swiss Bitcoin Institute',

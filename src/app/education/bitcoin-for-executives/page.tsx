@@ -5,7 +5,7 @@ import { CheckCircle2 } from 'lucide-react'
 import CourseSignupForm from '@/components/forms/CourseSignupForm'
 import { bitcoinForExecutivesCourses, formatCourseDate } from '@/lib/courses'
 import TopicsColumn from '@/components/courses/TopicsColumn'
-import { masterclassDetails } from '@/lib/courseDetails'
+import { masterclassDetails } from '@/lib/offeringDetails'
 
 export const metadata: Metadata = {
   title: 'Bitcoin Executive Masterclass | Swiss Bitcoin Institute',
