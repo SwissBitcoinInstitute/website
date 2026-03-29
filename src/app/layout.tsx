@@ -35,6 +35,12 @@ export const metadata: Metadata = {
     description: 'Strategic Bitcoin Intelligence for business leaders and executives',
     images: [
       {
+        url: '/opengraph-image.png?v=3',
+        width: 1200,
+        height: 630,
+        alt: 'SBI - Strategic Bitcoin Intelligence',
+      },
+      {
         url: '/Logo-opengraph-square.png?v=3',
         width: 1200,
         height: 1200,
