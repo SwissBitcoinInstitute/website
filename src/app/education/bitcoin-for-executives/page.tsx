@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
 import CTAButton from '@/components/ui/cta-button'
 import { Card } from '@/components/ui/card'
-import { CheckCircle2, Users, Clock, MapPin } from 'lucide-react'
+import { CheckCircle2 } from 'lucide-react'
 import CourseSignupForm from '@/components/forms/CourseSignupForm'
 import { bitcoinForExecutivesCourses, formatCourseDate } from '@/lib/courses'
 import TopicsColumn from '@/components/courses/TopicsColumn'
+import { masterclassDetails } from '@/lib/courseDetails'
 
 export const metadata: Metadata = {
   title: 'Bitcoin Executive Masterclass | Swiss Bitcoin Institute',
@@ -23,11 +24,6 @@ export const metadata: Metadata = {
 }
 
 export default function BitcoinForExecutivesPage() {
-  const courseDetails = [
-    { icon: <MapPin className="w-5 h-5" />, label: 'Format', value: 'Live physical (Zürich)' },
-    { icon: <Clock className="w-5 h-5" />, label: 'Duration', value: '12 hours' },
-    { icon: <Users className="w-5 h-5" />, label: 'Level', value: 'Senior executives' },
-  ]
 
   const whoItsFor = [
     'Board Chairs & Members',
@@ -60,7 +56,7 @@ export default function BitcoinForExecutivesPage() {
         <div
           className="absolute inset-0 bg-cover bg-right-top md:bg-top bg-no-repeat"
           style={{
-            backgroundImage: 'url(/SBI-education-hero.jpg)',
+            backgroundImage: 'url(/offerings-images/Executive-Masterclass-Reading-Room-ETHZ.jpg)',
           }}
         />
         {/* White overlay for strong fade effect - 80% opacity (image at ~20% visibility) */}
@@ -109,7 +105,7 @@ export default function BitcoinForExecutivesPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 border-t border-gray-200 pt-8 sm:pt-12">
-              {courseDetails.map((detail, index) => (
+              {masterclassDetails.map((detail, index) => (
                 <div key={index} className="text-center">
                   <div className="flex justify-center mb-4">
                     <div className="text-swiss-blue">{detail.icon}</div>

@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import CTAButton from '@/components/ui/cta-button'
-
-import { Users, Clock, MapPin } from 'lucide-react'
+import { masterclassDetails, finSovDetails, pbbDetails } from '@/lib/courseDetails'
 
 export const metadata: Metadata = {
   title: 'Executive Education in Bitcoin | Swiss Bitcoin Institute',
@@ -25,75 +24,96 @@ const CourseSection = ({
   description,
   href,
   tag,
-  details
+  details,
+  image,
+  imageCredit,
+  imageCreditUrl,
+  imageCreditDark,
+  reverse,
 }: {
   title: string;
   description: string;
   href?: string;
   tag?: string;
   details?: { icon: React.ReactNode; label: string; value: string }[];
+  image?: string;
+  imageCredit?: string;
+  imageCreditUrl?: string;
+  imageCreditDark?: boolean;
+  reverse?: boolean;
 }) => (
-  <div className="group bg-white rounded-2xl border border-gray-200 overflow-hidden hover:border-swiss-blue/30 hover:shadow-xl transition-all duration-300 mb-8 last:mb-0">
-    <div className="flex flex-col md:flex-row min-h-[320px]">
-      {/* Left Column: Course Details */}
-      <div className="w-full md:w-1/3 bg-gray-50/50 p-8 flex flex-col justify-center border-b md:border-b-0 md:border-r border-gray-100">
-        {details ? (
-          <div className="space-y-6">
-            {details.map((detail, index) => (
-              <div key={index} className="flex items-start space-x-4">
-                <div className="text-swiss-blue mt-1">{detail.icon}</div>
-                <div>
-                  <div className="text-xs text-gray-500 font-medium uppercase tracking-wider">{detail.label}</div>
-                  <div className="text-sm font-semibold text-gray-900">{detail.value}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="hidden md:block"></div>
+  <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden mb-8 last:mb-0">
+    <div className={`flex flex-col min-h-[320px] ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+      {/* Left Column: Image */}
+      <div
+        className="w-full md:w-2/5 relative overflow-hidden border-b md:border-b-0 md:border-r border-gray-100 min-h-[220px]"
+        style={image
+          ? { backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center' }
+          : { background: 'linear-gradient(135deg, #f3f4f6, #e5e7eb)' }
+        }
+      >
+        {imageCredit && imageCreditUrl && (
+          <a
+            href={imageCreditUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`absolute bottom-0 left-0 right-0 px-3 py-1.5 text-[10px] transition-colors duration-200 truncate ${imageCreditDark ? 'text-black/40 hover:text-black/70' : 'text-white/60 hover:text-white/90'}`}
+          >
+            © {imageCredit}
+          </a>
         )}
       </div>
 
       {/* Right Column: Content */}
       <div className="flex-1 p-8 md:p-10 flex flex-col">
+        {/* Top: tag + title + description */}
         <div className="flex-1">
           {tag && (
-            <div className="inline-flex items-center px-3 py-1 rounded-full bg-bitcoin-orange/10 mb-6">
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-bitcoin-orange/10 mb-5">
               <span className="text-bitcoin-orange text-xs font-semibold uppercase tracking-wider">{tag}</span>
             </div>
           )}
-          <h3 className="text-3xl font-bold text-gray-900 mb-6">{title}</h3>
-          <p className="swiss-prose-lg text-gray-600 mb-8 max-w-2xl leading-relaxed">
+          <h3 className="text-3xl font-bold text-gray-900 mb-4">{title}</h3>
+          <p className="swiss-prose-lg text-gray-600 max-w-2xl leading-relaxed">
             {description}
           </p>
         </div>
-        {href && (
-          <div className="mt-auto pt-6 border-t border-gray-100">
-            <Link 
-              href={href}
-              className="link-research text-sm"
-            >
-              Find out more →
-            </Link>
-          </div>
-        )}
+
+        {/* Bottom: details icons (left) + link (right) */}
+        <div className="mt-8 pt-6 border-t border-gray-100 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+          {/* Details */}
+          {details && details.length > 0 && (
+            <div className="flex flex-wrap gap-x-8 gap-y-3">
+              {details.map((detail, index) => (
+                <div key={index} className="flex items-center space-x-2">
+                  <div className="text-swiss-blue">{detail.icon}</div>
+                  <div>
+                    <div className="text-xs text-gray-500 font-medium uppercase tracking-wider leading-none mb-0.5">{detail.label}</div>
+                    <div className="text-sm font-semibold text-gray-900">{detail.value}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Link */}
+          {href && (
+            <div className="sm:ml-auto shrink-0">
+              <Link
+                href={href}
+                className="link-research text-sm"
+              >
+                Find out more →
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   </div>
 );
 
 export default function CoursesPage() {
-  const masterclassDetails = [
-    { icon: <MapPin className="w-5 h-5" />, label: 'Format', value: 'Live physical (Zürich)' },
-    { icon: <Clock className="w-5 h-5" />, label: 'Duration', value: '12 hours' },
-    { icon: <Users className="w-5 h-5" />, label: 'Level', value: 'Senior executives' },
-  ];
-
-  const finSovDetails = [
-    { icon: <MapPin className="w-5 h-5" />, label: 'Format', value: 'Live course (in Zürich)' },
-    { icon: <Clock className="w-5 h-5" />, label: 'Duration', value: 'One afternoon' },
-    { icon: <Users className="w-5 h-5" />, label: 'Level', value: 'Bitcoiner Beginners' },
-  ];
 
   return (
     <div className="min-h-screen">
@@ -124,62 +144,41 @@ export default function CoursesPage() {
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col">
               <CourseSection
-                title="Bespoke Bitcoin Advisory"
-                description="A private advisory offering for decisionmakers seeking a deeper, strategic understanding of Bitcoin."
-                href="/inquiry?service=advisory"
-              />
-
-              <CourseSection
                 title="Bitcoin Executive Masterclass"
-                description="Short, intense C-level course to gain an overview over the strategic questions raised by Bitcoin."
+                description="For senior leaders across business, finance, government, and civil society who need strategic Bitcoin clarity. Gain a 360° impact overview, industry-specific implications, and macro insights linking Bitcoin to AI, geopolitics, and net-zero – through expert-led peer discussion in an exclusive small group setting."
                 href="/education/bitcoin-for-executives"
                 details={masterclassDetails}
+                image="/offerings-images/Executive-Masterclass-Reading-Room-ETHZ.jpg"
+                imageCredit="Reading Room, Main Library ETH Zurich, 1955."
+                imageCreditUrl="http://doi.org/10.3932/ethz-a-000012906"
               />
 
               <CourseSection
                 title="Financial Sovereignty"
-                description="Learn to securely control your own Bitcoin through hands-on training with hardware wallets, seed phrase management, and secure backup strategies."
+                description="For executives, investors, and individuals ready to learn the technicalities of handling and custodying Bitcoin. Master hands-on Bitcoin skills – from transactions, wallets and key management to privacy and security – in a discreet, small-group setting that allows for delicate questions about the strategic implications of Bitcoin's technical design."
                 href="/education/financial-sovereignty"
                 details={finSovDetails}
+                image="/offerings-images/Financial-Sovereighnty-Banknotendruckerei-OF.jpg"
+                imageCredit="Bankenotendruckerei, Orell Füssli AG, 1973."
+                imageCreditUrl="https://ba.e-pics.ethz.ch/#detail-asset=727651b2-1b9a-4a86-9d2c-3d308848f352"
+                imageCreditDark
+                reverse
+              />
+
+              <CourseSection
+                title="Private Bitcoin Briefing"
+                description="Tailored Bitcoin strategy, delivered on your terms. All the strategic depth of the Bitcoin Executive Masterclass – customised to your organisation's industry, agenda, and schedule. Ideal for leadership teams, boards, and institutions that require a private, bespoke session with full flexibility on topics, format, and timing."
+                href="/education/private-bitcoin-briefing"
+                details={pbbDetails}
+                image="/offerings-images/Private-Bitcoin-Briefing-Bundesratszimmer.jpg"
+                imageCredit="Bundesratszimmer, 1989."
+                imageCreditUrl="https://ba.e-pics.ethz.ch/#detail-asset=97b7fe65-17bf-46d5-b047-9c86c7837675"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Future Modules */}
-      <section className="swiss-section bg-gray-50">
-        <div className="swiss-grid">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <div className="flex items-center justify-center mb-6">
-                <div className="swiss-blue-gradient-accent mx-auto"></div>
-              </div>
-              <h2>Dedicated Classes (planned)</h2>
-              <p className="swiss-prose max-w-3xl mx-auto text-gray-600">
-                Complementing the Bitcoin Executive Masterclass, these classes offer a deep-dive into Bitcoin's specific mechanics in each of the following domains.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                { name: 'Markets & Geopolitics', icon: '' },
-                { name: 'Finance & Economics', icon: '' },
-                { name: 'Technology & Innovation', icon: '' },
-                { name: 'Energy & Climate', icon: '' },
-                { name: 'Access & Agency', icon: '' },
-                { name: 'Strategy & Policy', icon: '' }
-              ].map((domain, index) => (
-                <div key={index} className="group bg-white p-8 rounded-2xl border border-gray-200 hover:border-swiss-blue/50 hover:shadow-lg transition-all duration-300 text-center">
-                  <h4 className="font-semibold text-gray-900 text-lg group-hover:swiss-blue-gradient-text transition-colors duration-300">
-                    {domain.name}
-                  </h4>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="swiss-section bg-gray-900 text-white relative overflow-hidden">

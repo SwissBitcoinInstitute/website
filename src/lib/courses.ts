@@ -51,6 +51,15 @@ export const FinSovCourses: CourseOffering[] = [
   }, 
 ];
 
+// course dates for Private Bitcoin Briefings (Custom)
+export const privateBitcoinBriefingCourses: CourseOffering[] = [
+  {
+    id: "pbb-custom",
+    timeDescription: "On demand (1:1)",
+    dates: ["Custom date & time"]
+  }
+];
+
 // Helper to format for form submission
 export function formatCourseDate(course: CourseOffering): string {
   return `${course.timeDescription}: ${course.dates.join(", ")}`;
