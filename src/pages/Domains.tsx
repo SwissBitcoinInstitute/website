@@ -80,14 +80,6 @@ const Domains = () => {
               Our research spans six interconnected domains that capture Bitcoin's full strategic significance
               for Switzerland's leadership in the global monetary system.
             </p>
-            <div className="mt-8">
-              <Button variant="ghost" asChild className="text-white hover:text-gray-200">
-                <Link href="/research" className="flex items-center gap-2">
-                  <ArrowLeft className="w-4 h-4" />
-                  Back to Research
-                </Link>
-              </Button>
-            </div>
           </div>
         </div>
       </section>
@@ -158,7 +150,7 @@ const Domains = () => {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button asChild size="lg">
-                <Link href="/research">View Intelligence Reports</Link>
+                <Link href="/research">View Research Offering</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <Link href="/inquiry?service=research">Request Custom Analysis</Link>
