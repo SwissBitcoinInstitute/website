@@ -14,7 +14,7 @@ import NextEventBanner from '@/components/sections/NextEventBanner'
 import CookieBanner from '@/components/sections/CookieBanner'
 import UmamiAnalytics from '@/components/analytics/UmamiAnalytics'
 
-const openSans = Open_Sans({ 
+const openSans = Open_Sans({
   subsets: ['latin'],
   weight: ['300', '400', '600', '700', '800'],
   variable: '--font-open-sans',
@@ -34,12 +34,6 @@ export const metadata: Metadata = {
     title: 'SBI - Strategic Bitcoin Intelligence',
     description: 'Strategic Bitcoin Intelligence for business leaders and executives',
     images: [
-      {
-        url: '/opengraph-image.png?v=3',
-        width: 1200,
-        height: 630,
-        alt: 'SBI - Strategic Bitcoin Intelligence',
-      },
       {
         url: '/Logo-opengraph-square.png?v=3',
         width: 1200,
