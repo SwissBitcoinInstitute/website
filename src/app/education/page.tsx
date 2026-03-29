@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import CTAButton from '@/components/ui/cta-button'
+import { masterclassDetails, finSovDetails, pbbDetails } from '@/lib/offeringDetails'
+import CourseSection from '@/components/courses/CourseSection'
 
 export const metadata: Metadata = {
   title: 'Executive Education in Bitcoin | Swiss Bitcoin Institute',
@@ -17,7 +20,9 @@ export const metadata: Metadata = {
   },
 }
 
+
 export default function CoursesPage() {
+
   return (
     <div className="min-h-screen">
       {/* Hero */}
@@ -33,85 +38,55 @@ export default function CoursesPage() {
         <div className="absolute inset-0 bg-white/80"></div>
         <div className="swiss-grid relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            <h1>Bitcoin Education for Executives</h1>
-            <p className="swiss-prose-lg max-w-4xl mx-auto text-gray-700 leading-relaxed">
+            <h1 className="mb-6">Bitcoin Education for Executives</h1>
+            <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
               Bitcoin is unlike anything before it – every analogy eventually breaks down. We translate deep research and experience into compact formats that cut through the noise and focus on what matters strategically.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Course Cards */}
-      <section className="swiss-section bg-white">
+      {/* Course Sections */}
+      <section className="swiss-section bg-white overflow-hidden">
         <div className="swiss-grid">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Free Bitcoin Webinar Card */}
-              <div className="group bg-white rounded-2xl border border-gray-200 p-8 hover:border-swiss-blue/50 hover:shadow-xl transition-all duration-300 flex flex-col">
-                <div className="flex-1">
-                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-bitcoin-orange/10 mb-4">
-                    <span className="text-bitcoin-orange text-sm font-medium">Coming soon</span>
-                  </div>
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">SBI Podcast</h3>
-                  <p className="text-gray-600 leading-relaxed mb-6">
-                    Our goal is to make the impact that Bitcoin can have on society tangible.
-                  </p>
-                </div>
-                <div className="mt-auto">
-                  {/*                   <CTAButton 
-                    variant="primary" 
-                    size="lg" 
-                    href="/webinar"
-                    className="w-full"
-                  >
-                    Find out more
-                  </CTAButton> */}
-                </div>
-              </div>
+          <div className="max-w-6xl mx-auto">
+            <div className="flex flex-col">
+              <CourseSection
+                title="Bitcoin Executive Masterclass"
+                description="For senior leaders across business, finance, government, and civil society who need strategic Bitcoin clarity. Gain a 360° impact overview, industry-specific implications, and macro insights linking Bitcoin to AI, geopolitics, and net-zero – through expert-led peer discussion in an exclusive small group setting."
+                href="/education/bitcoin-for-executives"
+                details={masterclassDetails}
+                image="/offerings-images/Executive-Masterclass-Reading-Room-ETHZ.jpg"
+                imageCredit="Reading Room, Main Library ETH Zurich, 1955."
+                imageCreditUrl="http://doi.org/10.3932/ethz-a-000012906"
+              />
 
-              {/* Bitcoin Executive Masterclass Card */}
-              <div className="group bg-white rounded-2xl border border-gray-200 p-8 hover:border-swiss-blue/50 hover:shadow-xl transition-all duration-300 flex flex-col">
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Bitcoin Executive Masterclass</h3>
-                  <p className="text-gray-600 leading-relaxed mb-6">
-                    Short, intense C-level course to gain an overview over the strategic questions raised by Bitcoin.
-                  </p>
-                </div>
-                <div className="mt-auto">
-                  <CTAButton
-                    variant="primary"
-                    size="lg"
-                    href="/education/bitcoin-for-executives"
-                    className="w-full"
-                  >
-                    Find out more
-                  </CTAButton>
-                </div>
-              </div>
+              <CourseSection
+                title="Financial Sovereignty"
+                description="For executives, investors, and individuals ready to learn the technicalities of handling and custodying Bitcoin. Master hands-on Bitcoin skills – from transactions, wallets and key management to privacy and security – in a discreet, small-group setting that allows for delicate questions about the strategic implications of Bitcoin's technical design."
+                href="/education/financial-sovereignty"
+                details={finSovDetails}
+                image="/offerings-images/Financial-Sovereighnty-Banknotendruckerei-OF.jpg"
+                imageCredit="Bankenotendruckerei, Orell Füssli AG, 1973."
+                imageCreditUrl="https://ba.e-pics.ethz.ch/#detail-asset=727651b2-1b9a-4a86-9d2c-3d308848f352"
+                imageCreditDark
+                reverse
+              />
 
-              {/* Financial Sovereignty Card */}
-              <div className="group bg-white rounded-2xl border border-gray-200 p-8 hover:border-swiss-blue/50 hover:shadow-xl transition-all duration-300 flex flex-col">
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Financial Sovereignty</h3>
-                  <p className="text-gray-600 leading-relaxed mb-6">
-                    Learn to securely control your own Bitcoin through hands-on training with hardware wallets, seed phrase management, and secure backup strategies.
-                  </p>
-                </div>
-                <div className="mt-auto">
-                  <CTAButton
-                    variant="primary"
-                    size="lg"
-                    href="/education/financial-sovereignty"
-                    className="w-full"
-                  >
-                    Find out more
-                  </CTAButton>
-                </div>
-              </div>
+              <CourseSection
+                title="Private Bitcoin Briefing"
+                description="Tailored Bitcoin strategy, delivered on your terms. All the strategic depth of the Bitcoin Executive Masterclass – customised to your organisation's industry, agenda, and schedule. Ideal for leadership teams, boards, and institutions that require a private, bespoke session with full flexibility on topics, format, and timing."
+                href="/education/private-bitcoin-briefing"
+                details={pbbDetails}
+                image="/offerings-images/Private-Bitcoin-Briefing-Bundesratszimmer.jpg"
+                imageCredit="Bundesratszimmer, 1989."
+                imageCreditUrl="https://ba.e-pics.ethz.ch/#detail-asset=97b7fe65-17bf-46d5-b047-9c86c7837675"
+              />
             </div>
           </div>
         </div>
       </section>
+
 
       {/* CTA */}
       <section className="swiss-section bg-gray-900 text-white relative overflow-hidden">

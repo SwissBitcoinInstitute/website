@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import CTAButton from '@/components/ui/cta-button'
 import { Card } from '@/components/ui/card'
-import { CheckCircle2, Users, Clock, MapPin } from 'lucide-react'
+import { CheckCircle2 } from 'lucide-react'
 import CourseSignupForm from '@/components/forms/CourseSignupForm'
 import { FinSovCourses, formatCourseDate } from '@/lib/courses'
+import { finSovDetails } from '@/lib/offeringDetails'
 
 export const metadata: Metadata = {
   title: 'Financial Sovereignty - Fundamentals | Swiss Bitcoin Institute',
@@ -22,11 +23,6 @@ export const metadata: Metadata = {
 }
 
 export default function FinancialSovereigntyPage() {
-  const courseDetails = [
-    { icon: <MapPin className="w-5 h-5" />, label: 'Format', value: 'Live course (in Zürich)' },
-    { icon: <Clock className="w-5 h-5" />, label: 'Duration', value: 'One afternoon' },
-    { icon: <Users className="w-5 h-5" />, label: 'Level', value: 'Bitcoiner Beginners' },
-  ]
 
   const whoItsFor = [
     'Executives & Regulators: Leaders who require a hands-on, technical understanding of Bitcoin custody to inform strategy and policy.',
@@ -53,7 +49,7 @@ export default function FinancialSovereigntyPage() {
         <div
           className="absolute inset-0 bg-cover bg-right-top md:bg-top bg-no-repeat"
           style={{
-            backgroundImage: 'url(/SBI-education-hero.jpg)',
+            backgroundImage: 'url(/offerings-images/Financial-Sovereighnty-Banknotendruckerei-OF.jpg)',
           }}
         />
         {/* White overlay for strong fade effect - 80% opacity (image at ~20% visibility) */}
@@ -103,7 +99,7 @@ export default function FinancialSovereigntyPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-gray-200 pt-12">
-              {courseDetails.map((detail, index) => (
+              {finSovDetails.map((detail, index) => (
                 <div key={index} className="text-center">
                   <div className="flex justify-center mb-4">
                     <div className="text-swiss-blue">{detail.icon}</div>

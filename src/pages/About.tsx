@@ -4,29 +4,34 @@ import Link from 'next/link';
 const About = () => {
   const principles = [
     {
-      icon: "",
+      icon: "/switzerland-and-bitcoin-icons/sovereignty.png",
       title: "Sovereignty",
-      description: "Switzerland's constitutional commitment to independence and federalism (Art. 2, 3 BV) reflects a deep respect for sovereignty down to cantonal levels. Bitcoin's decentralized architecture ensures no single entity controls the network, preserving monetary sovereignty for its users."
+      description: "Switzerland's constitutional commitment to independence and federalism (Art. 2, 3 BV) reflects a deep respect for sovereignty down to cantonal levels. Bitcoin's decentralized architecture ensures no single entity controls the network, preserving monetary sovereignty for its users.",
+      bgColor: "bg-bitcoin-orange/10"
     },
     {
-      icon: "",
-      title: "Political Neutrality", 
-      description: "Switzerland's long-standing neutrality, rooted in its foreign policy tradition (Art. 54, 173 BV), positions it as an valued, impartial actor on the global stage. Bitcoin operates on a neutral, apolitical protocol – accessible to anyone regardless of jurisdiction, ideology, or affiliation."
+      icon: "/switzerland-and-bitcoin-icons/political-neutrality.png",
+      title: "Political Neutrality",
+      description: "Switzerland's long-standing neutrality, rooted in its foreign policy tradition (Art. 54, 173 BV), positions it as an valued, impartial actor on the global stage. Bitcoin operates on a neutral, apolitical protocol – accessible to anyone regardless of jurisdiction, ideology, or affiliation.",
+      bgColor: "bg-swiss-blue/10"
     },
     {
-      icon: "",
+      icon: "/switzerland-and-bitcoin-icons/consensus-governance.png",
       title: "Consensus Governance",
-      description: "Switzerland's direct democracy (Art. 136-142 BV) and consensus-driven political culture ensure decisions reflect the will of the people and cantons. Bitcoin's consensus mechanism requires broad network agreement for any protocol changes, ensuring no single party can impose decisions unilaterally."
+      description: "Switzerland's direct democracy (Art. 136-142 BV) and consensus-driven political culture ensure decisions reflect the will of the people and cantons. Bitcoin's consensus mechanism requires broad network agreement for any protocol changes, ensuring no single party can impose decisions unilaterally.",
+      bgColor: "bg-bitcoin-orange/10"
     },
     {
-      icon: "",
+      icon: "/switzerland-and-bitcoin-icons/power-decentralisation.png",
       title: "Power Decentralization",
-      description: "Switzerland's structure (Art. 3, 43a BV) pushes much authority to the cantonal, and communal levels, preventing concentration of power. Bitcoin distributes power across thousands of independent nodes worldwide, preventing centralized control or single points of failure."
+      description: "Switzerland's structure (Art. 3, 43a BV) pushes much authority to the cantonal, and communal levels, preventing concentration of power. Bitcoin distributes power across thousands of independent nodes worldwide, preventing centralized control or single points of failure.",
+      bgColor: "bg-swiss-blue/10"
     },
     {
-      icon: "",
+      icon: "/switzerland-and-bitcoin-icons/political-liberty-and-economic-freedom.png",
       title: "Political Liberty & Economic Freedom",
-      description: "Switzerland's constitution enshrines liberty including economic freedom (Art. 2, 10-27 BV) as fundamental rights. Bitcoin empowers individuals with financial autonomy and self-custody, free from intermediaries or centralized gatekeepers."
+      description: "Switzerland's constitution enshrines liberty including economic freedom (Art. 2, 10-27 BV) as fundamental rights. Bitcoin empowers individuals with financial autonomy and self-custody, free from intermediaries or centralized gatekeepers.",
+      bgColor: "bg-bitcoin-orange/10"
     }
   ];
 
@@ -61,15 +66,30 @@ const About = () => {
             <p className="swiss-prose-lg mb-16 max-w-4xl mx-auto text-gray-700 leading-relaxed">
               Switzerland and Bitcoin share a set of foundational values whose implications extend well beyond finance. These principles constitute a strategic opportunity no other country enjoys.
             </p>
-            <div className="space-y-6 max-w-5xl mx-auto">
+            <div className="max-w-4xl mx-auto space-y-16 text-left">
               {principles.map((principle, index) => (
-                <div
+                <article
                   key={index}
-                  className="card-general card-gradient-hover group flex flex-col md:flex-row items-start gap-6 p-6 text-left"
+                  className={`relative ${principle.bgColor} rounded-2xl p-8 md:p-12 shadow-sm border border-gray-200/50`}
                 >
-                  <h3 className="text-xl font-semibold mb-3 text-gray-900">{principle.title}</h3>
-                  <p className="text-gray-600 text-base leading-relaxed">{principle.description}</p>
-                </div>
+                  <div className="mb-6 flex flex-col md:flex-row items-start gap-8">
+                    {principle.icon && (
+                      <div className="shrink-0">
+                        <img src={principle.icon} alt={`${principle.title} Icon`} className="w-24 h-24 md:w-32 md:h-32 object-contain drop-shadow-sm" />
+                      </div>
+                    )}
+                    <div className="pt-2 flex-1">
+                      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 font-sans">
+                        {principle.title}
+                      </h2>
+                      <div className="prose prose-lg max-w-none">
+                        <p className="text-gray-700 leading-relaxed text-lg mb-0">
+                          {principle.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
               ))}
             </div>
           </div>
@@ -77,53 +97,6 @@ const About = () => {
       </section>
 
 
-
-      {/* What We Do */}
-      <section className="swiss-section bg-white relative overflow-hidden">
-        {/* Subtle background gradient */}
-        <div className="absolute inset-0 swiss-blue-gradient-subtle opacity-50"></div>
-
-        <div className="swiss-grid relative">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center mb-6">
-              <div className="swiss-blue-gradient-accent mx-auto"></div>
-            </div>
-            <h2>What We Do</h2>
-            <p className="swiss-prose-lg max-w-3xl mx-auto text-gray-600">
-              Three core offerings designed for Switzerland's decision-makers navigating the Bitcoin transition.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {services.map((service, index) => (
-              <Link
-                key={index}
-                href={service.primaryCta.link}
-                className="group block h-full"
-              >
-                <div className="card-general card-gradient-hover h-full flex flex-col">
-                  <div className="relative z-10 flex flex-col flex-grow">
-                    {/* Title */}
-                    <h3 className="text-2xl font-semibold mb-4 text-gray-900">
-                      {service.title}
-                    </h3>
-
-                    {/* Description */}
-                    <p className="text-gray-600 leading-relaxed mb-6 text-base flex-grow">
-                      {service.description}
-                    </p>
-
-                    {/* Link format matching glossary */}
-                    <div className="link-research text-sm mt-auto">
-                      {service.primaryCta.text} →
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Collaboration CTA */}
       <section className="swiss-section bg-gray-900 text-white relative overflow-hidden">

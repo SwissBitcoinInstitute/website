@@ -17,9 +17,11 @@ interface CourseSignupFormProps {
   courseSlug: string;
   courseDate?: string;
   courseOptions?: CourseOption[];
+  showTopicsOfInterest?: boolean;
+  submitButtonText?: string;
 }
 
-export default function CourseSignupForm({ courseName, courseSlug, courseDate, courseOptions }: CourseSignupFormProps) {
+export default function CourseSignupForm({ courseName, courseSlug, courseDate, courseOptions, showTopicsOfInterest, submitButtonText }: CourseSignupFormProps) {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -38,6 +40,7 @@ export default function CourseSignupForm({ courseName, courseSlug, courseDate, c
     phone: '',
     organization: '',
     courseDate: getInitialCourseDate(),
+    topicsOfInterest: '',
     message: '',
   });
 
@@ -119,6 +122,7 @@ export default function CourseSignupForm({ courseName, courseSlug, courseDate, c
               phone: '',
               organization: '',
               courseDate: getInitialCourseDate(),
+              topicsOfInterest: '',
               message: '',
             });
           }}
@@ -221,6 +225,21 @@ export default function CourseSignupForm({ courseName, courseSlug, courseDate, c
         </div>
       )}
 
+      {showTopicsOfInterest && (
+        <div>
+          <Label htmlFor="topicsOfInterest">Topics of Interest</Label>
+          <textarea
+            id="topicsOfInterest"
+            name="topicsOfInterest"
+            value={formData.topicsOfInterest}
+            onChange={handleInputChange}
+            placeholder="What specific topics or challenges are you hoping to address?"
+            rows={2}
+            className="mt-1 flex min-h-[60px] w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+          />
+        </div>
+      )}
+
       <div>
         <Label htmlFor="message">Message (optional)</Label>
         <textarea
@@ -238,7 +257,7 @@ export default function CourseSignupForm({ courseName, courseSlug, courseDate, c
         type="submit"
         variant="default"
         size="lg"
-        className="w-full text-lg font-semibold btn-hover-scale shadow-lg hover:shadow-xl"
+        className="w-full text-lg font-semibold"
         disabled={isSubmitting}
       >
         {isSubmitting ? (
@@ -247,7 +266,7 @@ export default function CourseSignupForm({ courseName, courseSlug, courseDate, c
             Submitting...
           </>
         ) : (
-          'Book your seat'
+          submitButtonText || 'Book your seat'
         )}
       </Button>
     </form>
