@@ -26,22 +26,22 @@ export const metadata: Metadata = {
   title: 'SBI - Strategic Bitcoin Intelligence',
   description: 'Strategic Bitcoin Intelligence for business leaders and executives',
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-32x32.png',
-    apple: '/apple-touch-icon.png',
+    icon: '/favicon.ico?v=3',
+    shortcut: '/Logo-opengraph-square.png?v=3',
+    apple: '/Logo-opengraph-square.png?v=3',
   },
   openGraph: {
     title: 'SBI - Strategic Bitcoin Intelligence',
     description: 'Strategic Bitcoin Intelligence for business leaders and executives',
     images: [
       {
-        url: '/opengraph-image.png',
+        url: '/opengraph-image.png?v=3',
         width: 1200,
         height: 630,
         alt: 'SBI - Strategic Bitcoin Intelligence',
       },
       {
-        url: '/Logo-opengraph-square.png',
+        url: '/Logo-opengraph-square.png?v=3',
         width: 1200,
         height: 1200,
         alt: 'SBI Logo Square',
@@ -49,10 +49,10 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     title: 'SBI - Strategic Bitcoin Intelligence',
     description: 'Strategic Bitcoin Intelligence for business leaders and executives',
-    images: ['/opengraph-image.png'],
+    images: ['/Logo-opengraph-square.png?v=3'],
   },
 }
 
