@@ -39,6 +39,68 @@ export default function StrategicSpeaking() {
               </p>
             </div>
 
+            {/* Talk: Klartext Finanzen Interview */}
+            <div className="card-general card-gradient-hover mb-8 overflow-hidden">
+              <div className="grid md:grid-cols-2 gap-0">
+                <div className="aspect-video bg-black">
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/R_GYaZuImCo"
+                    title="Aufgedeckt: Was nur Insider über Bitcoin wissen!"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <div className="p-8 flex flex-col">
+                  <div className="mb-4">
+                    <span className="pill-tag-blue mb-4 inline-block">
+                      Podcast
+                    </span>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-900">
+                      Aufgedeckt: Was nur Insider über Bitcoin wissen!
+                    </h3>
+                    <p className="swiss-prose text-gray-700 leading-relaxed mb-6">
+                      In diesem ausführlichen Gespräch spricht Dr. Marcus Dapp mit Dani Stüssi über die wichtigsten Fragen rund um Bitcoin. Ohne Hype und Verkaufsargumente wird ein oft missverstandenes Thema nüchtern eingeordnet. Das Gespräch richtet sich bewusst an Menschen, die Bitcoin bisher kritisch sehen, und behandelt Themen von Geldwäsche über Energieverbrauch bis hin zu Bitcoin als Wertspeicher.
+                    </p>
+                  </div>
+                  <div className="space-y-3 text-sm text-gray-600 mb-6">
+                    <div className="flex items-center gap-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+                        <line x1="16" x2="16" y1="2" y2="6"></line>
+                        <line x1="8" x2="8" y1="2" y2="6"></line>
+                        <line x1="3" x2="21" y1="10" y2="10"></line>
+                      </svg>
+                      <span>Klartext Finanzen (RealUnit Schweiz AG), March 2026</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                        <path d="M2 12h20"></path>
+                      </svg>
+                      <span>German conversation</span>
+                    </div>
+                  </div>
+                  <div className="mt-auto">
+                    <a
+                      href="https://www.youtube.com/watch?v=R_GYaZuImCo"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link-research inline-flex items-center gap-2"
+                    >
+                      Watch on YouTube
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" x2="21" y1="14" y2="3"></line>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Talk: HSLU - Bitcoin is not crypto */}
             <div className="card-general card-gradient-hover mb-8 overflow-hidden">
               <div className="grid md:grid-cols-2 gap-0">
