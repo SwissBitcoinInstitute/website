@@ -23,7 +23,6 @@ const ArticleCard = ({ article, author }: ArticleCardProps) => {
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-white/25 to-transparent"></div>
           </div>
         )}
         <div className="p-4 sm:p-6">
