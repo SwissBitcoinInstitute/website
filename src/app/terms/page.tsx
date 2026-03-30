@@ -6,14 +6,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Terms of Service | Swiss Bitcoin Institute',
     description: 'Terms of Service for the Swiss Bitcoin Institute.',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Terms of Service | Swiss Bitcoin Institute',
     description: 'Terms of Service for the Swiss Bitcoin Institute.',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
   },
 };
 

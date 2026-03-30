@@ -12,13 +12,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Private Bitcoin Briefing | Swiss Bitcoin Institute',
     description: 'Personalized 1:1 Bitcoin briefing for executives and individuals. Tailored to your specific needs and questions.',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Private Bitcoin Briefing | Swiss Bitcoin Institute',
     description: 'Personalized 1:1 Bitcoin briefing for executives and individuals. Tailored to your specific needs and questions.',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
   },
 }
 

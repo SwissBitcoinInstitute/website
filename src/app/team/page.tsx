@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Team from '@/pages/Team'
+import TeamClient from './TeamClient'
 
 export const metadata: Metadata = {
   title: 'Team | Swiss Bitcoin Institute',
@@ -7,18 +7,18 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Our Team | Swiss Bitcoin Institute',
     description: 'World-class Bitcoin expertise spanning protocol development, energy integration, treasury strategy, and monetary policy.',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Team | Swiss Bitcoin Institute',
     description: 'Meet our team of Bitcoin experts combining academic rigor with practical expertise.',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
   },
 }
 
 export default function TeamPage() {
-  return <Team />
+  return <TeamClient />
 }
 

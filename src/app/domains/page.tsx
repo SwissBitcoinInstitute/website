@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Domains from '@/pages/Domains'
+import DomainsClient from './DomainsClient'
 
 export const metadata: Metadata = {
   title: 'Research Domains | Swiss Bitcoin Institute',
@@ -7,18 +7,18 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Research Domains | Swiss Bitcoin Institute',
     description: 'Explore six interconnected research domains covering Bitcoin\'s strategic significance for Switzerland and the global monetary system.',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Research Domains | Swiss Bitcoin Institute',
     description: 'Six research domains covering Bitcoin\'s strategic significance for Switzerland.',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
   },
 }
 
 export default function DomainsPage() {
-  return <Domains />
+  return <DomainsClient />
 }
 

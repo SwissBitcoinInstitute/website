@@ -11,14 +11,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Research | Swiss Bitcoin Institute',
     description: 'Strategic Bitcoin Intelligence Briefs and research reports for decision-makers. Evidence-based analysis on Bitcoin\'s implications for business, policy, and society.',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Research | Swiss Bitcoin Institute',
     description: 'Strategic Bitcoin Intelligence Briefs and research reports for decision-makers.',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
   },
 }
 
@@ -31,7 +31,7 @@ export default function ResearchPage() {
         <div
           className="absolute inset-0 bg-cover bg-right-top md:bg-top bg-no-repeat"
           style={{
-            backgroundImage: 'url(/SBI-research-hero.jpg)',
+            backgroundImage: 'url(/sbi-heros/SBI-research-hero.jpg)',
           }}
         />
         {/* White overlay for strong fade effect - 80% opacity (image at ~20% visibility) */}
@@ -63,7 +63,7 @@ export default function ResearchPage() {
           <div className="max-w-xl mx-auto">
             <Link href="/domains" className="block group">
               <img
-                src="/research-domains.png"
+                src="/domain-circles/research-domains.png"
                 alt="Six Research Domains"
                 className="w-full h-auto transition-all duration-300 group-hover:scale-105"
               />

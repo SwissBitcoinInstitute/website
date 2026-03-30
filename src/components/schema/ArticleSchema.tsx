@@ -30,7 +30,7 @@ export default function ArticleSchema({ article, author }: ArticleSchemaProps) {
       name: 'Swiss Bitcoin Institute',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://bitcoininstitute.ch/SBI-Logo-Landscape.png',
+        url: 'https://bitcoininstitute.ch/sbi-logos/SBI-Logo.png',
       },
     },
     keywords: article.tags.join(', '),

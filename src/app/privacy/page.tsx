@@ -7,14 +7,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Privacy Policy | Swiss Bitcoin Institute',
     description: 'Privacy Policy for the Swiss Bitcoin Institute.',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Privacy Policy | Swiss Bitcoin Institute',
     description: 'Privacy Policy for the Swiss Bitcoin Institute.',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
   },
 };
 

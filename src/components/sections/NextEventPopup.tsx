@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { X, Calendar } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import alertConfig from '@/config/alert-config.json';
+import alertConfig from '@/config/NextEvent-config.json';
 
 
 interface AlertConfig {
@@ -17,7 +17,7 @@ interface AlertConfig {
   isActive: boolean;
 }
 
-export default function NextEventBanner() {
+export default function NextEventPopup() {
   const [isVisible, setIsVisible] = useState(false);
   const [activeAlert, setActiveAlert] = useState<AlertConfig | null>(null);
   const [hasScrolled, setHasScrolled] = useState(false);

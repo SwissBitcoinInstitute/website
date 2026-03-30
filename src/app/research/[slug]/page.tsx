@@ -39,13 +39,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       publishedTime: article.date,
       authors: author ? [author.name] : undefined,
       tags: article.tags,
-      images: ['/opengraph-image.png'],
+      images: ['/sbi-logos/opengraph-image.png'],
     },
     twitter: {
       card: 'summary_large_image',
       title: article.title,
       description: article.excerpt,
-      images: ['/opengraph-image.png'],
+      images: ['/sbi-logos/opengraph-image.png'],
     },
   }
 }

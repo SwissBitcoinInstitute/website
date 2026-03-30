@@ -13,13 +13,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Bitcoin Executive Masterclass | Swiss Bitcoin Institute',
     description: 'For leaders who need to make strategic decisions about Bitcoin. Professional guided overview of Bitcoin\'s strategic impact focusing on macro across geopolitics, business, policy, and civil society.',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Bitcoin Executive Masterclass | Swiss Bitcoin Institute',
     description: 'For leaders who need to make strategic decisions about Bitcoin. Professional guided overview of Bitcoin\'s strategic impact focusing on macro across geopolitics, business, policy, and civil society.',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
   },
 }
 

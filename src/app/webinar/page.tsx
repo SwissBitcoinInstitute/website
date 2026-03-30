@@ -10,7 +10,7 @@ export default function WebinarPage() {
         <div 
           className="absolute inset-0 bg-cover bg-right-top md:bg-top bg-no-repeat"
           style={{
-            backgroundImage: 'url(/sbi-21-bitcoin-webinar.png)',
+            backgroundImage: 'url(/sbi-heros/sbi-21-bitcoin-webinar.png)',
           }}
         />
         {/* White overlay for strong fade effect - 80% opacity (image at ~20% visibility) */}

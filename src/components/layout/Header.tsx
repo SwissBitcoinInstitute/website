@@ -51,7 +51,7 @@ const Header = () => {
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center space-x-4 group">
               <img
-                src="/SBI-Logo-Landscape_2.svg"
+                src="/sbi-logos/SBI-Logo-Landscape_2.png"
                 alt="Swiss Bitcoin Institute"
                 className="h-10 w-auto object-contain transition-all duration-300 group-hover:scale-105"
               />
