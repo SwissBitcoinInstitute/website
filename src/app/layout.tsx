@@ -10,7 +10,7 @@ import Footer from "@/components/layout/Footer"
 import { Providers } from './providers'
 import OrganizationSchema from '@/components/schema/OrganizationSchema'
 import NewsletterPopup from '@/components/sections/NewsletterPopup'
-import NextEventBanner from '@/components/sections/NextEventBanner'
+import NextEventPopup from '@/components/sections/NextEventPopup'
 import CookieBanner from '@/components/sections/CookieBanner'
 import UmamiAnalytics from '@/components/analytics/UmamiAnalytics'
 
@@ -26,22 +26,22 @@ export const metadata: Metadata = {
   title: 'SBI - Strategic Bitcoin Intelligence',
   description: 'Strategic Bitcoin Intelligence for business leaders and executives',
   icons: {
-    icon: '/favicon.ico?v=3',
-    shortcut: '/Logo-opengraph-square.png?v=3',
-    apple: '/Logo-opengraph-square.png?v=3',
+    icon: '/sbi-logos/favicon.ico?v=3',
+    shortcut: '/sbi-logos/Logo-opengraph-square.png?v=3',
+    apple: '/sbi-logos/Logo-opengraph-square.png?v=3',
   },
   openGraph: {
     title: 'SBI - Strategic Bitcoin Intelligence',
     description: 'Strategic Bitcoin Intelligence for business leaders and executives',
     images: [
       {
-        url: '/opengraph-image.png?v=3',
+        url: '/sbi-logos/opengraph-image.png?v=3',
         width: 1200,
         height: 630,
         alt: 'SBI - Strategic Bitcoin Intelligence',
       },
       {
-        url: '/Logo-opengraph-square.png?v=3',
+        url: '/sbi-logos/Logo-opengraph-square.png?v=3',
         width: 1200,
         height: 1200,
         alt: 'SBI Logo Square',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: 'summary',
     title: 'SBI - Strategic Bitcoin Intelligence',
     description: 'Strategic Bitcoin Intelligence for business leaders and executives',
-    images: ['/Logo-opengraph-square.png?v=3'],
+    images: ['/sbi-logos/Logo-opengraph-square.png?v=3'],
   },
 }
 
@@ -82,7 +82,7 @@ export default function RootLayout({
       <body className={`${openSans.variable} font-sans`}>
         <OrganizationSchema />
         <Providers>
-          <NextEventBanner />
+          <NextEventPopup />
           <div className="min-h-screen flex flex-col">
             <Header />
             <main className="flex-1">

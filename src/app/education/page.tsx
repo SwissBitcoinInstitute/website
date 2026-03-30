@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Executive Education in Bitcoin | Swiss Bitcoin Institute',
     description: 'For executives in business, government, and civil society',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Executive Education in Bitcoin | Swiss Bitcoin Institute',
     description: 'For executives in business, government, and civil society',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
   },
 }
 
@@ -31,7 +31,7 @@ export default function CoursesPage() {
         <div
           className="absolute inset-0 bg-cover bg-right-top md:bg-top bg-no-repeat"
           style={{
-            backgroundImage: 'url(/SBI-education-hero.jpg)',
+            backgroundImage: 'url(/sbi-heros/SBI-education-hero.jpg)',
           }}
         />
         {/* White overlay for strong fade effect - 80% opacity (image at ~20% visibility) */}

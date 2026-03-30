@@ -6,14 +6,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Bitcoin in 21 Minutes | Swiss Bitcoin Institute',
     description: 'Free 21-minute webinars on Bitcoin topics with strategic relevance for business and society.',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Bitcoin in 21 Minutes | Swiss Bitcoin Institute',
     description: 'Free 21-minute webinars on Bitcoin topics with strategic relevance for business and society.',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
   },
 }
 

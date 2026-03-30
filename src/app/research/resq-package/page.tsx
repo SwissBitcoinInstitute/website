@@ -11,13 +11,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Bitcoin Research Quarterly | Swiss Bitcoin Institute',
     description: 'Original, forward-looking fundamental research on Bitcoin giving a 360° view.',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Bitcoin Research Quarterly | Swiss Bitcoin Institute',
     description: 'Original, forward-looking fundamental research on Bitcoin giving a 360° view.',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
   },
 }
 

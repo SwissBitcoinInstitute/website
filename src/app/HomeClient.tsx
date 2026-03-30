@@ -8,7 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
 import Image from 'next/image';
 import { fetchArticles, ArticleMeta } from '@/lib/content-client';
-import { testimonials } from '@/data/testimonials';
+import { testimonials } from '@/lib/testimonials';
 
 const Home = () => {
   const [articles, setArticles] = useState<ArticleMeta[]>([]);
@@ -73,7 +73,7 @@ const Home = () => {
       <div
         className="absolute inset-0 bg-cover bg-right-top md:bg-top bg-no-repeat"
         style={{
-          backgroundImage: 'url(/sbi-realism-hero-v2.jpg)',
+          backgroundImage: 'url(/sbi-heros/sbi-realism-hero-v2.jpg)',
         }}
       />
       {/* White overlay for strong fade effect - 80% opacity (image at ~20% visibility) */}

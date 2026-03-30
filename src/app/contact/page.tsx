@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Contact from '@/pages/Contact'
+import ContactClient from './ContactClient'
 
 export const metadata: Metadata = {
   title: 'Contact | Swiss Bitcoin Institute',
@@ -7,17 +7,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Contact | Swiss Bitcoin Institute',
     description: 'Partner with Switzerland\'s independent Bitcoin think tank for research, education, and strategic intelligence.',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Contact | Swiss Bitcoin Institute',
     description: 'Get in touch for Bitcoin intelligence, education, and research collaboration.',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
   },
 }
 
 export default function ContactPage() {
-  return <Contact />
+  return <ContactClient />
 }

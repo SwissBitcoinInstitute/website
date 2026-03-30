@@ -10,7 +10,7 @@ export default function StrategicSpeaking() {
         <div 
           className="absolute inset-0 bg-cover bg-right-top md:bg-top bg-no-repeat"
           style={{
-            backgroundImage: 'url(/SBI-speaking-hero.jpg)',
+            backgroundImage: 'url(/sbi-heros/SBI-speaking-hero.jpg)',
           }}
         />
         {/* White overlay for strong fade effect - 80% opacity (image at ~20% visibility) */}

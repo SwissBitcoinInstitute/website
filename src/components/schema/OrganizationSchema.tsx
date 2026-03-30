@@ -5,7 +5,7 @@ export default function OrganizationSchema() {
     name: 'Swiss Bitcoin Institute',
     alternateName: 'SBI',
     url: 'https://bitcoininstitute.ch',
-    logo: 'https://bitcoininstitute.ch/SBI-Logo-Landscape.png',
+    logo: 'https://bitcoininstitute.ch/sbi-logos/SBI-Logo.png',
     description: 'Independent Bitcoin research and analysis for Switzerland, combining academic rigor with practical expertise to guide the nation\'s monetary evolution.',
     foundingDate: '2025',
     foundingLocation: {

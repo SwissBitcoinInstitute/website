@@ -114,9 +114,9 @@ export const bitcoinForExecutivesCourses: CourseOffering[] = [
 ];
 ```
 
-### Alert Banner
+### Next Event Popup
 
-The alert banner at the top of the site is configured in `src/config/alert-config.json`. 
+The next event popup on the site is configured in `src/config/NextEvent-config.json`. 
 
 ```json
 {

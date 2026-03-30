@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Get Started | Swiss Bitcoin Institute',
     description: 'Request information about Bitcoin education, research, and speaking services.',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Get Started | Swiss Bitcoin Institute',
     description: 'Request information about Bitcoin education, research, and speaking services.',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
   },
 };
 

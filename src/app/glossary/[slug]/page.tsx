@@ -32,14 +32,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: `${term.term} | Bitcoin Glossary`,
       description: term.shortDefinition,
-      images: ['/opengraph-image.png'],
+      images: ['/sbi-logos/opengraph-image.png'],
       type: 'article',
     },
     twitter: {
       card: 'summary_large_image',
       title: `${term.term} | Bitcoin Glossary`,
       description: term.shortDefinition,
-      images: ['/opengraph-image.png'],
+      images: ['/sbi-logos/opengraph-image.png'],
     },
   }
 }

@@ -12,13 +12,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Financial Sovereignty - Fundamentals | Swiss Bitcoin Institute',
     description: 'Half-day hands-on Bitcoin course for holders. Master hardware wallets, seed phrases, and secure backup strategies.',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Financial Sovereignty - Fundamentals | Swiss Bitcoin Institute',
     description: 'Half-day hands-on Bitcoin course for holders. Master hardware wallets, seed phrases, and secure backup strategies.',
-    images: ['/opengraph-image.png'],
+    images: ['/sbi-logos/opengraph-image.png'],
   },
 }
 
