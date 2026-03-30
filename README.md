@@ -5,6 +5,10 @@ The SBI site uses a **file-based CMS** where content is managed through markdown
 ### Quick Start - Adding Content
 
 #### Create a New Article
+
+> [!CAUTION]
+> Need more clarity on the process: a) which files (sbi-NNN.md, sbi-NNN.png) need to go where; b) what in the YAML header is manual, what is automatic?, and c) how/where is the npm command issued.
+
 ```bash
 npm run new:article "Article Title" author-id
 
