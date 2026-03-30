@@ -28,7 +28,6 @@ const ArticleContent = ({ article, author }: ArticleContentProps) => {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-white/25 to-transparent"></div>
         </div>
       )}
 
