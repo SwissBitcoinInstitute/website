@@ -7,7 +7,7 @@ export default function StrategicSpeaking() {
       {/* Hero Section */}
       <section className="swiss-hero swiss-gradient relative overflow-hidden">
         {/* Background Image */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-right-top md:bg-top bg-no-repeat"
           style={{
             backgroundImage: 'url(/sbi-heros/SBI-speaking-hero.jpg)',
@@ -36,8 +36,70 @@ export default function StrategicSpeaking() {
               <h2>Archive of Talks, Keynotes, and Presentations</h2>
               <p className="swiss-prose max-w-3xl mx-auto text-gray-600">
                 We are speaking at conferences, industry fairs, universities, or at invited company events. Get in touch if you are interested in having a talk by the Swiss Bitcoin Institute at your next event.
-                </p>
+              </p>
+            </div>
+
+            {/* Talk: HSLU - Bitcoin is not crypto */}
+            <div className="card-general card-gradient-hover mb-8 overflow-hidden">
+              <div className="grid md:grid-cols-2 gap-0">
+                <div className="aspect-video bg-black">
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/80X1kmuEE4c"
+                    title="Community im Gespräch: Bitcoin is not crypto"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <div className="p-8 flex flex-col">
+                  <div className="mb-4">
+                    <span className="pill-tag-blue mb-4 inline-block">
+                      Education & Fundamentals
+                    </span>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-900">
+                      Community im Gespräch: Bitcoin is not crypto!
+                    </h3>
+                    <p className="swiss-prose text-gray-700 leading-relaxed mb-6">
+                      Bitcoin wird oft mit anderen Kryptowährungen gleichgesetzt. In dieser Präsentation an der Hochschule Luzern (HSLU) legt Dr. Marcus Dapp dar, dass terminologische Unterschiede wie «Blockchain» oder «DLT» keine semantischen Spitzfindigkeiten sind, sondern unterschiedliche Paradigmen und auch Interessen widerspiegeln. Erfahren Sie, weshalb Bitcoin ein von Krypto kategorisch abzugrenzendes Phänomen ist.
+                    </p>
+                  </div>
+                  <div className="space-y-3 text-sm text-gray-600 mb-6">
+                    <div className="flex items-center gap-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+                        <line x1="16" x2="16" y1="2" y2="6"></line>
+                        <line x1="8" x2="8" y1="2" y2="6"></line>
+                        <line x1="3" x2="21" y1="10" y2="10"></line>
+                      </svg>
+                      <span>Hochschule Luzern (HSLU), March 2026</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                        <path d="M2 12h20"></path>
+                      </svg>
+                      <span>German presentation</span>
+                    </div>
+                  </div>
+                  <div className="mt-auto">
+                    <a
+                      href="https://www.youtube.com/watch?v=80X1kmuEE4c"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link-research inline-flex items-center gap-2"
+                    >
+                      Watch on YouTube
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" x2="21" y1="14" y2="3"></line>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
               </div>
+            </div>
 
             {/* Talk: Monetary Systems - Podcast */}
             <div className="card-general card-gradient-hover mb-8 overflow-hidden">
@@ -83,19 +145,19 @@ export default function StrategicSpeaking() {
                     </div>
                   </div>
                   <div className="mt-auto">
-                  <a
-                    href="https://www.youtube.com/watch?v=L4k_bnBCcgw"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    <a
+                      href="https://www.youtube.com/watch?v=L4k_bnBCcgw"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="link-research inline-flex items-center gap-2"
-                  >
-                    Watch on YouTube
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" x2="21" y1="14" y2="3"></line>
-                    </svg>
-                  </a>
+                    >
+                      Watch on YouTube
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" x2="21" y1="14" y2="3"></line>
+                      </svg>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -110,9 +172,9 @@ export default function StrategicSpeaking() {
                     controls
                     preload="metadata"
                   >
-                    <source 
-                      src="https://oc-aem-dist-downloads.ethz.ch/mh_default_org/oaipmh-cq5/c7882de7-7c1f-453f-b7c8-f4787aa81a3b/7e4a5352-b2a1-4d09-9849-4bed6faed33e/MarcusDapp_ColloquiumFS25.mp4" 
-                      type="video/mp4" 
+                    <source
+                      src="https://oc-aem-dist-downloads.ethz.ch/mh_default_org/oaipmh-cq5/c7882de7-7c1f-453f-b7c8-f4787aa81a3b/7e4a5352-b2a1-4d09-9849-4bed6faed33e/MarcusDapp_ColloquiumFS25.mp4"
+                      type="video/mp4"
                     />
                     Your browser does not support the video tag.
                   </video>
@@ -126,7 +188,7 @@ export default function StrategicSpeaking() {
                       Bitcoin as Strategic Policy Issue
                     </h3>
                     <p className="swiss-prose text-gray-700 leading-relaxed mb-6">
-                      Dr. Marcus Dapp presents Bitcoin as a strategic science and technology policy issue at ETH Zürich's Institute for Science, Technology, and Policy. 
+                      Dr. Marcus Dapp presents Bitcoin as a strategic science and technology policy issue at ETH Zürich's Institute for Science, Technology, and Policy.
                       An exploration of how Bitcoin intersects with public policy, monetary systems, and technological governance.
                     </p>
                   </div>
@@ -150,19 +212,19 @@ export default function StrategicSpeaking() {
                     </div>
                   </div>
                   <div className="mt-auto">
-                  <a
-                    href="https://istp.ethz.ch/events/colloquia/2025/fs/colloquium-recording--dr-marcus-dapp.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    <a
+                      href="https://istp.ethz.ch/events/colloquia/2025/fs/colloquium-recording--dr-marcus-dapp.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="link-research inline-flex items-center gap-2"
-                  >
+                    >
                       View full recording
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" x2="21" y1="14" y2="3"></line>
-                    </svg>
-                  </a>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" x2="21" y1="14" y2="3"></line>
+                      </svg>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -189,7 +251,7 @@ export default function StrategicSpeaking() {
                       Bitcoin Strategy Playbook for Businesses
                     </h3>
                     <p className="swiss-prose text-gray-700 leading-relaxed mb-6">
-                      A practical framework for corporate Bitcoin adoption—covering treasury management, payment integration, and strategic positioning considerations. 
+                      A practical framework for corporate Bitcoin adoption—covering treasury management, payment integration, and strategic positioning considerations.
                       Presented at the Swiss Bitcoin Conference, exploring how businesses can navigate Bitcoin integration thoughtfully and responsibly.
                     </p>
                   </div>
@@ -213,19 +275,19 @@ export default function StrategicSpeaking() {
                     </div>
                   </div>
                   <div className="mt-auto">
-                  <a
-                    href="https://www.youtube.com/watch?v=YBaL_iNleTA"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    <a
+                      href="https://www.youtube.com/watch?v=YBaL_iNleTA"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="link-research inline-flex items-center gap-2"
-                  >
-                    Watch on YouTube
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" x2="21" y1="14" y2="3"></line>
-                    </svg>
-                  </a>
+                    >
+                      Watch on YouTube
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" x2="21" y1="14" y2="3"></line>
+                      </svg>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -252,7 +314,7 @@ export default function StrategicSpeaking() {
                       Bitcoin Strategy Playbook for Non-Profits
                     </h3>
                     <p className="swiss-prose text-gray-700 leading-relaxed mb-6">
-                      How charitable organizations and NGOs might consider Bitcoin for fundraising, treasury diversification, and cross-border operations. 
+                      How charitable organizations and NGOs might consider Bitcoin for fundraising, treasury diversification, and cross-border operations.
                       Presented at Bitcoin Alps, discussing practical considerations and potential benefits for mission-driven organizations.
                     </p>
                   </div>
@@ -276,21 +338,21 @@ export default function StrategicSpeaking() {
                     </div>
                   </div>
                   <div className="mt-auto">
-                  <a
-                    href="https://www.youtube.com/watch?v=hi0r08pUrh4"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    <a
+                      href="https://www.youtube.com/watch?v=hi0r08pUrh4"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="link-research inline-flex items-center gap-2"
-                  >
-                    Watch on YouTube
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" x2="21" y1="14" y2="3"></line>
-                    </svg>
-                  </a>
+                    >
+                      Watch on YouTube
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" x2="21" y1="14" y2="3"></line>
+                      </svg>
+                    </a>
+                  </div>
                 </div>
-              </div>
               </div>
             </div>
           </div>
@@ -306,12 +368,12 @@ export default function StrategicSpeaking() {
               Interested in a Speaking Engagement?
             </h2>
             <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-              If you're organizing an event and would like to explore having one of our team members speak, 
+              If you're organizing an event and would like to explore having one of our team members speak,
               we'd be happy to discuss how we might contribute.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
-              <CTAButton variant="primary" size="lg" href="/inquiry#speaking" showArrow>
-                Get in Touch
+              <CTAButton variant="primary" size="lg" href="/inquiry?service=speaking" showArrow>
+                Book a Speaker
               </CTAButton>
               <CTAButton variant="secondary" size="lg" href="/research">
                 View Our Research
