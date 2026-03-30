@@ -1,61 +1,3 @@
-# SBI Site - Strategic Bitcoin Intelligence
-
-A Next.js website for the Swiss Bitcoin Institute, providing strategic Bitcoin intelligence for business leaders and executives.
-
-## Getting Started
-
-### 1. Install Dependencies
-
-```bash
-npm install
-# or
-bun install
-```
-
-### 2. Start Local Database
-
-Ensure Docker is running, then start Supabase:
-
-```bash
-supabase start
-```
-
-This starts PostgreSQL and all Supabase services. Copy the `service_role key` from the output.
-
-> **First time?** Install the CLI with `brew install supabase/tap/supabase` or `npm install -g supabase`
-
-### 3. Configure Environment
-
-Create `.env.local` in the project root:
-
-```bash
-# Supabase (from supabase start output)
-NEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321
-SUPABASE_SERVICE_ROLE_KEY=your-service-role-key-from-above
-
-# Optional: for email/newsletter features
-RESEND_API_KEY=re_xxxxxxxxxxxx
-MAILERLITE_API_KEY=your-mailerlite-key
-```
-
-### 4. Run Development Server
-
-```bash
-npm run dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-### Quick Reference
-
-| Service | URL |
-|---------|-----|
-| Website | http://localhost:3000 |
-| Supabase Studio | http://127.0.0.1:54323 |
-| Supabase API | http://127.0.0.1:54321 |
-
 ## Content Management System
 
 The SBI site uses a **file-based CMS** where content is managed through markdown files. This provides version control, automatic deployment, and team collaboration through GitHub.
@@ -167,6 +109,65 @@ Update confirmation and notification emails in `src/lib/emails.ts`:
 - **Executive Education**: Programs for business leaders
 - **Team Expertise**: World-class Bitcoin researchers and practitioners
 - **Modern UI**: Built with Next.js, TypeScript, and Tailwind CSS
+
+# SBI Site - Strategic Bitcoin Intelligence
+
+A Next.js website for the Swiss Bitcoin Institute, providing strategic Bitcoin intelligence for business leaders and executives.
+
+## Getting Started
+
+### 1. Install Dependencies
+
+```bash
+npm install
+# or
+bun install
+```
+
+### 2. Start Local Database
+
+Ensure Docker is running, then start Supabase:
+
+```bash
+supabase start
+```
+
+This starts PostgreSQL and all Supabase services. Copy the `service_role key` from the output.
+
+> **First time?** Install the CLI with `brew install supabase/tap/supabase` or `npm install -g supabase`
+
+### 3. Configure Environment
+
+Create `.env.local` in the project root:
+
+```bash
+# Supabase (from supabase start output)
+NEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key-from-above
+
+# Optional: for email/newsletter features
+RESEND_API_KEY=re_xxxxxxxxxxxx
+MAILERLITE_API_KEY=your-mailerlite-key
+```
+
+### 4. Run Development Server
+
+```bash
+npm run dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### Quick Reference
+
+| Service | URL |
+|---------|-----|
+| Website | http://localhost:3000 |
+| Supabase Studio | http://127.0.0.1:54323 |
+| Supabase API | http://127.0.0.1:54321 |
+
 
 ## Build
 
