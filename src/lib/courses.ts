@@ -5,13 +5,7 @@ export interface CourseOffering {
 }
 
 export const bitcoinForExecutivesCourses: CourseOffering[] = [
-  // course dates for Bitcoin Executive Masterclasses
-  {
-    // 2 consecutive days, Thu+Fri
-    id: "bxm-apr26-thufri",
-    timeDescription: "Thu+Fri (09:00-16:30)",
-    dates: ["16 April 2026", "17 April 2026"]
-  },
+  // course dates Bitcoin Executive Masterclasses
   {
     // 2 Fridays, 2 weeks apart
     id: "bxm-may26-fri2weeks",
@@ -32,18 +26,13 @@ export const bitcoinForExecutivesCourses: CourseOffering[] = [
   }, 
 ];
 
-// course dates for Financial Sovereignty Masterclasses
+// course dates Financial Sovereignty Masterclasses
 export const FinSovCourses: CourseOffering[] = [
    {
     id: "finsov-may26-sat",
     timeDescription: "Saturday morning (09:00-12:30)",
     dates: ["23 May 2026"]
   },
-    {
-    id: "finsov-jul26-sat",
-    timeDescription: "Saturday morning (09:00-12:30)",
-    dates: ["11 July 2026"]
-  }, 
 ];
 
 // course dates for Private Bitcoin Briefings (Custom)
