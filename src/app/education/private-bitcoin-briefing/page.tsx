@@ -120,14 +120,6 @@ export default function PrivateBitcoinBriefingPage() {
       <section className="swiss-section bg-gray-50">
         <div className="swiss-grid">
           <div className="max-w-4xl mx-auto">
-            {/* Price */}
-            <div className="text-center mb-8">
-              <div className="inline-block p-6 border-2 border-gray-200 rounded-lg bg-gray-50">
-                <div className="text-3xl font-bold text-gray-900 mb-1">Price on inquiry</div>
-              </div>
-            </div>
-
-
             {/* Signup Form */}
             <div className="lg:col-span-2">
               <Card className="p-8 border-2 border-gray-200 bg-white">
@@ -139,6 +131,11 @@ export default function PrivateBitcoinBriefingPage() {
                   submitButtonText="Book a Discovery Call"
                 />
               </Card>
+            </div>
+
+            {/* Price */}
+            <div className="mt-4">
+              <div className="text-base font-semibold text-gray-700">Price on inquiry</div>
             </div>
 
           </div>

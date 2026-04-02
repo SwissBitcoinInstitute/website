@@ -1,7 +1,6 @@
 "use client";
 
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Domains = () => {
@@ -75,10 +74,9 @@ const Domains = () => {
         <div className="absolute inset-0 swiss-blue-gradient-hero"></div>
         <div className="swiss-grid relative">
           <div className="max-w-5xl mx-auto text-center">
-            <h1 className="mb-6 text-gray-900">Six Research Domains</h1>
+            <h1 className="mb-6 text-gray-900">SBI Research Domains</h1>
             <p className="swiss-prose-lg mb-8 max-w-4xl mx-auto text-gray-700 leading-relaxed">
-              Our research spans six interconnected domains that capture Bitcoin's full strategic significance
-              for Switzerland's leadership in the global monetary system.
+              With the SBI domain framework, we aim to capture all societal domains of strategic relevance that we expect to be affected by Bitcoin in the future. Click on the circle to learn more.
             </p>
           </div>
         </div>
@@ -122,16 +120,6 @@ const Domains = () => {
                   </div>
                 </div>
 
-                {/* Article Link */}
-                <div className="mt-8">
-                  <Link
-                    href={domain.articleLink}
-                    className="link-research inline-flex items-center text-sm font-semibold group"
-                  >
-                    <span>Read related article</span>
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
               </article>
             ))}
           </div>
