@@ -268,11 +268,8 @@ const Home = () => {
             Join the transition to sound digital money with Switzerland's most trusted Bitcoin research and education platform.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
-            <CTAButton variant="primary" size="lg" href="/inquiry" className="shadow-2xl">
-              Let's Connect
-            </CTAButton>
-            <CTAButton variant="secondary" size="lg" href="/speaking" className="shadow-xl">
-              View Speaking Engagements
+            <CTAButton variant="primary" size="lg" href="/contact" className="shadow-2xl">
+              Get in Touch
             </CTAButton>
           </div>
         </div>

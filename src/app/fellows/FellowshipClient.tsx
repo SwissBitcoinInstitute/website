@@ -28,16 +28,16 @@ const Fellowship = () => {
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {fellows.map((fellow) => (
-                <Link 
-                  key={fellow.slug} 
+                <Link
+                  key={fellow.slug}
                   href={`/fellows/${fellow.slug}`}
                   className="group block"
                 >
                   <div className="card-general card-gradient-hover h-full">
                     <div className="text-center mb-6">
                       <div className="w-24 h-24 rounded-2xl mx-auto mb-4 overflow-hidden shadow-lg group-hover:scale-105 transition-transform duration-300">
-                        <Image 
-                          src={fellow.photo} 
+                        <Image
+                          src={fellow.photo}
                           alt={`Photo of ${fellow.name}, Research Fellow at Swiss Bitcoin Institute`}
                           width={96}
                           height={96}
@@ -65,30 +65,30 @@ const Fellowship = () => {
       </section>
 
       {/* Join the Fellowship */}
-      <section className="swiss-section bg-gradient-to-b from-gray-50 to-white">
-        <div className="swiss-grid">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-16">
-              <div className="flex items-center justify-center mb-6">
-                <div className="swiss-blue-gradient-accent mx-auto"></div>
-              </div>
-              <h2>Interested to join the SBI Fellowship?</h2>
-              <p className="swiss-prose max-w-3xl mx-auto text-gray-600 mt-4">
-                If you are interested in becoming part of the SBI Fellowship Network, get in touch with us. In a personal conversation, we exchange common interests and motivations, and explore ways of working together. We're building something that lasts.
-              </p>
-            </div>
-            
-            {/* CTA */}
-            <div className="text-center">
-              <CTAButton
-                variant="primary"
-                size="lg"
-                href="/contact"
-                className="shadow-2xl"
-              >
-                Get in touch
+      <section className="swiss-section bg-gray-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 cta-section-bg"></div>
+        <div className="swiss-grid relative">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl lg:text-4xl font-medium text-white mb-6">
+              Interested to join the SBI Fellowship?
+            </h2>
+
+            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+              If you are interested in becoming part of the SBI Fellowship Network, get in touch with us. In a personal conversation, we exchange common interests and motivations, and explore ways of working together. We're building something that lasts.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
+              <CTAButton variant="primary" size="lg" href="/contact">
+                Get in Touch
               </CTAButton>
             </div>
+
+            <p className="text-gray-400">
+              Ready to collaborate?{' '}
+              <a href="mailto:hello@bitcoininstitute.ch" className="text-white hover:text-gray-300 transition-colors">
+                hello@bitcoininstitute.ch
+              </a>
+            </p>
           </div>
         </div>
       </section>

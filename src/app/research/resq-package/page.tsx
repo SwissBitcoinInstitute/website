@@ -80,23 +80,31 @@ export default function ResQPackagePage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA Section */}
       <section className="swiss-section bg-gray-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 cta-section-bg"></div>
         <div className="swiss-grid relative">
-          <div className="text-center max-w-4xl mx-auto">
-            <h2 className="mb-8 text-white">Need something more specific?</h2>
-            <p className="swiss-prose mb-12 text-gray-300 max-w-3xl mx-auto">
-              We also offer deeply tailored, custom Bitcoin intelligence and strategic analysis for your specific industry or market edge needs.
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl lg:text-4xl font-medium text-white mb-6">
+              Need Custom Intelligence?
+            </h2>
+
+            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+              Get tailored Bitcoin intelligence and strategic analysis for your specific
+              industry, market, or organizational needs.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
+              <CTAButton variant="primary" size="lg" href="/inquiry?service=research">
+                Request Custom Analysis
+              </CTAButton>
               <CTAButton
                 variant="secondary"
                 size="lg"
-                href="/contact"
+                href="/research"
                 className="border-white text-gray-900 bg-white hover:bg-gray-100"
               >
-                Discuss Deep-Dive Strategy
+                View Research Offering
               </CTAButton>
             </div>
           </div>

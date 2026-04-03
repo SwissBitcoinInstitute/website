@@ -168,18 +168,27 @@ export default function FinancialSovereigntyPage() {
         <div className="absolute inset-0 cta-section-bg"></div>
         <div className="swiss-grid relative">
           <div className="text-center max-w-4xl mx-auto">
-            <h2 className="mb-8 text-white">Ready to Take Control of Your Bitcoin?</h2>
+            <h2 className="mb-8 text-white">Unsure what you need?</h2>
             <p className="swiss-prose mb-12 text-gray-300 max-w-3xl mx-auto">
-              Join Bitcoin holders in Switzerland learning to securely manage their own assets.
+              Get in touch and raise your questions or specific requirements your organisation has.
+              We constanstly develop our programs further to best suit your needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <CTAButton
+                variant="primary"
+                size="lg"
+                href="/inquiry?service=courses"
+                className="shadow-2xl"
+              >
+                Request a Course
+              </CTAButton>
               <CTAButton
                 variant="secondary"
                 size="lg"
                 href="/education"
                 className="border-white text-gray-900 bg-white hover:bg-gray-100"
               >
-                View Other Courses
+                View Education Offering
               </CTAButton>
             </div>
           </div>
