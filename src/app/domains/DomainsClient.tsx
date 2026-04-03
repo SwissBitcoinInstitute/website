@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import CTAButton from '@/components/ui/cta-button';
 
 const Domains = () => {
   const domains = [
@@ -139,22 +139,31 @@ const Domains = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="swiss-section bg-gray-50 py-16">
-        <div className="swiss-grid">
+      <section className="swiss-section bg-gray-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 cta-section-bg"></div>
+        <div className="swiss-grid relative">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-semibold mb-6 text-gray-900">
-              Explore Our Research
+            <h2 className="text-3xl lg:text-4xl font-medium text-white mb-6">
+              Need Custom Intelligence?
             </h2>
-            <p className="text-lg text-gray-600 mb-8">
-              Dive deeper into these domains through our intelligence reports and strategic analysis.
+
+            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+              Get tailored Bitcoin intelligence and strategic analysis for your specific
+              industry, market, or organizational needs.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button asChild size="lg">
-                <Link href="/research">View Research Offering</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link href="/inquiry?service=research">Request Custom Analysis</Link>
-              </Button>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
+              <CTAButton variant="primary" size="lg" href="/inquiry?service=research">
+                Request Custom Analysis
+              </CTAButton>
+              <CTAButton
+                variant="secondary"
+                size="lg"
+                href="/research"
+                className="border-white text-gray-900 bg-white hover:bg-gray-100"
+              >
+                View Research Offering
+              </CTAButton>
             </div>
           </div>
         </div>
