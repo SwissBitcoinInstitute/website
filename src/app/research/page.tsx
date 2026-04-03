@@ -118,14 +118,10 @@ export default function ResearchPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
-              <CTAButton variant="primary" size="lg" href="/inquiry?service=research" showArrow>
+              <CTAButton variant="primary" size="lg" href="/inquiry?service=research">
                 Request Custom Analysis
               </CTAButton>
-              <CTAButton variant="secondary" size="lg" href="/contact">
-                Discuss Your Needs
-              </CTAButton>
             </div>
-
           </div>
         </div>
       </section>

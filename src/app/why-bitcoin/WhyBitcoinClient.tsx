@@ -101,8 +101,8 @@ const WhyBitcoin = () => {
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {properties.map((property, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="card-general card-gradient-hover group p-8 h-full"
                 >
                   <div>
@@ -133,8 +133,8 @@ const WhyBitcoin = () => {
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {consequences.map((consequence, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="card-general card-gradient-hover group p-8 h-full border-2 border-swiss-blue/20 bg-white"
                 >
                   <div className="text-center mb-6">
@@ -156,17 +156,17 @@ const WhyBitcoin = () => {
             <h2 className="text-3xl lg:text-4xl font-medium text-white mb-6">
               Ready to Learn More?
             </h2>
-            
+
             <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
               Explore our research, education programs, and strategic intelligence to deepen your understanding of Bitcoin.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
-              <CTAButton variant="primary" size="lg" href="/research" showArrow>
-                Explore Research
+              <CTAButton variant="primary" size="lg" href="/education">
+                View Education Offering
               </CTAButton>
-              <CTAButton variant="secondary" size="lg" href="/inquiry?service=research">
-                Discuss Private Research
+              <CTAButton variant="secondary" size="lg" href="/research">
+                View Research Offering
               </CTAButton>
             </div>
           </div>

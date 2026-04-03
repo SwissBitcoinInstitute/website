@@ -6,12 +6,12 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { 
-  Select, 
-  SelectContent, 
-  SelectItem, 
-  SelectTrigger, 
-  SelectValue 
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
 } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Calendar, Send, Briefcase, Mic, GraduationCap, CheckCircle2 } from 'lucide-react';
@@ -23,12 +23,12 @@ import { type ServiceType, type CourseType } from '@/lib/inquiry';
 export default function LeadIntakeForm() {
   const { toast } = useToast();
   const searchParams = useSearchParams();
-  
+
   // Pre-fill service type from URL params
   const urlService = searchParams?.get('service') as ServiceType | null;
   const urlCourse = searchParams?.get('course') as CourseType | null;
   const urlDiscovery = searchParams?.get('discovery') === 'true';
-  
+
   const [serviceType, setServiceType] = useState<ServiceType>(urlService || 'courses');
   const [isDiscoveryCallSelected, setIsDiscoveryCallSelected] = useState(urlDiscovery);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -40,19 +40,19 @@ export default function LeadIntakeForm() {
     phone: '',
     organization: '',
     title: '',
-    
+
     // Service-specific
     selectedCourses: urlCourse ? [urlCourse] : [] as CourseType[],
     quarterlyResearchPackage: false,
     customResearchInquiry: '',
-    
+
     // Qualification Questions
     professionalBackground: '',
     seniorityLevel: '',
     workExperience: '',
     organizationType: '',
     teamSize: '',
-    
+
     // Speaking Specific
     eventName: '',
     eventDate: '',
@@ -61,7 +61,7 @@ export default function LeadIntakeForm() {
     topicRequested: '',
     audienceSize: '',
     speakingDuration: '',
-    
+
     // General
     message: '',
     timeline: '',
@@ -72,7 +72,7 @@ export default function LeadIntakeForm() {
   ) => {
     const name = e.target.name;
     const value = e.target.value;
-    
+
     // If user types in custom research inquiry, uncheck quarterly package
     if (name === 'customResearchInquiry' && value.trim() && formData.quarterlyResearchPackage) {
       setFormData({ ...formData, [name]: value, quarterlyResearchPackage: false });
@@ -103,7 +103,7 @@ export default function LeadIntakeForm() {
     // Check if URL has hash anchor or URL params
     const hasHash = typeof window !== 'undefined' && window.location.hash === '#service-selection';
     const hasUrlParams = urlService || urlDiscovery || urlCourse;
-    
+
     if (hasHash) {
       setTimeout(() => {
         const serviceSelection = document.getElementById('service-selection');
@@ -120,7 +120,7 @@ export default function LeadIntakeForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Validate research form: must have either quarterly package OR custom inquiry
     if (serviceType === 'research' && !isDiscoveryCallSelected) {
       if (!formData.quarterlyResearchPackage && !formData.customResearchInquiry.trim()) {
@@ -132,9 +132,9 @@ export default function LeadIntakeForm() {
         return;
       }
     }
-    
+
     setIsSubmitting(true);
-    
+
     try {
       // For research, use customResearchInquiry as message if quarterly package not selected
       const submissionData = {
@@ -143,22 +143,22 @@ export default function LeadIntakeForm() {
           ? formData.customResearchInquiry
           : formData.message
       };
-      
+
       const response = await fetch('/api/inquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          serviceType, 
+        body: JSON.stringify({
+          serviceType,
           isDiscoveryCall: isDiscoveryCallSelected && serviceType === 'research',
           ...submissionData
         }),
       });
-      
+
       const data = await response.json();
-      
+
       if (data.success) {
         setIsSubmitted(true);
-        
+
         // Reset form
         setFormData({
           name: '',
@@ -206,7 +206,7 @@ export default function LeadIntakeForm() {
     if (isDiscoveryCallSelected && serviceType === 'research') {
       return "We'll review your discovery call request and get back to you within 24 hours to schedule your 20-minute call.";
     }
-    
+
     switch (serviceType) {
       case 'research':
         return "We'll review your research inquiry and get back to you within 24 hours to discuss your intelligence needs.";
@@ -272,23 +272,20 @@ export default function LeadIntakeForm() {
             id="discovery-call-button"
             type="button"
             onClick={handleDiscoveryCallClick}
-            className={`w-full p-6 rounded-xl border-2 transition-all mb-6 group ${
-              isDiscoveryCallSelected && serviceType === 'research'
+            className={`w-full p-6 rounded-xl border-2 transition-all mb-6 group ${isDiscoveryCallSelected && serviceType === 'research'
                 ? 'border-swiss-blue bg-swiss-blue/5 shadow-lg'
                 : 'border-gray-200 hover:border-swiss-blue/50 hover:shadow-md bg-white'
-            }`}
+              }`}
           >
             <div className="flex items-center justify-center gap-3">
-              <Calendar className={`w-6 h-6 transition-colors ${
-                isDiscoveryCallSelected && serviceType === 'research'
+              <Calendar className={`w-6 h-6 transition-colors ${isDiscoveryCallSelected && serviceType === 'research'
                   ? 'text-swiss-blue'
                   : 'text-gray-400 group-hover:text-swiss-blue'
-              }`} />
-              <span className={`text-lg font-semibold transition-colors ${
-                isDiscoveryCallSelected && serviceType === 'research'
+                }`} />
+              <span className={`text-lg font-semibold transition-colors ${isDiscoveryCallSelected && serviceType === 'research'
                   ? 'swiss-blue-gradient-text'
                   : 'text-gray-900'
-              }`}>
+                }`}>
                 Open Discovery Call
               </span>
             </div>
@@ -296,23 +293,38 @@ export default function LeadIntakeForm() {
               Book a 20-minute discovery call to discuss your research or intelligence needs
             </p>
           </button>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <button
+              type="button"
+              onClick={() => {
+                setServiceType('courses');
+                setIsDiscoveryCallSelected(false);
+              }}
+              className={`p-6 rounded-xl border-2 transition-all cursor-pointer ${serviceType === 'courses' && !isDiscoveryCallSelected
+                  ? 'border-swiss-blue bg-swiss-blue/5'
+                  : 'border-gray-200 hover:border-swiss-blue/50 hover:bg-gray-50'
+                }`}
+            >
+              <GraduationCap className={`w-8 h-8 mx-auto mb-3 transition-colors ${serviceType === 'courses' && !isDiscoveryCallSelected ? 'text-swiss-blue' : 'text-gray-400'
+                }`} />
+              <div className="font-semibold text-gray-900">Courses</div>
+              <div className="text-sm text-gray-600 mt-1">Education & Training</div>
+            </button>
+
             <button
               type="button"
               onClick={() => {
                 setServiceType('research');
                 setIsDiscoveryCallSelected(false);
               }}
-              className={`p-6 rounded-xl border-2 transition-all cursor-pointer ${
-                serviceType === 'research' && !isDiscoveryCallSelected
+              className={`p-6 rounded-xl border-2 transition-all cursor-pointer ${serviceType === 'research' && !isDiscoveryCallSelected
                   ? 'border-swiss-blue bg-swiss-blue/5'
                   : 'border-gray-200 hover:border-swiss-blue/50 hover:bg-gray-50'
-              }`}
+                }`}
             >
-              <Briefcase className={`w-8 h-8 mx-auto mb-3 transition-colors ${
-                serviceType === 'research' && !isDiscoveryCallSelected ? 'text-swiss-blue' : 'text-gray-400'
-              }`} />
+              <Briefcase className={`w-8 h-8 mx-auto mb-3 transition-colors ${serviceType === 'research' && !isDiscoveryCallSelected ? 'text-swiss-blue' : 'text-gray-400'
+                }`} />
               <div className="font-semibold text-gray-900">Research</div>
               <div className="text-sm text-gray-600 mt-1">Intelligence & Analysis</div>
             </button>
@@ -323,36 +335,15 @@ export default function LeadIntakeForm() {
                 setServiceType('speaking');
                 setIsDiscoveryCallSelected(false);
               }}
-              className={`p-6 rounded-xl border-2 transition-all cursor-pointer ${
-                serviceType === 'speaking' && !isDiscoveryCallSelected
+              className={`p-6 rounded-xl border-2 transition-all cursor-pointer ${serviceType === 'speaking' && !isDiscoveryCallSelected
                   ? 'border-swiss-blue bg-swiss-blue/5'
                   : 'border-gray-200 hover:border-swiss-blue/50 hover:bg-gray-50'
-              }`}
+                }`}
             >
-              <Mic className={`w-8 h-8 mx-auto mb-3 transition-colors ${
-                serviceType === 'speaking' && !isDiscoveryCallSelected ? 'text-swiss-blue' : 'text-gray-400'
-              }`} />
+              <Mic className={`w-8 h-8 mx-auto mb-3 transition-colors ${serviceType === 'speaking' && !isDiscoveryCallSelected ? 'text-swiss-blue' : 'text-gray-400'
+                }`} />
               <div className="font-semibold text-gray-900">Speaking</div>
               <div className="text-sm text-gray-600 mt-1">Keynotes & Events</div>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => {
-                setServiceType('courses');
-                setIsDiscoveryCallSelected(false);
-              }}
-              className={`p-6 rounded-xl border-2 transition-all cursor-pointer ${
-                serviceType === 'courses' && !isDiscoveryCallSelected
-                  ? 'border-swiss-blue bg-swiss-blue/5'
-                  : 'border-gray-200 hover:border-swiss-blue/50 hover:bg-gray-50'
-              }`}
-            >
-              <GraduationCap className={`w-8 h-8 mx-auto mb-3 transition-colors ${
-                serviceType === 'courses' && !isDiscoveryCallSelected ? 'text-swiss-blue' : 'text-gray-400'
-              }`} />
-              <div className="font-semibold text-gray-900">Courses</div>
-              <div className="text-sm text-gray-600 mt-1">Education & Training</div>
             </button>
           </div>
         </Card>
@@ -362,7 +353,7 @@ export default function LeadIntakeForm() {
           <h3 className="text-xl font-semibold text-gray-900 mb-6">
             Contact Information
           </h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <Label htmlFor="name">Full Name *</Label>
@@ -441,7 +432,7 @@ export default function LeadIntakeForm() {
                 Book Your 20-Minute Discovery Call
               </h3>
             </div>
-            
+
             <div className="bg-swiss-blue/5 p-6 rounded-lg mb-6">
               <p className="text-gray-700 mb-4">
                 We'll discuss your needs and determine how the Swiss Bitcoin Institute can best support your organization's Bitcoin strategy, education, or research requirements.
@@ -451,8 +442,8 @@ export default function LeadIntakeForm() {
             <div className="space-y-6">
               <div>
                 <Label htmlFor="timeline">Preferred Timeline</Label>
-                <Select 
-                  name="timeline" 
+                <Select
+                  name="timeline"
                   onValueChange={(value) => handleSelectChange('timeline', value)}
                 >
                   <SelectTrigger className="mt-2">
@@ -493,21 +484,20 @@ export default function LeadIntakeForm() {
                 Research
               </h3>
             </div>
-            
+
             <div className="space-y-6">
               {/* Quarterly Research Package Option */}
-              <div className={`border-2 rounded-lg p-6 transition-all cursor-pointer ${
-                formData.quarterlyResearchPackage
+              <div className={`border-2 rounded-lg p-6 transition-all cursor-pointer ${formData.quarterlyResearchPackage
                   ? 'border-swiss-blue bg-swiss-blue/5'
                   : 'border-gray-200 hover:border-swiss-blue/50'
-              }`}>
+                }`}>
                 <label className="flex items-start space-x-4 cursor-pointer">
                   <Checkbox
                     checked={formData.quarterlyResearchPackage}
                     onCheckedChange={(checked) => {
                       const isChecked = checked === true;
-                      setFormData({ 
-                        ...formData, 
+                      setFormData({
+                        ...formData,
                         quarterlyResearchPackage: isChecked,
                         customResearchInquiry: isChecked ? '' : formData.customResearchInquiry // Clear custom if quarterly selected
                       });
@@ -549,11 +539,10 @@ export default function LeadIntakeForm() {
               </div>
 
               {/* Customized Research Option */}
-              <div className={`border-2 rounded-lg p-6 transition-all ${
-                !formData.quarterlyResearchPackage && formData.customResearchInquiry
+              <div className={`border-2 rounded-lg p-6 transition-all ${!formData.quarterlyResearchPackage && formData.customResearchInquiry
                   ? 'border-swiss-blue bg-swiss-blue/5'
                   : 'border-gray-200'
-              }`}>
+                }`}>
                 <div className="mb-4">
                   <div className="font-semibold text-gray-900 mb-2">Custom Research Inquiry</div>
                   <p className="text-sm text-gray-600 mb-3">
@@ -580,8 +569,8 @@ export default function LeadIntakeForm() {
 
               <div>
                 <Label htmlFor="timeline">Preferred Timeline</Label>
-                <Select 
-                  name="timeline" 
+                <Select
+                  name="timeline"
                   onValueChange={(value) => handleSelectChange('timeline', value)}
                 >
                   <SelectTrigger className="mt-2">
@@ -605,7 +594,7 @@ export default function LeadIntakeForm() {
             <h3 className="text-xl font-semibold text-gray-900 mb-6">
               Event Details
             </h3>
-            
+
             <div className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -662,7 +651,7 @@ export default function LeadIntakeForm() {
 
                 <div>
                   <Label htmlFor="audienceSize">Expected Audience Size</Label>
-                  <Select 
+                  <Select
                     name="audienceSize"
                     onValueChange={(value) => handleSelectChange('audienceSize', value)}
                   >
@@ -680,7 +669,7 @@ export default function LeadIntakeForm() {
 
                 <div>
                   <Label htmlFor="speakingDuration">Speaking Duration</Label>
-                  <Select 
+                  <Select
                     name="speakingDuration"
                     onValueChange={(value) => handleSelectChange('speakingDuration', value)}
                   >
@@ -735,13 +724,12 @@ export default function LeadIntakeForm() {
               <h3 className="text-xl font-semibold text-gray-900 mb-6">
                 Which course(s) are you interested in?
               </h3>
-              
+
               <div className="space-y-4 mb-8">
-                <label className={`flex items-start space-x-4 p-4 rounded-lg border-2 cursor-pointer transition-colors ${
-                  formData.selectedCourses.includes('bitcoin-executives')
+                <label className={`flex items-start space-x-4 p-4 rounded-lg border-2 cursor-pointer transition-colors ${formData.selectedCourses.includes('bitcoin-executives')
                     ? 'border-swiss-blue bg-swiss-blue/5'
                     : 'border-gray-200 hover:border-swiss-blue/30'
-                }`}>
+                  }`}>
                   <Checkbox
                     checked={formData.selectedCourses.includes('bitcoin-executives')}
                     onCheckedChange={() => handleCourseToggle('bitcoin-executives')}
@@ -755,11 +743,10 @@ export default function LeadIntakeForm() {
                   </div>
                 </label>
 
-                <label className={`flex items-start space-x-4 p-4 rounded-lg border-2 cursor-pointer transition-colors ${
-                  formData.selectedCourses.includes('financial-sovereignty')
+                <label className={`flex items-start space-x-4 p-4 rounded-lg border-2 cursor-pointer transition-colors ${formData.selectedCourses.includes('financial-sovereignty')
                     ? 'border-swiss-blue bg-swiss-blue/5'
                     : 'border-gray-200 hover:border-swiss-blue/30'
-                }`}>
+                  }`}>
                   <Checkbox
                     checked={formData.selectedCourses.includes('financial-sovereignty')}
                     onCheckedChange={() => handleCourseToggle('financial-sovereignty')}
@@ -773,11 +760,10 @@ export default function LeadIntakeForm() {
                   </div>
                 </label>
 
-                <label className={`flex items-start space-x-4 p-4 rounded-lg border-2 cursor-pointer transition-colors ${
-                  formData.selectedCourses.includes('custom')
+                <label className={`flex items-start space-x-4 p-4 rounded-lg border-2 cursor-pointer transition-colors ${formData.selectedCourses.includes('custom')
                     ? 'border-swiss-blue bg-swiss-blue/5'
                     : 'border-gray-200 hover:border-swiss-blue/30'
-                }`}>
+                  }`}>
                   <Checkbox
                     checked={formData.selectedCourses.includes('custom')}
                     onCheckedChange={() => handleCourseToggle('custom')}
@@ -802,7 +788,7 @@ export default function LeadIntakeForm() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <Label htmlFor="organizationType">Organization Type *</Label>
-                      <Select 
+                      <Select
                         name="organizationType"
                         onValueChange={(value) => handleSelectChange('organizationType', value)}
                       >
@@ -822,7 +808,7 @@ export default function LeadIntakeForm() {
 
                     <div>
                       <Label htmlFor="seniorityLevel">Seniority Level *</Label>
-                      <Select 
+                      <Select
                         name="seniorityLevel"
                         onValueChange={(value) => handleSelectChange('seniorityLevel', value)}
                       >
@@ -841,7 +827,7 @@ export default function LeadIntakeForm() {
 
                     <div>
                       <Label htmlFor="workExperience">Years of Professional Experience *</Label>
-                      <Select 
+                      <Select
                         name="workExperience"
                         onValueChange={(value) => handleSelectChange('workExperience', value)}
                       >
@@ -858,7 +844,7 @@ export default function LeadIntakeForm() {
 
                     <div>
                       <Label htmlFor="teamSize">Team Size (if enrolling multiple)</Label>
-                      <Select 
+                      <Select
                         name="teamSize"
                         onValueChange={(value) => handleSelectChange('teamSize', value)}
                       >
@@ -893,7 +879,7 @@ export default function LeadIntakeForm() {
 
                   <div>
                     <Label htmlFor="timeline">Preferred Start Timeline</Label>
-                    <Select 
+                    <Select
                       name="timeline"
                       onValueChange={(value) => handleSelectChange('timeline', value)}
                     >
@@ -929,8 +915,8 @@ export default function LeadIntakeForm() {
 
         {/* Submit Button */}
         <div className="flex justify-center">
-          <Button 
-            type="submit" 
+          <Button
+            type="submit"
             size="lg"
             disabled={isSubmitting}
             className="px-12 h-14 text-lg font-semibold btn-hover-scale"

@@ -27,15 +27,15 @@ const Team = () => {
         <div className="swiss-grid">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {coreTeam.map((member, index) => (
-              <Link 
-                key={member.slug} 
+              <Link
+                key={member.slug}
                 href={`/team/${member.slug}`}
                 className="group text-center block"
               >
                 <div className="relative mb-8">
                   <div className="w-32 h-32 rounded-3xl mx-auto mb-6 group-hover:scale-105 transition-all duration-300 shadow-xl overflow-hidden">
-                    <Image 
-                      src={member.photo} 
+                    <Image
+                      src={member.photo}
                       alt={`Photo of ${member.name}, ${member.role} at Swiss Bitcoin Institute`}
                       width={128}
                       height={128}
@@ -61,23 +61,17 @@ const Team = () => {
             <h2 className="text-3xl lg:text-4xl font-medium text-white mb-6">
               Work with our team
             </h2>
-            
+
             <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
               Leverage our collective expertise for your organization's Bitcoin strategy and education needs.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
-              <CTAButton variant="primary" size="lg" href="/inquiry" showArrow>
-                Book a Briefing
-              </CTAButton>
-              <CTAButton variant="secondary" size="lg" href="/speaking">
-                Speaking Engagements
-              </CTAButton>
-              <CTAButton variant="secondary" size="lg" href="/contact">
+              <CTAButton variant="primary" size="lg" href="/contact">
                 Get in Touch
               </CTAButton>
             </div>
-            
+
             <p className="text-gray-400">
               Ready to collaborate?{' '}
               <a href="mailto:hello@bitcoininstitute.ch" className="text-white hover:text-gray-300 transition-colors">

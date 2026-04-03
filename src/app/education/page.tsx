@@ -102,18 +102,10 @@ export default function CoursesPage() {
               <CTAButton
                 variant="primary"
                 size="lg"
-                href="/contact"
+                href="/inquiry?service=courses"
                 className="shadow-2xl"
               >
-                Schedule Consultation
-              </CTAButton>
-              <CTAButton
-                variant="secondary"
-                size="lg"
-                href="/research"
-                className="border-white text-gray-900 bg-white hover:bg-gray-100"
-              >
-                View Research
+                Request a Course
               </CTAButton>
             </div>
           </div>

@@ -434,11 +434,8 @@ export default function StrategicSpeaking() {
               we'd be happy to discuss how we might contribute.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
-              <CTAButton variant="primary" size="lg" href="/inquiry?service=speaking" showArrow>
+              <CTAButton variant="primary" size="lg" href="/inquiry?service=speaking">
                 Book a Speaker
-              </CTAButton>
-              <CTAButton variant="secondary" size="lg" href="/research">
-                View Our Research
               </CTAButton>
             </div>
           </div>

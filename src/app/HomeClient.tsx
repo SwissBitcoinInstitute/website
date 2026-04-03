@@ -21,11 +21,8 @@ const Home = () => {
     });
   }, []);
 
-  // Filter for highlighted articles (maintain order)
-  const highlightedIds = ['SBI-003', 'SBI-008', 'SBI-005'];
-  const researchHighlights = highlightedIds
-    .map(id => articles.find(a => a.id === id))
-    .filter((a): a is ArticleMeta => a !== undefined);
+  // Get the 3 latest articles
+  const researchHighlights = articles.slice(0, 3);
   const principles = [{
     icon: "",
     title: "Sovereignty",
@@ -204,6 +201,14 @@ const Home = () => {
             })
           )}
         </div>
+        <div className="mt-12 text-center">
+          <Link
+            href="/research/intelligence-briefs"
+            className="link-research text-lg font-medium inline-flex items-center"
+          >
+            View all Intelligence Briefs →
+          </Link>
+        </div>
       </div>
     </section>
 
@@ -263,11 +268,8 @@ const Home = () => {
             Join the transition to sound digital money with Switzerland's most trusted Bitcoin research and education platform.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
-            <CTAButton variant="primary" size="lg" href="/inquiry" className="shadow-2xl">
-              Let's Connect
-            </CTAButton>
-            <CTAButton variant="secondary" size="lg" href="/speaking" className="shadow-xl">
-              View Speaking Engagements
+            <CTAButton variant="primary" size="lg" href="/contact" className="shadow-2xl">
+              Get in Touch
             </CTAButton>
           </div>
         </div>
