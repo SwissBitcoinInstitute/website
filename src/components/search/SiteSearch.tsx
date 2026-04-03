@@ -99,6 +99,40 @@ export function SiteSearch({ onSelect }: { onSelect?: () => void }) {
     }
   }, [search])
 
+  const filteredArticles = React.useMemo(() => {
+    if (!search) return items.filter(i => i.type === 'article')
+    const lowSearch = search.toLowerCase()
+    return items.filter(i => 
+      i.type === 'article' && (
+        i.title.toLowerCase().includes(lowSearch) || 
+        i.description?.toLowerCase().includes(lowSearch)
+      )
+    )
+  }, [items, search])
+
+  const filteredGlossary = React.useMemo(() => {
+    if (!search) return items.filter(i => i.type === 'glossary')
+    const lowSearch = search.toLowerCase()
+    return items.filter(i => 
+      i.type === 'glossary' && (
+        i.title.toLowerCase().includes(lowSearch) || 
+        i.description?.toLowerCase().includes(lowSearch)
+      )
+    )
+  }, [items, search])
+
+  const filteredPages = React.useMemo(() => {
+    if (!search) return items.filter(i => i.type === 'page')
+    const lowSearch = search.toLowerCase()
+    return items.filter(i => 
+      i.type === 'page' && (
+        i.title.toLowerCase().includes(lowSearch)
+      )
+    )
+  }, [items, search])
+
+  const hasResults = filteredArticles.length > 0 || filteredPages.length > 0 || filteredGlossary.length > 0
+
   return (
     <>
       <Button
@@ -112,41 +146,27 @@ export function SiteSearch({ onSelect }: { onSelect?: () => void }) {
         <span className="sr-only">Search site</span>
       </Button>
       
-      <CommandDialog open={open} onOpenChange={(isOpen) => {
-        setOpen(isOpen)
-        if (!isOpen) setSearch("") // Reset search when dialog closes
-      }}>
+      <CommandDialog 
+        open={open} 
+        onOpenChange={(isOpen) => {
+          setOpen(isOpen)
+          if (!isOpen) setSearch("") // Reset search when dialog closes
+        }}
+        commandProps={{ shouldFilter: false }}
+      >
         <CommandInput 
-          placeholder="Search pages, articles, glossary..." 
+          placeholder="Search articles and glossary..." 
           value={search}
           onValueChange={setSearch}
         />
         <CommandList ref={listRef}>
-          <CommandEmpty>No results found.</CommandEmpty>
-          
-          {items.filter(i => i.type === 'page').length > 0 && (
-            <CommandGroup heading="Pages">
-              {items.filter(i => i.type === 'page').map(item => (
-                <CommandItem
-                  key={item.id}
-                  value={`${item.title} ${item.description || ''}`}
-                  onSelect={() => runCommand(() => router.push(item.url))}
-                >
-                  <Layout className="mr-2 h-4 w-4" />
-                  <div className="flex flex-col">
-                    <span>{item.title}</span>
-                    {item.description && (
-                      <span className="text-xs text-gray-500">{item.description}</span>
-                    )}
-                  </div>
-                </CommandItem>
-              ))}
-            </CommandGroup>
+          {search && !hasResults && (
+            <div className="py-6 text-center text-sm">No results found for "{search}"</div>
           )}
-
-          {items.filter(i => i.type === 'article').length > 0 && (
+          
+          {filteredArticles.length > 0 && (
             <CommandGroup heading="Articles">
-              {items.filter(i => i.type === 'article').map(item => (
+              {filteredArticles.map(item => (
                 <CommandItem
                   key={item.id}
                   value={`${item.title} ${item.description || ''}`}
@@ -164,9 +184,26 @@ export function SiteSearch({ onSelect }: { onSelect?: () => void }) {
             </CommandGroup>
           )}
 
-          {items.filter(i => i.type === 'glossary').length > 0 && (
+          {filteredPages.length > 0 && (
+            <CommandGroup heading="Pages">
+              {filteredPages.map(item => (
+                <CommandItem
+                  key={item.id}
+                  value={item.title}
+                  onSelect={() => runCommand(() => router.push(item.url))}
+                >
+                  <Layout className="mr-2 h-4 w-4" />
+                  <div className="flex flex-col">
+                    <span>{item.title}</span>
+                  </div>
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          )}
+
+          {filteredGlossary.length > 0 && (
             <CommandGroup heading="Glossary">
-              {items.filter(i => i.type === 'glossary').map(item => (
+              {filteredGlossary.map(item => (
                 <CommandItem
                   key={item.id}
                   value={`${item.title} ${item.description || ''}`}
@@ -184,7 +221,7 @@ export function SiteSearch({ onSelect }: { onSelect?: () => void }) {
             </CommandGroup>
           )}
           
-          <CommandSeparator />
+          {hasResults && <CommandSeparator />}
           
           <CommandGroup heading="Quick Actions">
             <CommandItem onSelect={() => runCommand(() => router.push('/inquiry?service=research&discovery=true#service-selection'))}>
