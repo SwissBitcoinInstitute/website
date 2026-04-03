@@ -18,11 +18,11 @@ const XIcon = ({ className }: { className?: string }) => (
 const Footer = () => {
   const footerNavigation = {
     company: [{
-      name: 'About',
-      href: '/about'
-    }, {
       name: 'Team',
       href: '/team'
+    }, {
+      name: 'Fellows',
+      href: '/fellows'
     }, {
       name: 'Contact',
       href: '/contact'
@@ -38,11 +38,14 @@ const Footer = () => {
       href: '/speaking'
     }],
     resources: [{
+      name: 'Switzerland & Bitcoin',
+      href: '/switzerland-bitcoin'
+    }, {
+      name: 'Why Bitcoin',
+      href: '/why-bitcoin'
+    }, {
       name: 'Glossary',
       href: '/glossary'
-    }, {
-      name: 'Get Started',
-      href: '/inquiry?service=research&discovery=true'
     }],
     legal: [{
       name: 'Privacy Policy',
