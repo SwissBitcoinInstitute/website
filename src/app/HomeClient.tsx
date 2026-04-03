@@ -21,11 +21,8 @@ const Home = () => {
     });
   }, []);
 
-  // Filter for highlighted articles (maintain order)
-  const highlightedIds = ['SBI-003', 'SBI-008', 'SBI-005'];
-  const researchHighlights = highlightedIds
-    .map(id => articles.find(a => a.id === id))
-    .filter((a): a is ArticleMeta => a !== undefined);
+  // Get the 3 latest articles
+  const researchHighlights = articles.slice(0, 3);
   const principles = [{
     icon: "",
     title: "Sovereignty",
@@ -203,6 +200,14 @@ const Home = () => {
               );
             })
           )}
+        </div>
+        <div className="mt-12 text-center">
+          <Link
+            href="/research/intelligence-briefs"
+            className="link-research text-lg font-medium inline-flex items-center"
+          >
+            View all Intelligence Briefs →
+          </Link>
         </div>
       </div>
     </section>

@@ -79,9 +79,9 @@ export default async function ArticlePageRoute({ params }: PageProps) {
         <div className="swiss-grid">
           <div className="flex items-center justify-between gap-4">
             <Button variant="ghost" asChild>
-              <Link href="/research" className="flex items-center gap-2">
+              <Link href="/research/intelligence-briefs" className="flex items-center gap-2">
                 <ArrowLeft className="w-4 h-4" />
-                Back to Research
+                View all Intelligence Briefs
               </Link>
             </Button>
             
@@ -165,16 +165,17 @@ export default async function ArticlePageRoute({ params }: PageProps) {
       )}
 
       {/* Related Articles CTA */}
-      <div className="swiss-section bg-background">
-        <div className="swiss-grid">
+      <div className="swiss-section bg-gray-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 cta-section-bg"></div>
+        <div className="swiss-grid relative">
           <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-2xl font-semibold mb-4">Explore More Research</h3>
-            <p className="text-muted-foreground mb-6">
+            <h3 className="text-2xl font-semibold mb-4 text-white">Explore More Research</h3>
+            <p className="text-gray-300 mb-8">
               Discover more strategic insights and analysis from our research team.
             </p>
             <Button asChild size="lg">
-              <Link href="/research">
-                View All Reports
+              <Link href="/research/intelligence-briefs">
+                View all Intelligence Briefs
               </Link>
             </Button>
           </div>
