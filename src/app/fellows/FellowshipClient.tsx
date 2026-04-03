@@ -84,7 +84,6 @@ const Fellowship = () => {
             </div>
 
             <p className="text-gray-400">
-              Ready to collaborate?{' '}
               <a href="mailto:hello@bitcoininstitute.ch" className="text-white hover:text-gray-300 transition-colors">
                 hello@bitcoininstitute.ch
               </a>
