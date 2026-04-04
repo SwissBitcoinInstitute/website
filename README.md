@@ -5,16 +5,14 @@ The SBI site uses a **file-based CMS** where content is managed through markdown
 ### Quick Start - Adding Content
 
 #### Create a New Article
-
-> [!CAUTION]
-> Need more clarity on the process: a) which files (sbi-NNN.md, sbi-NNN.png) need to go where; b) what in the YAML header is manual, what is automatic?, and c) how/where is the npm command issued.
-
+To create a new intelligence brief, run the following command in the **project root** terminal:
 ```bash
 npm run new:article "Article Title" author-id
 
 # Example:
 npm run new:article "Bitcoin Mining in Switzerland" marcus-dapp
 ```
+*Note: This script automatically generates the next SBI ID, sets the date, and populates basic metadata.*
 
 #### Create a New Author
 ```bash
@@ -24,19 +22,69 @@ npm run new:author "Full Name" "Role" "email@example.com"
 npm run new:author "Jane Doe" "Senior Researcher" "jane@example.com"
 ```
 
+### Detailed Article Publishing Guide
+
+#### 1. File Locations (Where does everything go?)
+- **Markdown File**: Created at `src/content/articles/SBI-XXX.md`.
+- **Header Image**: Place in `public/sbi-research-headers/`. Preferred format is `.webp`.
+- **Article Figures**: Place in `public/sbi-intelligence-brief-figures/SBI-XXX/` and reference in markdown.
+
+#### 2. YAML Frontmatter (Manual vs. Automatic)
+When you run `npm run new:article`, the following is handled:
+- **Automatic**: `id`, `title`, `author`, `date`, `published: false`.
+- **Manual (Author Action Required)**:
+  - `blockHeight`: Must be updated to the current Bitcoin block height.
+  - `excerpt`: Provide a 1-2 sentence summary for SEO and index pages.
+  - `tags`: Update the categories (e.g., `["Technology", "Swiss Context"]`).
+  - `headerImage`: Add the filename of your image from `public/sbi-research-headers/`.
+  - `readTime`: (Optional) Can be manually set or left for the system to estimate.
+
+#### 3. Publishing Workflow
+1. Create the article via the npm command.
+2. Add your markdown content and images.
+3. Preview locally by running `npm run dev` at [localhost:3000](http://localhost:3000).
+4. **Glossary Audit**: Manually check the rendered article for any glossary links that should be excluded (e.g., terms used in a non-Bitcoin context). Use `<!-- no-glossary -->` tags or update `ARTICLE_GLOSSARY_EXCLUSIONS` as needed (see Glossary Management).
+5. Set `published: true` in the frontmatter once finalized.
+6. Push your changes to the `main` branch to trigger the production deployment.
+
 ### Content Structure
-- **Articles**: `src/content/articles/` - Research articles and blog posts
-- **Authors**: `src/content/authors/` - Author profiles and bios
-- **Templates**: `templates/` - Templates for new content
-- **Header Images**: `public/sbi-research-headers/` - Article header images
+- **Articles**: `src/content/articles/` - The `.md` content files.
+- **Authors**: `src/content/authors/` - Author profiles/biographies.
+- **Templates**: `templates/` - Base files used by the creation scripts.
+- **Header Images**: `public/sbi-research-headers/` - Banner images for articles.
+- **Figures**: `public/sbi-intelligence-brief-figures/` - Diagrams and charts used inside articles.
 
-### Publishing Workflow
-1. Create content with `published: false`
-2. Test locally with `npm run dev`
-3. Set `published: true` when ready
-4. Push to GitHub for automatic deployment
+### Glossary Management
 
-For detailed instructions, see [CMS-GUIDE.md](./CMS-GUIDE.md).
+The website automatically parses articles and links terms that exist in the [Glossary](src/content/glossary/).
+
+#### Disabling Glossary Links
+If you want to prevent certain terms from being linked in specific contexts, use one of the following methods:
+
+**1. Manual Toggle Tags**  
+Wrap any section of text with HTML comments to disable/enable linking:
+```markdown
+<!-- no-glossary -->
+Text in this section will NOT have any glossary terms linked.
+<!-- end-no-glossary -->
+```
+Also inline disable is possible:
+#Example
+```
+The Gold Coast of Ghana faces the need to import drinking water, as rivers are poisoned by gold <!-- no-glossary -->mining<!-- end-no-glossary -->.
+```
+
+**2. Automatic Code Block Skipping**  
+Any text inside triple backticks (```) is automatically ignored.
+
+**3. Reference Section Exclusion**  
+Any content appearing after a heading that contains the word "References" (e.g., `### References`) will not be processed for glossary links.
+
+**4. Article-Specific Exclusions**  
+To exclude specific terms for an entire article (e.g., when "mining" refers to gold mining), edit the `ARTICLE_GLOSSARY_EXCLUSIONS` constant in [ArticleWithGlossary.tsx](src/components/articles/ArticleWithGlossary.tsx).
+
+> [!IMPORTANT]
+> You must use the **term slug** (e.g., `gold-standard`) in this configuration, not the display name.
 
 ## Configurable Content
 

@@ -22,8 +22,11 @@ interface ArticleWithGlossaryProps {
 }
 
 // Article-specific glossary term exclusions (terms that shouldn't be linked in specific articles)
+// IMPORTANT: Use the TERM SLUG (e.g., 'gold-standard') here, not the display name.
 const ARTICLE_GLOSSARY_EXCLUSIONS: Record<string, string[]> = {
   'SBI-008': ['mining', 'difficulty'], // In SBI-008, "mining" and "difficulty" refer to gold mining, not Bitcoin
+  'SBI-009': ['mining'], // In SBI-009, "mining" refers to gold mining, not Bitcoin
+  'SBI-010': ['gold-standard'], // In SBI-010, "gold standard" refers not to the monetary gold standard
 };
 
 export default function ArticleWithGlossary({ content, articleId }: ArticleWithGlossaryProps) {

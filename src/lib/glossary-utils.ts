@@ -46,8 +46,36 @@ export function processGlossaryContent(
     let tokenCounter = 0;
 
     let skipProcessing = false;
+    let isInCodeBlock = false;
+
     const processedLines = lines.map(line => {
         const trimmedLine = line.trim();
+
+        // Handle code block toggle (skip everything inside ``` blocks)
+        if (trimmedLine.startsWith('```')) {
+            isInCodeBlock = !isInCodeBlock;
+            return line;
+        }
+        if (isInCodeBlock) return line;
+
+        // Handle multi-tag lines (e.g. <!-- no-glossary --> Bitcoin <!-- end-no-glossary -->)
+        // We protect these segments so they aren't processed by the glossary logic
+        const inlineProtections: string[] = [];
+        line = line.replace(/<!-- no-glossary -->([\s\S]*?)<!-- end-no-glossary -->/g, (match, p1) => {
+            const tokenId = `__INLINE_GLOSSARY_SKIP_${inlineProtections.length}__`;
+            inlineProtections.push(p1);
+            return tokenId;
+        });
+
+        // Handle single/dangling toggle tags (strip them so they aren't displayed)
+        if (line.includes('<!-- no-glossary -->')) {
+            skipProcessing = true;
+            line = line.replace(/<!-- no-glossary -->/g, '');
+        }
+        if (line.includes('<!-- end-no-glossary -->')) {
+            skipProcessing = false;
+            line = line.replace(/<!-- end-no-glossary -->/g, '');
+        }
 
         // Skip processing for headings (lines starting with #)
         if (trimmedLine.startsWith('#')) {
@@ -55,11 +83,19 @@ export function processGlossaryContent(
             if (trimmedLine.toLowerCase().includes('references')) {
                 skipProcessing = true;
             }
+            // Restore any inline protections before returning
+            inlineProtections.forEach((content, i) => {
+                line = line.replace(`__INLINE_GLOSSARY_SKIP_${i}__`, content);
+            });
             return line;
         }
 
-        // If we are in an ignored section (like References), don't process
+        // If we are in an ignored section (like References or manual skip), don't process
         if (skipProcessing) {
+            // Restore any inline protections before returning
+            inlineProtections.forEach((content, i) => {
+                line = line.replace(`__INLINE_GLOSSARY_SKIP_${i}__`, content);
+            });
             return line;
         }
 
@@ -88,6 +124,12 @@ export function processGlossaryContent(
                 });
             }
         }
+
+        // Restore inline protections
+        inlineProtections.forEach((content, i) => {
+            processedLine = processedLine.replace(`__INLINE_GLOSSARY_SKIP_${i}__`, content);
+        });
+
         return processedLine;
     });
 
