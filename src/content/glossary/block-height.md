@@ -1,5 +1,6 @@
 ---
 term: "Block Height"
+aliases: ["block heights", "block-height"]
 slug: "block-height"
 category: "Protocol & Technology"
 shortDefinition: "The block height is the sequential number of a block in the blockchain, starting with the genesis block at height 0. It serves as a reference point fo..."

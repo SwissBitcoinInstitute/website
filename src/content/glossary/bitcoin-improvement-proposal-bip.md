@@ -1,5 +1,6 @@
 ---
-term: "Bitcoin Improvement Proposal (BIP)"
+term: "Bitcoin Improvement Proposal"
+aliases: ["bip", "bips", "bitcoin improvement proposals", "bitcoin-improvement-proposal", "bitcoin-improvement-proposals"]
 slug: "bitcoin-improvement-proposal-bip"
 category: "General"
 shortDefinition: "A Bitcoin Improvement Proposal (BIP) is a formal document suggesting technical or informational changes to the Bitcoin protocol. BIPs provide a struct..."

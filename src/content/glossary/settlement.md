@@ -1,5 +1,6 @@
 ---
 term: "Settlement"
+aliases: ["settlements"]
 slug: "settlement"
 category: "General"
 shortDefinition: "Settlement refers to the final and irreversible recording of a transaction in the Bitcoin blockchain. Once confirmed by sufficient blocks, the transac..."

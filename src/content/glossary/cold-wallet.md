@@ -1,5 +1,6 @@
 ---
 term: "Cold Wallet"
+aliases: ["cold-wallet", "cold wallets", "cold-wallets"]
 slug: "cold-wallet"
 category: "Keys & Wallets"
 shortDefinition: "A cold wallet is a storage method where private keys are kept offline, disconnected from the internet. Examples include hardware wallets, paper wallet..."

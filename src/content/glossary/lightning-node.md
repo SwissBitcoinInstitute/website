@@ -1,5 +1,6 @@
 ---
 term: "Lightning Node"
+aliases: ["lightning nodes", "lightning-node", "lightning nodes"]
 slug: "lightning-node"
 category: "Protocol & Technology"
 shortDefinition: "A Lightning node is software that participates in the Lightning Network. It opens and maintains payment channels, routes payments across the network, ..."

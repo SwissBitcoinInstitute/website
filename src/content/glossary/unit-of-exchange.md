@@ -1,5 +1,6 @@
 ---
 term: "Unit of Exchange"
+aliases: ["unit-of-exchange"]
 slug: "unit-of-exchange"
 category: "General"
 shortDefinition: "A unit of exchange is a standard measure used to facilitate the buying and selling of goods and services. It allows people to compare values, set pric..."

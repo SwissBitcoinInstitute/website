@@ -1,5 +1,6 @@
 ---
 term: "Public Key"
+aliases: ["public keys", "public-key"]
 slug: "public-key"
 category: "Keys & Wallets"
 shortDefinition: "A public key is the cryptographic counterpart to a private key in public key cryptography. In Bitcoin, it is derived from the private key using the el..."

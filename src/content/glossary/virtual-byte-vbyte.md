@@ -1,5 +1,6 @@
 ---
-term: "Virtual Byte (vByte)"
+term: "Virtual Byte"
+aliases: ["vbyte", "vbytes", "virtual bytes", "virtual-byte"]
 slug: "virtual-byte-vbyte"
 category: "General"
 shortDefinition: "A virtual byte (vByte) is a unit used in Bitcoin to measure the effective size of a transaction for fee calculation. It was introduced with Segregated..."

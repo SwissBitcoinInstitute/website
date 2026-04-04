@@ -1,5 +1,6 @@
 ---
 term: "Double-Spending"
+aliases: ["double spending", "double-spendings", "doublespending", "double-spending problem", "double-spend", "double spend", "double spendings"]
 slug: "double-spending"
 category: "General"
 shortDefinition: "The double-spending problem refers to the risk that a digital token could be spent more than once. Because digital information can be copied, preventi..."

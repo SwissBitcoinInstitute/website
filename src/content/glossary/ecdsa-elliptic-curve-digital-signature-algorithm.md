@@ -1,5 +1,6 @@
 ---
-term: "ECDSA – Elliptic Curve Digital Signature Algorithm"
+term: "Elliptic Curve Digital Signature Algorithm"
+aliases: ["ecdsa", "elliptic-curve-digital-signature-algorithm"]
 slug: "ecdsa-elliptic-curve-digital-signature-algorithm"
 category: "Keys & Wallets"
 shortDefinition: "ECDSA is a cryptographic algorithm used in Bitcoin to create digital signatures. It allows a user to prove ownership of a private key by generating a ..."

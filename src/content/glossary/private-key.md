@@ -1,5 +1,6 @@
 ---
 term: "Private Key"
+aliases: ["private keys", "private-key"]
 slug: "private-key"
 category: "Keys & Wallets"
 shortDefinition: "A private key is a secret cryptographic number that allows the owner to authorize and sign Bitcoin transactions. From the private key, the correspondi..."

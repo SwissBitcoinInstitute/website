@@ -1,5 +1,6 @@
 ---
 term: "Satoshi (unit)"
+aliases: ["sat", "satoshi", "satoshis", "sats"]
 slug: "satoshi-unit"
 category: "General"
 shortDefinition: "A satoshi is the smallest indivisible unit of Bitcoin, equal to 0.00000001 BTC. All balances and transactions on the protocol level are denominated in..."

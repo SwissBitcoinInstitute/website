@@ -1,5 +1,6 @@
 ---
 term: "Whale"
+aliases: ["whales"]
 slug: "whale"
 category: "General"
 shortDefinition: "In the context of Bitcoin, a whale is an entity that holds a very large amount of bitcoin. Due to their large holdings, whales can potentially influen..."

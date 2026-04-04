@@ -1,5 +1,6 @@
 ---
 term: "Batching"
+aliases: ["batchings"]
 slug: "batching"
 category: "General"
 shortDefinition: "Batching is the practice of combining multiple payment outputs into a single transaction. This reduces overall data size on the blockchain and lowers ..."

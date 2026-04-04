@@ -1,5 +1,6 @@
 ---
 term: "Soft Money"
+aliases: ["soft moneys", "soft-money"]
 slug: "soft-money"
 category: "Monetary Theory"
 shortDefinition: "Soft money refers to currencies that can be easily inflated or devalued by monetary authorities. It contrasts with hard money, which has strong scarci..."

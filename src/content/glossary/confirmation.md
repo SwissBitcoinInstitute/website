@@ -1,5 +1,6 @@
 ---
 term: "Confirmation"
+aliases: ["confirmations"]
 slug: "confirmation"
 category: "General"
 shortDefinition: "A confirmation is the process by which a Bitcoin transaction is included in a block on the blockchain and recognized as valid by the network. Each add..."

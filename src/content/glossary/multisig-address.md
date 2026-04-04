@@ -1,5 +1,6 @@
 ---
 term: "Multisig address"
+aliases: ["multisig addresses", "multisig-address", "multisig-addresses", "multisig", "multi-signature"]
 slug: "multisig-address"
 category: "General"
 shortDefinition: "A multisig (multi-signature) address is a Bitcoin address that requires signatures from multiple private keys to authorize spending. Instead of relyin..."

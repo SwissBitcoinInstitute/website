@@ -1,5 +1,6 @@
 ---
 term: "Custodial Wallet"
+aliases: ["custodial wallets", "custodial-wallet", "custodial-wallets"]
 slug: "custodial-wallet"
 category: "Keys & Wallets"
 shortDefinition: "A custodial wallet is a wallet in which a third party controls the user’s private keys. Exchanges and hosted wallet providers commonly offer custodial..."

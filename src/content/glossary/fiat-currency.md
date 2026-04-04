@@ -1,5 +1,6 @@
 ---
 term: "Fiat Currency"
+aliases: ["fiat currencies", "fiat-currency", "fiat money", "fiat-currencies"]
 slug: "fiat-currency"
 category: "Monetary Theory"
 shortDefinition: "A fiat currency is money issued by a state and declared legal tender, without backing by a commodity like gold or silver. Its name comes from the Lati..."

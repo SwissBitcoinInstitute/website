@@ -1,7 +1,7 @@
 ---
 term: "Hashrate"
 slug: "hashrate"
-aliases: ["hashrate", "hash rate", "hash-rate"]
+aliases: ["hash rate", "hash-rate"]
 category: "Mining & Consensus"
 shortDefinition: "The hashrate is the total computational power applied to Proof-of-Work in the Bitcoin network. It is measured in hashes per second and determines the ..."
 relatedArticle: ""

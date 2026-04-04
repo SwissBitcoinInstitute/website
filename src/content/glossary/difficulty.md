@@ -1,5 +1,6 @@
 ---
-term: "Difficulty"
+term: "Block Difficulty"
+aliases: ["difficulty", "difficulty target", "difficulty targets"]
 slug: "difficulty"
 category: "General"
 shortDefinition: "The Block difficulty is a measure of how hard it is to find a valid block hash that meets the current difficulty target. A block is only valid if its ..."

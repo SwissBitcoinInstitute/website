@@ -1,5 +1,6 @@
 ---
 term: "Non-Custodial Wallet"
+aliases: ["non custodial wallet", "non-custodial wallets", "non custodial wallets"]
 slug: "non-custodial-wallet"
 category: "Keys & Wallets"
 shortDefinition: "A non-custodial wallet is a wallet where the user retains sole control over the private keys. Unlike a custodial wallet, it does not depend on a third..."

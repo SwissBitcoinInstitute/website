@@ -1,5 +1,6 @@
 ---
 term: "Invoice"
+aliases: ["invoices"]
 slug: "invoice"
 category: "General"
 shortDefinition: "An invoice is a payment request specifying the amount, recipient, and additional details of a transaction. In the Lightning Network, invoices are a co..."

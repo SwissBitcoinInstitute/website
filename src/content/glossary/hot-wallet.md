@@ -1,5 +1,6 @@
 ---
 term: "Hot Wallet"
+aliases: ["hot wallets", "hot-wallet", "hot-wallets"]
 slug: "hot-wallet"
 category: "Keys & Wallets"
 shortDefinition: "A hot wallet is a wallet connected to the internet, enabling quick access to funds for spending. Examples include mobile apps, browser wallets, and ex..."

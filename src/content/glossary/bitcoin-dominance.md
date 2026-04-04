@@ -1,5 +1,6 @@
 ---
 term: "Bitcoin Dominance"
+aliases: ["bitcoin-dominance"]
 slug: "bitcoin-dominance"
 category: "General"
 shortDefinition: "Bitcoin dominance is the percentage of Bitcoin’s market capitalization relative to that of all cryptocurrencies combined. It is often cited as a measu..."

@@ -1,5 +1,6 @@
 ---
 term: "On-Chain"
+aliases: ["on chain", "onchain"]
 slug: "on-chain"
 category: "General"
 shortDefinition: "On-chain refers to actions recorded directly in the Bitcoin blockchain. On-chain transactions consume block space, incur fees, and gain security from ..."

@@ -1,5 +1,6 @@
 ---
 term: "Atomic Swap"
+aliases: ["atomic swaps", "atomic-swap", "atomic-swaps"]
 slug: "atomic-swap"
 category: "General"
 shortDefinition: "An atomic swap is a protocol that enables two parties to exchange assets across different blockchains without a trusted intermediary. It relies on has..."

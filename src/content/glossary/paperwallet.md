@@ -1,5 +1,6 @@
 ---
 term: "Paperwallet"
+aliases: ["paperwallets"]
 slug: "paperwallet"
 category: "General"
 shortDefinition: "A paper wallet is a form of cold storage where private keys or mnemonics are printed on paper. While secure against online attacks, paper wallets risk..."

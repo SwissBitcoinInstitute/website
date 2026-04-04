@@ -1,5 +1,6 @@
 ---
 term: "Base Layer"
+aliases: ["base layers", "base-layer", "base-layers"]
 slug: "base-layer"
 category: "Second Layer"
 shortDefinition: "The base layer refers to the main Bitcoin blockchain, where transactions are settled and secured by Proof-of-Work. Higher-layer protocols such as the ..."

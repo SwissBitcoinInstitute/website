@@ -1,5 +1,6 @@
 ---
 term: "Sound Money"
+aliases: ["sound moneys", "sound-money"]
 slug: "sound-money"
 category: "Monetary Theory"
 shortDefinition: "Sound money is a form of currency that is reliably scarce, durable, and resistant to arbitrary inflation, maintaining its value over time. The term or..."

@@ -1,5 +1,6 @@
 ---
 term: "Block Size"
+aliases: ["block sizes", "block-size", "blocksize", "blocksizes", "block-sizes"]
 slug: "block-size"
 category: "Protocol & Technology"
 shortDefinition: "Block size refers to the maximum data capacity of a block. In Bitcoin, blocks are measured in weight units, with a maximum size of 4 million weight un..."

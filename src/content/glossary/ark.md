@@ -1,5 +1,6 @@
 ---
 term: "Ark"
+aliases: ["ark protocol"]
 slug: "ark"
 category: "Second Layer"
 shortDefinition: "The Ark protocol is a proposed second-layer solution for Bitcoin designed to enable scalable off-chain payments. It uses intermediaries called Ark Ser..."

@@ -1,5 +1,6 @@
 ---
 term: "Checksum"
+aliases: ["checksums"]
 slug: "checksum"
 category: "General"
 shortDefinition: "A checksum is a short sequence of bits added to data to detect errors or alterations. It is derived from the original data using a cryptographic hash ..."

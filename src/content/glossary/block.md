@@ -1,5 +1,6 @@
 ---
 term: "Block"
+aliases: ["blocks"]
 slug: "block"
 category: "Protocol & Technology"
 shortDefinition: "A block is a data structure in the Bitcoin blockchain containing a set of validated transactions, a reference to the previous block’s hash, and a nonc..."

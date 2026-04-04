@@ -1,5 +1,6 @@
 ---
 term: "Petrodollar"
+aliases: ["petrodollars"]
 slug: "petrodollar"
 category: "General"
 shortDefinition: "The petrodollar refers to the global system in which international oil sales are predominantly denominated and settled in U.S. dollars. This arrangeme..."

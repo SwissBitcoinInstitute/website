@@ -1,5 +1,6 @@
 ---
 term: "Zero Confirmation"
+aliases: ["zero confirmations", "zero-confirmation"]
 slug: "zero-confirmation"
 category: "General"
 shortDefinition: "A zero-confirmation transaction is one that has been broadcast to the network but not yet included in a block. While visible in the mempool, it remain..."

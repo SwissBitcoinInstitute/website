@@ -1,5 +1,6 @@
 ---
 term: "Open Source"
+aliases: ["open-source"]
 slug: "open-source"
 category: "General"
 shortDefinition: "Open source refers to software whose source code is publicly available for use, modification, and distribution. Bitcoin Core, the reference client, is..."

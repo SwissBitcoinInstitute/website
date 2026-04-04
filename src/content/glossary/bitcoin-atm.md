@@ -1,5 +1,6 @@
 ---
 term: "Bitcoin ATM"
+aliases: ["bitcoin atms", "bitcoin-atm", "bitcoin-atms"]
 slug: "bitcoin-atm"
 category: "General"
 shortDefinition: "A Bitcoin ATM is a physical kiosk that allows users to buy or sell Bitcoin using cash or electronic payments. Depending on the machine, users can depo..."

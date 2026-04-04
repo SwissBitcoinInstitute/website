@@ -1,5 +1,6 @@
 ---
 term: "Hardware Wallet"
+aliases: ["hardware wallets", "hardware-wallet", "hardware-wallets"]
 slug: "hardware-wallet"
 category: "Keys & Wallets"
 shortDefinition: "A hardware wallet is a dedicated device for storing private keys securely. It isolates signing operations from potentially compromised computers, redu..."

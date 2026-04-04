@@ -1,5 +1,6 @@
 ---
 term: "Mining Pool"
+aliases: ["mining pools", "mining-pool", "mining-pools"]
 slug: "mining-pool"
 category: "Mining & Consensus"
 shortDefinition: "A mining pool is a group of miners who combine their hashrate to reduce variance in rewards. The pool operator distributes block rewards proportionall..."

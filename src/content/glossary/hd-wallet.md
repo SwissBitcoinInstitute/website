@@ -1,5 +1,6 @@
 ---
 term: "HD-Wallet"
+aliases: ["hd wallet", "hd-wallets", "hd wallets"]
 slug: "hd-wallet"
 category: "Keys & Wallets"
 shortDefinition: "An HD-wallet (hierarchical deterministic wallet) is a type of Bitcoin wallet that derives all private keys, public keys, and addresses from a single m..."

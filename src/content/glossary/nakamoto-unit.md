@@ -1,5 +1,6 @@
 ---
 term: "Nakamoto (unit)"
+aliases: ["nakamoto"]
 slug: "nakamoto-unit"
 category: "General"
 shortDefinition: "A Nakamoto is sometimes proposed as a denomination equal to 1 million bitcoin. While not a standard unit in the protocol, it reflects homage to Satosh..."

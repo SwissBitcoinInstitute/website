@@ -1,5 +1,6 @@
 ---
 term: "OP_RETURN"
+aliases: ["op_returns"]
 slug: "op_return"
 category: "General"
 shortDefinition: "OP_RETURN is a Bitcoin script opcode that allows small amounts of arbitrary data to be embedded in a transaction. Outputs using OP_RETURN are provably..."

@@ -1,5 +1,6 @@
 ---
 term: "Blocksize War"
+aliases: ["blocksize wars", "blocksize-war"]
 slug: "blocksize-war"
 category: "Protocol & Technology"
 shortDefinition: "The Blocksize War refers to the prolonged debate and conflict within the Bitcoin community, roughly between 2015 and 2017, over how to scale the Bitco..."

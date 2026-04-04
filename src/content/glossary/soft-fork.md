@@ -1,5 +1,6 @@
 ---
 term: "Soft Fork"
+aliases: ["soft forks", "soft-fork"]
 slug: "soft-fork"
 category: "General"
 shortDefinition: "A soft fork is a backward-compatible protocol change in Bitcoin. Nodes that do not upgrade still recognize blocks as valid, though upgraded nodes enfo..."

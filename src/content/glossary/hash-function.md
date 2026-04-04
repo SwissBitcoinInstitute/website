@@ -1,7 +1,7 @@
 ---
 term: "Hash Function"
 slug: "hash-function"
-aliases: ["hash function", "hash-function", "hashfunction"]
+aliases: ["hash functions", "hash-function", "hashfunction"]
 category: "Mining & Consensus"
 shortDefinition: "A hash function is a one-way mathematical function that produces a fixed-size output from arbitrary input data. Its key properties are that different ..."
 relatedArticle: ""

@@ -1,5 +1,6 @@
 ---
 term: "Financialization"
+aliases: ["financializations"]
 slug: "financialization"
 category: "General"
 shortDefinition: "Financialization is the process by which financial markets, instruments, and motives gain increasing influence over economic activity. The term is som..."

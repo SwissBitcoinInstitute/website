@@ -1,5 +1,6 @@
 ---
 term: "Mixer"
+aliases: ["mixers"]
 slug: "mixer"
 category: "General"
 shortDefinition: "A mixer, also known as a tumbler, is a service that mixes cryptocurrency from multiple users to obscure the origin and destination of funds. By breaki..."
