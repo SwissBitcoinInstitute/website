@@ -1,5 +1,6 @@
 ---
 term: "Austrian School of Economics"
+aliases: ["austrian-school-of-economics"]
 slug: "austrian-school-of-economics"
 category: "General"
 shortDefinition: "The Austrian School of Economics is a school of thought emphasizing individual decision-making, sound money, and skepticism toward central planning. I..."

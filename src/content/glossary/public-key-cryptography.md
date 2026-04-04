@@ -1,5 +1,6 @@
 ---
 term: "Public Key Cryptography"
+aliases: ["public-key-cryptography"]
 slug: "public-key-cryptography"
 category: "Keys & Wallets"
 shortDefinition: "Public key cryptography is a cryptographic system using key pairs consisting of a private key and a public key. In Bitcoin, it enables digital signatu..."

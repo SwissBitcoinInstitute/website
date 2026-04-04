@@ -1,5 +1,6 @@
 ---
-term: "Bitcoin Satoshi Vision (Bitcoin SV)"
+term: "Bitcoin Satoshi Vision"
+aliases: ["bitcoin sv", "bitcoin-satoshi-vision", "bitcoin-sv"]
 slug: "bitcoin-satoshi-vision-bitcoin-sv"
 category: "General"
 shortDefinition: "Bitcoin Satoshi Vision (Bitcoin SV) is a cryptocurrency that split from Bitcoin Cash in 2018 via a hard fork. It aims to implement what it claims is S..."

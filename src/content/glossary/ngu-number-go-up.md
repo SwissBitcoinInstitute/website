@@ -1,5 +1,6 @@
 ---
-term: "NGU – Number Go Up"
+term: "Number Go Up"
+aliases: ["ngu", "number-go-up"]
 slug: "ngu-number-go-up"
 category: "General"
 shortDefinition: "NGU is a meme shorthand for the expectation that the price of bitcoin will continually increase over time, which by itself attract new market particip..."

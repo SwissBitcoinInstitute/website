@@ -1,5 +1,6 @@
 ---
 term: "Oracle Problem"
+aliases: ["oracle-problem"]
 slug: "oracle-problem"
 category: "General"
 shortDefinition: "The oracle problem refers to the challenge of importing trustworthy external data into a trust-minimized system. Oracles introduce points of centraliz..."

@@ -1,5 +1,6 @@
 ---
-term: "P2P (Peer-to-Peer)"
+term: "Peer-to-Peer"
+aliases: ["p2p", "peer to peer"]
 slug: "p2p-peer-to-peer"
 category: "General"
 shortDefinition: "Peer-to-peer describes the network architecture in which nodes directly connect and share data without central intermediaries. Bitcoin’s P2P network p..."

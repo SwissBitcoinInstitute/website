@@ -1,5 +1,6 @@
 ---
 term: "Debt-deflation dynamic"
+aliases: ["debt deflation dynamic", "debt-deflation dynamics", "debt-deflation-dynamic", "debt deflation dynamics", "debt-deflation-dynamics"]
 slug: "debt-deflation-dynamic"
 category: "General"
 shortDefinition: "The debt-deflation dynamic describes a self-reinforcing cycle in which falling prices increase the real burden of outstanding debt. As prices and nomi..."

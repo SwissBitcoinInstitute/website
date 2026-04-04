@@ -1,5 +1,6 @@
 ---
 term: "Timestamp"
+aliases: ["timestamps"]
 slug: "timestamp"
 category: "General"
 shortDefinition: "A timestamp in Bitcoin records the approximate time of block creation. Each block header contains a timestamp field, which miners set within certain b..."

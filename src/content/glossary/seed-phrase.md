@@ -1,5 +1,6 @@
 ---
-term: "Seed  Phrase"
+term: "Seed Phrase"
+aliases: ["seed phrases", "seed-phrase", "seed"]
 slug: "seed-phrase"
 category: "General"
 shortDefinition: "A seed phrase (or mnemonic phrase) is a human-readable set of words that encodes the master seed of an HD wallet. It allows the deterministic generati..."

@@ -1,5 +1,6 @@
 ---
-term: "Simplified Payment Verification (SPV)"
+term: "Simplified Payment Verification"
+aliases: ["simplified payment verifications", "simplified-payment-verification", "spv", "spvs"]
 slug: "simplified-payment-verification-spv"
 category: "General"
 shortDefinition: "Simplified Payment Verification (SPV) is a method allowing light nodes to verify transactions without downloading the full blockchain. By checking blo..."

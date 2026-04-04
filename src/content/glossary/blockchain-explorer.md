@@ -1,5 +1,6 @@
 ---
 term: "Blockchain Explorer"
+aliases: ["blockchain explorers", "blockchain-explorer", "blockchainexplorer", "blockchainexplorers", "blockchain-explorers"]
 slug: "blockchain-explorer"
 category: "Protocol & Technology"
 shortDefinition: "A blockchain explorer is a tool for inspecting the contents of the blockchain. It allows users to search for blocks, transactions, and addresses, and ..."

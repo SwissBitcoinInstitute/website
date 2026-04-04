@@ -1,5 +1,6 @@
 ---
 term: "Cypherpunk"
+aliases: ["cypherpunks"]
 slug: "cypherpunk"
 category: "General"
 shortDefinition: "A cypherpunk is a member of a movement advocating the use of strong cryptography and privacy-enhancing technologies as tools for social and political ..."

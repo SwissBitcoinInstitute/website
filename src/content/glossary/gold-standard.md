@@ -1,5 +1,6 @@
 ---
 term: "Gold Standard"
+aliases: ["gold-standard"]
 slug: "gold-standard"
 category: "Monetary Theory"
 shortDefinition: "The gold standard is a monetary system in which a country’s currency is directly linked to a fixed quantity of gold. Under this system, paper money co..."

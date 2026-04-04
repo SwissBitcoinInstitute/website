@@ -1,5 +1,6 @@
 ---
 term: "Transaction Fee"
+aliases: ["transaction fees", "transaction-fee"]
 slug: "transaction-fee"
 category: "Protocol & Technology"
 shortDefinition: "A transaction fee is the difference between the sum of inputs and outputs in a Bitcoin transaction and get paid to the miner of the block. Fees incent..."

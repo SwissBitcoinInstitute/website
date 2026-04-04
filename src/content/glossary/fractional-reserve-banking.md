@@ -1,5 +1,6 @@
 ---
 term: "Fractional Reserve Banking"
+aliases: ["fractional-reserve-banking"]
 slug: "fractional-reserve-banking"
 category: "General"
 shortDefinition: "Fractional reserve banking is a banking system in which banks keep only a fraction of customer deposits as reserves and lend out the remainder. This p..."

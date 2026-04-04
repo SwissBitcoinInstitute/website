@@ -1,7 +1,7 @@
 ---
-term: "Proof of Work (POW)"
+term: "Proof of Work"
 slug: "proof-of-work-pow"
-aliases: ["Proof-of-Work", "Proof of Work", "POW", "p o w"]
+aliases: ["p o w", "pow", "proof of work", "proof-of-work"]
 category: "Mining & Consensus"
 shortDefinition: "Proof-of-Work is Bitcoin’s consensus mechanism requiring miners to find block hashes below the current difficulty target. This secures the blockchain ..."
 relatedArticle: "002"

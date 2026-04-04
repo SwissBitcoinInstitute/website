@@ -1,5 +1,6 @@
 ---
 term: "Sidechain"
+aliases: ["sidechains"]
 slug: "sidechain"
 category: "General"
 shortDefinition: "A sidechain is a separate blockchain that can interact with a main blockchain, allowing assets to be transferred between the two while operating under..."

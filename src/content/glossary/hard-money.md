@@ -1,5 +1,6 @@
 ---
 term: "Hard Money"
+aliases: ["hard moneys", "hard-money"]
 slug: "hard-money"
 category: "Monetary Theory"
 shortDefinition: "Hard money is money that resists supply expansion, often requiring significant cost to produce. Gold is historically considered hard money due to its ..."

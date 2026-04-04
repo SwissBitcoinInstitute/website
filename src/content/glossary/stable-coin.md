@@ -1,5 +1,6 @@
 ---
 term: "Stable Coin"
+aliases: ["stable coins", "stable-coin"]
 slug: "stable-coin"
 category: "General"
 shortDefinition: "A stablecoin is a cryptocurrency designed to maintain price stability, typically by pegging to a fiat currency like the US dollar. Unlike Bitcoin, sta..."

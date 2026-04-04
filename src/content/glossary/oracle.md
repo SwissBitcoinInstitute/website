@@ -1,5 +1,6 @@
 ---
 term: "Oracle"
+aliases: ["oracles"]
 slug: "oracle"
 category: "General"
 shortDefinition: "An oracle is an external data source that provides real-world information to a blockchain-based system. Oracles introduce an additional form of trust ..."

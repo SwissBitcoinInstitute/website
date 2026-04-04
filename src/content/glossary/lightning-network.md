@@ -1,5 +1,6 @@
 ---
 term: "Lightning Network"
+aliases: ["lightning", "lightning-network"]
 slug: "lightning-network"
 category: "Second Layer"
 shortDefinition: "The Lightning Network is a second-layer payment protocol built on top of Bitcoin. It enables near-instant, low-cost off-chain transactions by using bi..."

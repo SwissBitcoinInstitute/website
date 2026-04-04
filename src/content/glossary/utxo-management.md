@@ -1,5 +1,6 @@
 ---
 term: "UTXO Management"
+aliases: ["utxo managements", "utxo-management"]
 slug: "utxo-management"
 category: "Protocol & Technology"
 shortDefinition: "UTXO management refers to the strategy and handling of multiple unspent transaction outputs within a wallet. Efficient UTXO management reduces transac..."

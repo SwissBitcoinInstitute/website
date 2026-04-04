@@ -1,5 +1,6 @@
 ---
-term: "AML – Anti-Money Laundering"
+term: "Anti-Money Laundering"
+aliases: ["aml", "anti money laundering", "anti-money launderings", "amls", "anti-money-laundering"]
 slug: "aml-anti-money-laundering"
 category: "Monetary Theory"
 shortDefinition: "Anti-Money Laundering (AML) refers to a set of laws, regulations, and procedures designed to prevent criminals from disguising illegally obtained fund..."

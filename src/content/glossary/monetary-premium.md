@@ -1,5 +1,6 @@
 ---
 term: "Monetary premium"
+aliases: ["monetary premiums", "monetary-premium"]
 slug: "monetary-premium"
 category: "General"
 shortDefinition: "A monetary premium is the portion of an asset’s market value that exceeds its utility or intrinsic use-value, reflecting its role as money. Gold histo..."

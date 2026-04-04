@@ -1,5 +1,6 @@
 ---
 term: "Mnemonic"
+aliases: ["mnemonics"]
 slug: "mnemonic"
 category: "General"
 shortDefinition: "A mnemonic phrase (or seed phrase) is a human-readable set of words that encodes the master seed of an HD wallet. It allows the deterministic generati..."

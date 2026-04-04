@@ -1,7 +1,7 @@
 ---
 term: "51 percent attack"
 slug: "51-percent-attack"
-aliases: ["51 percent", "51%", "51-percent", "majority attack"]
+aliases: ["51 percent attacks", "51% attack", "51%-attack", "51-percent attack", "51-percent-attack"]
 category: "General"
 shortDefinition: "A 51 percent attack occurs when a single entity controls more than half of the network’s total hash rate. This allows the attacker to create a competi..."
 relatedArticle: ""

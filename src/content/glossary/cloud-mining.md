@@ -1,5 +1,6 @@
 ---
 term: "Cloud Mining"
+aliases: ["cloud-mining", "cloudmining"]
 slug: "cloud-mining"
 category: "Mining & Consensus"
 shortDefinition: "Cloud mining is the practice of renting hashrate from a remote data center to participate in mining. Users pay a fee to access external hardware rathe..."

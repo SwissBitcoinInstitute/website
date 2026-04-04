@@ -1,5 +1,6 @@
 ---
 term: "Nonce"
+aliases: ["nonces"]
 slug: "nonce"
 category: "General"
 shortDefinition: "A nonce is a 32-bit field in the block header that miners vary when performing Proof-of-Work. By changing the nonce, miners attempt to find a valid ha..."

@@ -1,5 +1,6 @@
 ---
 term: "Off-Chain"
+aliases: ["off chain", "offchain"]
 slug: "off-chain"
 category: "General"
 shortDefinition: "Off-chain refers to actions or transactions that occur outside the Bitcoin blockchain. Examples include bilateral agreements, Lightning Network transa..."

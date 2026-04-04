@@ -1,5 +1,6 @@
 ---
 term: "Precoiner"
+aliases: ["precoiners"]
 slug: "precoiner"
 category: "General"
 shortDefinition: "A precoiner is slang for someone who does not yet own bitcoin but is not necessarily hostile toward it. The term is often used optimistically to descr..."

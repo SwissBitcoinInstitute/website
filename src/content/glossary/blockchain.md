@@ -1,5 +1,6 @@
 ---
 term: "Blockchain"
+aliases: ["blockchains"]
 slug: "blockchain"
 category: "Protocol & Technology"
 shortDefinition: "A blockchain is a sequential chain of  blocks, which are cryptographically linked by blocks hashes. It serves as a public, append-only ledger of all t..."

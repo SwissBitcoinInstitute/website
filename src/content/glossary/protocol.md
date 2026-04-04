@@ -1,5 +1,6 @@
 ---
 term: "Protocol"
+aliases: ["protocols"]
 slug: "protocol"
 category: "General"
 shortDefinition: "A protocol is the set of formal rules governing communication and behavior in a network. In Bitcoin, the protocol defines transaction formats, block v..."

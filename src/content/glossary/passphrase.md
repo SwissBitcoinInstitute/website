@@ -1,5 +1,6 @@
 ---
 term: "Passphrase"
+aliases: ["passphrases"]
 slug: "passphrase"
 category: "General"
 shortDefinition: "A passphrase is an optional, user-chosen secret that is combined with a wallet’s recovery seed to derive a completely separate set of keys and address..."

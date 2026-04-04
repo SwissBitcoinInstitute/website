@@ -1,5 +1,6 @@
 ---
 term: "Bit Gold"
+aliases: ["bit-gold"]
 slug: "bit-gold"
 category: "Monetary Theory"
 shortDefinition: "Bit gold was a digital currency design proposed by Nick Szabo in 1998. It outlined a system combining reusable Proof-of-Work and distributed timestamp..."

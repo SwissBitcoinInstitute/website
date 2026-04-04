@@ -1,5 +1,6 @@
 ---
 term: "Light Node"
+aliases: ["light nodes", "light-node", "light-nodes"]
 slug: "light-node"
 category: "Protocol & Technology"
 shortDefinition: "A light node is a Bitcoin node that does not store the full blockchain but instead relies on Simplified Payment Verification (SPV). It downloads block..."

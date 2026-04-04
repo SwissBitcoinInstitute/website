@@ -1,5 +1,6 @@
 ---
 term: "Second Layer"
+aliases: ["second layers", "second-layer"]
 slug: "second-layer"
 category: "Second Layer"
 shortDefinition: "A second layer is a protocol built on top of the Bitcoin blockchain to enhance scalability or functionality. Examples include the Lightning Network an..."

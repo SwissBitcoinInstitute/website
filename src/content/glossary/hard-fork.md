@@ -1,5 +1,6 @@
 ---
 term: "Hard Fork"
+aliases: ["hard forks", "hard-fork", "hard-forks"]
 slug: "hard-fork"
 category: "General"
 shortDefinition: "A hard fork is a consensus rule change that is not backward-compatible. Nodes that do not upgrade reject blocks produced under new rules, causing a ch..."

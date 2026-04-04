@@ -1,5 +1,6 @@
 ---
 term: "Solo Mining"
+aliases: ["solo miner", "solo-mining"]
 slug: "solo-mining"
 category: "Mining & Consensus"
 shortDefinition: "Solo mining is the practice of an individual miner attempting to find valid blocks independently, rather than joining a mining pool. While feasible in..."

@@ -1,5 +1,6 @@
 ---
 term: "Fiscal dominance"
+aliases: ["fiscal-dominance"]
 slug: "fiscal-dominance"
 category: "Monetary Theory"
 shortDefinition: "Fiscal dominance describes a situation in which government debt levels and budgetary needs constrain central bank policy. Under fiscal dominance, mone..."

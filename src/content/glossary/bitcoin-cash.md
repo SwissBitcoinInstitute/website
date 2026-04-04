@@ -1,5 +1,6 @@
 ---
 term: "Bitcoin Cash"
+aliases: ["bitcoin-cash"]
 slug: "bitcoin-cash"
 category: "General"
 shortDefinition: "Bitcoin Cash is a cryptocurrency that originated from a hard fork of Bitcoin in August 2017. The fork was driven by disagreements within the Bitcoin c..."

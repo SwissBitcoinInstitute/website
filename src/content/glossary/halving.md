@@ -1,5 +1,6 @@
 ---
 term: "Halving"
+aliases: ["halvings"]
 slug: "halving"
 category: "General"
 shortDefinition: "A halving is the scheduled reduction of the block subsidy by 50% every 210,000 blocks, which corresponds to approximately every four years. The halvin..."

@@ -1,5 +1,6 @@
 ---
 term: "Keynesian Economics"
+aliases: ["keynesian-economics"]
 slug: "keynesian-economics"
 category: "Keys & Wallets"
 shortDefinition: "Keynesian economics is a school of thought advocating active government intervention in the economy, particularly through fiscal and monetary policy. ..."

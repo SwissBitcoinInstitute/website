@@ -1,5 +1,6 @@
 ---
-term: "KYC – Know Your Customer"
+term: "Know Your Customer"
+aliases: ["kyc", "know your customers", "know-your-customer", "kycs"]
 slug: "kyc-know-your-customer"
 category: "General"
 shortDefinition: "KYC refers to regulatory procedures requiring financial institutions and exchanges to verify the identity of their clients. Common steps include colle..."
