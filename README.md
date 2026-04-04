@@ -70,7 +70,7 @@ Text in this section will NOT have any glossary terms linked.
 ```
 Also inline disable is possible:
 
-#Example
+# Example
 ```
 ... as rivers are poisoned by gold <!-- no-glossary -->mining<!-- end-no-glossary -->.
 ```
