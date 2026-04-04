@@ -43,7 +43,7 @@ When you run `npm run new:article`, the following is handled:
 1. Create the article via the npm command.
 2. Add your markdown content and images.
 3. Preview locally by running `npm run dev` at [localhost:3000](http://localhost:3000).
-4. **Glossary Audit**: Manually check the rendered article for any glossary links that should be excluded (e.g., terms used in a non-Bitcoin context). Use `<!-- no-glossary -->` tags or update `ARTICLE_GLOSSARY_EXCLUSIONS` as needed (see Glossary Management).
+4. **Glossary Audit**: Manually check the rendered article for any glossary links that should be excluded (e.g., terms used in a non-Bitcoin context). Use `<!-- no-glossary -->` and `<!-- end-no-glossary -->` tags or update `ARTICLE_GLOSSARY_EXCLUSIONS` as needed (see Glossary Management).
 5. Set `published: true` in the frontmatter once finalized.
 6. Push your changes to the `main` branch to trigger the production deployment.
 
@@ -69,9 +69,10 @@ Text in this section will NOT have any glossary terms linked.
 <!-- end-no-glossary -->
 ```
 Also inline disable is possible:
+
 #Example
 ```
-The Gold Coast of Ghana faces the need to import drinking water, as rivers are poisoned by gold <!-- no-glossary -->mining<!-- end-no-glossary -->.
+... as rivers are poisoned by gold <!-- no-glossary -->mining<!-- end-no-glossary -->.
 ```
 
 **2. Automatic Code Block Skipping**  
