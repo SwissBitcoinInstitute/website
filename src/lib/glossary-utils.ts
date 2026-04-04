@@ -45,9 +45,21 @@ export function processGlossaryContent(
     const replacements: Array<{ tokenId: string; match: string; slug: string; shortDefinition: string }> = [];
     let tokenCounter = 0;
 
+    let skipProcessing = false;
     const processedLines = lines.map(line => {
+        const trimmedLine = line.trim();
+
         // Skip processing for headings (lines starting with #)
-        if (line.trim().startsWith('#')) {
+        if (trimmedLine.startsWith('#')) {
+            // Check if this is the "References" section to stop further linking
+            if (trimmedLine.toLowerCase().includes('references')) {
+                skipProcessing = true;
+            }
+            return line;
+        }
+
+        // If we are in an ignored section (like References), don't process
+        if (skipProcessing) {
             return line;
         }
 
