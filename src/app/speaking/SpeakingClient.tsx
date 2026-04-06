@@ -57,7 +57,7 @@ export default function StrategicSpeaking() {
                       Podcast
                     </span>
                     <h3 className="text-2xl font-semibold mb-4 text-gray-900">
-                      Aufgedeckt: Was nur Insider über Bitcoin wissen!
+                      Gespräch über Bitcoin bei Klartext Finanzen
                     </h3>
                     <p className="swiss-prose text-gray-700 leading-relaxed mb-6">
                       In diesem ausführlichen Gespräch spricht Dr. Marcus Dapp mit Dani Stüssi über die wichtigsten Fragen rund um Bitcoin. Ohne Hype und Verkaufsargumente wird ein oft missverstandenes Thema nüchtern eingeordnet. Das Gespräch richtet sich bewusst an Menschen, die Bitcoin bisher kritisch sehen, und behandelt Themen von Geldwäsche über Energieverbrauch bis hin zu Bitcoin als Wertspeicher.
