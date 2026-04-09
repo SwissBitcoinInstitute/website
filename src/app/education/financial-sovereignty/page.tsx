@@ -117,12 +117,6 @@ export default function FinancialSovereigntyPage() {
       <section className="swiss-section-sm bg-gray-50">
         <div className="swiss-grid">
           <div className="max-w-5xl mx-auto">
-            <div className="flex justify-center mb-10">
-              <div className="inline-block px-6 py-4 border-2 border-gray-200 rounded-xl bg-gray-50 text-center">
-                <div className="text-3xl font-bold text-gray-900 mb-1">CHF 749.-</div>
-                <div className="text-sm text-gray-600 font-medium">(CHF 50 in BTC incl.)</div>
-              </div>
-            </div>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Course Dates */}
               <div className="space-y-4 self-start">
@@ -156,6 +150,8 @@ export default function FinancialSovereigntyPage() {
                     }))}
                   />
                 </Card>
+                {/* Price */}
+                <div className="mt-4 text-sm text-gray-500">CHF 749.- <span className="text-gray-400">(CHF 50 in BTC incl.)</span></div>
               </div>
             </div>
 
