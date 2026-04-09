@@ -44,9 +44,9 @@ export default function ResQPackagePage() {
         <div className="absolute inset-0 bg-white/80"></div>
         <div className="swiss-grid relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            <h1 className="mb-6 text-gray-900">Bitcoin Research Quarterly</h1>
+            <h1 className="mb-6 text-gray-900">Bitcoin Research Quarterly ('ResQ')</h1>
             <p className="swiss-prose-lg mb-12 max-w-4xl mx-auto text-gray-700 leading-relaxed">
-
+              Charts are only half the story. To make decisions you need more flesh to the bone. Our curated, fundamental Bitcoin research delivers what no chart can: arguments, context and background.
             </p>
           </div>
         </div>
@@ -56,13 +56,6 @@ export default function ResQPackagePage() {
       <section className="swiss-section bg-gray-50">
         <div className="swiss-grid">
           <div className="max-w-4xl mx-auto">
-            {/* Price */}
-            <div className="text-center mb-8">
-              <div className="inline-block p-6 border-2 border-gray-200 rounded-lg bg-gray-50">
-                <div className="text-3xl font-bold text-gray-900 mb-1">Price on inquiry</div>
-              </div>
-            </div>
-
             {/* Signup Form */}
             <div className="lg:col-span-2">
               <Card className="p-8 border-2 border-gray-200 bg-white">
@@ -74,6 +67,8 @@ export default function ResQPackagePage() {
                   submitButtonText="Request Research Quarterly"
                 />
               </Card>
+              {/* Price */}
+              <div className="mt-4 text-sm text-gray-500">Price on inquiry</div>
             </div>
 
           </div>

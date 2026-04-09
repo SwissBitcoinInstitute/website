@@ -25,8 +25,24 @@ const Header = () => {
   }, [dropdownOpen]);
 
   const navigation = [
-    { name: 'Education', href: '/education' },
-    { name: 'Research', href: '/research' },
+    {
+      name: 'Education',
+      href: '/education',
+      dropdown: [
+        { name: 'Private Bitcoin Briefing', href: '/education/private-bitcoin-briefing' },
+        { name: 'Bitcoin Executive Masterclass', href: '/education/bitcoin-for-executives' },
+        { name: 'Financial Sovereignty', href: '/education/financial-sovereignty' },
+      ]
+    },
+    {
+      name: 'Research',
+      href: '/research',
+      dropdown: [
+        { name: 'Bitcoin Intelligence Briefs', href: '/research/intelligence-briefs' },
+        { name: 'Bitcoin Research Quarterly', href: '/research/resq-package' },
+        { name: 'Research Domains', href: '/domains' },
+      ]
+    },
     { name: 'Speaking', href: '/speaking' },
     { name: 'Glossary', href: '/glossary' },
     {
