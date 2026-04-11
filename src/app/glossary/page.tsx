@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Search, X } from 'lucide-react'
+import CTAButton from '@/components/ui/cta-button'
 import { useState, useMemo, useEffect } from 'react'
 
 interface GlossaryTerm {
@@ -281,6 +282,24 @@ export default function GlossaryPage() {
                 Showing {filteredTerms.length} terms
               </div>
             )}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="swiss-section bg-gray-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 cta-section-bg"></div>
+        <div className="swiss-grid relative">
+          <div className="text-center max-w-4xl mx-auto">
+            <h2 className="mb-8 text-white">Eager to learn more about the Bitcoin ecosystem?</h2>
+            <p className="swiss-prose mb-12 text-gray-300 max-w-3xl mx-auto">
+              Explore our research on Bitcoin's ecosystem spanning accross 6 different domains.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
+              <CTAButton variant="primary" size="lg" href="/research" className="shadow-2xl">
+                View our Research
+              </CTAButton>
+            </div>
           </div>
         </div>
       </section>
