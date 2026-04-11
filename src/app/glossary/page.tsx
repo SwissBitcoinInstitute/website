@@ -81,7 +81,26 @@ export default function GlossaryPage() {
         normalizedLetter === selectedLetter
 
       return matchesSearch && matchesLetter
-    }).sort((a, b) => a.term.localeCompare(b.term))
+    }).sort((a, b) => {
+      if (searchQuery) {
+        const query = searchQuery.toLowerCase()
+
+        // 1. Exact match in title gets highest priority
+        const aExact = a.term.toLowerCase() === query
+        const bExact = b.term.toLowerCase() === query
+        if (aExact && !bExact) return -1
+        if (!aExact && bExact) return 1
+
+        // 2. Partial match in title or aliases gets second priority
+        const aInTitle = a.term.toLowerCase().includes(query) || (a.aliases && a.aliases.some(alias => alias.toLowerCase().includes(query)))
+        const bInTitle = b.term.toLowerCase().includes(query) || (b.aliases && b.aliases.some(alias => alias.toLowerCase().includes(query)))
+        if (aInTitle && !bInTitle) return -1
+        if (!aInTitle && bInTitle) return 1
+      }
+
+      // 3. Fallback to alphabetical sorting
+      return a.term.localeCompare(b.term)
+    })
   }, [terms, searchQuery, selectedLetter])
 
   const handleClearFilters = () => {
@@ -111,18 +130,18 @@ export default function GlossaryPage() {
       </section>
 
       {/* Filter & Search Section */}
-      <section className="bg-white border-b border-gray-200 sticky top-0 z-10 shadow-sm">
-        <div className="swiss-grid py-6">
+      <section className="bg-white/95 backdrop-blur-md border-b border-gray-200 sticky top-20 z-40 shadow-sm transition-all duration-300">
+        <div className="swiss-grid py-6 md:py-8">
           <div className="max-w-7xl mx-auto space-y-6">
 
             {/* Top Row: Search and Clear */}
-            <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-              <div className="relative w-full md:max-w-xl">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <div className="flex flex-col md:flex-row gap-4 items-center justify-center">
+              <div className="relative w-full max-w-3xl">
+                <Search className="absolute left-5 top-1/2 -translate-y-1/2 h-6 w-6 text-gray-400 group-focus-within:text-[#00abfb] transition-colors" />
                 <Input
                   type="text"
                   placeholder="Search glossary terms..."
-                  className="pl-10 h-12 text-base border-gray-300 focus:border-[#00abfb] focus:ring-[#00abfb] rounded-lg"
+                  className="pl-14 h-16 text-lg border-2 border-gray-200 focus:border-[#00abfb] focus:ring-[#00abfb] rounded-xl shadow-sm transition-shadow"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
@@ -132,9 +151,9 @@ export default function GlossaryPage() {
                 <Button
                   variant="outline"
                   onClick={handleClearFilters}
-                  className="shrink-0 text-swiss-red border-swiss-red/20 hover:bg-swiss-red/5 hover:text-swiss-red"
+                  className="shrink-0 h-16 px-6 text-base text-swiss-red border-swiss-red/20 hover:bg-swiss-red/5 hover:text-swiss-red rounded-xl"
                 >
-                  <X className="w-4 h-4 mr-2" />
+                  <X className="w-5 h-5 mr-2" />
                   Clear Filters
                 </Button>
               )}
@@ -147,8 +166,8 @@ export default function GlossaryPage() {
                 <button
                   onClick={() => setSelectedLetter('all')}
                   className={`w-8 h-8 flex items-center justify-center rounded text-sm font-medium transition-colors ${selectedLetter === 'all'
-                      ? 'swiss-blue-gradient-text bg-swiss-blue/10'
-                      : 'text-gray-400 hover:text-gray-900'
+                    ? 'swiss-blue-gradient-text bg-swiss-blue/10'
+                    : 'text-gray-400 hover:text-gray-900'
                     }`}
                 >
                   All
@@ -161,10 +180,10 @@ export default function GlossaryPage() {
                       onClick={() => isAvailable && setSelectedLetter(letter)}
                       disabled={!isAvailable}
                       className={`w-8 h-8 flex items-center justify-center rounded text-sm font-medium transition-colors ${selectedLetter === letter
-                          ? 'swiss-blue-gradient-text bg-swiss-blue/10 font-bold'
-                          : isAvailable
-                            ? 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-                            : 'text-gray-300 cursor-default'
+                        ? 'swiss-blue-gradient-text bg-swiss-blue/10 font-bold'
+                        : isAvailable
+                          ? 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                          : 'text-gray-300 cursor-default'
                         }`}
                     >
                       {letter}
@@ -181,6 +200,28 @@ export default function GlossaryPage() {
       <section className="swiss-section py-12">
         <div className="swiss-grid">
           <div className="max-w-7xl mx-auto">
+
+            {/* Key Concepts */}
+            {!isLoading && terms.length > 0 && (
+              <div className="mb-10">
+                <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">Key Concepts</h3>
+                <div className="flex flex-wrap gap-3">
+                  {['Mining', 'Wallet', 'Blockchain', 'UTXO', 'Proof-of-Work', 'Halving', 'Lightning Network', 'Node'].map(term => (
+                    <button
+                      key={term}
+                      onClick={() => {
+                        setSearchQuery(term);
+                        setSelectedLetter('all');
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
+                      className="px-5 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700 hover:border-[#00abfb] hover:text-[#00abfb] shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-[#00abfb]/20"
+                    >
+                      {term}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {isLoading ? (
               <div className="text-center py-20">
@@ -207,27 +248,26 @@ export default function GlossaryPage() {
                   <Link
                     key={term.slug}
                     href={`/glossary/${term.slug}`}
-                    className="group block h-full"
+                    className="group block h-full flex flex-col"
                   >
-                    <article className="card-glossary card-gradient-hover h-full flex flex-col">
-                      <h2 className="text-xl font-bold text-gray-900 leading-tight mb-3 w-full">
+                    <article className="card-glossary card-gradient-hover h-full flex flex-col bg-white">
+                      <h2 className="text-xl font-bold text-gray-900 leading-tight my-auto w-full group-hover:text-primary-brand transition-colors">
                         {term.term}
                       </h2>
 
-                      {term.relatedArticle && (
-                        <div className="mb-3">
-                          <Badge variant="outline" className="text-xs">
-                            SBI-{term.relatedArticle.padStart(3, '0')}
-                          </Badge>
+                      {/* Expandable description on hover */}
+                      <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-in-out">
+                        <div className="overflow-hidden">
+                          <div className="pt-4 flex flex-col h-full">
+                            <p className="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-4">
+                              {term.shortDefinition}
+                            </p>
+
+                            <div className="link-research text-sm mt-auto inline-block">
+                              Read full definition →
+                            </div>
+                          </div>
                         </div>
-                      )}
-
-                      <p className="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-4 flex-grow">
-                        {term.shortDefinition}
-                      </p>
-
-                      <div className="link-research text-sm mt-auto">
-                        Read full definition →
                       </div>
                     </article>
                   </Link>

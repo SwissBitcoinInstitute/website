@@ -3,7 +3,7 @@ term: "Altcoin"
 aliases: ["altcoins"]
 slug: "altcoin"
 category: "General"
-shortDefinition: "An altcoin (alternative coin) is any cryptocurrency other than Bitcoin...."
+shortDefinition: "An altcoin (alternative coin) is any cryptocurrency other than Bitcoin."
 relatedArticle: ""
 published: true
 ---
