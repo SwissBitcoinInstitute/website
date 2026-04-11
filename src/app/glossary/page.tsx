@@ -213,7 +213,6 @@ export default function GlossaryPage() {
                       onClick={() => {
                         setSearchQuery(term);
                         setSelectedLetter('all');
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
                       }}
                       className="px-5 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700 hover:border-[#00abfb] hover:text-[#00abfb] shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-[#00abfb]/20"
                     >
