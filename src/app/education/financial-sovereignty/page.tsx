@@ -151,7 +151,10 @@ export default function FinancialSovereigntyPage() {
                   />
                 </Card>
                 {/* Price */}
-                <div className="mt-4 text-sm text-gray-500">CHF 749.- <span className="text-gray-400">(CHF 50 in BTC incl.)</span></div>
+                <Card className="mt-4 p-4 border-2 border-gray-200 bg-white">
+                  <span className="text-xl font-semibold text-gray-900">CHF 749.-</span>
+                  <span className="text-gray-400 text-sm ml-2">(CHF 50 in BTC incl.)</span>
+                </Card>
               </div>
             </div>
 
