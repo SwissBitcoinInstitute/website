@@ -68,7 +68,9 @@ export default function ResQPackagePage() {
                 />
               </Card>
               {/* Price */}
-              <div className="mt-4 text-sm text-gray-500">Price on inquiry</div>
+              <Card className="mt-4 p-4 border-2 border-gray-200 bg-white">
+                <span className="text-xl font-semibold text-gray-900">Price on inquiry</span>
+              </Card>
             </div>
 
           </div>
