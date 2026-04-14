@@ -52,6 +52,16 @@ export default function CoursesPage() {
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col">
               <CourseSection
+                title="Private Bitcoin Briefing"
+                description="Tailored Bitcoin strategy, delivered on your terms. All the strategic depth of the Bitcoin Executive Masterclass – customised to your organisation's industry, agenda, and schedule. Ideal for leadership teams, boards, and institutions that require a private, bespoke session with full flexibility on topics, format, and timing."
+                href="/education/private-bitcoin-briefing"
+                details={pbbDetails}
+                image="/offerings-images/Private-Bitcoin-Briefing-Bundesratszimmer.jpg"
+                imageCredit="Bundesratszimmer, 1989."
+                imageCreditUrl="https://ba.e-pics.ethz.ch/#detail-asset=97b7fe65-17bf-46d5-b047-9c86c7837675"
+              />
+
+              <CourseSection
                 title="Bitcoin Executive Masterclass"
                 description="For senior leaders across business, finance, government, and civil society who need strategic Bitcoin clarity. Gain a 360° impact overview, industry-specific implications, and macro insights linking Bitcoin to AI, geopolitics, and net-zero – through expert-led peer discussion in an exclusive small group setting."
                 href="/education/bitcoin-for-executives"
@@ -59,6 +69,7 @@ export default function CoursesPage() {
                 image="/offerings-images/Executive-Masterclass-Reading-Room-ETHZ.jpg"
                 imageCredit="Reading Room, Main Library ETH Zurich, 1955."
                 imageCreditUrl="http://doi.org/10.3932/ethz-a-000012906"
+                reverse
               />
 
               <CourseSection
@@ -70,17 +81,6 @@ export default function CoursesPage() {
                 imageCredit="Bankenotendruckerei, Orell Füssli AG, 1973."
                 imageCreditUrl="https://ba.e-pics.ethz.ch/#detail-asset=727651b2-1b9a-4a86-9d2c-3d308848f352"
                 imageCreditDark
-                reverse
-              />
-
-              <CourseSection
-                title="Private Bitcoin Briefing"
-                description="Tailored Bitcoin strategy, delivered on your terms. All the strategic depth of the Bitcoin Executive Masterclass – customised to your organisation's industry, agenda, and schedule. Ideal for leadership teams, boards, and institutions that require a private, bespoke session with full flexibility on topics, format, and timing."
-                href="/education/private-bitcoin-briefing"
-                details={pbbDetails}
-                image="/offerings-images/Private-Bitcoin-Briefing-Bundesratszimmer.jpg"
-                imageCredit="Bundesratszimmer, 1989."
-                imageCreditUrl="https://ba.e-pics.ethz.ch/#detail-asset=97b7fe65-17bf-46d5-b047-9c86c7837675"
               />
             </div>
           </div>

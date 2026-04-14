@@ -52,16 +52,6 @@ export default function ResearchPage() {
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col">
               <CourseSection
-                title="Bitcoin Research Quarterly"
-                description="For organisations and their clients who value concise, cross-domain fundamental Bitcoin research beyond the price chart. Original research, exclusive Fellow commentary, and news highlights are carefully curated using SBI's domain framework and distilled into a clear, forward-looking and actionable format."
-                href="/research/resq-package"
-                details={quarterlyDetails}
-                image="/offerings-images/Research-Magazin-ETH-Library.jpg"
-                imageCredit="Magazin, ETH Library, 1975."
-                imageCreditUrl="http://doi.org/10.3932/ethz-a-000015361"
-              />
-
-              <CourseSection
                 title="Bitcoin Intelligence Briefs"
                 description="For decision-makers who want substance over headlines, the SBI Fellows are writing dedicated Intelligence Briefs. Each Brief researches a specific Bitcoin issue in depth. Thus, each SBI domain receives expert analysis once a quarter. Currently available for free."
                 href="/research/intelligence-briefs"
@@ -69,6 +59,16 @@ export default function ResearchPage() {
                 image="/offerings-images/Intelligence-Briefs-Chemister-lab-ETHZ.jpg"
                 imageCredit="Chemistry Lab, ETH Zürich, 1954."
                 imageCreditUrl="http://doi.org/10.3932/ethz-a-000012924"
+              />
+
+              <CourseSection
+                title="Bitcoin Research Quarterly"
+                description="For organisations and their clients who value concise, cross-domain fundamental Bitcoin research beyond the price chart. Original research, exclusive Fellow commentary, and news highlights are carefully curated using SBI's domain framework and distilled into a clear, forward-looking and actionable format."
+                href="/research/resq-package"
+                details={quarterlyDetails}
+                image="/offerings-images/Research-Magazin-ETH-Library.jpg"
+                imageCredit="Magazin, ETH Library, 1975."
+                imageCreditUrl="http://doi.org/10.3932/ethz-a-000015361"
                 reverse
               />
             </div>
