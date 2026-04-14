@@ -214,7 +214,7 @@ export default function GlossaryPage() {
                         setSearchQuery(term);
                         setSelectedLetter('all');
                       }}
-                      className="px-5 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700 hover:border-[#00abfb] hover:text-[#00abfb] shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-[#00abfb]/20"
+                      className="px-5 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700 hover:border-swiss-blue-hover hover:text-swiss-blue-hover shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-swiss-blue-hover/20"
                     >
                       {term}
                     </button>
