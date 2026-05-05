@@ -3,6 +3,7 @@ import { Calendar, Clock, User } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArticleMeta, Author } from "@/lib/content";
+import CustomLink from "@/components/ui/custom-link";
 
 interface ArticleCardProps {
   article: ArticleMeta;
@@ -70,9 +71,9 @@ const ArticleCard = ({ article, author }: ArticleCardProps) => {
               </span>
             </div>
 
-            <div className="link-research text-xs sm:text-sm whitespace-nowrap">
-              Read Full Report →
-            </div>
+            <CustomLink as="div" size="sm" className="whitespace-nowrap">
+              Read Full Report
+            </CustomLink>
           </div>
         </div>
       </div>

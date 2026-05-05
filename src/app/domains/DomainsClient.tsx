@@ -1,6 +1,6 @@
 "use client";
 
-import Link from 'next/link';
+import CustomLink from '@/components/ui/custom-link';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import CTAButton from '@/components/ui/cta-button';
 
@@ -13,7 +13,6 @@ const Domains = () => {
       content: "Global trade, aid, and financial flows today rely on politicized, inflation-prone fiat currencies and fragmented payment systems. This creates currency wars, sanctions risk, and unequal access to the global economy, especially for poorer or unstable nations. Power concentrates in a few reserve-currency issuers, shaping geoeconomics and geopolitics as much as traditional diplomacy. Bitcoin raises new questions for international trade and aid: What happens when countries and companies can settle value in a neutral, borderless asset that no single state controls? How might a global, censorship-resistant settlement network change competition, sanctions, and capital controls? Could Bitcoin reduce reliance on dominant fiat currencies and rebalance geopolitical power?",
       bgColor: "bg-bitcoin-orange/10",
       accent: "bg-bitcoin-orange",
-      articleLink: "/research/SBI-003",
       anchorId: "markets-geopolitics"
     },
     {
@@ -23,7 +22,6 @@ const Domains = () => {
       content: "Today's financial system is built on credit expansion, inflationary money, and tight links between central banks, governments, and commercial banks. This model can erode savings, distort investment, and concentrate power. The rise of central bank digital currencies (CBDCs) increases efficiency but also enables greater surveillance and control over transactions. Bitcoin introduces a different economic logic: a fixed supply asset, rules without rulers, and a clear separation of money and state. What would deflationary or low-inflation economics mean for saving, lending, and investment? How might Bitcoin compete or coexist with CBDCs? Could a monetary standard secured by open networks provide greater trust than promises from central banks and governments?",
       bgColor: "bg-swiss-blue/10",
       accent: "bg-swiss-blue",
-      articleLink: "/research/SBI-004",
       anchorId: "finance-economics"
     },
     {
@@ -33,7 +31,6 @@ const Domains = () => {
       content: "Our digital economy largely runs on centralized platforms and intermediaries that control data, access, and payments. This centralization can limit innovation, weaken privacy, and create single points of failure and censorship. Bitcoin emerged as a peer-to-peer (p2p) payment network secured by decentralized mining and robust cryptography. New layers built on top of Bitcoin explore scalability, faster payments, and enhanced privacy while preserving security. How can open, permissionless infrastructure spur new waves of financial and technological innovation? What role will Bitcoin's layered architecture play in enabling secure, global micro-transactions, machine-to-machine payments, or new digital services that do not depend on trusted third parties?",
       bgColor: "bg-bitcoin-orange/10",
       accent: "bg-bitcoin-orange",
-      articleLink: "/research/SBI-002",
       anchorId: "technology-innovation"
     },
     {
@@ -43,7 +40,6 @@ const Domains = () => {
       content: "Modern energy systems are centralized and often inefficient, with stranded resources and weak incentives to integrate renewables. Climate change and carbon constraints increase pressure on grids, regulators, and investors to transform how energy is produced, priced, and consumed. Bitcoin mining links digital finance directly to physical energy. Miners seek the cheapest, most abundant energy, including stranded gas, hydro, wind, and solar. Can flexible, location-agnostic mining support grid stability and renewable build-out by monetizing excess capacity? How should we evaluate Bitcoin's climate impact compared to other financial and digital systems? Could Bitcoin help drive a more transparent, market-driven energy transition and more effective climate change mitigation?",
       bgColor: "bg-swiss-blue/10",
       accent: "bg-swiss-blue",
-      articleLink: "/research/SBI-006",
       anchorId: "energy-climate"
     },
     {
@@ -53,7 +49,6 @@ const Domains = () => {
       content: "Billions of people face limited or unstable access to financial services, suffer from currency debasement, or live under regimes that restrict the freedom to transact. Traditional banking and payment providers can exclude individuals, censor payments, or expose sensitive data, undermining financial inclusion, privacy, and basic human rights. Bitcoin enables anyone with a smartphone and internet connection to hold and transfer value without permission. What does global access to a neutral, open monetary network mean for personal and economic sovereignty? Can Bitcoin improve financial inclusion for the unbanked and underbanked, especially in fragile states or conflict zones? How might stronger privacy and censorship-resistance protect civil society, journalists, and activists while balancing legitimate concerns about misuse?",
       bgColor: "bg-bitcoin-orange/10",
       accent: "bg-bitcoin-orange",
-      articleLink: "/research/beyond-the-hype",
       anchorId: "access-agency"
     },
     {
@@ -63,7 +58,6 @@ const Domains = () => {
       content: "Governments and institutions face new strategic choices as digital money, CBDCs, and cryptocurrencies evolve. National competitiveness, strategic sovereignty, and regulatory approaches are increasingly shaped by how countries respond to open monetary networks like Bitcoin. Should nations treat Bitcoin as a threat, a complement, or a strategic asset? How might holding or integrating Bitcoin affect macroeconomic resilience, reserves management, and technological leadership? What forms of co-operation and regulation can preserve innovation while managing risks? Bitcoin forces policymakers and corporate leaders to rethink monetary strategy, legal frameworks, and international collaboration in a world where money can move at internet speed, without relying solely on traditional financial centers.",
       bgColor: "bg-swiss-blue/10",
       accent: "bg-swiss-blue",
-      articleLink: "/research/SBI-003",
       anchorId: "strategy-policy"
     }
   ];
@@ -122,18 +116,17 @@ const Domains = () => {
                   </div>
                 </div>
 
-                {/* Article Link */}
-                <div className="mt-8">
-                  <Link
-                    href={domain.articleLink}
-                    className="link-research inline-flex items-center text-sm font-semibold group"
-                  >
-                    <span>Read related article</span>
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
               </article>
             ))}
+
+            <div className="flex justify-center mt-8">
+              <CustomLink
+                href="/research/intelligence-briefs"
+                size="md"
+              >
+                View our Bitcoin Intelligence Briefs
+              </CustomLink>
+            </div>
           </div>
         </div>
       </section>

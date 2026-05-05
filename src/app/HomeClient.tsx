@@ -5,6 +5,7 @@ import CTAButton from '@/components/ui/cta-button';
 import NewsletterSection from '@/components/sections/NewsletterSection';
 import NewsletterButton from '@/components/ui/newsletter-button';
 import { Badge } from '@/components/ui/badge';
+import CustomLink from '@/components/ui/custom-link';
 import Link from 'next/link';
 import Image from 'next/image';
 import { fetchArticles, ArticleMeta } from '@/lib/content-client';
@@ -127,9 +128,9 @@ const Home = () => {
                   </p>
 
                   {/* Link format matching glossary */}
-                  <div className="link-research text-sm mt-auto">
-                    {service.primaryCta.text} →
-                  </div>
+                  <CustomLink as="div" size="sm" className="mt-auto">
+                    {service.primaryCta.text}
+                  </CustomLink>
                 </div>
               </div>
             </Link>
@@ -191,9 +192,9 @@ const Home = () => {
                         {article.title}
                       </h3>
                       <p className="text-gray-700 leading-relaxed mb-6">{article.excerpt}</p>
-                      <div className="link-research text-sm">
-                        Read Analysis →
-                      </div>
+                      <CustomLink as="div" size="sm">
+                        Read Analysis
+                      </CustomLink>
                     </div>
                   </div>
                 </Link>
@@ -202,12 +203,12 @@ const Home = () => {
           )}
         </div>
         <div className="mt-12 text-center">
-          <Link
+          <CustomLink
             href="/research/intelligence-briefs"
-            className="link-research text-lg font-medium inline-flex items-center"
+            size="md"
           >
-            View all Intelligence Briefs →
-          </Link>
+            View all Intelligence Briefs
+          </CustomLink>
         </div>
       </div>
     </section>

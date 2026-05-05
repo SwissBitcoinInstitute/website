@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Search, X } from 'lucide-react'
 import CTAButton from '@/components/ui/cta-button'
+import CustomLink from '@/components/ui/custom-link'
 import { useState, useMemo, useEffect } from 'react'
 
 interface GlossaryTerm {
@@ -263,9 +264,9 @@ export default function GlossaryPage() {
                               {term.shortDefinition}
                             </p>
 
-                            <div className="link-research text-sm mt-auto inline-block">
-                              Read full definition →
-                            </div>
+                            <CustomLink as="div" size="sm" className="mt-auto inline-block">
+                              Read full definition
+                            </CustomLink>
                           </div>
                         </div>
                       </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import CustomLink from '@/components/ui/custom-link';
 
 export interface CourseSectionProps {
   title: string;
@@ -83,12 +83,12 @@ const CourseSection = ({
           {/* Link */}
           {href && (
             <div className="sm:ml-auto shrink-0">
-              <Link
+              <CustomLink
                 href={href}
-                className="link-research text-sm"
+                size="sm"
               >
-                Find out more →
-              </Link>
+                Find out more
+              </CustomLink>
             </div>
           )}
         </div>
