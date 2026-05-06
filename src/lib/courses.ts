@@ -15,13 +15,13 @@ export const bitcoinForExecutivesCourses: CourseOffering[] = [
   {
     // 4 Saturday mornings
     id: "bxm-jun26-satmornings",
-    timeDescription: "4x Saturday mornings (09:00-12:00)",
+    timeDescription: "4x Saturday morning (09:00-12:00)",
     dates: ["06 June 2026", "13 June 2026", "20 June 2026", "27 June 2026"]
   }, 
   {
     // 2 Fridays, 2 weeks apart
     id: "bxm-jun26-fri2weeks",
-    timeDescription: "2x Friday (09:00-12:00)",
+    timeDescription: "2x Friday (09:00-16:30)",
     dates: ["26 June 2026", "10 July 2026"]
   }, 
 ];
@@ -29,9 +29,9 @@ export const bitcoinForExecutivesCourses: CourseOffering[] = [
 // course dates Financial Sovereignty Masterclasses
 export const FinSovCourses: CourseOffering[] = [
    {
-    id: "finsov-may26-sat",
+    id: "fsm-aug26-sat",
     timeDescription: "Saturday morning (09:00-12:30)",
-    dates: ["23 May 2026"]
+    dates: ["22 August 2026"]
   },
 ];
 
@@ -40,7 +40,7 @@ export const privateBitcoinBriefingCourses: CourseOffering[] = [
   {
     id: "pbb-custom",
     timeDescription: "On demand (1:1)",
-    dates: ["Custom date & time"]
+    dates: ["Suggest suitable dates and locations below"]
   }
 ];
 
