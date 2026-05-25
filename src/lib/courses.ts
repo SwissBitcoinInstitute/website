@@ -5,36 +5,54 @@ export interface CourseOffering {
 }
 
 export const bitcoinForExecutivesCourses: CourseOffering[] = [
-  // course dates Bitcoin Executive Masterclasses
+  // course dates Bitcoin Executive Masterclasses, bxm2=2days, bxm4=4halfdays
   {
-    // 4 Saturday mornings
-    id: "bxm-jun26-satmornings",
-    timeDescription: "4x Saturday morning (09:00-12:00)",
-    dates: ["06 June 2026", "13 June 2026", "20 June 2026", "27 June 2026"]
-  }, 
-  {
-    // 2 Fridays, 2 weeks apart
-    id: "bxm-jun26-fri2weeks",
+    id: "bxm2-jun26",
     timeDescription: "2x Friday (09:00-16:30)",
     dates: ["26 June 2026", "10 July 2026"]
+  }, 
+  {
+    id: "bxm4-aug26",
+    timeDescription: "4x Saturday morning (09:00-12:00)",
+    dates: ["22 Aug 2026", "29 Aug 2026", "05 Sep 2026", "12 Sep 2026"]
+  }, 
+  {
+    id: "bxm2-sep26",
+    timeDescription: "2x Friday (09:00-16:30)",
+    dates: ["04 Sep 2026", "25 Sep 2026"]
+  }, 
+    {
+    id: "bxm4-nov26",
+    timeDescription: "4x Saturday morning (09:00-12:00)",
+    dates: ["31 Oct 2026", "07 Nov 2026", "21 Nov 2026", "28 Nov 2026"]
+  }, 
+  {
+    id: "bxm2-nov26",
+    timeDescription: "2x Friday (09:00-16:30)",
+    dates: ["06 Nov 2026", "20 Nov 2026"]
   }, 
 ];
 
 // course dates Financial Sovereignty Masterclasses
 export const FinSovCourses: CourseOffering[] = [
-   {
-    id: "fsm-aug26-sat",
+  {
+    id: "fsm1-sep26",
     timeDescription: "Saturday morning (09:00-12:30)",
-    dates: ["22 August 2026"]
+    dates: ["26 Sep 2026"]
+  },
+  {
+    id: "fsm1-nov26",
+    timeDescription: "Saturday morning (09:00-12:30)",
+    dates: ["14 Nov 2026"]
   },
 ];
 
-// course dates for Private Bitcoin Briefings (Custom)
+// course dates for Private Bitcoin Briefings (custom)
 export const privateBitcoinBriefingCourses: CourseOffering[] = [
   {
     id: "pbb-custom",
-    timeDescription: "On demand (1:1)",
-    dates: ["Suggest suitable dates and locations below"]
+    timeDescription: "On client demand",
+    dates: ["Suggest suitable dates below"]
   }
 ];
 
