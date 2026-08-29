@@ -7,11 +7,6 @@ export interface CourseOffering {
 export const bitcoinForExecutivesCourses: CourseOffering[] = [
   // course dates Bitcoin Executive Masterclasses
   {
-    id: "bxm2-sep26",
-    timeDescription: "2x Friday (09:00-16:30)",
-    dates: ["04 Sep 2026", "25 Sep 2026"]
-  }, 
-    {
     id: "bxm4-nov26",
     timeDescription: "4x Saturday morning (09:00-12:00)",
     dates: ["31 Oct 2026", "07 Nov 2026", "21 Nov 2026", "28 Nov 2026"]
