@@ -14,6 +14,10 @@ export const SERVICE_EMAIL_CONTENT: Record<ServiceType, { title: string; message
     title: 'Course Booking Received',
     message: 'Thank you for booking a course with the Swiss Bitcoin Institute. We have received your registration and will confirm your seat shortly.',
   },
+  'webinar-registration': {
+    title: 'Webinar Registration Received',
+    message: 'Thank you for registering for our orientation webinar. We will send you the access details before the session.',
+  },
   research: {
     title: 'Research Inquiry Received',
     message: 'Thank you for your interest in our research and advisory services. A member of our team will reach out within 1-2 business days to schedule a discovery call and discuss your specific needs.',
@@ -272,6 +276,67 @@ ${EMAIL_FOOTER}
 
   return {
     subject: `Course Booking Confirmation: ${formData.courseName}`,
+    text,
+  };
+}
+
+// ============================================
+// WEBINAR REGISTRATION EMAIL TEMPLATES
+// ============================================
+
+export interface WebinarRegistrationData {
+  email: string;
+  webinarName: string;
+  webinarSlot: string;
+  courseName: string;
+}
+
+export function getWebinarRegistrationTeamNotificationEmail(formData: WebinarRegistrationData) {
+  const text = `
+NEW WEBINAR REGISTRATION
+${'='.repeat(50)}
+
+Webinar: ${formData.webinarName}
+Related course: ${formData.courseName}
+Slot: ${formData.webinarSlot} (Zurich time)
+
+Email: ${formData.email}
+
+${'-'.repeat(50)}
+Submitted: ${getZurichTimestamp()} (Zurich)
+  `.trim();
+
+  return {
+    subject: `[WEBINAR] ${formData.webinarSlot} - ${formData.email}`,
+    text,
+  };
+}
+
+export function getWebinarRegistrationCustomerConfirmationEmail(formData: WebinarRegistrationData) {
+  const text = `
+Hello,
+
+Thank you for registering for our orientation webinar "${formData.webinarName}".
+
+YOUR REGISTRATION
+${'-'.repeat(40)}
+Webinar: ${formData.webinarName}
+Date & time: ${formData.webinarSlot} (Zurich time)
+${'-'.repeat(40)}
+
+What happens next?
+We will send you the access link for the webinar before the session.
+
+If you have any questions in the meantime, feel free to contact education@bitcoininstitute.ch.
+
+Best regards,
+The Swiss Bitcoin Institute Team
+
+${EMAIL_FOOTER}
+  `.trim();
+
+  return {
+    subject: `Webinar Registration: ${formData.webinarName}`,
     text,
   };
 }

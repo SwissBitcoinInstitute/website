@@ -23,6 +23,12 @@ export const bitcoinForExecutivesCourses: CourseOffering[] = [
   },
 ];
 
+// orientation webinar slots for the Bitcoin Executive Masterclass
+export const executiveWebinarSlots: string[] = [
+  "05 Nov 2026 10:00",
+  "11 Nov 2026 14:00",
+];
+
 // course dates Financial Sovereignty Masterclasses
 export const FinSovCourses: CourseOffering[] = [
   {

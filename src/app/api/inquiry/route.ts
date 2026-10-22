@@ -9,6 +9,8 @@ import {
   getInquiryCustomerConfirmationEmail,
   getCourseBookingTeamNotificationEmail,
   getCourseBookingCustomerConfirmationEmail,
+  getWebinarRegistrationTeamNotificationEmail,
+  getWebinarRegistrationCustomerConfirmationEmail,
 } from '@/lib/emails';
 
 const resend = new Resend(process.env.RESEND_API_KEY!);
@@ -36,7 +38,7 @@ export async function POST(request: Request) {
       .from('inquiries')
       .insert({
         service_type: serviceType,
-        name: formData.name,
+        name: formData.name || formData.email,
         email: formData.email,
         organization: formData.organization || null,
         score,
@@ -71,6 +73,30 @@ export async function POST(request: Request) {
       });
 
       const customerEmail = getCourseBookingCustomerConfirmationEmail(courseBookingData);
+      await resend.emails.send({
+        from: FROM_EMAIL,
+        to: formData.email,
+        subject: customerEmail.subject,
+        text: customerEmail.text,
+      });
+    } else if (serviceType === 'webinar-registration') {
+      const webinarData = {
+        email: formData.email,
+        webinarName: formData.webinarName,
+        webinarSlot: formData.webinarSlot,
+        courseName: formData.courseName,
+      };
+
+      const teamEmail = getWebinarRegistrationTeamNotificationEmail(webinarData);
+      await resend.emails.send({
+        from: FROM_EMAIL,
+        to: RECEIVE_EMAIL_NOTIFICATIONS,
+        subject: teamEmail.subject,
+        text: teamEmail.text,
+        replyTo: formData.email,
+      });
+
+      const customerEmail = getWebinarRegistrationCustomerConfirmationEmail(webinarData);
       await resend.emails.send({
         from: FROM_EMAIL,
         to: formData.email,

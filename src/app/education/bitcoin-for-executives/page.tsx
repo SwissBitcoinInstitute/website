@@ -3,7 +3,8 @@ import CTAButton from '@/components/ui/cta-button'
 import { Card } from '@/components/ui/card'
 import { CheckCircle2 } from 'lucide-react'
 import CourseSignupForm from '@/components/forms/CourseSignupForm'
-import { bitcoinForExecutivesCourses, formatCourseDate } from '@/lib/courses'
+import WebinarSignupForm from '@/components/forms/WebinarSignupForm'
+import { bitcoinForExecutivesCourses, executiveWebinarSlots, formatCourseDate } from '@/lib/courses'
 import TopicsColumn from '@/components/courses/TopicsColumn'
 import { masterclassDetails } from '@/lib/offeringDetails'
 
@@ -124,6 +125,29 @@ export default function BitcoinForExecutivesPage() {
       <section className="py-8 sm:py-10 bg-gray-50">
         <div className="swiss-grid">
           <div className="max-w-5xl mx-auto">
+            {/* Orientation Webinar */}
+            {executiveWebinarSlots.length > 0 && (
+              <Card className="mb-8 p-6 border-2 border-swiss-blue/20 bg-white">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8 lg:items-center">
+                  <div>
+                    <div className="text-sm mb-2 font-medium uppercase tracking-wide swiss-blue-gradient-text">
+                      Not sure yet?
+                    </div>
+                    <p className="text-sm text-gray-700">
+                      Attend our brief orientation webinar <span className="font-semibold text-gray-900">&ldquo;Bitcoin for Executives: Big Picture, Not Hype&rdquo;</span> to learn more about the masterclass.
+                    </p>
+                  </div>
+                  <div className="lg:col-span-2">
+                    <WebinarSignupForm
+                      webinarName="Bitcoin for Executives: Big Picture, Not Hype"
+                      courseName="Bitcoin Executive Masterclass"
+                      slots={executiveWebinarSlots}
+                    />
+                  </div>
+                </div>
+              </Card>
+            )}
+
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Course Dates */}
               <div className="space-y-4 self-start">
