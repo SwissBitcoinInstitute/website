@@ -183,7 +183,7 @@ export default function BitcoinForExecutivesPage() {
                 </Card>
                 {/* Price */}
                 <Card className="mt-4 p-4 border-2 border-gray-200 bg-white">
-                  <span className="text-xl font-semibold text-gray-900">CHF 5&apos;999.-</span>
+                  <span className="text-xl font-semibold text-gray-900">CHF 3&apos;999.-</span>
                 </Card>
               </div>
             </div>
