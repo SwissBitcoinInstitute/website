@@ -172,9 +172,9 @@ A Next.js website for the Swiss Bitcoin Institute, providing strategic Bitcoin i
 
 ```bash
 npm install
-# or
-bun install
 ```
+
+> The project is standardized on **npm** (`package-lock.json` is the single source of truth). Do not use bun or yarn locally — it silently ignores the lockfile and produces different dependency versions than CI.
 
 ### 2. Start Local Database
 
@@ -206,8 +206,6 @@ MAILERLITE_API_KEY=your-mailerlite-key
 
 ```bash
 npm run dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -225,20 +223,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ```bash
 npm run build
-# or
-yarn build
-# or
-bun build
 ```
 
 ## Start Production Server
 
 ```bash
 npm start
-# or
-yarn start
-# or
-bun start
 ```
 
 ## Supabase Setup
