@@ -28,7 +28,7 @@ export const executiveWebinarSlots: string[] = [
 export const FinSovCourses: CourseOffering[] = [
     {
     id: "Coming",
-    timeDescription: "Courses for 2027 will be announced soon.",
+    timeDescription: "2027 course dates to be announced soon.",
     dates: ["DD MMM 2027"]
   },
 //  {
