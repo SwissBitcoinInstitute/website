@@ -12,11 +12,37 @@ import {
   getWebinarRegistrationTeamNotificationEmail,
   getWebinarRegistrationCustomerConfirmationEmail,
 } from '@/lib/emails';
+import { assertSameOrigin } from '@/lib/request-guard';
+import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
 
 const resend = new Resend(process.env.RESEND_API_KEY!);
 
+// Abuse protection: limit to 5 inquiries per IP per 10 minutes.
+const RATE_LIMIT = 5;
+const RATE_WINDOW_MS = 10 * 60 * 1000;
+
 export async function POST(request: Request) {
   try {
+    const originError = assertSameOrigin(request);
+    if (originError) {
+      return NextResponse.json(
+        { success: false, error: 'Request rejected' },
+        { status: 403 }
+      );
+    }
+
+    const rate = checkRateLimit(
+      `inquiry:${getClientIp(request)}`,
+      RATE_LIMIT,
+      RATE_WINDOW_MS
+    );
+    if (!rate.allowed) {
+      return NextResponse.json(
+        { success: false, error: 'Too many requests, please try again later' },
+        { status: 429, headers: { 'Retry-After': String(rate.retryAfterSeconds) } }
+      );
+    }
+
     const body = await request.json();
     const { serviceType, ...formData } = body as { serviceType: ServiceType; [key: string]: any };
     
@@ -139,6 +165,7 @@ export async function POST(request: Request) {
     );
   }
 }
+
 
 function calculateLeadScore(formData: any, serviceType: ServiceType): number {
   let score = 0;
