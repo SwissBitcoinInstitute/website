@@ -26,6 +26,11 @@ export const executiveWebinarSlots: string[] = [
 
 // course dates Financial Sovereignty Masterclasses
 export const FinSovCourses: CourseOffering[] = [
+    {
+    id: "Coming",
+    timeDescription: "2027 course dates to be announced soon.",
+    dates: ["DD MMM 2027"]
+  },
 //  {
 //    id: "fsm-MMM27",
 //    timeDescription: "Saturday morning (09:00-12:30)",
