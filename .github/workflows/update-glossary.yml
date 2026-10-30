@@ -11,13 +11,13 @@ jobs:
 
     steps:
       # Checkout the repository
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
 
       # Set up Node.js (adjust version if needed)
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v5
         with:
-          node-version: latest
+          node-version: '22'
 
       # 4. Run your script
       - name: Generate Markdown
